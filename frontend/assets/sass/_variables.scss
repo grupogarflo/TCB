@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;600;700;800&display=swap');
+@import '~vuetify/src/styles/settings/_variables';
+
+$font-family: 'Mulish', sans-serif;
+$title-font: 'Mulish', sans-serif;
+
+$primary-color: #1A2D4E;
+$secondary-color:#E1AC66;
+$back-maya-ruins: #E6CDAC;
+$back-aquatic-tours: #519488;
+$back-luxury-tours: #256C94;
+$back-adventure-tours: #946451;
+$border-header:#B98A3D;
+$input-text-color: #B4B3B3;
+$text-content-color:#656565;
+$back-grey:#F5F4F4;
+$text-back-blue: #747474;
+$alltours:#656565;
+
+
+$back-input: #F3F3F3;
+$text-input: #606060;
+
+$text-sub2: 0.75rem;
+$text-sub:0.85rem;
+$text-normal:1rem;
+$text-semi-title1:1.15rem;
+$text-semi-title2: 1.25rem;
+$text-title: 1.5rem;
+$text-title-up:2rem;
+
+body{
+   font-size: 14px;
+   color:$text-content-color;
+   font-family: $font-family !important;
+}
+
+
+.phone-numbers-options{
+   color: white !important;
+   font-size: $text-sub !important;
+}
+
+.videoIcon{
+   cursor: pointer;
+}
+
+.title-section{
+  font-size: $text-title;
+  color: $secondary-color;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.background-grey{
+   background-color: $back-grey !important;
+
+}
+
+
+.mayan-ruins{
+   background-color: $back-maya-ruins !important;
+   &-text{
+       color: $back-maya-ruins !important;
+
+   }
+   &-title{
+      color: $primary-color !important;
+
+  }
+
+
+
+}
+
+.aquatic{
+   background-color: $back-aquatic-tours !important;
+   &-text{
+      color: $back-aquatic-tours !important;
+   }
+   &-title{
+      color: white !important;
+
+  }
+}
+
+.luxury{
+   background-color: $back-luxury-tours !important;
+   &-text{
+      color: $back-luxury-tours !important;
+   }
+   &-title{
+      color: white !important;
+
+  }
+}
+
+.adventure{
+   background-color: $back-adventure-tours !important;
+   &-text{
+      color: $back-adventure-tours !important;
+   }
+   &-title{
+      color: white !important;
+
+  }
+}
+
+.all-tours{
+   background-color: $alltours !important;
+   &-title{
+      color: white !important;
+
+  }
+}
+
+.language{
+   color: white !important;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+
+
+
+.v-application {
+    [class*='text-'] {
+      color: #36405a;
+      font-family: $font-family, sans-serif !important;
+    }
+    font-family: $font-family, sans-serif !important;
+    font-size: $text-normal;
+
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('~/assets/fonts/icomoon.eot?pmlodj');
+  src:  url('~/assets/fonts/icomoon.eot?pmlodj#iefix') format('embedded-opentype'),
+    url('~/assets/fonts/icomoon.ttf?pmlodj') format('truetype'),
+    url('~/assets/fonts/icomoon.woff?pmlodj') format('woff'),
+    url('~/assets/fonts/icomoon.svg?pmlodj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-abrir-formulario:before {
+  content: "\e900";
+}
+.icon-basura:before {
+  content: "\e901";
+}
+.icon-calendario:before {
+  content: "\e902";
+}
+.icon-carrito:before {
+  content: "\e903";
+}
+.icon-cerrar:before {
+  content: "\e904";
+}
+.icon-cronometro:before {
+  content: "\e905";
+}
+.icon-estrella:before {
+  content: "\e906";
+}
+.icon-facebook:before {
+  content: "\e907";
+}
+.icon-informacion:before {
+  content: "\e908";
+}
+.icon-instagram:before {
+  content: "\e909";
+}
+.icon-locacion:before {
+  content: "\e90a";
+}
+.icon-opcion:before {
+  content: "\e90b";
+}
+.icon-pax:before {
+  content: "\e90c";
+}
+.icon-siguiente:before {
+  content: "\e90d";
+}
+.icon-telefono:before {
+  content: "\e90e";
+}
+.icon-whatsapp:before {
+  content: "\e90f";
+}

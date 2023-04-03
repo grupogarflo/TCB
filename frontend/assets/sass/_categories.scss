@@ -1,0 +1,26 @@
+.category-btn{
+
+   color: white !important;
+   font-size: $text-normal !important;
+   font-weight: bold !important;
+   .v-btn__content{
+      width: 50% !important;
+      display: block !important;
+      white-space: normal;
+   }
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')}{
+   .category-btn{
+
+      color: white !important;
+      font-size: $text-sub !important;
+      font-weight: normal !important;
+      .v-btn__content{
+         width: 90% !important;
+         display: block !important;
+         white-space: normal;
+      }
+
+   }
+}

@@ -1,0 +1,131 @@
+#checkout{
+
+
+   .divider{
+
+      border-top: 5px dotted $primary-color;
+      margin-top: -30px;
+   }
+   .v-stepper{
+
+      border: 0px transparent !important;
+      height: auto !important;
+
+
+      &__header{
+         height: 5.5rem !important;
+
+      }
+
+      &__step{
+         display: block;
+         text-align: center !important;
+         padding: 0px;
+
+
+         &__step{
+            font-size: $text-title-up !important;
+            display: block !important;
+            width: 3.25rem;
+            height: 3.25rem;
+            text-align: center !important;
+            vertical-align: middle !important;
+            margin: 0 auto;
+
+
+
+
+         }
+
+         &--active{
+            display: block;
+            text-align: center !important;
+            .v-stepper{
+               &__step__step{
+
+                  color: $primary-color !important;
+                  border: 1px solid $secondary-color !important;
+
+               }
+            }
+         }
+
+         &--inactive, &--complete{
+            display: block;
+            text-align: center !important;
+            .v-stepper{
+               &__step__step{
+
+                  color: white !important;
+                  border: 1px solid $primary-color !important;
+                  background-color:  $primary-color !important;
+
+               }
+            }
+         }
+
+
+      }
+
+      &__label{
+         margin-top: 0.25rem;
+         font-size: $text-semi-title2 !important;
+      }
+
+   }
+
+   .v-input{
+      &__slot{
+         background-color: $back-input !important;
+         color: $text-input !important;
+         border:  1px solid $back-input !important;
+         &:before{
+            border:  none !important;
+         }
+      }
+   }
+   .checkbox{
+      .v-input{
+         &__slot{
+            background-color: white !important;
+            color: $text-input !important;
+            border:  none !important;
+            &:before{
+               border:  none !important;
+            }
+         }
+      }
+   }
+
+   .btnTerms{
+      text-transform: none !important;
+   }
+
+   .bookBtn{
+      background-color: $secondary-color !important;
+      color: white;
+      font-weight: bold;
+      font-size: $text-semi-title2;
+   }
+
+   .tour-detail{
+      font-size: $text-normal !important;
+      .title{
+         font-size: $text-semi-title1 !important;
+
+      }
+   }
+
+}
+
+
+@media #{map-get($display-breakpoints, 'md-and-down')}{
+   #checkout{
+      .bookBtn{
+
+         font-weight: normal;
+         font-size: $text-sub;
+      }
+   }
+}
+

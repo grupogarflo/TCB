@@ -1,0 +1,35 @@
+#Footer{
+    background-color: $primary-color;
+    color: white;
+    .logo{
+        width: 218px;
+    }
+    .links{
+        color: white;
+    }
+
+    .menu{
+      color: white !important;
+      cursor: pointer !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+    }
+}
+
+
+@media #{map-get($display-breakpoints, 'md-and-down')}{
+   #Footer{
+
+      .logo{
+          width: 150px;
+      }
+      .links{
+          color: white;
+      }
+
+      .menu{
+        font-size: $text-sub2;
+      }
+  }
+}
+

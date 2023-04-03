@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?if8tm0');
+  src:  url('fonts/icomoon.eot?if8tm0#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?if8tm0') format('truetype'),
+    url('fonts/icomoon.woff?if8tm0') format('woff'),
+    url('fonts/icomoon.svg?if8tm0#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-date:before {
+  content: "\e900";
+}
+.icon-facebook:before {
+  content: "\e901";
+}
+.icon-instagram:before {
+  content: "\e902";
+}
+.icon-logo-cancun-tours:before {
+  content: "\e903";
+}
+.icon-pax:before {
+  content: "\e904";
+}
+.icon-select-tour:before {
+  content: "\e905";
+}
+.icon-select:before {
+  content: "\e906";
+}
+.icon-star:before {
+  content: "\e907";
+}
+.icon-tiktok:before {
+  content: "\e908";
+}
+.icon-whatsapp:before {
+  content: "\e909";
+}
+.icon-cart:before {
+  content: "\e90a";
+}

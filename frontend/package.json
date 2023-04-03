@@ -1,0 +1,47 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --openssl-legacy-provide",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/google-analytics": "2.4",
+    "@nuxtjs/i18n": "^7.3.1",
+    "@nuxtjs/sitemap": "^2.4.0",
+    "@vue/composition-api": "^1.4.3",
+    "@vuelidate/core": "*",
+    "@vuelidate/validators": "*",
+    "core-js": "^3.25.3",
+    "credit-card-input-mask": "^3.0.0",
+    "nuxt": "^2.15.8",
+    "nuxt-facebook-pixels-module": "^0.1.2",
+    "vue": "^2.7.10",
+    "vue-credit-card-validation": "^0.1.11",
+    "vue-gtag": "1.16",
+    "vue-moment": "^4.1.0",
+    "vue-restricted-input": "^1.0.2",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10",
+    "vue-vimeo-player": "^0.2.2",
+    "vue2-filters": "^0.14.0",
+    "vuelidate": "^0.7.7",
+    "vuetify": "^2.6.10",
+    "vuex-persistedstate": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
+    "@nuxtjs/eslint-config": "^6.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.12.1",
+    "prettier": "^2.3.2"
+  }
+}

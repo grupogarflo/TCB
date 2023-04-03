@@ -1,0 +1,112 @@
+
+.tour-card{
+   &-content{
+      font-size: $text-normal !important;
+      height: 25vh !important;
+   }
+   &-wrap{
+      height: 100% !important;
+   }
+   &-title{
+      width:100% !important;
+      font-size: $text-semi-title1 !important;
+      font-weight: bolder;
+      vertical-align:baseline;
+
+   }
+   &-rank{
+      width: 100%;
+   }
+   &-prices{
+      width: 100%;
+
+   }
+   &-duration{
+      width: 100%;
+   }
+   &-btn{
+      width: 100%;
+      &-action{
+         background-color: $secondary-color !important;
+         color: white !important;
+         font-weight: bold !important;
+         font-size: $text-sub !important;
+      }
+   }
+}
+
+.tour-detail{
+   .blue-rectangle{
+      background-color:  $primary-color;
+      .price-fake{
+         color:  $text-back-blue !important;
+         text-decoration: line-through;
+      }
+      .price-real{
+         color: $secondary-color !important;
+
+      }
+      .data{
+         color: white;
+      }
+
+   }
+   .buttons{
+      .detail{
+         background-color: $secondary-color !important;
+         color: white !important;
+         font-weight: bold !important;
+         font-size: $text-normal !important;
+      }
+   }
+}
+
+
+.embeded-video {
+   width: 100% !important;
+   height: 580px !important;
+
+
+   iframe {
+      width: 100% !important;
+      height: 100% !important;
+   }
+}
+
+.button-closeVideo{
+   position:absolute !important;
+   z-index: 999 !important;
+   margin-top: 15px !important;
+   margin-left: -5px !important;
+   margin-left: auto !important;
+   margin-right: 0 !important;
+   float: right !important;
+}
+.wraperVideo{
+   height: 600px !important;
+}
+
+@media #{map-get($display-breakpoints, 'sm-and-down')}{
+   .embeded-video {
+      width: 100% !important;
+      height: 350px !important;
+      iframe {
+         width: 100% !important;
+         height: 100% !important;
+      }
+   }
+
+
+   .button-closeVideo{
+      position:absolute !important;
+      z-index: 999 !important;
+      margin-top: 15px !important;
+      margin-left: -5px !important;
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      float: right !important;
+   }
+   .wraperVideo{
+      height: 350px !important;
+   }
+}

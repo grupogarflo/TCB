@@ -1,0 +1,28 @@
+#search-engine-content{
+
+  .input-color{
+      color: $input-text-color !important;
+  }
+  .v-input__prepend-outer{
+      background-color: white;
+      margin:  0 !important;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+
+  }
+
+  .button-pax{
+    background-color: white !important;
+
+    color: darken($input-text-color, 50%) !important;
+    text-transform: capitalize !important;
+  }
+
+  .bookBtn{
+     background-color: $secondary-color !important;
+     color: white;
+     font-weight: bold;
+     font-size: $text-semi-title2;
+  }
+
+}

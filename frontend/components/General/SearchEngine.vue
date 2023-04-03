@@ -1,0 +1,550 @@
+<!-- eslint-disable vue/no-side-effects-in-computed-properties -->
+<template>
+  <v-container id="search-engine-content" >
+    <v-row>
+      <v-col cols="12" md="3">
+
+        <v-select
+            v-model="modelSelectTour"
+            class="rounded-lg rounded-l-0 input-color"
+            dense
+            solo
+            flat
+            :items="items"
+            item-text="name"
+            item-value="value"
+            :placeholder="$t('general.tours')"
+
+            hide-details
+            @change="tourChange(items.id)"
+
+          >
+          <template #prepend >
+
+
+              <v-icon size="22"  class="icon-estrella px-1 pl-2 py-2 "></v-icon>
+
+          </template>
+
+          <template #append>
+             <v-icon size="10" class="icon-abrir-formulario "></v-icon>
+          </template>
+
+        </v-select>
+      </v-col>
+      <v-col cols="5" sm="6" md="3">
+          <v-menu
+            v-model="dateSelect"
+            :close-on-content-click="false"
+            transition="scale-transition"
+            offset-y
+            min-width="auto"
+            attach
+          >
+            <template #activator="{ on, attrs }">
+              <v-text-field
+                v-model="date"
+                flat
+                :min="minDate"
+                readonly
+                v-bind="attrs"
+                hide
+                solo
+                dense
+                class="rounded-lg rounded-l-0 input-color"
+                hide-details
+                :placeholder="$t('general.dates')"
+                v-on="on"
+              >
+              <template #prepend >
+
+
+                <v-icon size="22" class="icon-calendario px-1 pl-2 py-2 "></v-icon>
+
+              </template>
+              <template #append>
+                <v-icon size="10" class="icon-abrir-formulario "></v-icon>
+              </template>
+              </v-text-field>
+            </template>
+            <v-date-picker
+              v-model="date"
+              no-title
+              :min="minDate"
+              :allowed-dates="allowedDates"
+              :locale="locale"
+              @input="dateSelect = false"
+            ></v-date-picker>
+          </v-menu>
+      </v-col>
+      <v-col cols="7" sm="6" md="3">
+         <v-menu
+            v-model="showMenu"
+            dense
+            solo
+            bottom
+            :close-on-content-click="false"
+            max-width="auto"
+
+            attach
+            offset-y
+
+
+         >
+            <template #activator="{ on, attrs }">
+               <v-btn
+                  id="pax-button"
+                  v-bind="attrs"
+                  block
+                  outlined
+                  color="white"
+                  class="rounded-lg button-pax  px-0 text-center"
+                  plain
+                  v-on="on"
+               >
+                  <v-icon size="20"  class="mr-auto ml-2 icon-pax"> </v-icon>
+                  <span class="d-none d-sm-block text-center">
+                     {{ countAdults }} {{ $t('general.adults') }}, {{ countChild }} {{ $t('general.children') }}
+                  </span>
+                  <span class="d-sm-none d-block">{{ totalPax }} {{ $t('general.people') }}</span>
+                  <v-icon size="10" class="icon-abrir-formulario  ml-auto mr-5"></v-icon>
+               </v-btn>
+            </template>
+
+            <v-list>
+               <v-list-item>
+                  <v-list-item-title><strong>Persons:</strong></v-list-item-title>
+               </v-list-item>
+               <v-list-item>
+                  <v-list-item-content>
+                     <v-list-item-title>{{ $t('general.adults') }}: </v-list-item-title>
+                  </v-list-item-content>
+                  <v-list-item-action>
+                     <div class="d-inline-flex">
+                        <v-btn icon>
+                           <v-icon class="colorMasMenos" @click="lessAdults">mdi-minus-circle</v-icon>
+                        </v-btn>
+                        <p class="paxNumberSet">{{ countAdults }}</p>
+                        <v-btn icon>
+                           <v-icon class="colorMasMenos" @click="moreAdults">mdi-plus-circle</v-icon>
+                        </v-btn>
+                     </div>
+                  </v-list-item-action>
+               </v-list-item>
+               <v-list-item>
+                  <v-list-item-content>
+                     <v-list-item-title>{{ $t('general.children') }}: </v-list-item-title>
+                  </v-list-item-content>
+                  <v-list-item-action>
+                     <div class="d-inline-flex">
+                        <v-btn icon>
+                           <v-icon class="colorMasMenos" @click="lessChild">mdi-minus-circle</v-icon>
+                        </v-btn>
+                        <p class="paxNumberSet">{{ countChild }}</p>
+                        <v-btn icon>
+                           <v-icon class="colorMasMenos" @click="moreChild">mdi-plus-circle</v-icon>
+                        </v-btn>
+                     </div>
+                  </v-list-item-action>
+               </v-list-item>
+            </v-list>
+         </v-menu>
+      </v-col>
+      <v-col cols="12" md="3">
+        <v-btn depressed class="bookBtn rounded-lg" block @click="clickCard">
+            {{ $t('general.book_now') }}
+          </v-btn>
+      </v-col>
+
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+export default {
+  // eslint-disable-next-line vue/require-prop-types
+  props:{
+      // eslint-disable-next-line vue/require-default-prop, vue/require-prop-type-constructor
+      openPax: false
+  },
+
+  data() {
+    return {
+      modelSelectTour: [],
+      items: [],
+      // date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
+      date: '',
+      minDate: '',
+      dateSelect: false,
+      dialog: false,
+      datesBlock: [],
+      daysBlock: [],
+      textAlertBook: '',
+
+
+    }
+  },
+
+
+  computed: {
+   showMenu(){
+
+      if(this.openPax){
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.dateSelect=true;
+            return false;
+      }
+
+      return false
+   },
+    tours_state(){
+      return this.$store.getters["booking/tours"];
+    },
+    countAdults() {
+      return this.tours_state.adultos;
+
+
+    },
+    countChild() {
+      return this.tours_state.ninos;
+    },
+    totalPax() {
+      return (
+        parseInt(this.tours_state.adultos) +
+        parseInt(this.tours_state.ninos)
+      )
+    },
+    locale(){
+      return (this.$store.getters["booking/language"]===1) ? 'es' : 'en';
+
+    }
+
+    // validate if tour es atv dobles to show fields
+    /*
+        showFieldAtv() {
+        // this.$store.state.booking.tours.id
+
+        // id = 7  sencillo Admission + Single Ride
+        // id= 11  sencillo Admission + Single Ride + transportation
+        // id = 10 doble Double Ride ATV Tour
+        // id=  12 doble Double Ride ATV Tour tranportation
+        if (
+          this.$store.state.booking.tours.id === 45 ||
+          this.$store.state.booking.tours.id === 44
+        ) {
+          return false
+        } else {
+          return true
+        }
+      },
+    */
+  },
+
+
+
+  created() {
+
+
+      // set la fecha
+      // console.log('fecha dels store ' + this.$store.state.booking.tours.url)
+      const res = new Date()
+      const day = res.getUTCDate()
+      const month = res.getUTCMonth() + 1
+
+      if ((day === 23 && month === 12) || (day === 30 && month === 12)) {
+         res.setDate(res.getDate() + 3)
+      } else {
+         res.setDate(res.getDate() + 2)
+      }
+
+      this.minDate = res.toISOString().slice(0, 10)
+      // this.date = res.toISOString().slice(0, 10)
+
+      // this.getDatesBlock()
+
+      // si tiene alguna fecha en el store se cambia
+      if (this.tours_state.date !== '') {
+         this.date = this.tours_state.date
+      }
+      /*
+      // se valida si tiene algun tour seleccionado se dispara el metodo para recuperar las fechas y dias bloqueados
+      if (this.$store.state.booking.tours.id !== '') {
+         this.getDatesBlock()
+      }
+      */
+     // this.render = this.render+1
+  },
+
+  mounted(){
+      this.$nuxt.$on('')
+      this.getRegistros()
+  },
+
+
+
+  methods: {
+    tourChange(value) {
+      const aux = this.items.find((item) => item.value === this.modelSelectTour)
+      /*
+      this.$store.commit('booking/destinationTours', {
+        url: this.modelSelectTour,
+        id: aux.id,
+      })
+      this.getDatesBlock()
+      */
+
+      const  pay = {
+        url: this.modelSelectTour,
+        id: aux.id,
+      }
+
+      this.$store.dispatch('booking/setDestinationTour',pay)
+
+      this.getDatesBlock();
+
+
+    },
+    clickCard() {
+      // valida que este seleccionado un tour
+      if (this.modelSelectTour.length > 0 && this.date !== '') {
+        // set de los datos de promocode
+        this.$store.commit('booking/addPromocode', {})
+
+        // set la fecha seleccionada en el calendario
+        this.$store.commit('booking/dateTours', {
+          date: this.date,
+        })
+
+        // console.log(this.$route.name)
+        // valida si estoy dentro de la ficha del tour entonces se manda al checkout
+        // de lo contrario se manda a la ficha del tour
+
+        console.log(this.$route.name);
+         if (this.$route.name === 'slug___es' ) {
+            this.$router.push(this.localePath({
+               name: 'checkout',
+
+            } ))
+         }
+
+        else {
+          this.$router.push(this.localePath({
+            name: 'slug',
+            params: {
+              slug: this.modelSelectTour,
+              // id: 1,
+            },
+            // query: {
+            //   checkin: this.$store.state.booking.hoteles.dates.checkIn,
+            //   checkout: this.$store.state.booking.hoteles.dates.checkOut,
+            // }
+          }))
+        }
+      } else {
+        if (this.modelSelectTour.length === 0) {
+          this.textAlertBook = 'Need select one tour to continue'
+        } else {
+          this.textAlertBook = 'Need select a date to continue'
+        }
+        this.dialog = true
+      }
+    },
+    moreAdults() {
+      if (this.countAdults <= 24) {
+        this.$store.commit('booking/addPaxTours', {
+          adultos: true,
+          ninos: false,
+        })
+      }
+    },
+    lessAdults() {
+      if (this.countAdults >= 2) {
+        this.$store.commit('booking/removePaxTours', {
+          adultos: true,
+          ninos: false,
+        })
+      }
+    },
+    moreChild() {
+      if (this.countChild <= 24) {
+        this.$store.commit('booking/addPaxTours', {
+          adultos: false,
+          ninos: true,
+        })
+      }
+    },
+    lessChild() {
+      if (this.countChild >= 1) {
+        this.$store.commit('booking/removePaxTours', {
+          adultos: false,
+          ninos: true,
+        })
+      }
+    },
+    async getRegistros() {
+
+      try {
+        await this.$axios
+          .post('/getTourListSelect', {
+            idioma: this.$store.getters['booking/language'],
+          })
+          .then((resp) => {
+            this.items = resp.data.data
+            // set select tour si tiene algo en el store
+            // console.log(this.items);
+            // console.log('name route ',this.$route.name);
+            // console.log('locale ', this.$i18n.locale);
+            // console.log(this.tours_state.url)
+            if(this.$route.name === 'slug___es'){
+               if (
+                  this.tours_state.url !== '' &&
+                  typeof this.tours_state.url !== 'undefined'
+               ){
+                  this.modelSelectTour = this.tours_state.url
+                  this.getDatesBlock();
+               }
+               else if (typeof this.$route.params.slug !== 'undefined') {
+                  this.modelSelectTour = this.$route.params.slug;
+                  this.tourChange();
+                  setTimeout(()=>{
+                     this.getDatesBlock();
+
+                  },500)
+               }
+
+            }
+            /*
+
+            if(this.$route.name !== 'slug___'+this.$i18n.locale){
+               if (
+                  this.tours_state.url !== '' &&
+                  typeof this.tours_state.url !== 'undefined'
+               )
+               {
+                  // alert('pass');
+                  this.modelSelectTour = this.tours_state.url
+               }
+
+               else if (typeof this.$route.params.slug !== 'undefined') {
+                  const aux = this.items.find(
+                     (item) => item.value === this.$route.params.slug
+                  )
+                  this.$store.commit('booking/destinationTours', {
+                     url: aux.value,
+                     id: aux.id,
+                  })
+
+                     this.modelSelectTour = aux.value
+                     alert('this');
+                     this.getDatesBlock2(aux.id)
+
+
+               }
+            }
+            else{
+               alert('ddddd')
+
+            }
+            */
+
+          })
+      } catch (e) {
+        this.error = e.response.data.message
+        // eslint-disable-next-line no-console
+        console.log('error' + this.error);
+      }
+    },
+    /*
+    getAllowedDates(value) {
+      const date = moment(value)
+      const day = date.format('dddd').toLowerCase()
+      return this.days.includes(day)
+    },
+    */
+
+    allowedDates(a) {
+      const auxArr = []
+      if (
+        Object.keys(this.datesBlock).length !== 0 ||
+        Object.keys(this.daysBlock).length !== 0
+      ) {
+        // valida si cae dentro de los dias bloqueados
+        if (Object.keys(this.daysBlock).length !== 0) {
+          const auxiliarDias = this.daysBlock.split(',').map(function (item) {
+            return parseInt(item, 10)
+          })
+
+          if (auxiliarDias.includes(new Date(a).getDay())) {
+            auxArr.push(a)
+          }
+        }
+        // valida si tiene fechas bloqueadas
+        if (Object.keys(this.datesBlock).length !== 0) {
+          for (let a = 0; a < this.datesBlock.length; a++) {
+            // console.log(this.datesBlock[a])
+            auxArr.push(this.datesBlock[a])
+          }
+        }
+        return !auxArr.includes(a)
+      } else {
+        return a
+      }
+      /*
+      const dates = ['2022-03-10', '2022-03-20']
+      if (new Date(a).getDay() === 0) dates.push(a)
+      // const day = [1, 6]
+      // const arrReturn = []
+
+      // arrReturn.push(!dates.includes(a))
+      // arrReturn.push(!day.includes(new Date(a).getDay()))
+
+      // for (let i = 0; i < dates.length; i++) {
+      //  if (!dates[i].includes(a)) {
+      //    arrReturn.push(obj)
+      //  }
+      // }
+
+      // return !dates.includes(a)
+      // return !day.includes(new Date(a).getDay())
+      // return ![0, 1].includes(new Date(a).getDay())
+      console.log(dates)
+      return !dates.includes(a)
+      */
+    },
+
+    getDatesBlock() {
+      this.$axios
+        .post('getBlockDates', {
+          id: this.tours_state.id,
+        })
+        .then((response) => {
+          // console.log(response)
+          this.datesBlock = response.data.date
+          this.daysBlock = response.data.days
+        })
+        .catch((error) => {
+          return `se ha encontrado un error: ${error.response.status} . ${error.response.data.message}`
+        })
+    },
+
+    getDatesBlock2(id) {
+      this.$axios
+        .post('getBlockDates', {
+          id,
+        })
+        .then((response) => {
+          // console.log(response)
+          this.datesBlock = response.data.date
+          this.daysBlock = response.data.days
+        })
+        .catch((error) => {
+          return `se ha encontrado un error: ${error.response.status} . ${error.response.data.message}`
+        })
+    },
+  }
+
+
+
+
+}
+</script>
