@@ -17,8 +17,8 @@ export default {
    },
 
    head: {
-      titleTemplate: '%s - Yalku tours ',
-      title: 'Yalku',
+      titleTemplate: '%s - Cancun Bay ',
+      title: 'Cancun Bau',
       htmlAttrs: {
          lang:'en'
       },
@@ -68,7 +68,7 @@ export default {
   components: true,
 
 
-   googleAnalytics: {
+   /*googleAnalytics: {
      // eslint-disable-next-line require-await
      asyncID: async (context) => {
 
@@ -82,7 +82,7 @@ export default {
 
 
      }
-   },
+   },*/
 
 
 
@@ -122,7 +122,7 @@ export default {
             code: 'es',
             name: 'Español',
             iso: 'es-ES',
-            domain: 'www.yalkutours.com.mx',
+            domain: 'es.local.test',
 
             show:true
          },
@@ -130,26 +130,13 @@ export default {
             code: 'en',
             iso: 'en-US',
             name: 'English',
-            domain: 'www.yalku.tours',
+            domain: 'en.local.test',
             show:true
          },
-         {
-            code: 'en',
-            iso: 'en-US',
-            name: 'English',
-            domain: 'yalku.tours',
-            show:false
-         },
-         {
-            code: 'es',
-            name: 'Español',
-            iso: 'es-ES',
-            domain: 'yalkutours.com.mx',
-            show:false
-         },
+
 
       ],
-      defaultLocale: 'es',
+      defaultLocale: 'en',
       // lazy: true,   
       differentDomains: true,
       detectBrowserLanguage: false,
@@ -174,9 +161,9 @@ export default {
    axios: {
       // baseURL: 'http://localhost/cancunToursNew/backEnd/public/api/',
 
-      // baseURL: 'http://127.0.0.1:8000/api/',
+       baseURL: 'http://127.0.0.1:8000/api/',
 
-      baseURL:'https://yalku.tours/api/'
+      //baseURL:'https://yalku.tours/api/'
    },
 
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
