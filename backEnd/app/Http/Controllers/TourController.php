@@ -530,15 +530,13 @@ class TourController extends Controller
         $arr = [];
         $checado = [];
 
-        $res = Suggestion::select(
-            "*",
-        )
+        $res = Suggestion::select("*")
             ->where('active', 1)
             ->get();
 
         $existentes = SuggestionTour::select(
             "suggestion_tours.*",
-            "suggestions.*",
+            "suggestions.*"
         )
             ->join('suggestions', 'suggestion_tours.suggestions_id', '=', 'suggestions.id')
             ->where('suggestion_tours.tours_id', $request->id)
@@ -657,7 +655,7 @@ class TourController extends Controller
     {
 
         $res = priceTour::select(
-            "*",
+            "*"
         )
             ->where('tour_contents_id', $request->id)
             ->get();
