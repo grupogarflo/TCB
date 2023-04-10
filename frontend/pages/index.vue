@@ -1,5 +1,21 @@
 <template>
   <div>
+      <div>
+         <v-img src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight">
+            <v-container>
+               <v-row justify="center">
+                  <v-col cols="12" md="10">
+                     <div class="search_engine py-10">
+                        <SearchEngine></SearchEngine>
+                     </div>
+                  </v-col>
+               </v-row>
+            </v-container>
+
+         </v-img>
+      </div>
+
+   <!--
     <Slide :items="items"></Slide>
     <div class="search_engine py-10">
          <SearchEngine></SearchEngine>
@@ -59,21 +75,27 @@
         <Paragraph :text="$t('home.paragraph2')"></Paragraph>
 
     </v-container>
+   -->
   </div>
 </template>
 
 <script>
 
+
+
+/*
 import Slide from '~/components/Home/Slide';
-import SearchEngine from '~/components/General/SearchEngine.vue';
 import SectionTitle from '~/components/General/SectionTitle.vue';
 import Paragraph from '~/components/General/Paragraph.vue';
 import TourCard from '~/components/General/TourCard.vue';
 import Categories from '~/components/General/Categories.vue';
+*/
+
+import SearchEngine from '~/components/General/SearchEngine.vue';
 
 export default {
   name: 'IndexPage',
-  components:{ Slide, SearchEngine, SectionTitle, Paragraph, TourCard, Categories },
+   components:{  SearchEngine },
 
   middleware:['clearStore'],
 
@@ -82,7 +104,8 @@ export default {
   data(){
       return{
             homeTourList:[],
-            items:[]
+            items:[],
+            backgroundImage:''
       }
   },
 
@@ -97,6 +120,14 @@ export default {
             name:this.$t('menu.categories.name')
          }
       },
+
+      imgHeight(){
+         if (this.isMobile) {
+            return 'auto';
+         } else {
+            return 500
+         }
+      }
   },
 
   created(){

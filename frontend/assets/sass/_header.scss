@@ -11,7 +11,7 @@
         color: white !important;
         width: 300px !important;
         display: inline-block;
-        border: 2px solid $border-header;
+        border: 2px solid white;
         height: 34px;
         padding: 0px;
 
@@ -47,7 +47,7 @@
     }
     .social{
         font-size: $text-semi-title1;
-        color: $secondary-color;
+        color: white;
         cursor: pointer;
     }
 
@@ -80,7 +80,7 @@
    background-color: $secondary-color !important;
 
    .option{
-      color: $primary-color !important;
+      color: white !important;
       text-decoration: none !important;
 
       border-right: 1px solid $primary-color !important;
