@@ -734,7 +734,7 @@ class TourController extends Controller
     function getVideoTour(Request $request)
     {
         $res = tourContent::select(
-            "video",
+            "video"
         )
             ->where('tour_id', $request->id)
             ->get();
