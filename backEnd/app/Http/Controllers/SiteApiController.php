@@ -44,7 +44,7 @@ class SiteApiController extends Controller
             "tours.id",
             "price_tours.price_real_adult",
             "price_tours.price_fake_adult",
-            "languages.name as idioma",
+            "languages.name as idioma"
         )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
@@ -147,7 +147,7 @@ class SiteApiController extends Controller
             "tour_contents.name",
             "tour_contents.url",
             "tours.id",
-            "languages.name as idioma",
+            "languages.name as idioma"
         )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
@@ -176,7 +176,7 @@ class SiteApiController extends Controller
                 "tour_contents.*",
                 "tours.*",
                 "price_tours.*",
-                "languages.name as idioma",
+                "languages.name as idioma"
             )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
@@ -198,7 +198,7 @@ class SiteApiController extends Controller
 
         $existentes = SuggestionTour::select(
             "suggestion_tours.*",
-            "suggestions.*",
+            "suggestions.*"
         )
             ->join('suggestions', 'suggestion_tours.suggestions_id', '=', 'suggestions.id')
             ->where('suggestion_tours.tours_id', $res[0]->tour_id)
@@ -231,7 +231,7 @@ class SiteApiController extends Controller
             "tour_contents.*",
             "tours.*",
             "price_tours.*",
-            "languages.name as idioma",
+            "languages.name as idioma"
         )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
@@ -396,7 +396,7 @@ class SiteApiController extends Controller
 
         //recupera las fechas bloqueadas
         $res = closedDate::select(
-            "*",
+            "*"
         )
             ->where('tours_id', $request->id)
             ->get();
@@ -450,7 +450,7 @@ class SiteApiController extends Controller
 
         //recupera los dias de la semana bloqueados
         $days = closedDay::select(
-            "*",
+            "*"
         )
             ->where('tours_id', $request->id)
             ->get();
@@ -474,7 +474,7 @@ class SiteApiController extends Controller
             "tour_contents.url",
             "tour_contents.name",
             "tours.id",
-            "languages.name as idioma",
+            "languages.name as idioma"
         )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
@@ -498,7 +498,7 @@ class SiteApiController extends Controller
             "category_contents.id",
             "category_contents.name",
             "category_contents.url",
-            "categories.id as category_id",
+            "categories.id as category_id"
         )
             ->join('categories', 'category_contents.category_id', '=', 'categories.id')
             ->where('categories.active', 1)
