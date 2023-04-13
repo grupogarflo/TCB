@@ -77,7 +77,8 @@ class DestinationController extends Controller
         if (count($res) === 0) {
             $info = destination::where("id", $request->id)->first();
             $request->clave = $info->clave;
-            $this->addCategories($request);
+            //$this->addCategories($request);
+            $this->addDestination($request);
         } else {
             destinationContent::where('destination_id', $request->id)
                 ->where('language_id', $request->idioma)
