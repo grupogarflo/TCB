@@ -62,6 +62,10 @@ Route::post('/getAllTours', 'SiteApiController@getAllTours');
 
 
 
+/// route to validate id url is category, destination or tour
+
+Route::post('/pageType', 'DetailController@pageType');
+
 
 
 
