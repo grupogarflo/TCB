@@ -40,7 +40,7 @@ class CloseDatesController extends Controller
             $banCloseDate = 0;
 
             $closeDate = closedDate::select(
-                "*",
+                "*"
             )
                 ->where('tours_id', $res[$a]->id)
                 ->get();
@@ -49,7 +49,7 @@ class CloseDatesController extends Controller
             }
 
             $closeDay = closedDay::select(
-                "*",
+                "*"
             )
                 ->where('tours_id', $res[$a]->id)
                 ->get();
