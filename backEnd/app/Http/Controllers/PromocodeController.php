@@ -14,7 +14,7 @@ class PromocodeController extends Controller
     function getAllPromoCode(Request $request)
     {
         $res = Promocode::select(
-            "*",
+            "*"
         )
             ->where('active', 1)
             ->orderBy('code', 'ASC')
@@ -33,7 +33,7 @@ class PromocodeController extends Controller
 
         $res = tourContent::select(
             "tour_contents.name",
-            "tours.id",
+            "tours.id"
         )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
@@ -44,7 +44,7 @@ class PromocodeController extends Controller
         //->toSql();
 
         $existentes = $aplica = PromocodeTour::select(
-            "*",
+            "*"
         )
             ->where('promocodes_id', $request->id)
             ->get();
