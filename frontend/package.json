@@ -29,6 +29,7 @@
     "vue-template-compiler": "^2.7.10",
     "vue-vimeo-player": "^0.2.2",
     "vue2-filters": "^0.14.0",
+    "vue2-google-maps": "^0.10.7",
     "vuelidate": "^0.7.7",
     "vuetify": "^2.6.10",
     "vuex-persistedstate": "^4.1.0"

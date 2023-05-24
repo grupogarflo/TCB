@@ -114,12 +114,16 @@
       "duration":"Duration",
       "available":"Available",
       "total":"Total",
-      "seeVideo":"Watch Video"
+      "seeVideo":"Watch Video",
+      "from":"From"
    },
    "tours":{
       "includes":"INCLUDES",
       "recommendations":"RECOMMENDATIONS",
-      "notes":"NOTES"
+      "notes":"NOTES",
+      "description":"Description",
+      "not_included":"Not included"
+
    },
    "checkout":{
       "steps":{
@@ -128,7 +132,10 @@
          "ticket":"Ticket"
       }
    },
-   "ourTours":"OUR TOURS"
+   "ourTours":"OUR TOURS",
+   "searchEngine":{
+      "title":"Are you ready to explore?"
+   }
 
 
 

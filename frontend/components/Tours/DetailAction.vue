@@ -1,61 +1,24 @@
 <template>
    <div class="tour-detail">
-      <div class="blue-rectangle py-16 px-10">
-            <p class="price-fake">{{ $t('general.adults') }}: {{ adultFake | currencyFormat(currency) }}</p>
-            <p class="price-fake">{{ $t('general.children') }}: {{ childFake | currencyFormat(currency) }}</p>
+      <div class="blue-rectangle mt-16 pt-10">
+         <p>
+            <span class="price-fake">{{ $t('general.adults') }}: {{ adultFake | currencyFormat(currency) }}</span>
 
-            <p class="price-real">{{ $t('general.adults') }}: {{  realAdult | currencyFormat(currency) }}</p>
-            <p class="price-real">{{ $t('general.children') }}:  {{ realChild  | currencyFormat(currency)}}</p>
+            <span class="price-real ml-2">{{ $t('general.adults') }}: {{  realAdult | currencyFormat(currency) }}</span>
+         </p>
+         <p>
+            <span class="price-fake">{{ $t('general.children') }}: {{ childFake | currencyFormat(currency) }}</span>
 
-            <p class="data">{{ $t('general.available') }}: {{ item.avaible }} </p>
-            <p class="data">{{ $t('general.duration') }}:  {{ item.duration }} </p>
+            <span class="price-real ml-2">{{ $t('general.children') }}:  {{ realChild  | currencyFormat(currency)}}</span>
+
+         </p>
+
+
 
 
       </div>
-      <div
-         class="videoIcon d-flex justify-center align-center my-5" @click="openVideo"
-            v-if="typeof item.video !== 'object' && item.video !== '' && item.video !== 'n/a'"
-      >
-            <v-icon color="#1A2D4E" large size=""
-                >mdi-video-outline</v-icon
-               ><span>{{ $t('general.seeVideo') }}</span>
-
-      </div>
-      <div class="buttons">
-
-         <v-btn block  class="my-3 elevation-0 detail" @click="goTop()">{{ $t('general.book_now') }}</v-btn>
-
-      </div>
-
-      <v-dialog v-model="dialogVideo" attach :width="videoWidth" class="pa-0 elevation-0"  content-class="elevation-0"  >
-         <div class="px-1 px-md-10 wraperVideo">
-               <v-btn
-                  fab
-                  small
-                  dark
-                  color="#E1AC66"
-                  depressed
-                  :elevation="8"
-                  class="button-closeVideo"
-                  @click="dialogVideo = false"
-               >
-                  <v-icon>mdi-close</v-icon>
-               </v-btn>
 
 
-               <vimeo-player
-                  ref="player"
-                  :video-id="item.video"
-                  :autoplay="true"
-                  @ready="onReady"
-                  class="embeded-video px-3"
-                  :player-height="height"
-               />
-
-         </div>
-
-
-      </v-dialog>
    </div>
 </template>
 

@@ -1,23 +1,22 @@
 <template>
-  <v-card width="100%" class="rounded-lg tour-card" elevation="10" @click="goToToursDetails(item)">
-      <v-img class="" height="207" :src="item.full_photo_path"></v-img>
-      <v-divider :class="[(item.category!=null) ? item.category.class_apply: '','py-1']"></v-divider>
-      <v-card-text class="px-4  py-0 mt-3 tour-card-content">
-         <div class=" d-flex flex-column justify-space-between ">
+  <v-card width="100%" class="rounded-lg tour-card  " elevation="10" @click="goToToursDetails(item)">
 
-               <div :class="[ (item.category!=null) ? item.category.class_apply+'-text': '', 'flex-grow-1', 'flex-shrink-0',  'tour-card-title', 'mb-4']">{{ item.name }}</div>
+      <v-card-text class="px-0 tour-card-content pt-5 px-5">
+
+         <v-img class="rounded-md" height="207" :src="item.full_photo_path"></v-img>
+
+         <div class=" d-flex flex-column justify-space-between mt-2 ">
+
+               <div :class="[ 'flex-grow-1', 'flex-shrink-0',  'tour-card-title', 'mb-4']">{{ item.name }}</div>
 
 
-               <div class="d-block">
+               <div class="d-flex flex-column align-center flex-grow-1, flex-shrink-1  tour-card-data">
                   <Rank class="tour-card-rank mb-3 " :rank="item.rank"></Rank>
-
-
-
-
-                           <p class="mb-0">{{ $t('general.adults') }}: {{  price | currencyFormat(currency) }}</p>
-                           <p class="mb-0" v-if="item.price_fake_child>0 ">{{ $t('general.children') }}: {{ priceChild | currencyFormat(currency) }}</p>
-
-                           <p class="  my-5 tour-card-duration d-block ">{{ $t('general.duration') }}: {{ item.duration }} </p>
+                  <p v-if="item.description_small!==null" v-html="item.description_small"></p>
+                  <p class="  my-1 tour-card-duration d-block ">
+                     <span class="available d-block">{{ $t('general.available') }}: </span>
+                     <span class="d-block"> {{ item.duration }} </span>
+                  </p>
 
 
 
@@ -27,10 +26,15 @@
          </div>
 
       </v-card-text>
-      <v-card-actions class="px-4 pb-5 mt-1">
-         <div class="d-block tour-card-btn">
-                  <v-btn class="tour-card-btn-action py-4 px-4 elevation-0"  small @click="goToToursDetails(item)">{{ $t('general.book_now') }}</v-btn>
-               </div>
+      <v-spacer></v-spacer>
+      <v-card-actions class="px-5 py-3 mb-auto backActions">
+         <v-row justify="space-between" align="baseline">
+            <v-col cols="8" class="tour-card-text-action">{{ $t('general.from') }}: {{  price | currencyFormat(currency) }}</v-col>
+            <v-col cols="4">
+               <v-btn class="tour-card-btn-action py-4 px-4 elevation-0 rounded-pill"  small @click="goToToursDetails(item)">{{ $t('general.book_now') }}</v-btn>
+
+            </v-col>
+         </v-row>
       </v-card-actions>
   </v-card>
 

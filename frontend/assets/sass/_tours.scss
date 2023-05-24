@@ -1,8 +1,23 @@
 
 .tour-card{
+
+   .available{
+      color:$secondary-color !important;
+   }
+   .backActions{
+      background-color:  $secondary-color !important;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+   }
    &-content{
-      font-size: $text-normal !important;
-      height: 25vh !important;
+      font-size: $text-sub !important;
+      color: $input-text-color !important;
+
+   }
+   &-data{
+      min-height: 30vh;
+
    }
    &-wrap{
       height: 100% !important;
@@ -10,13 +25,17 @@
    &-title{
       width:100% !important;
       font-size: $text-semi-title1 !important;
+      color:$primary-color !important;
       font-weight: bolder;
       vertical-align:baseline;
+      min-height: 50px;
+      //max-height: 300px;
 
    }
    &-rank{
       width: 100%;
    }
+
    &-prices{
       width: 100%;
 
@@ -24,10 +43,15 @@
    &-duration{
       width: 100%;
    }
+   &-text-action{
+      color: white !important;
+      font-weight: bold !important;
+   }
    &-btn{
       width: 100%;
       &-action{
-         background-color: $secondary-color !important;
+         background-color: $primary-color !important;
+         text-transform: lowercase !important;
          color: white !important;
          font-weight: bold !important;
          font-size: $text-sub !important;
@@ -37,13 +61,17 @@
 
 .tour-detail{
    .blue-rectangle{
-      background-color:  $primary-color;
+
       .price-fake{
          color:  $text-back-blue !important;
          text-decoration: line-through;
+         font-size: $text-title;
+         font-weight: bold;
       }
       .price-real{
          color: $secondary-color !important;
+         font-size: $text-title;
+         font-weight: bold;
 
       }
       .data{
@@ -85,6 +113,27 @@
 .wraperVideo{
    height: 600px !important;
 }
+
+//// expansion component
+///
+
+.expandContent{
+   &-title{
+      font-size: $text-title !important;
+      color: $secondary-color !important;
+      font-weight: bold;
+      border-bottom: 2px solid $primary-color;
+   }
+   .v-expansion-panel-content__wrap{
+      padding-left: 8px;
+      padding-right: 8px;
+
+   }
+}
+
+
+
+
 
 @media #{map-get($display-breakpoints, 'sm-and-down')}{
    .embeded-video {

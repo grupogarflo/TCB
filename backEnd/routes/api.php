@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DestinationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -157,6 +158,13 @@ Route::group([
     Route::post('/getCategoriDestinationInfo', 'CategoryDestinationContents@getCategoriDestinationInfo');
     Route::get('/getCategory', 'CategoryDestinationContents@getCategori');
     Route::get('/getDestination', 'CategoryDestinationContents@getDestination');
+
+
+    //// destinations only
+
+    Route::post('/getDestinationsCMS', 'DestinationController@getAllDestinationCMS');
+    Route::post('/addRemoveDestinationTour','DestinationController@addRemoveDestinationTour');
+
 
     //payment process
     //Route::post('/addPayment', 'PaymentController@addPayment');

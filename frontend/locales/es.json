@@ -118,12 +118,15 @@
       "duration":"Duracion",
       "available":"Disponible",
       "total":"Total",
-      "seeVideo":"Ver Video"
+      "seeVideo":"Ver Video",
+      "from":"Desde"
    },
    "tours":{
       "includes":"INCLUYE",
       "recommendations":"RECOMENDACIONES",
-      "notes":"NOTAS"
+      "notes":"NOTAS",
+      "description":"Descripción",
+      "not_included":"No Incluido"
    },
    "checkout":{
       "steps":{
@@ -132,7 +135,10 @@
          "ticket":"Ticket"
       }
    },
-   "ourTours":"NUESTROS TOURS"
+   "ourTours":"NUESTROS TOURS",
+   "searchEngine":{
+      "title":"¿Listo para explorar?"
+   }
 }
 
 

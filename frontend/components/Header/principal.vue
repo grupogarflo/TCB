@@ -6,7 +6,7 @@
                <v-container class="py-7">
                   <v-row  align="end">
                      <v-col md="3">
-                        <v-img class="logo" src="/images/layout/logotipo.png" @click="goToHome"/>
+                        <img class="logo" src="/images/layout/logo.svg"  @click="goToHome"/>
                      </v-col>
                      <v-col md="7" offset-md="2">
                         <v-row no-gutters align="end" justify="end">
@@ -21,7 +21,7 @@
                                     dense
                                     solo
                                     flat
-                                    label="Desde México (984) 242-0048"
+                                    label="Desde México  01 (984) 242 - 0070"
                                  >
                                     <template #item="{item}">
                                        <span class="phone-numbers-options">{{ item }}</span>
@@ -90,8 +90,8 @@ export default {
     components: { RedesSociales, Language, MenuCategories},
     data: () => ({
         items: [
-            "Desde México (984) 242-0048 ",
-            "USA / CAN  + 1 (888) 257-3065",
+            "Desde México 01 (984) 242 - 0070 ",
+            "USA / CAN  (888) 257 5547",
         ],
         menu:false
     }),
@@ -111,19 +111,19 @@ export default {
 
 <style  scoped>
 
-    .v-select-list{
-        background-color: #1A2D4E !important;
-        border-radius: 0px !important;
-        color:  white !important;
+   .v-select-list{
+      background-color: #EB008B !important;
+      border-radius: 0px !important;
+      color:  white !important;
 
-    }
-    .v-list .v-list-item--active .v-list-item__title {
-        color: #ffd54f !important;
-    }
+   }
+   .v-list .v-list-item--active .v-list-item__title {
+      color: white !important;
+   }
 
-    .v-list-item__title:hover{
-  color: #ffd54f !important;
-}
+   .v-list-item__title:hover{
+      color: #ffd54f !important;
+   }
 
 
 

@@ -7,9 +7,7 @@ use App\Http\Requests\DestinationCreateRequest;
 use Illuminate\Support\Facades\Storage;
 use App\destination;
 use App\destinationContent;
-
-
-
+use App\tour;
 
 class DestinationController extends Controller
 {
@@ -175,5 +173,141 @@ class DestinationController extends Controller
                 'message' => 'error update destination img'
             ], 404);
         }
+    }
+
+
+
+    public function getAllDestinationCMS(Request $request)
+    {
+
+        /*$categorias = ::select("category_contents.category_id", "category_contents.name")
+            ->join('category_contents', 'category_id', '=', 'categories.id')
+            ->where('categories.active', 1)
+            ->where('category_contents.language_id', 1)
+            ->orderBy('category_contents.name', 'DESC')
+            ->get();
+        */
+
+
+        $destinations = Destination::with(['destinationContentEsp','tours'])->get();
+
+        $destinations_back=[];
+        $tours_checked=[];
+        foreach($destinations as $destination){
+
+            //dump($destination->destinationContentEsp);
+            //dump('--------');
+
+            if(!empty($destination->destinationContentEsp) && count($destination->destinationContentEsp)>0){
+                array_push($destinations_back,[
+                    'id'=>$destination->id,
+                    'name'=>$destination->destinationContentEsp[0]['name']
+                ]);
+            }
+
+            $tours=$destination->tours->toArray();
+
+            //dump($tours);
+
+            $pos = array_search($request->id, array_column($tours,'id'));
+            //dump($pos);
+            if($pos!==false){
+                array_push($tours_checked,$destination->id);
+            }
+        }
+
+        return response()->json([
+            'status'=>'OK',
+            'destinations'=>$destinations_back,
+            'checked'=>$tours_checked
+        ]);
+
+
+
+
+        /*
+
+            $existentes = categoryTour::select("*")
+                ->where('tour_id', $request->id)
+                ->get();
+
+            $checado = [];
+            $cont = 0;
+            $aux = json_decode($existentes, true);
+            for ($a = 0; $a < sizeof($categorias); $a++) {
+                $key = array_search($categorias[$a]["category_id"], array_column($aux, 'category_id'));
+                if ($key !== false) {
+                    //$checado[$cont]["id"] = $categorias[$a]["id"];
+                    //$checado[$cont]["name"] = $categorias[$a]["name"];
+                    //$cont++;
+                    $checado[] = $a;
+                }
+                //$arr[$a]["id"] = $categorias[$a]["id"];
+                //$arr[$a]["name"] = $categorias[$a]["name"];
+                //$arr[$a]["active"] = ($key === false) ? false : true;
+            }
+            $res = [];
+            $res[0]["categoria"] = $categorias;
+            $res[0]["checado"] = $checado;
+            $res[0]["existe"] = $existentes;
+            return json_encode($res);
+        */
+    }
+
+    function addRemoveDestinationTour(Request $request)
+    {
+
+        $tour= tour::find($request->idTour);
+
+
+        $tour->destinations()->sync($request->destinations);
+
+        return response()->json([
+            'status'=>'OK'
+        ]);
+
+        /*
+            $idLocalizado = $request->idTour;
+            if ($idLocalizado == 0) {
+                $res = tour::select("id")
+                    ->where('clave', $request->claveSend)
+                    ->first();
+                if ($res) {
+                    //$idLocalizado = $res->id;
+                    $this->procesoCateTour($request->idCategoria, $res->id);
+                } else {
+                    return response()->json([
+                        'message' => 'Debe crear un tour previo a realizar esta acción'
+                    ], 400);
+                }
+            } else {
+                $this->procesoCateTour($request->idCategoria, $request->idTour);
+            }
+
+        /*
+            //si es igual a cero quiere decir que es un nuevo registro
+            if ($request->idTour == 0) {
+                //valida si ya esta registrado la clave en las tablas de tour content
+                $res = tourContent::select(
+                    "tour_contents.tour_id"
+                )
+                    ->join('tours', 'tours.id', '=', 'tour_contents.tour_id')
+                    ->where('tours.active', 1)
+                    ->where('tours.clave', $request->claveSend)
+                    ->get();
+
+                if (sizeof($res) === 0) {
+
+                    return response()->json([
+                        'message' => 'Debe crear un tour previo a realizar esta acción'
+                    ], 400);
+                } else {
+                    $this->procesoCateTour($request->idCategoria, $res[0]->tour_id);
+                }
+            } else {
+                //de lo contrario mando a ejecutar el proceso del alta o baja del registro
+                $this->procesoCateTour($request->idCategoria, $request->idTour);
+            }
+        */
     }
 }

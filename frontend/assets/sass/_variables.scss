@@ -9,7 +9,7 @@ $title-font: 'Mulish', sans-serif;
 $primary-color: #EB008B;
 $secondary-color:#00A6CE;
 $text-content-color:#656565;
-
+$input-text-color: #000000;
 
 
 
@@ -18,7 +18,6 @@ $back-aquatic-tours: #519488;
 $back-luxury-tours: #256C94;
 $back-adventure-tours: #946451;
 $border-header:#B98A3D;
-$input-text-color: #B4B3B3;
 $back-grey:#F5F4F4;
 $text-back-blue: #747474;
 $alltours:#656565;
@@ -53,7 +52,7 @@ body{
 
 .title-section{
   font-size: $text-title;
-  color: $secondary-color;
+  color: $primary-color;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -63,22 +62,28 @@ body{
 
 }
 
+.colorRank{
+   color: $primary-color !important;
+}
 
-.mayan-ruins{
-   background-color: $back-maya-ruins !important;
+.generalData{
+   color: $secondary-color !important;
+}
+.category{
+   background-color: $secondary-color !important;
    &-text{
-       color: $back-maya-ruins !important;
+       color: white !important;
 
    }
    &-title{
-      color: $primary-color !important;
+      color: white !important;
 
   }
 
 
 
 }
-
+/*
 .aquatic{
    background-color: $back-aquatic-tours !important;
    &-text{
@@ -118,7 +123,7 @@ body{
       color: white !important;
 
   }
-}
+}*/
 
 .language{
    color: white !important;

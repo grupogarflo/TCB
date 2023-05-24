@@ -1,162 +1,186 @@
 <!-- eslint-disable vue/no-side-effects-in-computed-properties -->
 <template>
   <v-container id="search-engine-content" >
-    <v-row>
-      <v-col cols="12" md="3">
 
-        <v-select
-            v-model="modelSelectTour"
-            class="rounded-lg rounded-l-0 input-color"
-            dense
-            solo
-            flat
-            :items="items"
-            item-text="name"
-            item-value="value"
-            :placeholder="$t('general.tours')"
+   <v-row>
+      <v-col cols="12">
+         <v-expansion-panels focusable :value="open">
+            <v-expansion-panel>
+               <v-expansion-panel-header class="text-center py-5">
+                  <span class="text-center">{{ $t('searchEngine.title') }}</span>
+                  <template v-slot:actions>
+                     <v-icon color="#EB008B" class="icon-abrir-formulario" size="10">
 
-            hide-details
-            @change="tourChange(items.id)"
+                     </v-icon>
+                  </template>
+               </v-expansion-panel-header>
+               <v-expansion-panel-content class="py-5 px-5">
+                  <v-row>
+                     <v-col cols="12" :md="(open==1) ? '6' : '12'">
 
-          >
-          <template #prepend >
+                     <v-select
+                           v-model="modelSelectTour"
+                           class="rounded-md  input-color"
+                           dense
+                           solo
+                           flat
+                           :items="items"
+                           item-text="name"
+                           item-value="value"
+                           :placeholder="$t('general.tours')"
 
+                           hide-details
+                           @change="tourChange(items.id)"
 
-              <v-icon size="22"  class="icon-estrella px-1 pl-2 py-2 "></v-icon>
-
-          </template>
-
-          <template #append>
-             <v-icon size="10" class="icon-abrir-formulario "></v-icon>
-          </template>
-
-        </v-select>
-      </v-col>
-      <v-col cols="5" sm="6" md="3">
-          <v-menu
-            v-model="dateSelect"
-            :close-on-content-click="false"
-            transition="scale-transition"
-            offset-y
-            min-width="auto"
-            attach
-          >
-            <template #activator="{ on, attrs }">
-              <v-text-field
-                v-model="date"
-                flat
-                :min="minDate"
-                readonly
-                v-bind="attrs"
-                hide
-                solo
-                dense
-                class="rounded-lg rounded-l-0 input-color"
-                hide-details
-                :placeholder="$t('general.dates')"
-                v-on="on"
-              >
-              <template #prepend >
+                        >
+                        <template #prepend >
 
 
-                <v-icon size="22" class="icon-calendario px-1 pl-2 py-2 "></v-icon>
+                           <v-icon size="22" color="#EB008B" class="icon-estrella px-1 pl-2 py-2 "></v-icon>
 
-              </template>
-              <template #append>
-                <v-icon size="10" class="icon-abrir-formulario "></v-icon>
-              </template>
-              </v-text-field>
-            </template>
-            <v-date-picker
-              v-model="date"
-              no-title
-              :min="minDate"
-              :allowed-dates="allowedDates"
-              :locale="locale"
-              @input="dateSelect = false"
-            ></v-date-picker>
-          </v-menu>
-      </v-col>
-      <v-col cols="7" sm="6" md="3">
-         <v-menu
-            v-model="showMenu"
-            dense
-            solo
-            bottom
-            :close-on-content-click="false"
-            max-width="auto"
+                        </template>
 
-            attach
-            offset-y
+                        <template #append>
+                           <v-icon size="10"  color="#EB008B" class="icon-abrir-formulario "></v-icon>
+                        </template>
+
+                     </v-select>
+                     </v-col>
+                     <v-col cols="12" :md="(open==1) ? '6' : '12'">
+                        <v-menu
+                           v-model="showMenu"
+                           dense
+                           solo
+                           bottom
+                           :close-on-content-click="false"
+                           max-width="auto"
+
+                           attach
+                           offset-y
 
 
-         >
-            <template #activator="{ on, attrs }">
-               <v-btn
-                  id="pax-button"
-                  v-bind="attrs"
-                  block
-                  outlined
-                  color="white"
-                  class="rounded-lg button-pax  px-0 text-center"
-                  plain
-                  v-on="on"
-               >
-                  <v-icon size="20"  class="mr-auto ml-2 icon-pax"> </v-icon>
-                  <span class="d-none d-sm-block text-center">
-                     {{ countAdults }} {{ $t('general.adults') }}, {{ countChild }} {{ $t('general.children') }}
-                  </span>
-                  <span class="d-sm-none d-block">{{ totalPax }} {{ $t('general.people') }}</span>
-                  <v-icon size="10" class="icon-abrir-formulario  ml-auto mr-5"></v-icon>
-               </v-btn>
-            </template>
+                        >
+                           <template #activator="{ on, attrs }">
+                              <v-btn
+                                 id="pax-button"
+                                 v-bind="attrs"
+                                 block
+                                 outlined
+                                 color="white"
+                                 class="rounded-md button-pax  px-0 text-center"
+                                 plain
+                                 v-on="on"
+                              >
+                                 <v-icon size="20" color="#EB008B"  class="mr-auto ml-2 icon-pax"> </v-icon>
+                                 <span class="d-none d-sm-block text-center">
+                                    {{ countAdults }} {{ $t('general.adults') }}, {{ countChild }} {{ $t('general.children') }}
+                                 </span>
+                                 <span class="d-sm-none d-block">{{ totalPax }} {{ $t('general.people') }}</span>
+                                 <v-icon size="10" color="#EB008B" class="icon-abrir-formulario  ml-auto mr-5"></v-icon>
+                              </v-btn>
+                           </template>
 
-            <v-list>
-               <v-list-item>
-                  <v-list-item-title><strong>Persons:</strong></v-list-item-title>
-               </v-list-item>
-               <v-list-item>
-                  <v-list-item-content>
-                     <v-list-item-title>{{ $t('general.adults') }}: </v-list-item-title>
-                  </v-list-item-content>
-                  <v-list-item-action>
-                     <div class="d-inline-flex">
-                        <v-btn icon>
-                           <v-icon class="colorMasMenos" @click="lessAdults">mdi-minus-circle</v-icon>
+                           <v-list>
+                              <v-list-item>
+                                 <v-list-item-title><strong>Persons:</strong></v-list-item-title>
+                              </v-list-item>
+                              <v-list-item>
+                                 <v-list-item-content>
+                                    <v-list-item-title>{{ $t('general.adults') }}: </v-list-item-title>
+                                 </v-list-item-content>
+                                 <v-list-item-action>
+                                    <div class="d-inline-flex">
+                                       <v-btn icon>
+                                          <v-icon color="#EB008B" class="colorMasMenos" @click="lessAdults">mdi-minus-circle</v-icon>
+                                       </v-btn>
+                                       <p class="paxNumberSet">{{ countAdults }}</p>
+                                       <v-btn icon>
+                                          <v-icon color="#EB008B" class="colorMasMenos" @click="moreAdults">mdi-plus-circle</v-icon>
+                                       </v-btn>
+                                    </div>
+                                 </v-list-item-action>
+                              </v-list-item>
+                              <v-list-item>
+                                 <v-list-item-content>
+                                    <v-list-item-title>{{ $t('general.children') }}: </v-list-item-title>
+                                 </v-list-item-content>
+                                 <v-list-item-action>
+                                    <div class="d-inline-flex">
+                                       <v-btn icon>
+                                          <v-icon color="#EB008B" class="colorMasMenos" @click="lessChild">mdi-minus-circle</v-icon>
+                                       </v-btn>
+                                       <p class="paxNumberSet">{{ countChild }}</p>
+                                       <v-btn icon>
+                                          <v-icon color="#EB008B" class="colorMasMenos" @click="moreChild">mdi-plus-circle</v-icon>
+                                       </v-btn>
+                                    </div>
+                                 </v-list-item-action>
+                              </v-list-item>
+                           </v-list>
+                        </v-menu>
+                     </v-col>
+                     <v-col cols="12"  :md="(open==1) ? '6' : '12'">
+                        <v-menu
+                           v-model="dateSelect"
+                           :close-on-content-click="false"
+                           transition="scale-transition"
+                           offset-y
+                           min-width="auto"
+                           attach
+                        >
+                           <template #activator="{ on, attrs }">
+                           <v-text-field
+                              v-model="date"
+                              flat
+                              :min="minDate"
+                              readonly
+                              v-bind="attrs"
+                              hide
+                              solo
+                              dense
+                              class="rounded-md input-color"
+                              hide-details
+                              :placeholder="$t('general.dates')"
+                              v-on="on"
+                           >
+                           <template #prepend >
+
+
+                              <v-icon size="22" color="#EB008B" class="icon-calendario px-1 pl-2 py-2 "></v-icon>
+
+                           </template>
+                           <template #append>
+                              <v-icon size="10" color="#EB008B" class="icon-abrir-formulario "></v-icon>
+                           </template>
+                           </v-text-field>
+                           </template>
+                           <v-date-picker
+                           v-model="date"
+                           no-title
+                           :min="minDate"
+                           :allowed-dates="allowedDates"
+                           :locale="locale"
+                           @input="dateSelect = false"
+                           ></v-date-picker>
+                        </v-menu>
+                     </v-col>
+
+                     <v-col cols="12" :md="(open==1) ? '6' : '12'">
+                     <v-btn depressed class="bookBtn rounded-md py-5" block @click="clickCard">
+                           {{ $t('general.book_now') }}
                         </v-btn>
-                        <p class="paxNumberSet">{{ countAdults }}</p>
-                        <v-btn icon>
-                           <v-icon class="colorMasMenos" @click="moreAdults">mdi-plus-circle</v-icon>
-                        </v-btn>
-                     </div>
-                  </v-list-item-action>
-               </v-list-item>
-               <v-list-item>
-                  <v-list-item-content>
-                     <v-list-item-title>{{ $t('general.children') }}: </v-list-item-title>
-                  </v-list-item-content>
-                  <v-list-item-action>
-                     <div class="d-inline-flex">
-                        <v-btn icon>
-                           <v-icon class="colorMasMenos" @click="lessChild">mdi-minus-circle</v-icon>
-                        </v-btn>
-                        <p class="paxNumberSet">{{ countChild }}</p>
-                        <v-btn icon>
-                           <v-icon class="colorMasMenos" @click="moreChild">mdi-plus-circle</v-icon>
-                        </v-btn>
-                     </div>
-                  </v-list-item-action>
-               </v-list-item>
-            </v-list>
-         </v-menu>
-      </v-col>
-      <v-col cols="12" md="3">
-        <v-btn depressed class="bookBtn rounded-lg" block @click="clickCard">
-            {{ $t('general.book_now') }}
-          </v-btn>
-      </v-col>
+                     </v-col>
 
-    </v-row>
+                  </v-row>
+
+               </v-expansion-panel-content>
+            </v-expansion-panel>
+         </v-expansion-panels>
+      </v-col>
+   </v-row>
+
+
+
   </v-container>
 </template>
 
@@ -165,7 +189,11 @@ export default {
   // eslint-disable-next-line vue/require-prop-types
   props:{
       // eslint-disable-next-line vue/require-default-prop, vue/require-prop-type-constructor
-      openPax: false
+      openPax: false,
+      open:{
+         type: Number,
+         default:1
+      }
   },
 
   data() {

@@ -89,6 +89,11 @@
                       <v-tab :disabled="sinClick" href="#wrapSugerencia">
                         Sugerencias
                       </v-tab>
+
+                      <v-tab :disabled="sinClick" href="#wrapDestinations">
+                          Destinos
+                      </v-tab>
+
                       <!--
                       <v-tab :disabled="sinClick" href="#wrapGalleria">
                         Galeria
@@ -224,19 +229,18 @@
                           :key="componentKey"
                         />
                       </v-tab-item>
-                      <!--
-                      <v-tab-item value="wrapGalleria">
-                        <galerias
+
+                      <v-tab-item value="wrapDestinations">
+                        <destinations
                           :claveSend="claveGet"
-                          :idiomaSend="idioma"
                           :idRegistroSend="idRegistro"
-                          :galeriaGet="galeriaGet"
-                          :urlAddGaleria="urlAddGaleria"
-                          @cerrarPop="close"
                           :key="componentKey"
                         />
+
+
                       </v-tab-item>
-                      -->
+
+
                     </v-tabs-items>
                   </v-card>
                 </v-col>
@@ -319,6 +323,7 @@ import SugerenciasIconTours from '~/components/admin/SugerenciasIconTours'
 import BannerTour from '~/components/admin/BannerTour'
 import FormularioPrecioTour from '~/components/admin/FormularioPrecioTour'
 import FormularioVideoTour from '~/components/admin/FormularioVideoTour'
+import Destinations from '~/components/admin/Destinations'
 
 export default {
   // layout: 'admin',
@@ -332,6 +337,7 @@ export default {
     BannerTour,
     FormularioPrecioTour,
     FormularioVideoTour,
+    Destinations
   },
 
   data() {

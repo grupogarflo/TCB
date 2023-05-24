@@ -10,13 +10,13 @@
    >
   <v-carousel-item v-for="(item, index) in items" :key="index">
       <v-sheet
-         :class="['py-16',item.class]"
+         :class="['py-16','category']"
           height="100%"
           tile
 
         >
           <div class="d-flex fill-height justify-center align-center">
-            <div :class="[item.class+'-title', !mobile ? 'text-h2':'text-h4', 'font-weight-bold text-capitalize']">
+            <div :class="['category-title', !mobile ? 'text-h2':'text-h4', 'font-weight-bold text-capitalize']">
               {{ item.title }}
 
             </div>

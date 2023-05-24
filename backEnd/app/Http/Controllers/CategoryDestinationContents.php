@@ -211,4 +211,36 @@ class CategoryDestinationContents extends Controller
             'message' => 'success'
         ], 200);
     }
+
+
+
+    function getAllCategoriDestinationCMS()
+    {
+        $res = categoryDestinationContent::select("*")
+            ->join('link_table', '.category_destination_content_id', '=', 'category_destination_contents.id')
+            ->where('category_destination_contents.active', 1)
+            ->orderBy('url', 'ASC')
+            ->get();
+        /*
+        //anterior
+        $res = categoryDestinationContent::select("category_destination_contents.*", ".*")
+            ->join('', '.category_destination_content_id', '=', 'category_destination_contents.id')
+            ->where('category_destination_contents.active', 1)
+            ->orderBy('url', 'ASC')
+            ->get();
+        */
+
+        /*
+        $res = categoryDestinationContent::select(
+            "*",
+        )->where('active', 1)
+            ->orderBy('url', 'ASC')
+            ->get();
+        */
+        //->toSql();
+        //$res = categoryDestinationContent::with('espIdiomaSolo')->where('active', 1)->get();
+
+        return $res;
+    }
+
 }

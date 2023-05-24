@@ -5,7 +5,7 @@
             <div class="d-inline ">
 
                <nuxt-link :to="localePath({
-                        name:'tours-slug',
+                        name:'slug',
                         params:{
                            slug:all_tours.url
                         }
@@ -14,7 +14,7 @@
                </nuxt-link >
 
                <nuxt-link v-for="(item, i) in items " :key="i"  :to="localePath({
-                        name:'tours-slug',
+                        name:'slug',
                         params:{
                            slug:item.url
                         }
@@ -71,7 +71,8 @@ export default {
          items:{},
          class:'',
 
-         domain:(this.language===1) ? 'https://www.yalku.tours' : 'https://www.yalkutours.com.mx',
+         // change to cancun bay urls
+         domain:(this.language===1) ? 'http://cancunbay.net' : 'http://cancunbay.mx',
       }
    },
    computed:{
@@ -142,7 +143,7 @@ export default {
       async init() {
 
          try {
-            this.domain =(this.language===1) ? 'https://www.yalku.tours' : 'https://www.yalkutours.com.mx'
+            this.domain =(this.language===1) ? 'http://cancunbay.net' : 'http://cancunbay.mx'
 
             await this.$axios
                .post('/getAllCategories', {

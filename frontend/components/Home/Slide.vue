@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="slideHomeTop">
 
         <v-carousel  cycle
             :height="alto"
             hide-delimiters
             hide-delimiter-background
-            show-arrows-on-hover>
+            >
           <v-carousel-item v-for="(item, index) in items" :key="index"
-
+            class="text-center"
           >
             <NuxtLink
               v-if="item.url != '' && item.url != null"
@@ -16,8 +16,9 @@
               <v-img
                 eager
                 aspect-ratio="2"
-                width="auto"
-                max-height="500"
+                class="mx-auto rounded-lg"
+                width="100%"
+                max-height="300"
                 :src="item.full_photo_path"
                 :lazy-src="item.full_photo_path"
                 :alt="item.alt"
@@ -27,8 +28,9 @@
                 v-else
                 eager
                 aspect-ratio="2"
-                width="auto"
-                max-height="500"
+                class="mx-auto rounded-lg"
+                width="100%"
+                max-height="300"
                 :src="item.full_photo_path"
                 :lazy-src="item.full_photo_path"
                 :alt="item.alt"

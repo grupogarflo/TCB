@@ -18,7 +18,7 @@ export default {
 
    head: {
       titleTemplate: '%s - Cancun Bay ',
-      title: 'Cancun Bau',
+      title: 'Cancun Bay',
       htmlAttrs: {
          lang:'en'
       },
@@ -62,6 +62,7 @@ export default {
     },
     { src: '~/plugins/zohoScript.js', mode: 'client' },
     "~/plugins/googleAnalytics.js",
+    "~/plugins/vue2-google-maps.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -122,7 +123,7 @@ export default {
             code: 'es',
             name: 'Español',
             iso: 'es-ES',
-            domain: 'es.local.test',
+            domain: 'cancunbay.mx',
 
             show:true
          },
@@ -130,7 +131,7 @@ export default {
             code: 'en',
             iso: 'en-US',
             name: 'English',
-            domain: 'en.local.test',
+            domain: 'cancunbay.net',
             show:true
          },
 
@@ -143,7 +144,13 @@ export default {
 
       vueI18n: {
         // locale: 'es',     
-        fallbackLocale:'es',
+        // fallbackLocale:'en',
+        fallbackLocale: {
+
+            'es':      ['es-ES'],
+            'en':      ['en-US'],
+
+         },
         messages: {
           es: require('./locales/es.json'),
           en: require('./locales/en.json'),
@@ -161,9 +168,9 @@ export default {
    axios: {
       // baseURL: 'http://localhost/cancunToursNew/backEnd/public/api/',
 
-       baseURL: 'http://127.0.0.1:8000/api/',
+      baseURL: 'http://127.0.0.1:8000/api/',
 
-      //baseURL:'https://yalku.tours/api/'
+      //baseURL:'http://cancunbay.net/api/'
    },
 
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

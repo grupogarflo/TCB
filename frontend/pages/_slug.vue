@@ -1,5 +1,10 @@
 <template>
    <div>
+
+      <content-tour  v-if="pageType=='tour'"></content-tour>
+      <content-category v-if="pageType=='category'"></content-category>
+
+      <!--
       <client-only>
          <Slide :items="itemsGallery"></Slide>
 
@@ -43,18 +48,25 @@
 
 
       </client-only>
+
+      -->
    </div>
 
 </template>
 
 <script>
-import SearchEngine from '~/components/General/SearchEngine.vue'
-import SectionTitle from '~/components/General/SectionTitle.vue'
-import Slide from '~/components/Home/Slide.vue'
-import DetailAction from '~/components/Tours/DetailAction.vue'
-import Categories from '~/components/General/Categories.vue';
+import ContentTour from '../components/Tours/ContentTour.vue';
+import ContentCategory from '../components/Categories/ContentCategory.vue';
+
+// import SearchEngine from '~/components/General/SearchEngine.vue'
+// import SectionTitle from '~/components/General/SectionTitle.vue'
+// import Slide from '~/components/Home/Slide.vue'
+// import DetailAction from '~/components/Tours/DetailAction.vue'
+// import Categories from '~/components/General/Categories.vue';
 
 export default {
+  components: { ContentTour,ContentCategory },
+  /*
    components:{
       Slide,
       SearchEngine,
@@ -63,33 +75,33 @@ export default {
       Categories
 
    },
+   */
+
    data(){
       return {
-         itemsGallery:[],
-         name:'',
-         description:'',
-         suggestion:'',
-         note:'',
-         include:'',
-         img:'',
-         item:{},
-         openPax:false
+
+         pageType: null,
+         contentData:null,
       }
    },
    computed:{
       mobile(){
             return this.isMobile();
+      },
+      language(){
+         return this.$store.getters['booking/language'];
       }
+
    },
 
-   /*
+
 
    created(){
-      this.getDataTour();
+      // this.getDataTour();
 
+      this.searchPageType();
    },
-   */
-
+   /*
    mounted(){
       this.getDataTour();
 
@@ -100,7 +112,7 @@ export default {
 
       })
    },
-
+*/
 
 
    methods:{
@@ -163,6 +175,21 @@ export default {
             // console.log('error' + e)
          }
       },
+
+
+      async searchPageType(){
+            await this.$axios.post('/pageType',{url:this.$route.params.slug, language: this.language})
+                  .then(response =>{
+                     // alert('response');
+                     console.log(response.data);
+                     this.pageType = response.data.val;
+                     // this.contentData = response.data.data
+
+                  }).catch(response =>{
+                     console.log('error', response);
+                  })
+
+      }
 
 
 

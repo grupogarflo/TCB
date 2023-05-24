@@ -10,6 +10,18 @@
    }
 }
 
+.category-detail{
+
+   h1{
+      color:$primary-color !important;
+   }
+
+   h2{
+      color:  $secondary-color !important;
+   }
+}
+
+
 @media #{map-get($display-breakpoints, 'md-and-down')}{
    .category-btn{
 
