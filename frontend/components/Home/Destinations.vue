@@ -67,62 +67,66 @@ export default {
             let count = 1;
             let totalItem =[];
 
-            
+
             destinations.forEach(element=>{
-               
+
                // eslint-disable-next-line camelcase
                let name_element = '';
 
                let url='';
+               let showHome = false;
 
                if(this.language===1){
                   // eslint-disable-next-line camelcase
                   name_element = element.destination_content_esp.name
                   url = element.destination_content_esp.url
+                  showHome=element.destination_content_esp.show_home;
                }
                else{
                   // eslint-disable-next-line camelcase
                   name_element = element.destination_content_eng.name
                   url=element.destination_content_eng.url;
+                  showHome= element.destination_content_eng.show_home
                }
 
-               if(count===1){
-                  this.first= {
-                     id:element.id,
-                     name:name_element,
-                     photo: element.destination_content_esp.full_photo_path,
-                     url
-
-                  }
-               }
-               else if(count===2){
-                  this.second= {
-                     id:element.id,
-                     name:name_element,
-                     photo: element.destination_content_esp.full_photo_path,
-                     url
-
-                  }
-               }
-               else{
-
-                  if(totalItem.length<3  && count<=destinations.length){
-
-                     totalItem.push({
+               if(showHome){
+                  if(count===1){
+                     this.first= {
                         id:element.id,
                         name:name_element,
                         photo: element.destination_content_esp.full_photo_path,
                         url
-                     })
-                  }
-                  if(totalItem.length===3 || count===destinations.length){
-                     this.items.push(totalItem)
-                     totalItem=[];
-                  }
 
+                     }
+                  }
+                  else if(count===2){
+                     this.second= {
+                        id:element.id,
+                        name:name_element,
+                        photo: element.destination_content_esp.full_photo_path,
+                        url
+
+                     }
+                  }
+                  else{
+
+                     if(totalItem.length<3  && count<=destinations.length){
+
+                        totalItem.push({
+                           id:element.id,
+                           name:name_element,
+                           photo: element.destination_content_esp.full_photo_path,
+                           url
+                        })
+                     }
+                     if(totalItem.length===3 || count===destinations.length){
+                        this.items.push(totalItem)
+                        totalItem=[];
+                     }
+
+                  }
+                  count++;
                }
-
-               count++;
 
             })
 
