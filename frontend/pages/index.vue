@@ -27,6 +27,8 @@
          <SectionTitle :title-text="$t('home.title1')"></SectionTitle>
          <Paragraph :text="$t('home.paragraph1')"></Paragraph>
 
+         <destinations></destinations>
+
          <div id="home_tours_cards" class="mt-16 mb-16">
                <v-row justify="start" >
                      <v-col v-for="(item, i) in homeTourList" :key="i" sm="4" md="3" class="d-flex flex-grow-1 flex-shrink-1 align-stretch">
@@ -68,12 +70,13 @@
    import SectionTitle from '~/components/General/SectionTitle.vue';
    import Paragraph from '~/components/General/Paragraph.vue';
    import TourCard from '~/components/General/TourCard.vue';
+   import Destinations from '~/components/Home/Destinations'
   // import Categories from '~/components/General/Categories.vue';
 
 
    export default {
       name: 'IndexPage',
-      components:{  SearchEngine, Slide, SectionTitle, Paragraph, TourCard },
+      components:{  SearchEngine, Slide, SectionTitle, Paragraph, TourCard, Destinations },
 
       middleware:['clearStore'],
       // eslint-disable-next-line vue/no-unused-components

@@ -68,6 +68,12 @@ Route::post('/getAllTours', 'SiteApiController@getAllTours');
 Route::post('/pageType', 'DetailController@pageType');
 
 
+/// add destinations
+
+Route::get('/getDestinationsAll','DestinationController@getDestinationsAll');
+Route::post('/getDestination','DestinationController@getDestinationToFront');
+Route::post('/getTourByDestination','DestinationController@getTourByDestination');
+
 
 
 //test

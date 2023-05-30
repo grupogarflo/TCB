@@ -254,7 +254,7 @@ export default {
 
     editItem(item) {
       this.idRegistro = item.id
-      this.imgGet = item.img
+      this.imgGet = item.full_photo_path
       this.idioma = 1
       this.dialog = true
     },

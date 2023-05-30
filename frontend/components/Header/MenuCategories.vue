@@ -165,7 +165,7 @@ export default {
 
       goTo(item){
          this.$router.push(this.localePath({
-            name:'tours-slug',
+            name:'slug',
             params:{
                slug:item
             }

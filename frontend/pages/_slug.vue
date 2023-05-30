@@ -4,6 +4,9 @@
       <content-tour  v-if="pageType=='tour'"></content-tour>
       <content-category v-if="pageType=='category'"></content-category>
 
+      <content-destination v-if="pageType=='destination'"></content-destination>
+
+
       <!--
       <client-only>
          <Slide :items="itemsGallery"></Slide>
@@ -57,6 +60,8 @@
 <script>
 import ContentTour from '../components/Tours/ContentTour.vue';
 import ContentCategory from '../components/Categories/ContentCategory.vue';
+import ContentDestination from '../components/Destinations/ContentDestination.vue';
+
 
 // import SearchEngine from '~/components/General/SearchEngine.vue'
 // import SectionTitle from '~/components/General/SectionTitle.vue'
@@ -65,7 +70,7 @@ import ContentCategory from '../components/Categories/ContentCategory.vue';
 // import Categories from '~/components/General/Categories.vue';
 
 export default {
-  components: { ContentTour,ContentCategory },
+  components: { ContentTour,ContentCategory, ContentDestination },
   /*
    components:{
       Slide,

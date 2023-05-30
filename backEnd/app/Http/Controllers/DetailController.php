@@ -18,6 +18,8 @@ class DetailController extends Controller
 
     public function pageType(Request $request){
 
+
+
         $vRules = [
             'url'=>'required',
             'language'=>'required'
@@ -33,6 +35,18 @@ class DetailController extends Controller
         }
 
         $val = '';
+
+        if($request->url=='all-tours' || $request->url=='todos-tours'){
+
+            $val='category';
+            //$returnItem = $category;
+            return response()->json([
+                'status'=>'ok',
+                'val'=>$val,
+                //'data'=>$returnItem
+            ]);
+
+        }
 
         DB::enableQueryLog();
         $category = categoryContent::join('categories', 'category_contents.category_id', '=', 'categories.id')

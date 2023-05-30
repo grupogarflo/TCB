@@ -69,9 +69,10 @@ export default {
   components: true,
 
 
-   /*googleAnalytics: {
-     // eslint-disable-next-line require-await
-     asyncID: async (context) => {
+   /*
+      googleAnalytics: {
+      // eslint-disable-next-line require-await
+      asyncID: async (context) => {
 
          if(context.i18n.code=='en')
          {
@@ -80,10 +81,9 @@ export default {
          else{
             return 'G-PD3YRPJ4J8'
          }
-
-
-     }
-   },*/
+      }
+      },
+   */
 
 
 
@@ -168,9 +168,9 @@ export default {
    axios: {
       // baseURL: 'http://localhost/cancunToursNew/backEnd/public/api/',
 
-      baseURL: 'http://127.0.0.1:8000/api/',
+      // baseURL: 'http://127.0.0.1:8000/api/',
 
-      //baseURL:'http://cancunbay.net/api/'
+       baseURL:'http://cancunbay.net/api/'
    },
 
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

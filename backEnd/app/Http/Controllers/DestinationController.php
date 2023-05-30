@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\destination;
 use App\destinationContent;
 use App\tour;
+use App\tourContent;
+use Illuminate\Support\Facades\File;
 
 class DestinationController extends Controller
 {
@@ -118,8 +120,7 @@ class DestinationController extends Controller
     //recupera la informacion de la categoria por idioma
     function getDestinationInfo(Request $request)
     {
-        $res = destinationContent::select("*")
-            ->where('destination_id', $request->id)
+        $res = destinationContent::where('destination_id', $request->id)
             ->where('language_id', $request->idioma)
             ->get();
         //->toSql();
@@ -137,10 +138,7 @@ class DestinationController extends Controller
 
         $idLocalizado = $request->id;
 
-        //valido si el id viene en cero entonces tengo que localizar el id por meido de la clave que se envia en el campo
-        //clave
-        //en caso de que el id venga con algun valor entonces se hace el proceso normal de subir la foto y
-        //actualizar el campo de la img en la base de datos
+
         if ($idLocalizado == 0) {
             $res = destination::select("id")
                 ->where('clave', $request->clave)
@@ -156,11 +154,23 @@ class DestinationController extends Controller
 
         try {
             //$url = Storage::disk()->put('destinos', $request->file('image'));
-            $url =
-                $request->file('image')->storeAs(
+
+                /*$request->file('image')->storeAs(
                     'destinos',
                     $request->file('image')->getClientOriginalName()
-                );
+                );*/
+
+                //dump('test');
+                if ($request->hasFile('image')) {
+                    $timeStamp= uniqid();
+                    $url ='/destinations/'.$timeStamp.'_'.$request->file('image')->getClientOriginalName();
+
+                    Storage::disk('public')->put($url, File::get($request->file('image')));
+
+
+                }
+
+                //dd($url);
             destinationContent::where('destination_id', $idLocalizado)
                 ->update([
                     "img" => $url
@@ -193,15 +203,18 @@ class DestinationController extends Controller
 
         $destinations_back=[];
         $tours_checked=[];
+
+        //dump($destinations);
         foreach($destinations as $destination){
 
-            //dump($destination->destinationContentEsp);
+
+            // \Log::info('destinations id , spa',[$destination->id, $destination->destinationContentEsp]);
             //dump('--------');
 
-            if(!empty($destination->destinationContentEsp) && count($destination->destinationContentEsp)>0){
+            if(!empty($destination->destinationContentEsp)){
                 array_push($destinations_back,[
                     'id'=>$destination->id,
-                    'name'=>$destination->destinationContentEsp[0]['name']
+                    'name'=>$destination->destinationContentEsp->name
                 ]);
             }
 
@@ -310,4 +323,76 @@ class DestinationController extends Controller
             }
         */
     }
+
+
+
+    public function getDestinationsAll(){
+        $destinations = destination::with('destinationContentEsp','destinationContentEng')->get();
+
+        return response()->json(compact('destinations'));
+    }
+
+
+    public function getDestinationToFront(Request $request){
+
+        $destination = destinationContent::where('url',$request->url)->where('language_id',$request->idioma)->first();
+
+        return  response()->json(compact('destination'));
+    }
+
+
+    public function getTourByDestination(Request $request){
+
+
+
+
+        $res=tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
+            ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
+            ->join('destination_tour', 'tour_contents.tour_id', '=', 'destination_tour.tour_id')
+            ->where('destination_tour.destination_id', $request->idCategory)
+            ->where('tours.active', 1)
+            ->where('tours.public', 1)
+
+            ->where('language_id', $request->lenguage)
+            // ->orderBy('tour_contents.name', 'ASC')
+            ->orderBy('price_tours.price_real_adult', 'ASC')
+
+            ->get();
+
+
+        //dd($res);
+            foreach($res as $r){
+                $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+                $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+
+                $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+                $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+                $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+                $tour = tour::with('categories')->find($r->tour_id);
+
+                //dd($tour->categories);
+                $categories = [];
+                foreach($tour->categories as $cat){
+                    //dump($cat->id);
+                    if($cat->id==$request->idCategory){
+                        $contents = $cat->category_contents;
+                        //dump($contents);
+                        foreach($contents as $content){
+                            //dump($content['language_id']);
+                            if($content->language_id==$request->lenguage  ){
+                                array_push($categories, $content);
+                            }
+                        }
+                    }
+                }
+                $r->category =(count($categories)>0) ? $categories[0] :null;
+            }
+
+
+            return response()->json([
+                "data" => $res,
+
+            ], 200);
+    }
+
 }
