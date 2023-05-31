@@ -2,13 +2,13 @@
    <v-expansion-panels
 
       class="expandContent"
-      accordion="true"
+      :accordion="true"
       flat
       :value="open"
 
     >
       <v-expansion-panel expand >
-         <v-expansion-panel-header class="expandContent-title px-0">
+         <v-expansion-panel-header class="expandContent-title px-0" actions >
             {{ title }}
             <template v-slot:actions>
                <v-icon color="#EB008B" class="icon-abrir-formulario" size="10">
@@ -16,6 +16,7 @@
             </template>
          </v-expansion-panel-header>
             <v-expansion-panel-content v-if="is_html" class="expandContent-info px-0 mt-5" >
+
 
                <div v-html="content"></div>
             </v-expansion-panel-content>

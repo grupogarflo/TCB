@@ -30,13 +30,13 @@ export default {
          this.$i18n.locales.forEach(element => {
                if(element.show && element.code!==this.$i18n.locale){
 
-                  console.log(element);
-                  //console.log(this.$i18n);
+                  // console.log(element);
+                  // console.log(this.$i18n);
                   $code.push(element);
                }
          });
 
-         console.log($code);
+         // console.log($code);
 
          return $code;
 
@@ -52,8 +52,8 @@ export default {
 
       domain(){
 
-         console.log('lang ',this.$store.getters['booking/language']);
-         return (this.$store.getters['booking/language']===1) ? 'https://www.yalku.tours' : 'https://www.yalkutours.com.mx';
+         // console.log('lang ',this.$store.getters['booking/language']);
+         return (this.$store.getters['booking/language']===1) ? 'http://www.cancunbay.net' : 'http://www.cancunbay.mx';
       },
 
       mobile(){

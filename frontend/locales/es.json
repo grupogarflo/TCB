@@ -21,9 +21,9 @@
    "contact":{
       "btn":"Enviar",
       "comments":"Comentarios",
-      "title":"Contacta con Yalku Tours Riviera Maya - ¡Queremos saber de ti!",
+      "title":"¡Queremos saber de ti!",
 
-      "text":"<p class=\"paragraph-general\">Contacta a Yalku Tours Riviera Maya habla con uno de nuestros expertos </p><p class=\"paragraph-general\">Nos encanta saber que estás buscando nuevas experiencias para tus próximas vacaciones en Cancún y Riviera Maya en nuestros tours. Explora sitios arqueológicos, reservas naturales, parques temáticos y mucho más. Ponte en contacto con nosotros y cuéntanos tus planes, estaremos siempre dispuestos a ayudarte con las mejores aventuras para ti y los tuyos en tu próximo viaje.</p><p class=\"paragraph-general\">Llámanos: (984) 242-0048</p><p class=\"paragraph-general\">Sin costo USA/CAN: + 1 (888) 257-3065</p><p class=\"paragraph-general\">Email: info@yalku.tours</p>"
+      "text":"<p class=\"paragraph-general\">Contáctanos para brindarte información de nuestros tours, resolver tus dudas y ayudarte a tener unas vacaciones inolvidables en Cancún y la Riviera Maya.</p><p class=\"paragraph-general\">Síguenos en nuestras redes sociales y si ya realizaste un tour con nosotros, cuéntanos tu experiencia. ¡Nos encanta saber que tuviste una gran experiencia!</p><p class=\"paragraph-general\">Llámanos: 01(984)242-0070</p><p class=\"paragraph-general\">Sin costo USA/CAN: +1(888) 257-5547</p><p class=\"paragraph-general\">Email: websales@cancunbay.com</p>"
    },
 
    "about":{
@@ -93,9 +93,11 @@
    "home":{
       "title1":"Tours en Riviera Maya Exclusivos y Privados con Yalku Tours",
       "subtitle1":"Tours desde Cancún o Playa del Carmen",
-      "paragraph1":"Esta es la oportunidad para adentrarse en la belleza del Caribe mexicano con exclusivas experiencias y fantásticos tours en Riviera Maya y en Cancún. Esta región está repleta de hermosos cenotes, playas de color azul turquesa y la espesura de la selva que es hogar de muchas especies. Es tiempo de admirar todas las maravillas que han convergido en este lugar, donde pasarás las vacaciones de tu vida.",
-      "subtitle2":"¡Conoce la Riviera Maya con Yalku Tours!",
-      "paragraph2":"A relajarse y prepararse para disfrutar una aventura sin igual con los tours desde Cancún o Playa del Carmen con Yalku Tours. Desde descubrir el legado de los antiguos mayas en sus sitios arqueológicos y experiencias exclusivas VIP, hasta vivir grandes aventuras en el mar o la selva. Será un placer proporcionar una experiencia inolvidable con nuestra cuidadosa selección de excursiones y actividades para una estancia inolvidable en el paraíso.",
+      "paragraph1":"¡Bienvenido al Caribe mexicano! Estás por llegar o arribando a un paraíso espectacular y mereces disfrutarlo a lo grande. La manera perfecta de conocer el destino de playa más visitado en América Latina es con los mejores tours de Cancún y la Riviera Maya.C ancun Bay te trae una cuidadosa selección de experiencias inolvidables para hacer memorable tu visita a Cancún y la Riviera Maya.",
+      "subtitle2":"Experiencias Inolvidables",
+      "paragraph2":"Queremos que tu visita sea tan espectacular que tengas en mente regresar cuanto antes. Encontrarás tours de aventura, distintas actividades acuáticas y podrás recorrer las espectaculares zonas arqueológicas mayas de los alrededores. Encontrarás actividades para toda la familia y algunas son ideales para los viajeros más atrevidos.",
+      "subtitle3":"Expertos en el destino",
+      "paragraph3":"Somos expertos en el destino. Cancún y la Riviera Maya tienen cientos de sitios que visitar y tours que hacer, sin embargo, te traemos las mejores experiencias y actividades después de años de conocer el Caribe mexicano y los distintos tours que hay disponibles.",
       "icons":{
          "tours":"Experiencias en tours",
          "guides":"Guias certificados",

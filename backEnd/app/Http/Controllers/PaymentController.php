@@ -274,8 +274,8 @@ class PaymentController extends Controller
 
         Mail::to($res[0]->email)->send(new ConfirmationSend($details));
         Mail::to("hcortes@grupogarflo.com")->send(new ConfirmationSend($details));
-        Mail::to("lavila@grupogarflo.com")->send(new ConfirmationSend($details));
-        Mail::to("websales@yalku.tours")->send(new ConfirmationSend($details));
+        //Mail::to("lavila@grupogarflo.com")->send(new ConfirmationSend($details));
+        Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
     }
 
 
@@ -315,8 +315,8 @@ class PaymentController extends Controller
         /*Mail::to(env('MAIL_FROM_ADDRESS'))->send(new preBookEmail($details));
 
         */
-        Mail::to("lavila@grupogarflo.com")->send(new preBookEmail($details));
-        Mail::to("websales@yalku.tours")->send(new preBookEmail($details));
+        //Mail::to("lavila@grupogarflo.com")->send(new preBookEmail($details));
+        Mail::to("websales@cancunbay.com")->send(new preBookEmail($details));
 
         Mail::to('hcortes@grupogarflo.com')->send(new preBookEmail($details));
     }
@@ -334,8 +334,8 @@ class PaymentController extends Controller
 
 
         ];
-        Mail::to("info@yalku.tours")->send(new emailContacto($details));
-        Mail::to("lavila@grupogarflo.com")->send(new emailContacto($details));
+        Mail::to("websales@cancunbay.com")->send(new emailContacto($details));
+        //Mail::to("lavila@grupogarflo.com")->send(new emailContacto($details));
         //Mail::to("aperez@grupogarflo.com")->send(new emailContacto($details));
 
         // check for failures
@@ -388,8 +388,8 @@ class PaymentController extends Controller
         ];
 
         Mail::to("hcortes@grupogarflo.com")->send(new emailResponsePay($details));
-        Mail::to("lavila@grupogarflo.com")->send(new emailResponsePay($details));
-        Mail::to("websales@yalku.tours")->send(new emailResponsePay($details));
+        // Mail::to("lavila@grupogarflo.com")->send(new emailResponsePay($details));
+        Mail::to("websales@cancunbay.com")->send(new emailResponsePay($details));
     }
 
     function test(Request $request)
@@ -508,9 +508,9 @@ class PaymentController extends Controller
             ];
 
             Mail::to($res[0]->email)->send(new BankTransferSend($details));
-            Mail::to("aperez@grupogarflo.com")->send(new BankTransferSend($details));
-            Mail::to("lavila@grupogarflo.com")->send(new BankTransferSend($details));
-            Mail::to("websales@cancuntours.com")->send(new BankTransferSend($details));
+            //Mail::to("aperez@grupogarflo.com")->send(new BankTransferSend($details));
+            //Mail::to("lavila@grupogarflo.com")->send(new BankTransferSend($details));
+            Mail::to("websales@cancunbay.com")->send(new BankTransferSend($details));
 
             return response()->json([
                 'status' => 200,
@@ -935,7 +935,7 @@ class PaymentController extends Controller
         ];
 
         Mail::to("aperez@grupogarflo.com")->send(new MailSend($details));
-        Mail::to("lavila@grupogarflo.com")->send(new MailSend($details));
+        //Mail::to("lavila@grupogarflo.com")->send(new MailSend($details));
         Mail::to("websales@cancuntours.com")->send(new MailSend($details));
     }
 
@@ -1043,7 +1043,7 @@ class PaymentController extends Controller
 
 
             Mail::to("aperez@grupogarflo.com")->send(new MailRefund($details));
-            Mail::to("lavila@grupogarflo.com")->send(new MailRefund($details));
+            //Mail::to("lavila@grupogarflo.com")->send(new MailRefund($details));
             Mail::to("websales@cancuntours.com")->send(new MailRefund($details));
 
             return response()->json([

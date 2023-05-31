@@ -24,7 +24,7 @@
       </v-container>
 
       <v-container class="py-10">
-         <SectionTitle :title-text="$t('home.title1')"></SectionTitle>
+         <SectionTitle :title-text="$t('home.title1')" title="1"></SectionTitle>
          <Paragraph :text="$t('home.paragraph1')"></Paragraph>
 
          <destinations></destinations>
@@ -53,9 +53,13 @@
 
 
 
-         <SectionTitle :title-text="$t('home.subtitle2')"></SectionTitle>
+         <SectionTitle :title-text="$t('home.subtitle2')" title="2"></SectionTitle>
 
          <Paragraph :text="$t('home.paragraph2')"></Paragraph>
+
+         <SectionTitle :title-text="$t('home.subtitle3')" title="2"></SectionTitle>
+
+         <Paragraph :text="$t('home.paragraph3')"></Paragraph>
 
       </v-container>
 

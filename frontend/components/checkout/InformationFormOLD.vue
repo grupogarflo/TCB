@@ -73,6 +73,8 @@
                filled
                flat
                hide-details="auto"
+               :error-messages="hotelErrors"
+               @input="$v.hotel.$touch()"
 
             ></v-text-field>
          </v-col>
@@ -128,7 +130,7 @@ export default {
       name: { required },
       email: { required, email },
       phone: { required },
-
+      hotel: { required },
    },
 
    data(){
@@ -144,8 +146,7 @@ export default {
          textAlertPromo:'',
          loading:false,
          loadingPromo:false,
-         total:null,
-         radioGroup: 'card',
+
 
       }
    },
@@ -202,17 +203,7 @@ export default {
 
       languageId(){
          return this.$store.getters["booking/language"]
-      },
-
-
-      stateData(){
-         return this.$store.getters["booking/getAllStore"]
-      },
-
-
-      languageCode(){
-         return this.$store.getters["booking/language"]
-      },
+      }
 
 
    },
@@ -252,54 +243,14 @@ export default {
             hotel: this.hotel,
          })
          .then((response) => {
-
-            this.createPayment();
+            this.loading=false;
+            this.$nuxt.$emit('goPaymentEvent')
          })
          .catch((error) => {
             console.log(error)
             this.loading = false;
             this.textErrorBook = `some error: ${error.response.status} . ${error.response.data.message}`
          })
-      },
-
-      createPayment(){
-         this.total =this.stateData.tours.total_mxn;
-                     if(this.language==='ing'){
-                        this.total = this.stateData.tours.total_usd;
-                     }
-
-                     /// valid if tour has promocode
-
-                     const promocode = this.stateData.tours.promocode;
-
-                     if(typeof promocode !=='undefined' && Object.entries(promocode).length !== 0){
-                        this.total = promocode.data_mxn;
-                        if(this.language==='ing'){
-                           this.total = promocode.data_usd;
-                        }
-                     }
-               this.$axios
-                  .post('/addPayment', {
-                     code_book: this.stateData.unicoId,
-                     site_book: 'yalku.tours',
-                     status: 'pending',
-                     name: this.stateData.client.name,
-                     email: this.stateData.client.email,
-                     phone: this.stateData.client.phone,
-                     language: this.language,
-                     amount: this.total ,
-                     currency: this.stateData.moneda,
-                     hotel: this.stateData.client.hotel,
-                     toursInfo: this.stateData.tours,
-                     merch: this.radioGroup,
-                  })
-                  .then((response) => {
-                     // se dispara el proceso del cobro
-                     // console.log('response ',response)
-                     this.loading=false;
-                     this.$nuxt.$emit('goPaymentEvent',{client:response.data.data.clientId, total:this.total, });
-
-                  });
       },
 
       validatePromcode() {

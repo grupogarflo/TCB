@@ -51,7 +51,9 @@
                <v-card width="100%" :class="['py-5', (steps==3) ? 'elevation-0' : '']" >
                   <v-card-text>
                      <InformationForm :class="[(steps==1) ? 'd-block' : 'd-none' ]"></InformationForm>
-                     <payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>
+                     <!--<payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>-->
+                     <paypal :class="[(steps==2) ? 'd-block' : 'd-none' ]" :clientId="clientId" :total="total"></paypal>
+
                      <confirmation :class="[(steps==3) ? 'd-block' :'d-none' ]"></confirmation>
                   </v-card-text>
                </v-card>
@@ -76,18 +78,20 @@
 <script>
 
 import InformationForm from '~/components/checkout/InformationForm';
-import PaymentForm from '~/components/checkout/PaymentForm.vue';
+// import PaymentForm from '~/components/checkout/PaymentForm.vue';
 import TourDetail from '~/components/checkout/TourDetail.vue';
 import Categories from '~/components/General/Categories.vue';
 import SectionTitle from '~/components/General/SectionTitle.vue';
 import Confirmation from '~/components/checkout/Confirmation.vue';
+import Paypal from '~/components/checkout/paypal.vue';
 export default {
 
-   components:{InformationForm, PaymentForm, TourDetail, Categories, SectionTitle, Confirmation},
+   components:{InformationForm,  TourDetail, Categories, SectionTitle, Confirmation, Paypal},
    data(){
       return {
          steps :1,
-         total:0
+         total:0,
+         clientId:0
       }
    },
 
@@ -108,7 +112,9 @@ export default {
    mounted(){
       this.getTotalTour();
 
-      this.$nuxt.$on('goPaymentEvent', ()=>{
+      this.$nuxt.$on('goPaymentEvent', (id)=>{
+         this.clientId = id.client;
+         this.total=id.total;
          this.steps=2
       })
       this.$nuxt.$on('confirmation', ()=>{
