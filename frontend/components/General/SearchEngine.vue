@@ -55,8 +55,8 @@
                            :close-on-content-click="false"
                            max-width="auto"
 
-                           attach
-                           offset-y
+
+
 
 
                         >

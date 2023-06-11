@@ -30,13 +30,13 @@ export default {
          this.$i18n.locales.forEach(element => {
                if(element.show && element.code!==this.$i18n.locale){
 
-                  // console.log(element);
+                  console.log(element);
                   // console.log(this.$i18n);
                   $code.push(element);
                }
          });
 
-         // console.log($code);
+         console.log($code);
 
          return $code;
 

@@ -28,6 +28,17 @@
             </v-col>
 
          </v-row>
+
+         <v-row>
+            <v-col v-for="(ele, a) in lastRow" :key="a" cols="3">
+               <v-card class="rounded-lg" width="100%" @click="goToToursDetails(ele)">
+                  <v-img :src="ele.photo" class="destinationsImg rounded-lg align-end" gradient="to bottom, rgba(255,255,255,0) 80%, rgba(0,0,0,0.75)">
+                     <v-card-title  class="img-name justify-start">{{ ele.name }}</v-card-title>
+
+                  </v-img>
+               </v-card>
+            </v-col>
+         </v-row>
    </v-container>
 </template>
 
@@ -40,7 +51,8 @@ export default {
 
             first:{},
             second:{},
-            items:[]
+            items:[],
+            lastRow:[]
       }
 
    },
@@ -59,11 +71,10 @@ export default {
 
       init(){
 
-         this.$axios.get('/getDestinationsAll').then(response=>{
+         this.$axios.post('/getDestinationsAll',{ language:this.language }).then(response=>{
 
             const destinations = response.data.destinations;
 
-            // console.log('destinations ', response);
             let count = 1;
             let totalItem =[];
 
@@ -78,23 +89,24 @@ export default {
 
                if(this.language===1){
                   // eslint-disable-next-line camelcase
-                  name_element = element.destination_content_esp.name
-                  url = element.destination_content_esp.url
-                  showHome=element.destination_content_esp.show_home;
+                  name_element = element.name
+                  url = element.url
+                  showHome=element.show_home;
                }
                else{
                   // eslint-disable-next-line camelcase
-                  name_element = element.destination_content_eng.name
-                  url=element.destination_content_eng.url;
-                  showHome= element.destination_content_eng.show_home
+                  name_element = element.name
+                  url=element.url;
+                  showHome= element.show_home
                }
 
                if(showHome){
+
                   if(count===1){
                      this.first= {
                         id:element.id,
                         name:name_element,
-                        photo: element.destination_content_esp.full_photo_path,
+                        photo: element.full_photo_path,
                         url
 
                      }
@@ -103,26 +115,42 @@ export default {
                      this.second= {
                         id:element.id,
                         name:name_element,
-                        photo: element.destination_content_esp.full_photo_path,
+                        photo: element.full_photo_path,
                         url
 
                      }
                   }
                   else{
 
-                     if(totalItem.length<3  && count<=destinations.length){
+
+                     // if(totalItem.length<3  && count<=destinations.length){
+                     if(totalItem.length<3  && count<=5){
 
                         totalItem.push({
                            id:element.id,
                            name:name_element,
-                           photo: element.destination_content_esp.full_photo_path,
+                           photo: element.full_photo_path,
                            url
                         })
                      }
-                     if(totalItem.length===3 || count===destinations.length){
+
+                     // if(totalItem.length===3 || count===destinations.length){
+                     if(totalItem.length===3 || count===5){
+
                         this.items.push(totalItem)
                         totalItem=[];
                      }
+
+                     if(count>5 && count<=destinations.length){
+                        this.lastRow.push({
+                           id:element.id,
+                           name:name_element,
+                           photo: element.full_photo_path,
+                           url
+                        })
+                     }
+
+
 
                   }
                   count++;

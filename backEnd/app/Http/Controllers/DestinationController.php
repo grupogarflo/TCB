@@ -44,6 +44,7 @@ class DestinationController extends Controller
 
         $desContenido = new destinationContent;
         $desContenido->name = $request->name;
+        $desContenido->order = $request->order;
         $desContenido->title = $request->title;
         $desContenido->url = $request->url;
         $desContenido->show_home = ($request->show_home) ? 1 : 0;
@@ -84,6 +85,7 @@ class DestinationController extends Controller
                 ->where('language_id', $request->idioma)
                 ->update([
                     "name" => $request->name,
+                    "order"=>$request->order,
                     "title" => $request->title,
                     "url" => $request->url,
                     "show_home" => ($request->show_home) ? 1 : 0,
@@ -124,6 +126,11 @@ class DestinationController extends Controller
             ->where('language_id', $request->idioma)
             ->get();
         //->toSql();
+
+        foreach($res as $r){
+            $r['order']=($r['order']===999) ? '' : $r['oder'];
+        }
+
         if (count($res) > 0) {
             return $res;
         } else {
@@ -326,8 +333,23 @@ class DestinationController extends Controller
 
 
 
-    public function getDestinationsAll(){
+    public function getDestinationsAll(Request $request){
+
+
         $destinations = destination::with('destinationContentEsp','destinationContentEng')->get();
+
+
+        $destinations = destinationContent::select("destination_id as id","destination_contents.show_home", "destination_contents.name", "destination_contents.url", "languages.name as idioma", "destination_contents.img","destination_contents.order")
+            ->join('destinations', 'destinations.id', '=', 'destination_contents.destination_id')
+            ->join('languages', 'languages.id', '=', 'destination_contents.language_id')
+            ->where('destinations.active', 1)
+            ->where('languages.id', $request->language)
+            ->orderBy('destination_contents.order', 'ASC')
+            ->get();
+
+
+
+
 
         return response()->json(compact('destinations'));
     }

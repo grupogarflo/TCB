@@ -1,19 +1,21 @@
 <template>
   <div id="homePage">
-      <div>
-         <v-img src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight">
-            <v-container>
-               <v-row justify="center">
-                  <v-col cols="12" sm="10" md="8">
-                     <div class="search_engine py-10">
-                        <SearchEngine></SearchEngine>
-                     </div>
-                  </v-col>
-               </v-row>
-            </v-container>
+      <div class="sliderCo">
+         <img src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight" width="100%" />
 
-         </v-img>
+            <div class="search_container">
+               <v-container>
+                     <v-row justify="center">
+                        <v-col cols="12" sm="10" md="8">
+                           <div class="search_engine py-10">
+                              <SearchEngine></SearchEngine>
+                           </div>
+                        </v-col>
+                     </v-row>
+                  </v-container>
+            </div>
       </div>
+
       <v-container class="sliderPosition">
          <v-row justify="center">
             <v-col cols="12" sm="10" md="8">
@@ -31,7 +33,7 @@
 
          <div id="home_tours_cards" class="mt-16 mb-16">
                <v-row justify="start" >
-                     <v-col v-for="(item, i) in homeTourList" :key="i" sm="4" md="3" class="d-flex flex-grow-1 flex-shrink-1 align-stretch">
+                     <v-col v-for="(item, i) in homeTourList" :key="i" sm="4" md="3" class="d-flex">
                         <TourCard :item="item"></TourCard>
                      </v-col>
                </v-row>
@@ -153,3 +155,19 @@
       }
    }
 </script>
+
+
+<style lang="scss" scoped>
+
+.search_container{
+
+   position:relative;
+   z-index: 99;
+   margin-top:  -475px;
+
+}
+.v-menu{
+   position: relative;
+   z-index: 999;
+}
+</style>

@@ -15,6 +15,14 @@
           </v-col>
           <v-col cols="12">
             <v-text-field
+                v-model="editedItem.order"
+
+                label="Orden"
+
+              />
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
               v-model="editedItem.title"
               :error-messages="tituloErrors"
               required
@@ -161,7 +169,7 @@ export default {
       show3: false,
       error: null,
       dialog: false,
-      //idRegistro: 0,
+      // idRegistro: 0,
       uid: '',
       textoBoton: 'Cancelar',
       errorDescription: false,
@@ -169,6 +177,7 @@ export default {
       contadorIdioma: 0,
       editedItem: {
         name: '',
+        order:'',
         title: '',
         url: '',
         meta_title: '',
@@ -247,8 +256,8 @@ export default {
   },
 
   watch: {
-    idioma: function(newVal, oldVal) {
-      if (this.idRegistroSend != 0) this.getCategoriaIdioma()
+    idioma(newVal, oldVal) {
+      if (this.idRegistroSend !== 0) this.getCategoriaIdioma()
     },
     dialogoEliminacion(val) {
       val || this.close()
@@ -256,9 +265,9 @@ export default {
   },
 
   mounted() {
-    //this.uid = new Date().getTime().toString(36)
+    // this.uid = new Date().getTime().toString(36)
     this.creaId()
-    if (this.idRegistroSend != 0) this.getCategoriaIdioma()
+    if (this.idRegistroSend !== 0) this.getCategoriaIdioma()
     this.$emit('claveNueva', this.uid)
   },
 
@@ -276,8 +285,8 @@ export default {
       }
       if (
         !this.$v.$invalid &&
-        this.description != '' &&
-        this.description_footer != ''
+        this.description !== '' &&
+        this.description_footer !== ''
       ) {
         // do your submit logic here
         this.isLoading = true
@@ -287,6 +296,7 @@ export default {
         this.$axios
           .post(url, {
             name: this.editedItem.name,
+            order: (this.editedItem.order==='') ? 999 : this.editedItem.order,
             title: this.editedItem.title,
             url: this.editedItem.url,
             show_home: this.editedItem.show_home,
@@ -310,6 +320,7 @@ export default {
                 : 'Se a modificado el destinio'
 
             if (this.idRegistroSend === 0) {
+              // eslint-disable-next-line vue/no-mutating-props
               this.idRegistroSend = 0
               this.$v.$reset()
               this.description = ''
@@ -318,7 +329,7 @@ export default {
             } else {
               this.textoBoton = 'Cerrar'
             }
-            if (this.contadorIdioma == this.idiomaTamano) {
+            if (this.contadorIdioma === this.idiomaTamano) {
               this.$emit('claveNueva', this.uid)
               this.creaId()
               this.contadorIdioma = 0
@@ -332,6 +343,7 @@ export default {
             this.textoAlertaMesaje = `se ha encontrado un error: ${error.response.status} . ${error.response.data.message}`
           })
       }
+      // eslint-disable-next-line no-lone-blocks
       {
         if (this.description === '') this.errorDescription = true
         if (this.description_footer === '') this.errorDescriptionFooter = true

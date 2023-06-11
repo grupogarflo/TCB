@@ -13,7 +13,7 @@
                   ></v-breadcrumbs>
 
                <!-- <SectionTitle :title-text="name" class="mt-5"></SectionTitle> -->
-               <div v-html="description"></div>
+               <!--<div v-html="description"></div>-->
                <div id="home_tours_cards" class="mt-16 mb-16">
                   <v-row justify="start" >
                         <v-col v-for="(item, i) in dataTour" :key="i" sm="4" md="3" class="d-flex flex-grow-1 flex-shrink-1 align-stretch">

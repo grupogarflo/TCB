@@ -123,7 +123,7 @@ export default {
             code: 'es',
             name: 'Español',
             iso: 'es-ES',
-            domain: 'cancunbay.mx',
+            domain: 'www.cancunbay.mx',
 
             show:true
          },
@@ -131,7 +131,7 @@ export default {
             code: 'en',
             iso: 'en-US',
             name: 'English',
-            domain: 'cancunbay.net',
+            domain: 'www.cancunbay.net',
             show:true
          },
 
@@ -168,9 +168,9 @@ export default {
    axios: {
       // baseURL: 'http://localhost/cancunToursNew/backEnd/public/api/',
 
-      // baseURL: 'http://127.0.0.1:8000/api/',
+       baseURL: 'http://127.0.0.1:8000/api/',
 
-       baseURL:'http://cancunbay.net/api/'
+      // baseURL:'http://cancunbay.net/api/'
    },
 
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

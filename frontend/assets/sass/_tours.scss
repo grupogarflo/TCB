@@ -1,12 +1,25 @@
 
 .tour-card{
 
+   &-img{
+      width: 100%;
+      height: 207px !important;
+      //background-color: red;
+      img{
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         //object-position: center center;
+
+      }
+   }
+
    .available{
       color:$secondary-color !important;
    }
    .backActions{
       background-color:  $secondary-color !important;
-      position: absolute;
+      //position: absolute;
       bottom: 0;
       width: 100%;
    }
@@ -15,22 +28,19 @@
       color: $input-text-color !important;
 
    }
-   &-data{
-      min-height: 30vh;
 
-   }
-   &-wrap{
-      height: 100% !important;
+
+   &-data{
+      min-height: 200px;
+      max-height: 600px;
+      //background-color: chartreuse;
    }
    &-title{
       width:100% !important;
       font-size: $text-semi-title1 !important;
       color:$primary-color !important;
       font-weight: bolder;
-      vertical-align:baseline;
-      min-height: 50px;
-      //max-height: 300px;
-
+      //background-color: red;
    }
    &-rank{
       width: 100%;
