@@ -31,6 +31,9 @@
 
                            hide-details
                            @change="tourChange(items.id)"
+                           :menu-props="{
+                              'offset-y':true
+                           }"
 
                         >
                         <template #prepend >
@@ -52,8 +55,10 @@
                            dense
                            solo
                            bottom
+                           offset-y
                            :close-on-content-click="false"
                            max-width="auto"
+
 
 
 
@@ -576,3 +581,9 @@ export default {
 
 }
 </script>
+<style lang="scss" >
+.v-menu__content{
+   z-index: 99 !important;
+  //position: relative;
+}
+</style>

@@ -18,8 +18,9 @@ use App\closedDay;
 use App\Gallery;
 use App\category;
 use App\categoryContent;
+use App\categoryDestinationContent;
 use App\categoryTour;
-
+use App\destinationContent;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PaymentController;
 use App\Mail\ConfirmationSend;
@@ -539,15 +540,51 @@ class SiteApiController extends Controller
 
 
         if (count($res) > 0) {
-            /*$arr = [];
+            //$arr = [];
             for ($a = 0; $a < sizeof($res); $a++) {
+                /*
                 $auxText = ($request->idioma == 2) ? 'category' : 'categoria';
                 $arr[$a]["id"] = $res[$a]->id;
                 $arr[$a]["name"] = $res[$a]->name;
                 $arr[$a]["url"] =  $res[$a]->url;
                 $arr[$a]["category_id"] = $res[$a]->category_id;
+                */
 
-            }*/
+                $res[$a]['destinations_related']=null;
+                $related  = DB::table('link_table')->where('category_id', $res[$a]->category_id)->get();
+                //dump($res[$a]->category_id);
+                //dump($related);
+
+                if(!empty($related) && count($related)>0){
+
+                    foreach($related as $d){
+
+                        //dump($d);
+                        $cont = destinationContent::where('destination_id',$d->destination_id)->get();
+
+                        //dump($cont);
+
+                        if(!empty($cont) && count($cont)>0){
+                            foreach($cont as $c){
+                                $name = '';
+                                $res[$a]->destinations_related=array([
+                                    'id'=> $c->destination_id,
+                                    'url'=>$c->url,
+                                    'name_es'=>($c->language_id==1) ? $c->name : null,
+                                    'name_en'=>($c->language_id==2) ? $c->name : null,
+
+                                ]);
+                            }
+                        }
+
+                    }
+                }
+                else
+                    $res[$a]['destinations_related']=null;
+
+
+
+            }
 
             return response()->json([
                 "data" => $res,

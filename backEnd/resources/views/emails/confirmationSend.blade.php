@@ -193,7 +193,7 @@ $details = [
                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>
                           <tr>
-                            <td style="background-color:#1a2d4e; overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
+                            <td style="background-color:#EB008B; overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
 
                               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
@@ -289,7 +289,7 @@ $details = [
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
-                              <h1 style="margin: 0px; color:#1a2d4e; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
+                              <h1 style="margin: 0px; color:#EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
                                  @if ($details['language'] === 'ing')   Your Information:
                                  @else  Tu información:
                                  @endif
@@ -460,7 +460,7 @@ $details = [
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
-                              <h1 style="margin: 0px; color: #1a2d4e; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
+                              <h1 style="margin: 0px; color: #EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
                                    @if ($details['language'] === 'ing')   Tour Information:
                                    @else  Información del tour:
                                    @endif

@@ -9,18 +9,72 @@
                         params:{
                            slug:all_tours.url
                         }
-                     })" class="option px-4">
+                     })" class="sub2 px-4">
                   {{ all_tours.name }}
                </nuxt-link >
 
-               <nuxt-link v-for="(item, i) in items " :key="i"  :to="localePath({
-                        name:'slug',
-                        params:{
-                           slug:item.url
-                        }
-                     })" class="option px-4">
-                  {{ item.name }}
-               </nuxt-link >
+
+               <div  v-for="(item, i) in items " :key="i"  class="d-inline option">
+                  <v-menu
+
+                     v-if="item.destinations_related!=null"
+                     open-on-hover
+                     bottom
+                     offset-y
+                     tile
+                     flat
+                     class="border-0"
+                     elevation="0"
+                  >
+                     <template v-slot:activator="{ on, attrs }">
+
+                        <v-btn  class=" sub_menu d-inline px-4 elevation-0"
+                              v-bind="attrs"
+                              v-on="on"
+                              plain
+                              color="white"
+
+                              >
+
+                              {{ item.name }}
+
+                        </v-btn >
+                     </template>
+
+                     <v-list class="listSub" elevation="0" flat>
+                        <v-list-item
+                           v-for="(related, j) in item.destinations_related"
+                           :key="j"
+                        >
+                           <v-list-item-title>
+                              <nuxt-link  :to="localePath({
+                                 name:'slug',
+                                 params:{
+                                    slug:related.url
+                                 }
+                              })"
+                              class="sub2"> {{  language ==2 ? related.name_en : related.name_es }}</nuxt-link>
+                           </v-list-item-title>
+                        </v-list-item>
+                     </v-list>
+                  </v-menu>
+
+                  <nuxt-link v-else  class="sub2 px-4"
+                              :to="localePath({
+                                 name:'slug',
+                                 params:{
+                                    slug:item.url
+                                 }
+                              })"  v-bind="attrs"
+                                    v-on="on"
+                              >
+                           {{ item.name }}
+
+
+                        </nuxt-link >
+               </div>
+
+
 
 
 
@@ -177,4 +231,10 @@ export default {
    }
 }
 </script>
+
+<style lang="css" scoped>
+.v-menu__content{
+   box-shadow: none !important;
+}
+</style>
 

@@ -76,13 +76,39 @@
 
 }
 
+.listSub{
+   background-color: $secondary-color !important;
+   a{
+      color:  white;
+      text-decoration: none;
+   }
+}
 #categoriesMenu{
    background-color: $secondary-color !important;
 
-   .option{
-      color: white !important;
-      text-decoration: none !important;
+   .sub2{
+         color: white;
+         text-decoration: none;
+         border-right: 1px solid $primary-color !important;
+         &:last-child{
+            border: none !important;
+         }
+   }
 
+   .option{
+
+
+
+      .sub_menu{
+         text-transform: capitalize;
+         color: white !important;
+         opacity: 1;
+         font-size: $text-normal;
+         .v-btn__content{
+            transition:  none !important;
+            color: white !important;
+         }
+      }
       border-right: 1px solid $primary-color !important;
       &:last-child{
          border: none !important;

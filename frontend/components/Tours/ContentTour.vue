@@ -1,7 +1,7 @@
 <template>
    <div>
       <client-only>
-         <Gallery :items="itemsGallery"></Gallery>
+         <Gallery :items="itemsGallery" :video="video"></Gallery>
 
 
             <!--<div id="search-engine"  class="search_engine py-10">
@@ -92,7 +92,8 @@ export default {
          descriptionMeta:'',
          keywordsMeta:'',
          map:'',
-         not_included:''
+         not_included:'',
+         video :null,
 
       }
    },
@@ -205,6 +206,7 @@ export default {
                this.note = resp.data.data[0].note
                this.include = resp.data.data[0].includes
                this.img = resp.data.data[0].full_photo_path
+               this.video = resp.data.data[0].video
 
                this.titleMeta = resp.data.data[0].meta_title;
                      this.descriptionMeta= resp.data.data[0].meta_description;

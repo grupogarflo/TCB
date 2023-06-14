@@ -25,7 +25,7 @@
     }
 
     a {
-      color: #0000ee;
+      color: #EB008B;
       text-decoration: underline;
     }
 

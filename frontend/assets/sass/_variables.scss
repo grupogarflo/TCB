@@ -40,6 +40,10 @@ body{
    font-family: $font-family !important;
 }
 
+.v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content{
+   opacity: 1 !important;
+}
+
 
 .phone-numbers-options{
    color: white !important;
@@ -82,6 +86,11 @@ body{
 
 
 
+}
+
+/*
+.v-btn--active::before{
+   opacity: 0 !important;
 }
 /*
 .aquatic{

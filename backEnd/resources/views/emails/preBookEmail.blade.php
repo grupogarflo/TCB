@@ -159,7 +159,7 @@
                     <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
                       <!--<![endif]-->
 
-                      <table style="background-color:#1a2d4e; font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                      <table style="background-color:#EB008B; font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
@@ -258,7 +258,7 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
-                              <h1 style="margin: 0px; color: #1a2d4e; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
+                              <h1 style="margin: 0px; color: #EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
                                  @if ($details['language'] === 'ing')   Information:
                                  @else  Información:
                                  @endif
@@ -412,7 +412,7 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
-                              <h1 style="margin: 0px; color: #1a2d4e; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
+                              <h1 style="margin: 0px; color: #EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
                                    @if ($details['language'] === 'ing')   Tour Information:
                                    @else  Información del tour:
                                    @endif

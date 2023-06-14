@@ -157,7 +157,7 @@
                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>
                           <tr>
-                            <td style="background-color:#1a2d4e; overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
+                            <td style="background-color:#EB008B; overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
 
                               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
