@@ -3,7 +3,7 @@ export default ({ app }) => {
     w.$zoho = w.$zoho || {}
     w.$zoho.salesiq = w.$zoho.salesiq || {
       widgetcode:
-        '69608eea7c8757242d491bf2ec084711d4d45e084ef830ec4cad0c36df8f1927',
+        '1073f4ca0b13d6a7e885c59c0d06cff76e649ce6a3bae22bdbd773abbed2f7c1',
       values: {},
       ready() {},
     }

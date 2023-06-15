@@ -53,19 +53,19 @@ export default {
 
       price(){
          if (this.$store.getters['booking/language'] ===2){
-            return this.item.price_fake_adult;
+            return this.item.price_real_adult;
          }
          else{
-            return  this.item.fake_adult_mxn
+            return  this.item.real_adult_mxn
          }
       },
 
       priceChild(){
          if (this.$store.getters['booking/language'] ===2){
-            return this.item.price_fake_child;
+            return this.item.price_real_child;
          }
          else{
-            return  this.item.price_fake_child_mxn
+            return  this.item.price_real_child_mxn
          }
       },
 
