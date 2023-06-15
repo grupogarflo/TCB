@@ -79,16 +79,16 @@
 .listSub{
    background-color: $secondary-color !important;
    a{
-      color:  white;
-      text-decoration: none;
+      color:  white !important;
+      text-decoration: none !important;
    }
 }
 #categoriesMenu{
    background-color: $secondary-color !important;
 
    .sub2{
-         color: white;
-         text-decoration: none;
+         color: white !important;
+         text-decoration: none !important;
          border-right: 1px solid $primary-color !important;
          &:last-child{
             border: none !important;

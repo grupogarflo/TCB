@@ -565,16 +565,26 @@ class SiteApiController extends Controller
                         //dump($cont);
 
                         if(!empty($cont) && count($cont)>0){
+                            $arr=[];
                             foreach($cont as $c){
                                 $name = '';
-                                $res[$a]->destinations_related=array([
-                                    'id'=> $c->destination_id,
-                                    'url'=>$c->url,
-                                    'name_es'=>($c->language_id==1) ? $c->name : null,
-                                    'name_en'=>($c->language_id==2) ? $c->name : null,
+                                // dump($c->destination_id);
+                                // dump($c->name);
+                                // dump($c->language_id);
+                                // dump('----');
+                               if($request->idioma == $c->language_id){
+                                    array_push($arr,[
+                                        'id'=> $c->destination_id,
+                                        'url'=>$c->url,
+                                        'name_es'=>($c->language_id==1) ? $c->name : null,
+                                        'name_en'=>($c->language_id==2) ? $c->name : null,
 
-                                ]);
+                                    ]);
+                               }
+
+
                             }
+                            $res[$a]->destinations_related=$arr;
                         }
 
                     }
