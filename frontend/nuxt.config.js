@@ -170,7 +170,7 @@ export default {
 
       // baseURL: 'http://127.0.0.1:8000/api/',
 
-      // baseURL:'http://cancunbay.net/api/'
+       baseURL:'http://cancunbay.net/api/'
    },
 
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

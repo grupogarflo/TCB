@@ -556,7 +556,7 @@ class SiteApiController extends Controller
                 //dump($related);
 
                 if(!empty($related) && count($related)>0){
-
+                    $arr=[];
                     foreach($related as $d){
 
                         //dump($d);
@@ -565,7 +565,7 @@ class SiteApiController extends Controller
                         //dump($cont);
 
                         if(!empty($cont) && count($cont)>0){
-                            $arr=[];
+
                             foreach($cont as $c){
                                 $name = '';
                                 // dump($c->destination_id);
@@ -584,10 +584,11 @@ class SiteApiController extends Controller
 
 
                             }
-                            $res[$a]->destinations_related=$arr;
+
                         }
 
                     }
+                    $res[$a]->destinations_related=$arr;
                 }
                 else
                     $res[$a]['destinations_related']=null;

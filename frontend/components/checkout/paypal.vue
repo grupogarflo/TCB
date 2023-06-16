@@ -1,8 +1,6 @@
 <template>
    <div>
-
-     <div id="paypal-button-container"></div>
-     <v-row>
+      <v-row>
          <v-col cols="12" :class="[!mobile ? 'px-8': '']">
             <v-checkbox
 
@@ -10,29 +8,28 @@
                     :error-messages="termsErrors"
                     class="mt-0 mb-4 checkbox"
                     v-model="checkboxTerms"
+                    :label="$t('forms.payment.accept')"
                   >
-                    <template v-slot:label>
-                      <div>
-                        {{ $t('forms.payment.accept') }}
-                        <v-tooltip bottom>
-                          <template v-slot:activator="{ on }">
+            </v-checkbox>
+            <p>{{ $t('forms.payment.terms_cond') }}</p>
 
-                           <v-btn text @click="newTab"  v-on="on" class="px-0 btnTerms">
-
-                              {{ $t('forms.payment.terms_cond') }}
-                           </v-btn>
-                          </template>
-                         {{$t('forms.payment.tooltip')}}
-                        </v-tooltip>
-                      </div>
-                    </template>
-                  </v-checkbox>
+            <div v-html="$t('book_politics.content')" class="overflow-y-auto politics_show"></div>
          </v-col>
 
+      </v-row>
+      <v-row :class="[!checkboxTerms ? 'd-none':'d-block', 'mt-5']">
+         <v-col cols="12">
+            <div id="paypal-button-container" ></div>
+         </v-col>
       </v-row>
    </div>
  </template>
 
+<style lang="scss" scoped>
+ .politics_show{
+   height: 20rem !important ;
+ }
+</style>
 
 <script>
 
@@ -164,7 +161,7 @@ export default {
 
                                        amount: {
                                           currency_code: this.stateData.moneda,
-                                          value: this.total,
+                                          value: this.total.toFixed(2),
                                           // value: '10.00',
                                        },
                                        locale: (this.language==='ing') ? 'en_US': 'es_MX', // en_US - es_MX - en_MX
