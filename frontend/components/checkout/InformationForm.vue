@@ -43,6 +43,55 @@
             ></v-text-field>
          </v-col>
       </v-row>
+
+      <v-row>
+         <v-col cols="12" :class="[!mobile ? 'px-8': '']">
+            <v-select
+                  v-model="selectedConuntry"
+                  solo
+                  single-line
+                  filled
+                  flat
+                  hide-details="auto"
+                  :error-messages="selectConuntryErrors"
+                  @input="$v.selectCountry.$touch()"
+                  return-object
+                  class="form-field rounded-lg"
+                  :items="countries"
+                  :label="$t('forms.info.country')"
+                  required
+                  item-text="name"
+                  item-value="isoCode"
+                  @change="getState"
+
+                ></v-select>
+
+         </v-col>
+      </v-row>
+
+      <v-row>
+         <v-col cols="12" :class="[!mobile ? 'px-8': '']">
+            <v-select
+                        class="rounded-lg"
+                        :items="states"
+                        :label="$t('forms.info.state')"
+                        solo
+                        single-line
+                        filled
+                        flat
+                        hide-details="auto"
+                        item-text="name"
+                        item-value="isoCode"
+                        v-model="selectedState"
+                        return-object
+                     ></v-select>
+         </v-col>
+      </v-row>
+
+
+
+
+
       <v-row>
          <v-col cols="12" :class="[!mobile ? 'px-8': '']">
             <v-text-field
@@ -116,9 +165,11 @@
 
 
 <script>
+import { Country, State} from 'country-state-city';
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
 import SectionTitle from '~/components/General/SectionTitle.vue'
+
 
 
 export default {
@@ -128,6 +179,9 @@ export default {
       name: { required },
       email: { required, email },
       phone: { required },
+      selectConuntry: { required },
+
+
 
    },
 
@@ -146,10 +200,33 @@ export default {
          loadingPromo:false,
          total:null,
          radioGroup: 'card',
+         countries:Country.getAllCountries(),
+         states:[],
+         cities:[],
+         selectedCountry: '',
+         selectedState: '',
+
 
       }
    },
+
+
+
    computed:{
+      selectConuntryErrors() {
+         const errors = []
+         if (!this.$v.selectConuntry.$dirty) {
+         return errors
+         }
+         !this.$v.selectConuntry.required &&
+         errors.push(
+            this.$store.state.booking.idioma === 2
+               ? 'Country is required.'
+               : 'Se requiere el país.'
+         )
+         return errors
+      },
+
       nameErrors(){
          const errors = []
          if (!this.$v.name.$dirty) {
@@ -217,7 +294,25 @@ export default {
 
    },
 
+   async mounted() {
+    try {
+      const response = await fetch(
+        "https://api.countrystatecity.in/v1/countries",
+        this.$requestOptions
+      );
+      this.countries = await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
    methods:{
+
+
+
+
+
+
       triggerPayment(){
          this.$v.$touch()
          if (this.$v.$invalid) {
@@ -348,6 +443,14 @@ export default {
             })
          }
       },
+
+      getState(value) {
+         this.itemState = State.getStatesOfCountry(value.isoCode)
+      },
+
    }
+
+
+
 }
 </script>

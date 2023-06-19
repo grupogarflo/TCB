@@ -17,6 +17,7 @@
     "@vuelidate/core": "*",
     "@vuelidate/validators": "*",
     "core-js": "^3.25.3",
+    "country-state-city": "^3.1.4",
     "credit-card-input-mask": "^3.0.0",
     "load-script": "^2.0.0",
     "nuxt": "^2.15.8",
