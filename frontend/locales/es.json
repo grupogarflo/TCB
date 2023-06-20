@@ -78,7 +78,10 @@
          "promoCodeField":"Promo Code",
          "btnPromo":"Aplicar",
          "btnSubmit":"Continuar con el pago",
-         "validPromoCode":"Ingrese un promocode valido"
+         "validPromoCode":"Ingrese un promocode valido",
+         "country":"País",
+         "state": "Estado",
+         "city": "Ciudad"
 
 
       },

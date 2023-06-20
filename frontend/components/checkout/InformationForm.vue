@@ -47,21 +47,21 @@
       <v-row>
          <v-col cols="12" :class="[!mobile ? 'px-8': '']">
             <v-select
-                  v-model="selectedConuntry"
+                  v-model="selectedCountry"
                   solo
                   single-line
                   filled
                   flat
                   hide-details="auto"
-                  :error-messages="selectConuntryErrors"
-                  @input="$v.selectCountry.$touch()"
-                  return-object
+                  :error-messages="selectedCountryErrors"
+                  item-text="name"
+                  item-value="isoCode"
                   class="form-field rounded-lg"
                   :items="countries"
                   :label="$t('forms.info.country')"
                   required
-                  item-text="name"
-                  item-value="isoCode"
+                  @input="$v.selectedCountry.$touch()"
+
                   @change="getState"
 
                 ></v-select>
@@ -89,7 +89,22 @@
       </v-row>
 
 
+      <v-row>
+         <v-col cols="12" :class="[!mobile ? 'px-8': '']">
+            <v-text-field
+               v-model="city"
+               :placeholder="$t('forms.info.city')"
+               dense
+               class="form-field rounded-lg "
+               solo
+               single-line
+               filled
+               flat
+               hide-details="auto"
 
+            ></v-text-field>
+         </v-col>
+      </v-row>
 
 
       <v-row>
@@ -179,7 +194,8 @@ export default {
       name: { required },
       email: { required, email },
       phone: { required },
-      selectConuntry: { required },
+      selectedCountry: { required },
+      // selectedState:{required}
 
 
 
@@ -207,18 +223,19 @@ export default {
          selectedState: '',
 
 
+
       }
    },
 
 
 
    computed:{
-      selectConuntryErrors() {
+      selectedCountryErrors() {
          const errors = []
-         if (!this.$v.selectConuntry.$dirty) {
-         return errors
+         if (!this.$v.selectedCountry.$dirty) {
+            return errors
          }
-         !this.$v.selectConuntry.required &&
+         !this.$v.selectedCountry.required &&
          errors.push(
             this.$store.state.booking.idioma === 2
                ? 'Country is required.'
@@ -292,19 +309,20 @@ export default {
       },
 
 
+      countrySend(){
+
+         const  country = this.selectedCountry;
+
+         const aux = this.countries.map(element=> element.isoCode).indexOf(country);
+
+         return (aux!==false) ? this.countries[aux] : {}
+
+      }
+
+
    },
 
-   async mounted() {
-    try {
-      const response = await fetch(
-        "https://api.countrystatecity.in/v1/countries",
-        this.$requestOptions
-      );
-      this.countries = await response.json();
-    } catch (error) {
-      console.log(error);
-    }
-  },
+
 
    methods:{
 
@@ -324,11 +342,17 @@ export default {
             })
          */
 
+
+
+
          this.$store.commit('booking/addClient', {
             name: this.name,
             email: this.email,
             phone: this.phone,
             hotel: this.hotel,
+            country: this.countrySend,
+            state: this.selectedState,
+            city:this.city
          })
          this.sendPreBook()
 
@@ -345,6 +369,9 @@ export default {
             currency: this.currency,
             toursInfo: this.tourDetail,
             hotel: this.hotel,
+            country: this.countrySend,
+            state: this.selectedState,
+            city:this.city
          })
          .then((response) => {
 
@@ -387,6 +414,9 @@ export default {
                      hotel: this.stateData.client.hotel,
                      toursInfo: this.stateData.tours,
                      merch: this.radioGroup,
+                     country: this.countrySend,
+                     state: this.selectedState,
+                     city:this.city
                   })
                   .then((response) => {
                      // se dispara el proceso del cobro
@@ -445,7 +475,8 @@ export default {
       },
 
       getState(value) {
-         this.itemState = State.getStatesOfCountry(value.isoCode)
+        // alert(value);
+         this.states = State.getStatesOfCountry(value)
       },
 
    }

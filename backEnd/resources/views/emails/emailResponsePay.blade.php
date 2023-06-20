@@ -499,7 +499,7 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
                               <div style="color: #000000; line-height: 180%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Cancuntours<br /></span></p>
+                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Cancunbay<br /></span></p>
                               </div>
 
                             </td>

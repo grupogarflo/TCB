@@ -225,7 +225,7 @@ $details = [
 
 
           <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #0394EE;">
+            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #EB008B; color:#ffffff;">
               <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
                 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #0394EE;"><![endif]-->
 
@@ -350,6 +350,61 @@ $details = [
                           </tr>
                         </tbody>
                       </table>
+
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;">
+                                    @if ($details['language'] === 'ing')   Country: {{ $details['country'] }}
+                                    @else  País: {{ $details['country'] }}
+                                    @endif
+                                  </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;">
+                                    @if ($details['language'] === 'ing')   State: {{ $details['state'] }}
+                                    @else  Estado: {{ $details['state'] }}
+                                    @endif
+                                  </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;">
+                                    @if ($details['language'] === 'ing')   City: {{ $details['city'] }}
+                                    @else  Ciudad: {{ $details['city'] }}
+                                    @endif
+                                  </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
 
                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>
@@ -566,7 +621,7 @@ $details = [
                                 <p style="font-size: 14px; line-height: 140%;">
                                    @if ($details['language'] === 'ing')
                                    <h3>Cancellation Policy</h3>
-                                   <p>Cancellations Request will be only by e-mail to cancellations@cancuntours.com as MANDATORY. </p>
+                                   <p>Cancellations Request will be only by e-mail to cancellations@cancunbay.com as MANDATORY. </p>
                                    <p>• Cancellations made 48 hrs before your service = 100% refund </p>
                                    <p>• Cancellations made between 36 hrs and 48 hrs before your service = 80% refund </p>
                                    <p>• Cancellations made in a reservation paid with Paypal only apply for a refund of 80% tops</p>
@@ -579,7 +634,7 @@ $details = [
                                    <p>• The policy of 100% refund does not apply on reservations with promotional codes or discounts, even if the cancellation is made 48 hours prior to the service. In these cases the refund will only be of 80% tops</p>
                                    @else
                                     <h3>Políticas de Cancelación</h3>
-                                    <p>Toda Solicitud de  Cancelación tendrá que ser solicitada de manera obligatoria por correo electrónico a cancellations@cancuntours.com</p>
+                                    <p>Toda Solicitud de  Cancelación tendrá que ser solicitada de manera obligatoria por correo electrónico a cancellations@cancunbay.com</p>
                                     <p>• Cancelaciones hechas 48 hrs antes de su servicio = 100% reembolso </p>
                                     <p>• Cancelaciones hechas entre 36 hrs y 48 hrs antes de su servicio = 80% reembolso </p>
                                     <p>• Las cancelaciones realizadas en una reserva pagada con Paypal solo se aplican para un reembolso del 80%</p>
@@ -617,8 +672,8 @@ $details = [
 
 
           <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background: rgb(0,220,19);
-background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);">
+            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background:EB008B;
+background: #EB008B">
               <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
                 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #e5eaf5;"><![endif]-->
 
@@ -642,10 +697,10 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                                        @endif
                                       </strong></span></p>
                                 <p style="font-size: 14px; line-height: 160%;">
-                                    <span style="font-size: 16px; line-height: 25.6px; color: #ffffff;">US/CA: 1 (866) 3723975 | MX: 52 (998) 3870061 </span></p>
+                                    <span style="font-size: 16px; line-height: 25.6px; color: #ffffff;">US/CA: 1 (888) 257 5547 | MX: 52 01 (984) 242-0070 </span></p>
 
                                 <p style="font-size: 14px; line-height: 160%;">
-                                    <span style="font-size: 16px; line-height: 25.6px; color: #ffffff;">websales@cancuntours.com</span></p>
+                                    <span style="font-size: 16px; line-height: 25.6px; color: #ffffff;">websales@cancunbay.com</span></p>
                               </div>
 
                             </td>
@@ -664,7 +719,7 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
 
 
                                   <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
                                     <tbody>
                                       <tr style="vertical-align: top">
                                         <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
@@ -674,11 +729,11 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                                         </td>
                                       </tr>
                                     </tbody>
-                                  </table>
+                                  </table>-->
                                   <!--[if (mso)|(IE)]></td><![endif]-->
 
                                   <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
                                     <tbody>
                                       <tr style="vertical-align: top">
                                         <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
@@ -688,11 +743,11 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                                         </td>
                                       </tr>
                                     </tbody>
-                                  </table>
+                                  </table>-->
                                   <!--[if (mso)|(IE)]></td><![endif]-->
 
                                   <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
                                     <tbody>
                                       <tr style="vertical-align: top">
                                         <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
@@ -702,11 +757,11 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                                         </td>
                                       </tr>
                                     </tbody>
-                                  </table>
+                                  </table>-->
                                   <!--[if (mso)|(IE)]></td><![endif]-->
 
                                   <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
+                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
                                     <tbody>
                                       <tr style="vertical-align: top">
                                         <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
@@ -716,7 +771,7 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                                         </td>
                                       </tr>
                                     </tbody>
-                                  </table>
+                                  </table>-->
                                   <!--[if (mso)|(IE)]></td><![endif]-->
 
 
@@ -760,7 +815,7 @@ background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
                               <div style="color: #000000; line-height: 180%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Cancuntours<br /></span></p>
+                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Cancunbay<br /></span></p>
                               </div>
 
                             </td>

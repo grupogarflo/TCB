@@ -43,6 +43,11 @@ class PaymentController extends Controller
         $cliente->language = $request->language;
         $cliente->status = $request->status;
         $cliente->hotel = $hotel;
+        $cliente->country = $request->country['name']??null;
+        $cliente->state =$request->state['name']??null;
+        $cliente->city=$request->city??null;
+
+
         $cliente->save();
 
         //ultimo id insertado
@@ -270,6 +275,9 @@ class PaymentController extends Controller
             'child' => $res[0]->child,
             'promocode' => $res[0]->promocode,
             'discount' => $res[0]->discount,
+            'country'=>$res[0]->country,
+            'state'=>$res[0]->state,
+            'city'=>$res[0]->city
         ];
 
         Mail::to($res[0]->email)->send(new ConfirmationSend($details));
@@ -310,6 +318,9 @@ class PaymentController extends Controller
             'promocode' => $request->toursInfo["promocode"]['promocode']??'',
             'total_promocode'=>$totalPromocode,
             'hotel' => $request->hotel,
+            'country'=>$request->country['name']??'',
+            'state'=>$request->state['name']??'',
+            'city'=>$request->city??''
         ];
 
         /*Mail::to(env('MAIL_FROM_ADDRESS'))->send(new preBookEmail($details));

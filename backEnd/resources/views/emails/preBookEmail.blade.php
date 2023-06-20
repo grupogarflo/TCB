@@ -320,6 +320,62 @@
                         </tbody>
                       </table>
 
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;">
+                                    @if ($details['language'] === 'ing')   Country: {{ $details['country'] }}
+                                    @else  País: {{ $details['country'] }}
+                                    @endif
+                                  </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;">
+                                    @if ($details['language'] === 'ing')   State: {{ $details['state'] }}
+                                    @else  Estado: {{ $details['state'] }}
+                                    @endif
+                                  </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;">
+                                    @if ($details['language'] === 'ing')   City: {{ $details['city'] }}
+                                    @else  Ciudad: {{ $details['city'] }}
+                                    @endif
+                                  </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+
 
                        <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>

@@ -68,7 +68,10 @@
          "promoCodeField":"Promo Code",
          "btnPromo":"Apply",
          "btnSubmit":"Continue with payment",
-         "validPromoCode":"Type a valid Promo code"
+         "validPromoCode":"Type a valid Promo code",
+         "country":"Country",
+         "state": "State",
+         "city": "City"
 
       },
       "payment":{
@@ -132,7 +135,7 @@
    },
    "tours":{
       "includes":"Includes",
-      "recommendations":"recommendations",
+      "recommendations":"Recommendations",
       "notes":"Notes",
       "description":"Description",
       "not_included":"Not included"

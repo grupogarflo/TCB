@@ -25,11 +25,7 @@
    </div>
  </template>
 
-<style lang="scss" scoped>
- .politics_show{
-   height: 20rem !important ;
- }
-</style>
+
 
 <script>
 
@@ -132,10 +128,10 @@ export default {
                */
 
                      // sandbox jorge
-                  // const paypalScriptUrl = 'https://www.paypal.com/sdk/js?client-id=ASW-fc5l0Q62KlKwCC83hj5YR08w0XnMIaXTJOxcZmZ1FW6l4y4i-MUWhkyNmADyIk9BnZg5t5wumK96&currency=USD'
+                  const paypalScriptUrl = 'https://www.paypal.com/sdk/js?client-id=ASW-fc5l0Q62KlKwCC83hj5YR08w0XnMIaXTJOxcZmZ1FW6l4y4i-MUWhkyNmADyIk9BnZg5t5wumK96&currency='+this.currency
 
 
-                   const paypalScriptUrl = 'https://www.paypal.com/sdk/js?client-id=AXd2q-CJsN2MhkW_DOVp4FqKDIgkJYCxc6MrWna_-OURsfdP95XB6K2uzpqpudtulBhTBeZlmnwk5quc&currency='+this.currency
+                  // const paypalScriptUrl = 'https://www.paypal.com/sdk/js?client-id=AXd2q-CJsN2MhkW_DOVp4FqKDIgkJYCxc6MrWna_-OURsfdP95XB6K2uzpqpudtulBhTBeZlmnwk5quc&currency='+this.currency
 
 
                   const container = document.querySelector('#paypal-button-container')
@@ -235,3 +231,8 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+ .politics_show{
+   height: 20rem !important ;
+ }
+</style>

@@ -27,6 +27,9 @@ export const state = () => ({
     email: '',
     phone: '',
     hotel: '',
+    country:'',
+    state:'',
+    city:''
   },
   payment: {
     status: '',
@@ -108,6 +111,9 @@ export const mutations = {
     state.client.email = payload.email
     state.client.phone = payload.phone
     state.client.hotel = payload.hotel
+    state.client.country = payload.country
+    state.client.state  = payload.state
+    state.client.city = payload.city
   },
 
   addPromocode(state, payload = {}) {
