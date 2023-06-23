@@ -1,7 +1,7 @@
 <template>
    <div class="slideHomeTop">
 
-       <v-carousel  cycle
+       <v-carousel
            :height="alto"
            hide-delimiters
            hide-delimiter-background
@@ -18,7 +18,7 @@
                aspect-ratio="2"
                class="mx-auto"
                width="100%"
-               max-height="500"
+               :height="alto"
                :src="item.full_photo_path"
                :lazy-src="item.full_photo_path"
                :alt="item.alt"
@@ -30,7 +30,7 @@
                aspect-ratio="2"
                class="mx-auto"
                width="100%"
-               max-height="500"
+               :height="alto"
                :src="item.full_photo_path"
                :lazy-src="item.full_photo_path"
                :alt="item.alt"
@@ -38,7 +38,7 @@
             >
                <v-container style="height: 10%;">
                   <v-row justify="center" align="center" style="height: 10%;" >
-                     <v-col cols="2" class="align-content-center justify-center text-center mt-16 pt-10" align-self="center">
+                     <v-col cols="5" md="2" class="text-center px-10 alignIcon" >
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
                            <style type="text/css">
 	                           .st0{clip-path:url(#SVGID_00000154400207435928516630000004903932723039771581_);}
@@ -71,7 +71,7 @@
                aspect-ratio="2"
                class="mx-auto"
                width="100%"
-               max-height="500"
+               :height="alto"
                :src="item.full_photo_path"
                :lazy-src="item.full_photo_path"
                :alt="item.alt"
@@ -132,7 +132,7 @@ export default {
 
    alto(){
      if (this.isMobile) {
-       return 'auto';
+       return 430;
      } else {
        return 500
      }
@@ -162,3 +162,17 @@ export default {
 
 }
 </script>
+<style lang="scss" scoped>
+.alignIcon{
+   margin-top: 10.5rem;
+   cursor: pointer;
+}
+
+@media only screen and (max-width: 1263.98px){
+   .alignIcon{
+      margin-top: 9rem;
+      cursor: pointer;
+      //z-index: 90;
+   }
+}
+</style>

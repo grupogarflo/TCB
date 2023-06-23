@@ -1,14 +1,14 @@
 <template>
    <v-container>
          <v-row>
-            <v-col cols="6">
+            <v-col cols="12" md="6">
                <v-card class="rounded-lg" width="100%"  @click="goToToursDetails(first)">
                   <v-img :src="first.photo"  class="destinationsImg rounded-lg align-end" gradient="to bottom, rgba(255,255,255,0) 80%, rgba(0,0,0,0.75)" >
                      <v-card-title  class="img-name justify-start">{{ first.name }}</v-card-title>
                   </v-img>
                </v-card>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12" md="6">
                <v-card class="rounded-lg" width="100%" @click="goToToursDetails(second)">
                   <v-img :src="second.photo"  class="destinationsImg rounded-lg align-end" gradient="to bottom, rgba(255,255,255,0) 80%, rgba(0,0,0,0.75)">
                      <v-card-title  class="img-name justify-start">{{ second.name }}</v-card-title>
@@ -17,7 +17,7 @@
             </v-col>
          </v-row>
          <v-row v-for="(item, i) in items" :key="i">
-            <v-col v-for="(ele,j) in item" :key="j" :cols="(j==0) ? '6':'3'">
+            <v-col v-for="(ele,j) in item" :key="j" cols="12"  :md="(j==0) ? '6':'3'">
                <v-card class="rounded-lg" width="100%" @click="goToToursDetails(ele)">
                   <v-img :src="ele.photo" class="destinationsImg rounded-lg align-end" gradient="to bottom, rgba(255,255,255,0) 80%, rgba(0,0,0,0.75)">
                      <v-card-title  class="img-name justify-start">{{ ele.name }}</v-card-title>
@@ -30,7 +30,7 @@
          </v-row>
 
          <v-row>
-            <v-col v-for="(ele, a) in lastRow" :key="a" cols="3">
+            <v-col v-for="(ele, a) in lastRow" :key="a" cols="12" :md="lastRowColumn">
                <v-card class="rounded-lg" width="100%" @click="goToToursDetails(ele)">
                   <v-img :src="ele.photo" class="destinationsImg rounded-lg align-end" gradient="to bottom, rgba(255,255,255,0) 80%, rgba(0,0,0,0.75)">
                      <v-card-title  class="img-name justify-start">{{ ele.name }}</v-card-title>
@@ -57,6 +57,19 @@ export default {
 
    },
    computed:{
+      lastRowColumn(){
+
+            // console.log('length ',this.lastRow.length);
+            if(this.lastRow.length === 4){
+               return '3'
+            }
+            else{
+
+               return '4'
+            }
+
+      },
+
       language(){
          return this.$store.getters['booking/language'];
       },
@@ -87,6 +100,7 @@ export default {
                let url='';
                let showHome = false;
 
+
                if(this.language===1){
                   // eslint-disable-next-line camelcase
                   name_element = element.name
@@ -100,7 +114,7 @@ export default {
                   showHome= element.show_home
                }
 
-               if(showHome){
+               if(showHome &&  element.has_tours){
 
                   if(count===1){
                      this.first= {

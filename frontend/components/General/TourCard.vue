@@ -29,7 +29,7 @@
       <v-card-actions class="px-5 py-3 mb-auto backActions ">
          <v-row justify="space-between" align="end">
             <v-col cols="6" class="tour-card-text-action">{{ $t('general.from') }}: <span class="d-block">{{  price | currencyFormat(currency) }}</span></v-col>
-            <v-col cols="6">
+            <v-col cols="6" class="text-right">
                <v-btn class="tour-card-btn-action py-4 px-4 elevation-0 rounded-pill"  small @click="goToToursDetails(item)">{{ $t('general.book_now') }}</v-btn>
 
             </v-col>

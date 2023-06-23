@@ -47,7 +47,7 @@
       </v-row>
 
       <v-row class="mt-10">
-         <v-col cols="12" md="6">
+         <v-col cols="12" md="6" :order="(mobile) ? '2' :'1' ">
                <v-card width="100%" :class="['py-5', (steps==3) ? 'elevation-0' : '']" >
                   <v-card-text>
                      <InformationForm :class="[(steps==1) ? 'd-block' : 'd-none' ]"></InformationForm>
@@ -58,17 +58,12 @@
                   </v-card-text>
                </v-card>
          </v-col>
-         <v-col cols="12" md="6">
+         <v-col cols="12" md="6" :order="(mobile) ? '1' :'2' ">
             <TourDetail :tour="tourDetail"  ></TourDetail>
          </v-col>
       </v-row>
 
-      <v-row justify="center">
-         <v-col cols="12" md="12" >
-            <SectionTitle :titleText="$t('ourTours')" class="mt-16"></SectionTitle>
-            <Categories class="mt-5"></Categories>
-         </v-col>
-      </v-row>
+º
 
 
    </v-container>
@@ -80,13 +75,13 @@
 import InformationForm from '~/components/checkout/InformationForm';
 // import PaymentForm from '~/components/checkout/PaymentForm.vue';
 import TourDetail from '~/components/checkout/TourDetail.vue';
-import Categories from '~/components/General/Categories.vue';
-import SectionTitle from '~/components/General/SectionTitle.vue';
+// import Categories from '~/components/General/Categories.vue';
+// import SectionTitle from '~/components/General/SectionTitle.vue';
 import Confirmation from '~/components/checkout/Confirmation.vue';
 import Paypal from '~/components/checkout/paypal.vue';
 export default {
 
-   components:{InformationForm,  TourDetail, Categories, SectionTitle, Confirmation, Paypal},
+   components:{InformationForm,  TourDetail, Confirmation, Paypal},
    data(){
       return {
          steps :1,

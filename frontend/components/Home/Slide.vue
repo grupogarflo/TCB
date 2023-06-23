@@ -54,12 +54,15 @@ export default {
 
   },
   computed:{
-
+      mobile(){
+            return this.isMobile();
+      },
     alto(){
-      if (this.isMobile) {
-        return 'auto';
+
+      if (this.mobile) {
+        return 150;
       } else {
-        return 468
+        return 300
       }
     }
   },

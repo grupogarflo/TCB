@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div v-if="!mobile">
       <client-only>
          <Gallery :items="itemsGallery" :video="video"></Gallery>
 
@@ -13,12 +13,17 @@
 
          <v-container class="my-5 px-5">
             <v-row>
-               <v-col cols="12" sm="6" class="px-8">
+               <v-col cols="12"  class="px-8 ">
                   <v-breadcrumbs
                      :items="breadcrumbs"
                      divider=">"
                      class="px-0"
                   ></v-breadcrumbs>
+               </v-col>
+            </v-row>
+            <v-row >
+               <v-col cols="12" sm="6" class="px-8" :order="(mobile) ? '2' :'1' ">
+
                   <SectionTitle :title-text="name" class="mt-5"></SectionTitle>
                   <general-data :rank="item.rank" :duration="item.duration" :available="item.avaible" class="mt-5"></general-data>
 
@@ -28,11 +33,11 @@
 
 
                </v-col>
-               <v-col cols="12" sm="6" class="px-8">
+               <v-col cols="12" sm="6" class="px-8" :order="(mobile) ? '1' :'2' ">
                   <detail-action :item="item"></detail-action>
                   <SearchEngine  :openPax="openPax" :open="0" class="mt-5"> </SearchEngine>
 
-                  <div v-if="map!=='' " v-html="map" class="mx-auto mt-5"></div>
+                  <div v-if="map!=='' " v-html="map" class="mx-4 mt-5"></div>
 
                   <content-expand :title="$t('tours.not_included')" :content="note" :is_html="true" class="mt-5"></content-expand>
 
@@ -49,6 +54,51 @@
 
 
 
+      </client-only>
+   </div>
+   <div v-else>
+      <client-only>
+         <Gallery :items="itemsGallery" :video="video"></Gallery>
+         <v-container class="my-5 px-1">
+            <v-row>
+               <v-col cols="12"  class="px-8 ">
+                  <v-breadcrumbs
+                     :items="breadcrumbs"
+                     divider=">"
+                     class="px-0"
+                  ></v-breadcrumbs>
+               </v-col>
+            </v-row>
+            <v-row >
+               <v-col cols="12" sm="6" class="px-8">
+
+                  <SectionTitle :title-text="name" class="mt-5"></SectionTitle>
+                  <general-data :rank="item.rank" :duration="item.duration" :available="item.avaible" class="my-5"></general-data>
+                  <detail-action :item="item"></detail-action>
+                  <SearchEngine  :openPax="openPax" :open="0" class="mt-5"> </SearchEngine>
+
+                  <content-expand :title="$t('tours.description')" :content="description" :is_html="true" class="mt-5"></content-expand>
+                  <content-expand :title="$t('tours.includes')" :content="include" :is_html="true" class="mt-5"></content-expand>
+                  <content-expand :title="$t('tours.not_included')" :content="note" :is_html="true" class="mt-5"></content-expand>
+                  <content-expand :title="$t('tours.recommendations')" :content="suggestion" :is_html="true" class="mt-5"></content-expand>
+                  <content-expand :title="$t('tours.notes')" :content="note" :is_html="true" class="mt-5"></content-expand>
+
+
+
+
+
+
+
+
+
+
+
+               </v-col>
+            </v-row>
+
+
+         </v-container>
+         <div v-if="map!=='' " v-html="map" style="width: 100%;"></div>
       </client-only>
    </div>
 

@@ -1,6 +1,6 @@
 <template>
    <div class="tour-detail">
-      <div class="blue-rectangle mt-16 pt-10">
+      <div :class="['blue-rectangle', (mobile) ? 'px-4':'px-10', (mobile)? 'py-5':'py-10',(mobile) ? 'text-center':'']">
          <p>
             <span class="price-fake">{{ $t('general.adults') }}: {{ adultFake | currencyFormat(currency) }}</span>
 
@@ -40,6 +40,9 @@ export default {
    },
 
    computed:{
+      mobile(){
+            return this.isMobile();
+      },
 
       adultFake(){
          if (this.$store.getters['booking/language'] ===2){

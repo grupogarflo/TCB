@@ -1,58 +1,12 @@
 <template>
    <div>
 
-      <content-tour  v-if="pageType=='tour'"></content-tour>
-      <content-category v-if="pageType=='category'"></content-category>
-
-      <content-destination v-if="pageType=='destination'"></content-destination>
-
-
-      <!--
       <client-only>
-         <Slide :items="itemsGallery"></Slide>
-
-            <div id="search-engine"  class="search_engine py-10">
-
-               <SearchEngine  :openPax="openPax"> </SearchEngine>
-            </div>
-
-
-
-         <v-container class="my-5">
-            <v-row>
-               <v-col cols="12" md="7">
-                  <SectionTitle :title-text="name"></SectionTitle>
-                  <div class="mt-3" v-html="description"></div>
-               </v-col>
-               <v-col cols="12" md="5">
-                  <detail-action :item="item"></detail-action>
-               </v-col>
-            </v-row>
-         </v-container>
-         <div :class="[!mobile ? 'background-grey':'', 'py-5']">
-            <v-container>
-               <v-row justify="space-between">
-                  <v-col cols="12" md="3">
-                     <SectionTitle :title-text="$t('tours.includes')"></SectionTitle>
-                     <div v-html="include"></div>
-                  </v-col>
-                  <v-col sm="12" md="3">
-                     <SectionTitle :title-text="$t('tours.recommendations')"></SectionTitle>
-                     <div v-html="suggestion"></div>
-                  </v-col>
-                  <v-col sm="12" md="3">
-                     <SectionTitle :title-text="$t('tours.notes')"></SectionTitle>
-                     <div v-html="note"></div>
-                  </v-col>
-               </v-row>
-               <Categories v-if="mobile" class="mb-10"></Categories>
-            </v-container>
-         </div>
-
-
+         <content-tour  v-if="pageType=='tour'"></content-tour>
+         <content-category v-if="pageType=='category'"></content-category>
+         <content-destination v-if="pageType=='destination'"></content-destination>
       </client-only>
 
-      -->
    </div>
 
 </template>

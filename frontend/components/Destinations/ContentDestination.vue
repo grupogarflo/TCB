@@ -16,7 +16,7 @@
                <div v-html="description"></div>
                <div id="home_tours_cards" class="mt-16 mb-16">
                   <v-row justify="start" >
-                        <v-col v-for="(item, i) in dataTour" :key="i" sm="4" md="3" class="d-flex flex-grow-1 flex-shrink-1 align-stretch">
+                        <v-col v-for="(item, i) in dataTour" :key="i" cols="12" sm="6" md="4" lg="3" class="d-flex flex-grow-1 flex-shrink-1 align-stretch">
                            <TourCard :item="item"></TourCard>
                         </v-col>
                   </v-row>

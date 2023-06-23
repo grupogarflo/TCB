@@ -72,15 +72,17 @@
 .tour-detail{
    .blue-rectangle{
 
+       background-color: lighten($secondary-color, 53);
+
       .price-fake{
-         color:  $text-back-blue !important;
+         color:  $text-price-fake !important;
          text-decoration: line-through;
-         font-size: $text-title;
+         font-size: $text-semi-title1;
          font-weight: bold;
       }
       .price-real{
-         color: $secondary-color !important;
-         font-size: $text-title;
+         color: black !important;
+         font-size: $text-semi-title1;
          font-weight: bold;
 
       }
@@ -171,5 +173,38 @@
    }
    .wraperVideo{
       height: 350px !important;
+   }
+
+
+   .tour-detail{
+      .blue-rectangle{
+
+         background-color: lighten($secondary-color, 53);
+
+         .price-fake{
+            color:  $text-price-fake !important;
+            text-decoration: line-through;
+            font-size: $text-sub;
+            font-weight: bold;
+         }
+         .price-real{
+            color: black !important;
+            font-size: $text-sub;
+            font-weight: bold;
+
+         }
+         .data{
+            color: white;
+         }
+
+      }
+      .buttons{
+         .detail{
+            background-color: $secondary-color !important;
+            color: white !important;
+            font-weight: bold !important;
+            font-size: $text-normal !important;
+         }
+      }
    }
 }

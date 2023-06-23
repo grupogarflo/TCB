@@ -34,6 +34,8 @@
                               plain
                               color="white"
 
+                              @click="goTo(item.url)"
+
                               >
 
                               {{ item.name }}
@@ -82,31 +84,85 @@
          </v-col>
       </v-row>
    </v-container>
-   <v-container v-else>
+   <v-container v-else class="mt-0 pt-0">
 
       <v-row no-gutters>
 
          <v-col sm="12" >
-            <ul class="menu-list pt-5 px-5">
-               <li class="my-3">
+            <ul class="menu-list pt-2 px-2">
+               <li class="my-2">
                      <span v-for="locale in availableLocales" :key="locale.code">
-                        <a v-if="locale.show"  class="mx-2 language" :data-lang="language" :data-value="language" :href="domain">{{ locale.name }}</a>
+                        <a v-if="locale.show"  class=" language" :data-lang="language" :data-value="language" :href="domain">{{ locale.name }}</a>
                      </span>
-                  <nuxt-link :to="localePath({name:'contact'})" class="language"> <span class="mx-2">{{ $t(('menu.header.contact')) }}</span></nuxt-link>
+
                </li>
-               <li v-for="(item, i) in items " :key="i" class="my-3">
-                  <nuxt-link  class="language strong" :to="localePath({
-                     name:'tours-slug',
-                     params:{
-                        slug:item.url
-                     }
-                  })" >
-                     {{ item.name }}
-                  </nuxt-link>
+               <li class="my-2">
+                  <nuxt-link :to="localePath({
+                        name:'slug',
+                        params:{
+                           slug:all_tours.url
+                        }
+                     })" class="sub2">
+                     {{ all_tours.name }}
+                  </nuxt-link >
                </li>
-               <li class="my-3"><nuxt-link class="language slim" :to="localePath({name:'terms'})"> {{ $t(('menu.footer.terms_conditions')) }} </nuxt-link></li>
-               <li class="my-3"><nuxt-link class="language slim" :to="localePath({name:'politics'})"> {{ $t(('menu.footer.terms_politics')) }} </nuxt-link></li>
-               <li class="my-3"><nuxt-link class="language slim" :to="localePath({name:'about-us'})"> {{ $t(('menu.footer.about-us')) }} </nuxt-link></li>
+               <li v-for="(item, i) in items " :key="i" class="my-2">
+                  <div v-if="item.destinations_related!=null"  >
+                     <nuxt-link
+                        class="sub2 "
+                              :to="localePath({
+                                 name:'slug',
+                                 params:{
+                                    slug:item.url
+                                 }
+                              })"  v-bind="attrs"
+                                    v-on="on"
+
+                              >
+
+                              {{ item.name }}
+
+                        </nuxt-link>
+
+                     <v-list class="listSub pl-2" elevation="0" flat>
+                        <v-list-item
+                           v-for="(related, j) in item.destinations_related"
+                           :key="j"
+                        >
+                           <v-list-item-title>
+                              <nuxt-link  :to="localePath({
+                                 name:'slug',
+                                 params:{
+                                    slug:related.url
+                                 }
+                              })"
+                              class="sub2"> {{  language ==2 ? related.name_en : related.name_es }}</nuxt-link>
+                           </v-list-item-title>
+                        </v-list-item>
+                     </v-list>
+                  </div>
+
+                  <nuxt-link v-else  class="sub2 "
+                              :to="localePath({
+                                 name:'slug',
+                                 params:{
+                                    slug:item.url
+                                 }
+                              })"  v-bind="attrs"
+                                    v-on="on"
+                              >
+                           {{ item.name }}
+
+
+                        </nuxt-link >
+
+
+
+               </li>
+               <li class="my-2"> <nuxt-link :to="localePath({name:'contact'})" class="language slim"> {{ $t(('menu.header.contact')) }}</nuxt-link></li>
+               <li class="my-2"><nuxt-link class="language slim" :to="localePath({name:'terms'})"> {{ $t(('menu.footer.terms_conditions')) }} </nuxt-link></li>
+               <li class="my-2"><nuxt-link class="language slim" :to="localePath({name:'politics'})"> {{ $t(('menu.footer.terms_politics')) }} </nuxt-link></li>
+               <li class="my-2"><nuxt-link class="language slim" :to="localePath({name:'about-us'})"> {{ $t(('menu.footer.about-us')) }} </nuxt-link></li>
             </ul>
          </v-col>
       </v-row>
@@ -127,6 +183,7 @@ export default {
 
          // change to cancun bay urls
          domain:(this.language===1) ? 'http://cancunbay.net' : 'http://cancunbay.mx',
+         show_menu_mobile:true
       }
    },
    computed:{

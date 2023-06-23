@@ -26,7 +26,7 @@
       height: 500px;
    }
    .sliderPosition{
-      margin-top: -185px !important;
+      margin-top: -200px !important;
       position:static;
       z-index: 7;
       .slideHomeTop{
@@ -91,5 +91,30 @@
       font-size: $text-semi-title2;
       font-weight: bold;
       margin: auto 15px 15px 15px;
+   }
+}
+
+
+
+
+
+@media #{map-get($display-breakpoints, 'md-and-down')}{
+
+
+
+   #homePage{
+      .sliderCo{
+         //background-image: url('/images/homeBanners/vista-al-mar-desde-tulum.jpg') ;
+         background-position: center;
+         width: 100%;
+         //margin-top: 100px;
+         height: 500px;
+      }
+      .sliderPosition{
+         margin-top: -140px !important;
+         position:static;
+         z-index: 7;
+
+      }
    }
 }

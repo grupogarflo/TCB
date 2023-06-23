@@ -46,37 +46,37 @@
       </div>
 
       <v-container v-else  id="Header" fluid >
-         <v-row>
-            <v-container class="pt-10">
-               <v-row align="end" no-gutters>
-                  <v-col sm="4" align-self="end" class="text-left "></v-col>
-                  <!--
-                     <span class="mx-2 social icon-carrito"></span>
-                  </v-col>-->
-
-                  <v-col sm="3" class="text-center " >
-                     <v-img class="logo" src="/images/layout/logotipo.png" @click="goToHome"/>
-                  </v-col>
-                  <v-col sm="5" class="text-right ">
-
-                     <v-icon color="#E1AC66" @click.stop="menu = !menu">mdi-menu</v-icon>
-
-
-                  </v-col>
-               </v-row>
-
-               <v-navigation-drawer v-model="menu" app class="menuMobile">
-                  <v-row no-gutters class="pr-3 pt-5">
-                     <v-col sm="12" class="text-right">
-                        <v-icon color="#E1AC66"  @click.stop="menu = false" >mdi-close-circle</v-icon>
+         <client-only>
+            <v-row>
+               <v-container class="pt-5">
+                  <v-row align="end" no-gutters>
+                     <v-col sm="2" class="text-left">
+                        <v-icon color="white" @click.stop="menu = !menu">mdi-menu</v-icon>
                      </v-col>
-                  </v-row>
-                  <MenuCategories></MenuCategories>
 
-                  <RedesSociales></RedesSociales>
-               </v-navigation-drawer>
-            </v-container>
-         </v-row>
+                     <v-col sm="3" class="text-center " >
+                        <img class="logo" src="/images/layout/logo.svg" @click="goToHome"/>
+                     </v-col>
+
+                     <v-col sm="3" class="text-right">
+                        <a href="https://api.whatsapp.com/send?phone=529841062511" ><span class="mx-2 social icon-whatsapp"></span></a>
+                     </v-col>
+
+                  </v-row>
+
+                  <v-navigation-drawer v-model="menu" app class="menuMobile">
+                     <v-row no-gutters class="pr-3 pt-3">
+                        <v-col sm="12" class="text-right">
+                           <v-icon color="white"  @click.stop="menu = false" >mdi-close-circle</v-icon>
+                        </v-col>
+                     </v-row>
+                     <MenuCategories></MenuCategories>
+
+                     <RedesSociales></RedesSociales>
+                  </v-navigation-drawer>
+               </v-container>
+            </v-row>
+         </client-only>
       </v-container>
    </div>
 </template>

@@ -90,6 +90,9 @@
          color: white !important;
          text-decoration: none !important;
          border-right: 1px solid $primary-color !important;
+         font-size: 0.95rem !important;
+            line-height: auto;
+            letter-spacing: 0;
          &:last-child{
             border: none !important;
          }
@@ -103,10 +106,15 @@
          text-transform: capitalize;
          color: white !important;
          opacity: 1;
-         font-size: $text-normal;
+         font-size: 0.95rem !important;
+            line-height: auto;
+            letter-spacing: 0;
          .v-btn__content{
             transition:  none !important;
             color: white !important;
+            font-size: 0.95rem !important;
+            line-height: auto;
+            letter-spacing: 0;
          }
       }
       border-right: 1px solid $primary-color !important;
@@ -117,3 +125,93 @@
    }
 
 }
+
+
+@media #{map-get($display-breakpoints, 'md-and-down')}{
+   #Header{
+      background-color: $primary-color;
+      .logo{
+          width: 100px;
+      }
+
+
+      a{
+        text-decoration: none !important;
+        color: white;
+      }
+      .social{
+          font-size: $text-title;
+          color: white;
+          cursor: pointer;
+      }
+
+      .links{
+          color: white;
+          font-size: $text-normal;
+
+      }
+
+     .menuMobile{
+        background-color: $primary-color !important;
+        .menu-list{
+           padding: 0;
+           list-style: none;
+        }
+
+        .strong{
+           font-family: $font-family !important;
+           font-weight: 700;
+           font-size: $text-semi-title1;
+        }
+        .slim{
+           font-size: $text-sub;
+        }
+     }
+
+  }
+  .sub2{
+      color: white !important;
+      text-decoration: none !important;
+      border-right: 1px solid $primary-color !important;
+      font-size: $text-normal;
+
+   }
+  .listSub{
+     background-color: $primary-color !important;
+
+     a{
+        color:  white !important;
+        text-decoration: none !important;
+     }
+     .sub2{
+      font-size: $text-sub;
+     }
+     .v-list-item{
+      min-height: 25px !important;
+     }
+  }
+
+
+
+
+     .option{
+
+
+
+        .sub_menu{
+           text-transform: capitalize;
+           color: white !important;
+           opacity: 1;
+           font-size: $text-normal;
+           .v-btn__content{
+              transition:  none !important;
+              color: white !important;
+           }
+        }
+
+
+     }
+
+
+}
+

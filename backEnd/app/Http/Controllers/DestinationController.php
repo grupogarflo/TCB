@@ -336,7 +336,7 @@ class DestinationController extends Controller
     public function getDestinationsAll(Request $request){
 
 
-        $destinations = destination::with('destinationContentEsp','destinationContentEng')->get();
+        //$destinations = destination::with('destinationContentEsp','destinationContentEng')->get();
 
 
         $destinations = destinationContent::select("destination_id as id","destination_contents.show_home", "destination_contents.name", "destination_contents.url", "languages.name as idioma", "destination_contents.img","destination_contents.order")
@@ -348,6 +348,18 @@ class DestinationController extends Controller
             ->get();
 
 
+
+
+        foreach($destinations as $d){
+            $has_tours = false;
+            $tours = destination::find($d['id'])->tours;
+
+            // dump($tours);
+            if(count($tours)>0){
+                $has_tours =true;
+            }
+            $d['has_tours']= $has_tours;
+        }
 
 
 

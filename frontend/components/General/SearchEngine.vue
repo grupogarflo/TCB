@@ -352,6 +352,12 @@ export default {
         // valida si estoy dentro de la ficha del tour entonces se manda al checkout
         // de lo contrario se manda a la ficha del tour
 
+
+        this.$router.push(this.localePath({
+               name: 'checkout',
+
+            } ))
+        /*
         console.log(this.$route.name);
          if (this.$route.name === 'slug___es' ) {
             this.$router.push(this.localePath({
@@ -373,6 +379,8 @@ export default {
             // }
           }))
         }
+
+        */
       } else {
         if (this.modelSelectTour.length === 0) {
           this.textAlertBook = 'Need select one tour to continue'
