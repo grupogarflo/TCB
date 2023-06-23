@@ -2,7 +2,8 @@
    <div id="homePage">
       <client-only>
          <div class="sliderCo">
-            <img src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight" :width=" (!mobile) ? '100%' : 'auto'" />
+            <img v-if="!mobile" src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight" width="100%" />
+            <img v-else src="/images/homeBanners/vista-al-mar-desde-tulum-mobile.jpg" :height="imgHeight" width="100%" />
 
                <div class="search_container">
                   <v-container>

@@ -254,7 +254,7 @@ export default {
       async init() {
 
          try {
-            this.domain =(this.language===1) ? 'http://cancunbay.net' : 'http://cancunbay.mx'
+            this.domain =(this.language===1) ? 'http://cancunbay.net' : 'http://www.cancunbay.com.mx'
 
             await this.$axios
                .post('/getAllCategories', {

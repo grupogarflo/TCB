@@ -123,7 +123,7 @@ export default {
             code: 'es',
             name: 'Español',
             iso: 'es-ES',
-            domain: 'www.cancunbay.mx',
+            domain: 'www.cancunbay.com.mx',
 
             show:true
          },
