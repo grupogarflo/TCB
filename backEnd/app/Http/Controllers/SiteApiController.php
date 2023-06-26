@@ -144,7 +144,7 @@ class SiteApiController extends Controller
 
     function getTourListSelect(Request $request)
     {
-        $res = tourContent::select(
+        /*$res = tourContent::select(
             "tour_contents.name",
             "tour_contents.url",
             "tours.id",
@@ -157,18 +157,55 @@ class SiteApiController extends Controller
             ->where('tours.public', 1)
             ->where('languages.id', $request->idioma)
             ->orderBy('tour_contents.name', 'ASC')
+            ->get();*/
+
+        $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
+            ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
+            ->where('tours.active', 1)
+            ->where('tours.public', 1)
+            ->where('language_id', $request->idioma)
+            // ->orderBy('tour_contents.name', 'ASC')
+            ->orderBy('tour_contents.name', 'ASC')
             ->get();
+
         $arr = [];
-        for ($a = 0; $a < sizeof($res); $a++) {
+        /*for ($a = 0; $a < sizeof($res); $a++) {
             $arr[$a]["name"] = $res[$a]->name;
             $arr[$a]["value"] = $res[$a]->url;
             $arr[$a]["id"] = $res[$a]->id;
             $arr[$a]["full_photo_path"] = env('APP_URL').'/storage'.$res[$a]->img;
+        }*/
+        foreach($res as $r){
+
+            $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+            $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+
+            $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+            $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+            $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+
+            $tour = tour::with('categories')->find($r->tour_id);
+
+            //dd($tour->categories);
+            $categories = [];
+            foreach($tour->categories as $cat){
+                $contents = $cat->category_contents;
+                foreach($contents as $content){
+                    //dump($content['language_id']);
+                    if($content->language_id==$request->idioma){
+                        array_push($categories, $content);
+                    }
+                }
+            }
+            $r->category =(count($categories)>0) ? $categories[0] : null;
+
+
+
         }
 
         //return json_encode($arr);
         return response()->json([
-            "data" => $arr
+            "data" => $res
         ], 200);
     }
 
