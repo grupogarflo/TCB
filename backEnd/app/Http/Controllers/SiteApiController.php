@@ -162,6 +162,7 @@ class SiteApiController extends Controller
             $arr[$a]["name"] = $res[$a]->name;
             $arr[$a]["value"] = $res[$a]->url;
             $arr[$a]["id"] = $res[$a]->id;
+            $arr[$a]["full_photo_path"] = $res[$a]->full_photo_path;
         }
 
         //return json_encode($arr);
