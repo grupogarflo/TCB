@@ -148,7 +148,8 @@ class SiteApiController extends Controller
             "tour_contents.name",
             "tour_contents.url",
             "tours.id",
-            "languages.name as idioma"
+            "languages.name as idioma",
+            "tour_contents.img"
         )
             ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
