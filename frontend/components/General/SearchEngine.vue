@@ -26,11 +26,11 @@
                            flat
                            :items="items"
                            item-text="name"
-                           item-value="value"
+                           item-value="id"
                            :placeholder="$t('general.tours')"
 
                            hide-details
-                           @change="tourChange(items.id)"
+                           @change="tourChange"
                            :menu-props="{
                               'offset-y':true
                            }"
@@ -316,8 +316,10 @@ export default {
 
 
   methods: {
-    tourChange(value) {
-      const aux = this.items.find((item) => item.value === this.modelSelectTour)
+    tourChange() {
+      // console.log('ite ' , this.modelSelectTour);
+      // console.log('full ', this.items);
+      const aux = this.items.find((item) => item.id === this.modelSelectTour)
       /*
       this.$store.commit('booking/destinationTours', {
         url: this.modelSelectTour,
@@ -327,11 +329,18 @@ export default {
       */
 
       const  pay = {
-        url: this.modelSelectTour,
+        url: aux.name,
         id: aux.id,
       }
 
       this.$store.dispatch('booking/setDestinationTour',pay)
+      this.$store.commit('booking/dataTours', {
+                  id: aux.id,
+                  name: aux.name,
+                  url: aux.url,
+                  img: aux.full_photo_path,
+                  duration: aux.duration,
+               })
 
       this.getDatesBlock();
 
@@ -339,7 +348,7 @@ export default {
     },
     clickCard() {
       // valida que este seleccionado un tour
-      if (this.modelSelectTour.length > 0 && this.date !== '') {
+      if (this.date !== '') {
         // set de los datos de promocode
         this.$store.commit('booking/addPromocode', {})
 
@@ -436,12 +445,12 @@ export default {
             // console.log('name route ',this.$route.name);
             // console.log('locale ', this.$i18n.locale);
             // console.log(this.tours_state.url)
-            if(this.$route.name === 'slug___es'){
+            // if(this.$route.name === 'slug___es'){
                if (
                   this.tours_state.url !== '' &&
                   typeof this.tours_state.url !== 'undefined'
                ){
-                  this.modelSelectTour = this.tours_state.url
+                  this.modelSelectTour = this.tours_state.id
                   this.getDatesBlock();
                }
                else if (typeof this.$route.params.slug !== 'undefined') {
@@ -453,7 +462,7 @@ export default {
                   },500)
                }
 
-            }
+            // }
             /*
 
             if(this.$route.name !== 'slug___'+this.$i18n.locale){

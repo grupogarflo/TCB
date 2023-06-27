@@ -3,38 +3,40 @@
 
         <v-carousel  cycle
             :height="alto"
-            hide-delimiters
+            :hide-delimiters="!mobile"
             hide-delimiter-background
+            :show-arrows="!mobile"
+            class="rounded-lg pa-1"
             >
           <v-carousel-item v-for="(item, index) in items" :key="index"
-            class="text-center"
+            class="text-center rounded-lg"
           >
             <NuxtLink
               v-if="item.url != '' && item.url != null"
               :to="item.url"
             >
-              <v-img
+              <img
                 eager
-                aspect-ratio="2"
-                class="mx-auto rounded-lg"
-                width="100%"
+                class="mx-auto rounded-lg img-class"
+                width="99%"
                 max-height="300"
+                min-height="150"
                 :src="item.full_photo_path"
                 :lazy-src="item.full_photo_path"
                 :alt="item.alt"
-              ></v-img>
+              />
             </NuxtLink>
-            <v-img
+            <img
                 v-else
                 eager
-                aspect-ratio="2"
-                class="mx-auto rounded-lg"
-                width="100%"
+                class="mx-auto rounded-lg img-class"
+                width="99%"
                 max-height="300"
+                min-height="150"
                 :src="item.full_photo_path"
                 :lazy-src="item.full_photo_path"
                 :alt="item.alt"
-              ></v-img>
+              />
           </v-carousel-item>
         </v-carousel>
         <!--<v-img  height="650"  :src="require('~/assets/images/home/banner-home-chichen.jpg')" ></v-img>-->
@@ -60,7 +62,7 @@ export default {
     alto(){
 
       if (this.mobile) {
-        return 150;
+        return 175;
       } else {
         return 300
       }

@@ -12,6 +12,22 @@
          //object-position: center center;
 
       }
+      .discount{
+
+         color: $primary-color !important;
+         font-size: $text-semi-title2 !important;
+         font-weight: bold;
+         margin-top: -410px;
+
+      }
+      .private_button{
+         background-color: $secondary-color;
+         width: 50%;
+         text-transform: capitalize;
+         color: white !important;
+         font-size: $text-semi-title2 !important;
+         margin-top: -70px;
+      }
    }
 
    .available{
@@ -26,6 +42,7 @@
    &-content{
       font-size: $text-sub !important;
       color: $input-text-color !important;
+
 
    }
 
@@ -130,6 +147,7 @@
 ///
 
 .expandContent{
+   z-index: 0;
    &-title{
       font-size: $text-title !important;
       color: $secondary-color !important;
@@ -152,6 +170,11 @@
 
 
 @media #{map-get($display-breakpoints, 'sm-and-down')}{
+
+   .expandContent{
+      z-index: 0 !important;
+
+   }
    .embeded-video {
       width: 100% !important;
       height: 350px !important;

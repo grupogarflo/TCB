@@ -39,7 +39,7 @@
 
                   <div v-if="map!=='' " v-html="map" class="mx-4 mt-5"></div>
 
-                  <content-expand :title="$t('tours.not_included')" :content="note" :is_html="true" class="mt-5"></content-expand>
+                  <content-expand :title="$t('tours.not_included')" :content="not_included" :is_html="true" class="mt-5"></content-expand>
 
                   <content-expand :title="$t('tours.notes')" :content="note" :is_html="true" class="mt-5"></content-expand>
 
@@ -79,7 +79,7 @@
 
                   <content-expand :title="$t('tours.description')" :content="description" :is_html="true" class="mt-5"></content-expand>
                   <content-expand :title="$t('tours.includes')" :content="include" :is_html="true" class="mt-5"></content-expand>
-                  <content-expand :title="$t('tours.not_included')" :content="note" :is_html="true" class="mt-5"></content-expand>
+                  <content-expand :title="$t('tours.not_included')" :content="not_included" :is_html="true" class="mt-5"></content-expand>
                   <content-expand :title="$t('tours.recommendations')" :content="suggestion" :is_html="true" class="mt-5"></content-expand>
                   <content-expand :title="$t('tours.notes')" :content="note" :is_html="true" class="mt-5"></content-expand>
 

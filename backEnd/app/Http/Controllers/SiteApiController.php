@@ -122,16 +122,21 @@ class SiteApiController extends Controller
 
             //dd($tour->categories);
             $categories = [];
+            $is_private=false;
             foreach($tour->categories as $cat){
                 $contents = $cat->category_contents;
                 foreach($contents as $content){
                     //dump($content['language_id']);
+                    if($content->name==='Tours privados' || $content->name==='Private tours'){
+                        $is_private=true;
+                    }
                     if($content->language_id==$request->idioma){
                         array_push($categories, $content);
                     }
                 }
             }
             $r->category =(count($categories)>0) ? $categories[0] : null;
+            $r->is_private= $is_private;
 
 
 

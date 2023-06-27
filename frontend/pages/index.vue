@@ -19,8 +19,8 @@
          </div>
 
          <v-container class="sliderPosition">
-            <v-row justify="center">
-               <v-col cols="11" sm="10" md="8">
+            <v-row justify="center" no-gutters>
+               <v-col cols="12" sm="12" md="8">
                   <Slide :items="items"></Slide>
 
                </v-col>

@@ -53,7 +53,7 @@ export default {
       domain(){
 
          // console.log('lang ',this.$store.getters['booking/language']);
-         return (this.$store.getters['booking/language']===1) ? 'http://www.cancunbay.net' : 'http://www.cancunbay.com.mx';
+         return (this.$store.getters['booking/language']===1) ? 'https://www.cancunbay.com' : 'https://www.cancunbay.com.mx';
       },
 
       mobile(){

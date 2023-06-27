@@ -114,6 +114,39 @@
          margin-top: -140px !important;
          position:static;
          z-index: 7;
+         .slideHomeTop{
+            margin-top: 0;
+            z-index: 0;
+            //position: relative;
+            .v-carousel__controls{
+
+               z-index: 0;
+               // background-color: red;
+               .v-item-group {
+                  .v-carousel__controls__item{
+                     .v-btn__content{
+                        .v-icon{
+                           font-size: 10px !important;
+                           color: $primary-color;
+                           opacity: 1;
+                        }
+
+                     }
+                  }
+                  .v-item--active {
+                     .v-btn__content{
+                        .v-icon{
+                           font-size: 10px !important;
+                           color: $secondary-color;
+                           opacity: 1;
+                        }
+
+                     }
+                  }
+               }
+            }
+
+         }
 
       }
    }

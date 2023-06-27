@@ -1,18 +1,19 @@
 import Vue from 'vue';
-//import Moment from 'nuxt-moment';
+// import Moment from 'nuxt-moment';
 
 Vue.filter('currencyFormat', (value, currency = null) => {
     if (typeof value !== "number") {
         return value;
     }
-    let formatter = new Intl.NumberFormat('en-US');
+    const formatter = new Intl.NumberFormat('en-US');
     return (currency === null) ? `$${formatter.format(value.toFixed(2))} ` : `$${formatter.format(value.toFixed(2))} ${currency}`;
 
 })
 
 Vue.filter('showDate', (value, context) => {
 
-    /*let date = new Date(value);
+    /*
+    let date = new Date(value);
     let year = date.getFullYear();
     let m = date.getMonth() + 1;
     let d = date.getDate();
@@ -21,7 +22,8 @@ Vue.filter('showDate', (value, context) => {
     if (m < 10) m = '0' + m;
     if (d < 10) d = '0' + d;
 
-    return ` ${d}-${m}-${year}`;*/
+    return ` ${d}-${m}-${year}`;
+    */
     // console.log(context);
     if (value == null) { return value }
     return context.$moment(value).locale('es').format('L');
@@ -35,3 +37,7 @@ Vue.filter('truncate', function (text, length, suffix) {
         return text;
     }
 });
+
+Vue.filter('discount',function(value){
+   return `${value.toFixed(0)} %`;
+})
