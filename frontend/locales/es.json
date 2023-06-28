@@ -145,7 +145,8 @@
       "available":"Disponible",
       "total":"Total",
       "seeVideo":"Ver Video",
-      "from":"Desde"
+      "from":"Desde",
+      "private":"Privado"
    },
    "tours":{
       "includes":"Incluye",

@@ -131,7 +131,8 @@
       "available":"Available",
       "total":"Total",
       "seeVideo":"Watch Video",
-      "from":"From"
+      "from":"From",
+      "private":"Private"
    },
    "tours":{
       "includes":"Includes",

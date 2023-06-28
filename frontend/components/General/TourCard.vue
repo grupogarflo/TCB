@@ -8,8 +8,8 @@
             <v-chip color="white" class="text-center ml-5 py-1 discount">
                -{{ item.discount  | discount}}
             </v-chip>
-            <v-chip v-if="is_private" color="#00A6CE" class="d-block private_button rounded-pill text-center mx-auto">
-               private
+            <v-chip v-if="item.is_private" color="#00A6CE" class="d-block private_button rounded-pill text-center mx-auto">
+               {{ $t('general.private') }}
             </v-chip>
          </div>
 
@@ -57,17 +57,7 @@ export default {
    },
    computed:{
 
-      is_private(){
 
-         const categories = this.item.category;
-
-         const pos = categories.map(element=>element.id).indexOf(9);
-
-         if(pos!==false){
-            return false;
-         }
-         return true;
-      },
 
       price(){
          if (this.$store.getters['booking/language'] ===2){
