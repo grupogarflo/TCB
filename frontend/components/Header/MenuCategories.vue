@@ -4,14 +4,7 @@
          <v-col cols="12" class="text-center">
             <div class="d-inline ">
 
-               <nuxt-link :to="localePath({
-                        name:'slug',
-                        params:{
-                           slug:all_tours.url
-                        }
-                     })" class="sub2 px-4">
-                  {{ all_tours.name }}
-               </nuxt-link >
+
 
 
                <div  v-for="(item, i) in items " :key="i"  class="d-inline option">
@@ -28,7 +21,7 @@
                   >
                      <template v-slot:activator="{ on, attrs }">
 
-                        <v-btn  class=" sub_menu d-inline px-4 elevation-0"
+                        <v-btn  :class="['sub_menu', 'd-inline', 'px-4', 'elevation-0', markLink(item.url)]"
                               v-bind="attrs"
                               v-on="on"
                               plain
@@ -61,7 +54,7 @@
                      </v-list>
                   </v-menu>
 
-                  <nuxt-link v-else  class="sub2 px-4"
+                  <nuxt-link v-else  :class="['sub2', 'px-4',markLink(item.url)] "
                               :to="localePath({
                                  name:'slug',
                                  params:{
@@ -75,7 +68,14 @@
 
                         </nuxt-link >
                </div>
-
+               <nuxt-link :to="localePath({
+                        name:'slug',
+                        params:{
+                           slug:all_tours.url
+                        }
+                     })" :class="['sub2', 'px-4',markLink(all_tours.url)] ">
+                  {{ all_tours.name }}
+               </nuxt-link >
 
 
 
@@ -96,16 +96,7 @@
                      </span>
 
                </li>
-               <li class="my-2">
-                  <nuxt-link :to="localePath({
-                        name:'slug',
-                        params:{
-                           slug:all_tours.url
-                        }
-                     })" class="sub2">
-                     {{ all_tours.name }}
-                  </nuxt-link >
-               </li>
+
                <li v-for="(item, i) in items " :key="i" class="my-2">
                   <div v-if="item.destinations_related!=null"  >
                      <nuxt-link
@@ -158,6 +149,16 @@
 
 
 
+               </li>
+               <li class="my-2">
+                  <nuxt-link :to="localePath({
+                        name:'slug',
+                        params:{
+                           slug:all_tours.url
+                        }
+                     })" class="sub2">
+                     {{ all_tours.name }}
+                  </nuxt-link >
                </li>
                <li class="my-2"> <nuxt-link :to="localePath({name:'contact'})" class="language slim"> {{ $t(('menu.header.contact')) }}</nuxt-link></li>
                <li class="my-2"><nuxt-link class="language slim" :to="localePath({name:'terms'})"> {{ $t(('menu.footer.terms_conditions')) }} </nuxt-link></li>
@@ -237,6 +238,8 @@ export default {
       }
 
 
+
+
    },
 
    watch:{
@@ -262,14 +265,24 @@ export default {
                   idioma:this.language,
                })
                .then((resp) => {
-                  this.items = resp.data.data
+                  // this.items = resp.data.data
+                  const aux =[];
+                  resp.data.data.forEach(element=>{
 
+                     // if(element.id!==5){
+                        aux.push(element);
+                     // }
+                  })
 
+                  aux.sort((a,b)=>{
+                     return a.id -b.id
+                  })
+                  this.items=aux;
 
                   this.loading = false
                })
             } catch (e) {
-               this.error = e.response.data.message
+               console.log('erro ', e);
 
             }
       },
@@ -282,6 +295,16 @@ export default {
             }
          }))
 
+      },
+
+      markLink(url){
+         const currentUrl = this.$route.params.slug;
+
+
+         if(currentUrl===url){
+            return 'mark-link';
+         }
+         return ''
       }
 
 

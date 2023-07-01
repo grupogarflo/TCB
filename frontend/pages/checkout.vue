@@ -130,8 +130,23 @@ export default {
                idioma: this.$store.getters['booking/language']
             })
             .then((resp) => {
-               this.total =
-               this.$store.dispatch('booking/setTotal',{ usd: resp.data.data, mxn:resp.data.data_mxn });
+
+               if(!this.tourDetail.isPrivate){
+                  this.total =
+                  this.$store.dispatch('booking/setTotal',{ usd: resp.data.data, mxn:resp.data.data_mxn });
+               }
+               else{
+
+                  const rates = this.tourDetail.rates;
+
+                  const pos = rates.map(element=>element.pax).indexOf(this.tourDetail.pax);
+
+                  if(pos!==false){
+                     this.total =
+                     this.$store.dispatch('booking/setTotal',{ usd: parseFloat(rates[pos].real_price), mxn:parseFloat(rates[pos].real_price_mxn) });
+                  }
+
+               }
                // this.tourName = this.tourDetail.name
                // this.tourImg = this.tourDetail.img
                // this.tourDate = this.tourDetail.date

@@ -21,6 +21,9 @@ export const state = () => ({
     total_usd: '',
     total_mxn:'',
     publico: '',
+    isPrivate:false,
+    rates:[],
+    pax:0
   },
   client: {
     name: '',
@@ -104,6 +107,11 @@ export const mutations = {
     state.tours.img = payload.img
     state.tours.duration = payload.duration
     state.tours.publico = payload.publico
+    state.tours.isPrivate = payload.isPrivate
+    state.tours.rates=payload.rates
+    state.tours.pax=payload.pax
+
+
   },
 
   addClient(state, payload = '') {
@@ -154,8 +162,13 @@ export const mutations = {
     state.tours.descuento = 0
     state.tours.lastPrice = 0
     state.tours.total = ''
+    state.tours.total_usd= ''
+    state.tours.total_mxn=''
     state.payment.status = ''
     state.payment.id = ''
+    state.tours.isPrivate=false
+    state.tours.rates=[]
+    state.tours.pax=0
   },
 
 

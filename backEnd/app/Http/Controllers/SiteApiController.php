@@ -110,37 +110,96 @@ class SiteApiController extends Controller
 
 
 
-        foreach($res as $r){
-            $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
-            $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+            foreach($res as $r){
 
-            $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
-            $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
-            $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+                if($r->is_private){
+                    /// rates to private tours
 
-            $tour = tour::with('categories')->find($r->tour_id);
+                    $rates = DB::table('private_rates')->where('tour_id',$r->tour_id)->get();
 
-            //dd($tour->categories);
-            $categories = [];
-            $is_private=false;
-            foreach($tour->categories as $cat){
-                $contents = $cat->category_contents;
-                foreach($contents as $content){
-                    //dump($content['language_id']);
-                    if($content->name==='Tours privados' || $content->name==='Private tours'){
-                        $is_private=true;
+
+
+                    $ratesToShow = [];
+
+                    foreach($rates as $rate){
+                        $rate_from_fake_mxn = $this->usdToMxn($rate->rate_from_fake);
+                        $rate_from_real_mxn = $this->usdToMxn($rate->rate_from_real);
+
+                        $rate_fake_price_mxn = $this->usdToMxn($rate->fake_price);
+                        $rate_real_price_mxn = $this->usdToMxn($rate->real_price);
+
+                        array_push($ratesToShow, [
+                            'rate_from_fake'=>$rate->rate_from_fake,
+                            'rate_from_fake_mxn'=>$rate_from_fake_mxn,
+                            'rate_from_real'=>$rate->rate_from_real,
+                            'rate_from_real_mxn'=>$rate_from_real_mxn,
+                            'fake_price'=>$rate->fake_price,
+                            'fake_price_mxn'=>$rate_fake_price_mxn,
+                            'real_price'=>$rate->real_price,
+                            'real_price_mxn'=>$rate_real_price_mxn,
+                            'pax'=>$rate->pax_range_id
+
+                        ]);
+
+                        $r->discount = ($rate_from_fake_mxn>0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
                     }
-                    if($content->language_id==$request->idioma){
-                        array_push($categories, $content);
+
+                    $r->rates=$ratesToShow;
+
+
+                    $tour = tour::with('categories')->find($r->tour_id);
+                    $categories = [];
+                    $is_private=false;
+                    foreach($tour->categories as $cat){
+                        //dump($cat->id);
+                        if($cat->id==$request->idCategory){
+                            $contents = $cat->category_contents;
+                            //dump($contents);
+                            foreach($contents as $content){
+                                //dump($content['language_id']);
+                                if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                    $is_private=true;
+                                }
+                                if($content->language_id==$request->lenguage  ){
+                                    array_push($categories, $content);
+                                }
+                            }
+                        }
                     }
+                    $r->category =(count($categories)>0) ? $categories[0] :null;
+                }
+
+                else{
+                    $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+                    $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+
+                    $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+                    $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+                    $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+                    $tour = tour::with('categories')->find($r->tour_id);
+
+                    //dd($tour->categories);
+                    $categories = [];
+                    $is_private=false;
+                    foreach($tour->categories as $cat){
+                        //dump($cat->id);
+                        if($cat->id==$request->idCategory){
+                            $contents = $cat->category_contents;
+                            //dump($contents);
+                            foreach($contents as $content){
+                                //dump($content['language_id']);
+                                if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                    $is_private=true;
+                                }
+                                if($content->language_id==$request->lenguage  ){
+                                    array_push($categories, $content);
+                                }
+                            }
+                        }
+                    }
+                    $r->category =(count($categories)>0) ? $categories[0] :null;
                 }
             }
-            $r->category =(count($categories)>0) ? $categories[0] : null;
-            $r->is_private= $is_private;
-
-
-
-        }
 
         return response()->json([
             "data" => $res
@@ -182,29 +241,93 @@ class SiteApiController extends Controller
         }*/
         foreach($res as $r){
 
-            $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
-            $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
 
-            $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
-            $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
-            $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+            if($r->is_private){
+                /// rates to private tours
 
-            $tour = tour::with('categories')->find($r->tour_id);
+                $rates = DB::table('private_rates')->where('tour_id',$r->tour_id)->get();
 
-            //dd($tour->categories);
-            $categories = [];
-            foreach($tour->categories as $cat){
-                $contents = $cat->category_contents;
-                foreach($contents as $content){
-                    //dump($content['language_id']);
-                    if($content->language_id==$request->idioma){
-                        array_push($categories, $content);
+
+
+                $ratesToShow = [];
+
+                foreach($rates as $rate){
+                    $rate_from_fake_mxn = $this->usdToMxn($rate->rate_from_fake);
+                    $rate_from_real_mxn = $this->usdToMxn($rate->rate_from_real);
+
+                    $rate_fake_price_mxn = $this->usdToMxn($rate->fake_price);
+                    $rate_real_price_mxn = $this->usdToMxn($rate->real_price);
+
+                    array_push($ratesToShow, [
+                        'rate_from_fake'=>$rate->rate_from_fake,
+                        'rate_from_fake_mxn'=>$rate_from_fake_mxn,
+                        'rate_from_real'=>$rate->rate_from_real,
+                        'rate_from_real_mxn'=>$rate_from_real_mxn,
+                        'fake_price'=>$rate->fake_price,
+                        'fake_price_mxn'=>$rate_fake_price_mxn,
+                        'real_price'=>$rate->real_price,
+                        'real_price_mxn'=>$rate_real_price_mxn,
+                        'pax'=>$rate->pax_range_id
+                    ]);
+
+                    $r->discount = ($rate_from_fake_mxn>0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
+                }
+
+                $r->rates=$ratesToShow;
+
+
+                $tour = tour::with('categories')->find($r->tour_id);
+                $categories = [];
+                $is_private=false;
+                foreach($tour->categories as $cat){
+                    //dump($cat->id);
+                    if($cat->id==$request->idCategory){
+                        $contents = $cat->category_contents;
+                        //dump($contents);
+                        foreach($contents as $content){
+                            //dump($content['language_id']);
+                            if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                $is_private=true;
+                            }
+                            if($content->language_id==$request->lenguage  ){
+                                array_push($categories, $content);
+                            }
+                        }
                     }
                 }
+                $r->category =(count($categories)>0) ? $categories[0] :null;
             }
-            $r->category =(count($categories)>0) ? $categories[0] : null;
 
+            else{
+                $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+                $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
 
+                $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+                $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+                $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+                $tour = tour::with('categories')->find($r->tour_id);
+
+                //dd($tour->categories);
+                $categories = [];
+                $is_private=false;
+                foreach($tour->categories as $cat){
+                    //dump($cat->id);
+                    if($cat->id==$request->idCategory){
+                        $contents = $cat->category_contents;
+                        //dump($contents);
+                        foreach($contents as $content){
+                            //dump($content['language_id']);
+                            if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                $is_private=true;
+                            }
+                            if($content->language_id==$request->lenguage  ){
+                                array_push($categories, $content);
+                            }
+                        }
+                    }
+                }
+                $r->category =(count($categories)>0) ? $categories[0] :null;
+            }
 
         }
 
@@ -686,30 +809,8 @@ class SiteApiController extends Controller
     //get tour by specific category
     function getTourByCategory(Request $request)
     {
-        //if idCategory is diferent of 9 get only tours of that id sending
-        //else if idCategory is equal 9 then get all tours list
-        /*if ($request->idCategory != 9) {
-            $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
-                ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
-                ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
-                ->join('category_tours', 'tour_contents.tour_id', '=', 'category_tours.tour_id')
-                ->where('category_tours.category_id', $request->idCategory)
-                ->where('tours.active', 1)
-                ->where('tours.public', 1)
-                ->where('languages.id', $request->lenguage)
-                // ->orderBy('tour_contents.name', 'ASC')
-                ->orderBy('price_tours.price_real_adult', 'ASC')
-                ->get();
-        } else {
-            $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
-                ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
-                ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
-                ->where('tours.active', 1)
-                ->where('tours.public', 1)
-                ->where('languages.id', $request->lenguage)
-                // ->orderBy('tour_contents.name', 'ASC')
-                ->orderBy('price_tours.price_real_adult', 'ASC')
-                ->get();*/
+
+            //DB::enableQuerylog();
             $res=tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
             ->join('category_tours', 'tour_contents.tour_id', '=', 'category_tours.tour_id')
@@ -722,45 +823,209 @@ class SiteApiController extends Controller
             ->orderBy('price_tours.price_real_adult', 'ASC')
 
             ->get();
+
+            //dump(DB::getQuerylog());
         //}
 
-        //dump($res);
 
-        /*if (count($res) > 0) {
+            foreach($res as $r){
 
-            $arr = [];
-            for ($a = 0; $a < sizeof($res); $a++) {
-                $arr[$a]["img"] = $res[$a]->img;
-                $arr[$a]["url"] = $res[$a]->url;
-                $arr[$a]["name"] = $res[$a]->name;
-                $arr[$a]["rank"] = $res[$a]->rank;
-                $arr[$a]["duration"] = $res[$a]->duration;
-                $arr[$a]["id"] = $res[$a]->id;
+                if($r->is_private){
+                    /// rates to private tours
 
-                //$arr[$a]["price_real_adult"] = ($request->idioma === 1) ? $res[$a]->price_real_adult * $this->tipoCambio() : $res[$a]->price_real_adult;
-                if ($request->lenguage === 1) {
-                    $adultoFake = $res[$a]->price_fake_adult * $this->tipoCambio();
-                    $adultoReal = $res[$a]->price_real_adult * $this->tipoCambio();
-                    if ($res[$a]->price_fake_adult > 0 && $res[$a]->price_real_adult > 0) {
-                        $disconunt = (($adultoFake - $adultoReal) * 100) / $adultoFake;
-                    } else {
-                        $disconunt = 0;
+                    $rates = DB::table('private_rates')->where('tour_id',$r->tour_id)->get();
+
+                    //dd($rates);
+
+                    /*
+                    $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+                    $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+
+                    $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+                    $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+                    $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+
+
+                    */
+                    //dd($tour->categories);
+
+                    $ratesToShow = [];
+
+                    foreach($rates as $rate){
+                        $rate_from_fake_mxn = $this->usdToMxn($rate->rate_from_fake);
+                        $rate_from_real_mxn = $this->usdToMxn($rate->rate_from_real);
+
+                        $rate_fake_price_mxn = $this->usdToMxn($rate->fake_price);
+                        $rate_real_price_mxn = $this->usdToMxn($rate->real_price);
+
+                        array_push($ratesToShow, [
+                            'rate_from_fake'=>$rate->rate_from_fake,
+                            'rate_from_fake_mxn'=>$rate_from_fake_mxn,
+                            'rate_from_real'=>$rate->rate_from_real,
+                            'rate_from_real_mxn'=>$rate_from_real_mxn,
+                            'fake_price'=>$rate->fake_price,
+                            'fake_price_mxn'=>$rate_fake_price_mxn,
+                            'real_price'=>$rate->real_price,
+                            'real_price_mxn'=>$rate_real_price_mxn,
+                            'pax'=>$rate->pax_range_id
+
+                        ]);
+                        $r->discount = ($rate_from_fake_mxn>0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
+
                     }
-                } else {
-                    $adultoFake = $res[$a]->price_fake_adult;
-                    $adultoReal = $res[$a]->price_real_adult;
-                    if ($res[$a]->price_fake_adult > 0 && $res[$a]->price_real_adult > 0) {
-                        $disconunt = (($res[$a]->price_fake_adult - $res[$a]->price_real_adult) * 100) /  $res[$a]->price_fake_adult;
-                    } else {
-                        $disconunt = 0;
+
+                    $r->rates=$ratesToShow;
+
+
+                    $tour = tour::with('categories')->find($r->tour_id);
+                    $categories = [];
+                    $is_private=false;
+                    foreach($tour->categories as $cat){
+                        //dump($cat->id);
+                        if($cat->id==$request->idCategory){
+                            $contents = $cat->category_contents;
+                            //dump($contents);
+                            foreach($contents as $content){
+                                //dump($content['language_id']);
+                                if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                    $is_private=true;
+                                }
+                                if($content->language_id==$request->lenguage  ){
+                                    array_push($categories, $content);
+                                }
+                            }
+                        }
+                    }
+                    $r->category =(count($categories)>0) ? $categories[0] :null;
+                }
+
+                else{
+                    $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+                    $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+
+                    $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+                    $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+                    $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+                    $tour = tour::with('categories')->find($r->tour_id);
+
+                    //dd($tour->categories);
+                    $categories = [];
+                    $is_private=false;
+                    foreach($tour->categories as $cat){
+                        //dump($cat->id);
+                        if($cat->id==$request->idCategory){
+                            $contents = $cat->category_contents;
+                            //dump($contents);
+                            foreach($contents as $content){
+                                //dump($content['language_id']);
+                                if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                    $is_private=true;
+                                }
+                                if($content->language_id==$request->lenguage  ){
+                                    array_push($categories, $content);
+                                }
+                            }
+                        }
+                    }
+                    $r->category =(count($categories)>0) ? $categories[0] :null;
+                }
+            }
+
+
+            return response()->json([
+                "data" => $res,
+
+            ], 200);
+
+    }
+
+    public function getAllTours(Request $request){
+        DB::enableQueryLog();
+        $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
+            ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
+            ->where('tours.active', 1)
+            ->where('tours.public', 1)
+            ->where('language_id', $request->language)
+            // ->orderBy('tour_contents.name', 'ASC')
+            ->orderBy('price_tours.price_real_adult', 'ASC')
+
+            ->get();
+
+        //dump(DB::getQueryLog());
+
+
+
+        foreach($res as $r){
+            if($r->is_private){
+                /// rates to private tours
+
+                $rates = DB::table('private_rates')->where('tour_id',$r->tour_id)->get();
+
+                //dd($rates);
+
+                /*
+                $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
+                $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
+
+                $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
+                $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
+                $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
+
+
+                */
+                //dd($tour->categories);
+
+                $ratesToShow = [];
+
+                foreach($rates as $rate){
+                    $rate_from_fake_mxn = $this->usdToMxn($rate->rate_from_fake);
+                    $rate_from_real_mxn = $this->usdToMxn($rate->rate_from_real);
+
+                    $rate_fake_price_mxn = $this->usdToMxn($rate->fake_price);
+                    $rate_real_price_mxn = $this->usdToMxn($rate->real_price);
+
+                    array_push($ratesToShow, [
+                        'rate_from_fake'=>$rate->rate_from_fake,
+                        'rate_from_fake_mxn'=>$rate_from_fake_mxn,
+                        'rate_from_real'=>$rate->rate_from_real,
+                        'rate_from_real_mxn'=>$rate_from_real_mxn,
+                        'fake_price'=>$rate->fake_price,
+                        'fake_price_mxn'=>$rate_fake_price_mxn,
+                        'real_price'=>$rate->real_price,
+                        'real_price_mxn'=>$rate_real_price_mxn,
+                        'pax'=>$rate->pax_range_id
+
+                    ]);
+                    $r->discount = ($rate_from_fake_mxn>0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
+
+                }
+
+                $r->rates=$ratesToShow;
+
+
+                $tour = tour::with('categories')->find($r->tour_id);
+                $categories = [];
+                $is_private=false;
+                foreach($tour->categories as $cat){
+                    //dump($cat->id);
+                    if($cat->id==$request->idCategory){
+                        $contents = $cat->category_contents;
+                        //dump($contents);
+                        foreach($contents as $content){
+                            //dump($content['language_id']);
+                            if($content->name==='Tours privados' || $content->name==='Private tours'){
+                                $is_private=true;
+                            }
+                            if($content->language_id==$request->lenguage  ){
+                                array_push($categories, $content);
+                            }
+                        }
                     }
                 }
-                $arr[$a]["discount"] = round($disconunt);
-                $arr[$a]["adultoFake"] = $adultoFake;
-                $arr[$a]["adultoReal"] = $adultoReal;
-                $arr[$a]["full_photo_path"]=$res[$a]->full_photo_path;
-            }*/
-            foreach($res as $r){
+                $r->category =(count($categories)>0) ? $categories[0] :null;
+            }
+
+            else{
                 $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
                 $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
 
@@ -789,66 +1054,7 @@ class SiteApiController extends Controller
                     }
                 }
                 $r->category =(count($categories)>0) ? $categories[0] :null;
-                $r->is_private= $is_private;
-
             }
-
-
-            return response()->json([
-                "data" => $res,
-
-            ], 200);
-        /*} else {
-            return response()->json([
-                "data" => '',
-            ], 400);
-        }*/
-    }
-
-    public function getAllTours(Request $request){
-        DB::enableQueryLog();
-        $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
-            ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
-            ->where('tours.active', 1)
-            ->where('tours.public', 1)
-            ->where('language_id', $request->language)
-            // ->orderBy('tour_contents.name', 'ASC')
-            ->orderBy('price_tours.price_real_adult', 'ASC')
-
-            ->get();
-
-        //dump(DB::getQueryLog());
-
-
-
-        foreach($res as $r){
-            $r->fake_adult_mxn = $this->usdToMxn($r->price_fake_adult);
-            $r->real_adult_mxn = $this->usdToMxn($r->price_real_adult);
-
-            $r->price_fake_child_mxn = $this->usdToMxn($r->price_fake_child);
-            $r->price_real_child_mxn =  $this->usdToMxn($r->price_real_child);
-            $r->discount = ($r->price_fake_adult>0 && $r->price_real_adult) ? (($r->price_fake_adult - $r->price_real_adult) * 100) / $r->price_fake_adult : 0;
-
-            $tour = tour::with('categories')->find($r->tour_id);
-
-            //dd($tour->categories);
-            $categories = [];
-            $is_private=false;
-            foreach($tour->categories as $cat){
-                //dump($cat);
-                $contents = $cat->category_contents;
-                foreach($contents as $content){
-                    //dump($content['language_id']);
-                    if($content->name==='Tours privados' || $content->name==='Private tours'){
-                        $is_private=true;
-                    }
-                    if($content->language_id==$request->language){
-                        array_push($categories, $content);
-                    }
-                }
-            }
-            $r->category =(count($categories)>0) ? $categories[0] : null;
-            $r->is_private= $is_private;
 
 
 
@@ -859,5 +1065,13 @@ class SiteApiController extends Controller
         ], 200);
 
 
+    }
+
+
+    public function getPaxtRange(Request $request){
+
+        $data = DB::table('pax_ranges')->get();
+
+        return response()->json(compact('data'));
     }
 }

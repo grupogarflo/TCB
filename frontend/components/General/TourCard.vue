@@ -15,12 +15,12 @@
 
 
 
-         <div class=" tour-card-title mt-3 mb-4 flex d-flex flex-grow-1  flex-shrink-1">{{ item.name }}</div>
+         <div class=" tour-card-title mt-3 mb-4 ">{{ item.name | truncate(80, '...') }}</div>
 
 
-         <div class="tour-card-data flex d-flex flex-column flex-grow-1  flex-shrink-1  mb-3">
-            <Rank class="tour-card-rank mb-3 " :rank="item.rank"></Rank>
-            <p class="tour-card-description" v-if="item.description_small!==null" v-html="item.description_small"></p>
+         <div class="tour-card-data flex d-flex flex-column flex-grow-1  flex-shrink-1  align-stretch mb-3">
+            <Rank class="tour-card-rank mb-3 d-flex flex-row flex-grow-1  flex-shrink-1" :rank="item.rank"></Rank>
+            <div class="tour-card-description d-flex flex-row flex-grow-1  flex-shrink-1" v-if="item.description_small!==null" v-html="item.description_small"></div>
             <div class="  my-1 tour-card-duration ">
                         <span class="available ">{{ $t('general.available') }}: </span>
                         <span class=""> {{ item.duration }} </span>
@@ -30,7 +30,10 @@
 
 
 
+
       </v-card-text>
+
+
 
       <v-card-actions class="px-5 py-3 mb-auto backActions ">
          <v-row justify="space-between" align="end">
@@ -60,11 +63,25 @@ export default {
 
 
       price(){
-         if (this.$store.getters['booking/language'] ===2){
-            return this.item.price_real_adult;
+
+         if(!this.item.is_private)
+         {
+            if (this.$store.getters['booking/language'] ===2){
+               return this.item.price_real_adult;
+            }
+            else{
+               return  this.item.real_adult_mxn
+            }
          }
          else{
-            return  this.item.real_adult_mxn
+
+            // eslint-disable-next-line no-lonely-if
+            if (this.$store.getters['booking/language'] ===2){
+               return parseInt(this.item.rates[0].rate_from_real);
+            }
+            else{
+               return parseInt(this.item.rates[0].rate_from_real_mxn);
+            }
          }
       },
 

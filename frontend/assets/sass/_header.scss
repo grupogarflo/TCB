@@ -86,6 +86,7 @@
 #categoriesMenu{
    background-color: $secondary-color !important;
 
+
    .sub2{
          color: white !important;
          text-decoration: none !important;
@@ -96,6 +97,10 @@
          &:last-child{
             border: none !important;
          }
+   }
+   .mark-link{
+      font-weight: bold;
+      text-decoration: underline !important;
    }
 
    .option{
@@ -116,6 +121,11 @@
             line-height: auto;
             letter-spacing: 0;
          }
+      }
+
+      .mark-link{
+         font-weight: bold;
+         text-decoration: underline;
       }
       border-right: 1px solid $primary-color !important;
       &:last-child{

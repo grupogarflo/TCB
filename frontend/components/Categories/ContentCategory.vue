@@ -1,6 +1,5 @@
 <template>
    <div class="category-detail">
-      <HeaderCategory :items="categoryItem"></HeaderCategory>
 
 
       <v-container class="my-5">
@@ -55,7 +54,7 @@
 
 
 // import SearchEngine from '~/components/General/SearchEngine.vue'
-import HeaderCategory from '~/components/Tours/HeaderCategory.vue';
+// import HeaderCategory from '~/components/Tours/HeaderCategory.vue';
 import TourCard from '~/components/General/TourCard.vue';
 // import Categories from '~/components/General/Categories.vue';
 
@@ -63,7 +62,7 @@ export default {
    components:{
 
       // SearchEngine,
-      HeaderCategory,
+      // HeaderCategory,
       TourCard,
       // Categories
 

@@ -57,6 +57,7 @@
       font-size: $text-semi-title1 !important;
       color:$primary-color !important;
       font-weight: bolder;
+      // height: 4.5rem !important;
       //background-color: red;
    }
    &-rank{
@@ -87,6 +88,7 @@
 }
 
 .tour-detail{
+
    .blue-rectangle{
 
        background-color: lighten($secondary-color, 53);
@@ -118,6 +120,14 @@
    }
 }
 
+.discount-detail{
+
+   color: white !important;
+   font-size: $text-semi-title2 !important;
+   font-weight: bold;
+
+
+}
 
 .embeded-video {
    width: 100% !important;

@@ -74,6 +74,7 @@ Route::post('/getDestinationsAll','DestinationController@getDestinationsAll');
 Route::post('/getDestination','DestinationController@getDestinationToFront');
 Route::post('/getTourByDestination','DestinationController@getTourByDestination');
 
+Route::post('/getPaxtRange','SiteApiController@getPaxtRange');
 
 
 //test

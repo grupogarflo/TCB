@@ -139,7 +139,10 @@
       "recommendations":"Recommendations",
       "notes":"Notes",
       "description":"Description",
-      "not_included":"Not included"
+      "not_included":"Not included",
+      "languages":"English / Spanish",
+      "digitalBoucher":"Digital voucher",
+      "transportation":"Transportation"
 
    },
    "checkout":{

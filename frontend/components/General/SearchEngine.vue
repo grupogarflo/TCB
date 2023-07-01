@@ -51,6 +51,7 @@
                      </v-col>
                      <v-col cols="12" :md="(open==1) ? '6' : '12'">
                         <v-menu
+                           v-if="!showPax"
                            v-model="showMenu"
                            dense
                            solo
@@ -58,6 +59,7 @@
                            offset-y
                            :close-on-content-click="false"
                            max-width="auto"
+
 
 
 
@@ -123,6 +125,41 @@
                               </v-list-item>
                            </v-list>
                         </v-menu>
+
+                        <v-select
+                           v-if="showPax"
+                           v-model="modelSelectPax"
+                           class="rounded-md  input-color"
+                           dense
+                           solo
+                           flat
+                           :items="paxRanges"
+                           item-text="name"
+                           item-value="id"
+                           :placeholder="$t('general.tours')"
+
+                           hide-details
+                           @change="tourChange"
+                           :menu-props="{
+                              'offset-y':true
+                           }"
+
+                        >
+                           <template #prepend >
+
+
+                              <v-icon size="20" color="#EB008B"  class="mr-auto ml-2 mt-2 icon-pax"> </v-icon>
+
+                           </template>
+
+                           <template #append>
+                              <v-icon size="10"  color="#EB008B" class="icon-abrir-formulario "></v-icon>
+                           </template>
+
+                        </v-select>
+
+
+
                      </v-col>
                      <v-col cols="12"  :md="(open==1) ? '6' : '12'">
                         <v-menu
@@ -213,6 +250,9 @@ export default {
       datesBlock: [],
       daysBlock: [],
       textAlertBook: '',
+      paxRanges:[],
+      modelSelectPax:null,
+      showPax:false
 
 
     }
@@ -311,6 +351,7 @@ export default {
   mounted(){
       this.$nuxt.$on('')
       this.getRegistros()
+      this.paxRange()
   },
 
 
@@ -328,6 +369,12 @@ export default {
       this.getDatesBlock()
       */
 
+      if(aux.is_private){
+         this.showPax=true;
+      }
+      else{
+         this.showPax=false;
+      }
       const  pay = {
         url: aux.name,
         id: aux.id,
@@ -340,6 +387,10 @@ export default {
                   url: aux.url,
                   img: aux.full_photo_path,
                   duration: aux.duration,
+                  isPrivate:aux.is_private,
+                  rates: aux.rates,
+                  pax:this.modelSelectPax
+
                })
 
       this.getDatesBlock();
@@ -450,11 +501,31 @@ export default {
                   this.tours_state.url !== '' &&
                   typeof this.tours_state.url !== 'undefined'
                ){
-                  this.modelSelectTour = this.tours_state.id
+
+
+                  const pos = this.items.map(element => element.url).indexOf(this.tours_state.url);
+
+
+
+                  this.modelSelectTour = (pos!==false) ? this.items[pos].id : '';
                   this.getDatesBlock();
+
+                  alert(this.tours_state.isPrivate);
+                  if(this.tours_state.isPrivate){
+                     this.showPax=true;
+                  }
+                  else{
+                     this.showPax=false;
+                  }
                }
                else if (typeof this.$route.params.slug !== 'undefined') {
                   this.modelSelectTour = this.$route.params.slug;
+                  if(this.tours_state.isPrivate){
+                     this.showPax=true;
+                  }
+                  else{
+                     this.showPax=false;
+                  }
                   this.tourChange();
                   setTimeout(()=>{
                      this.getDatesBlock();
@@ -504,6 +575,50 @@ export default {
         console.log('error' + this.error);
       }
     },
+
+      async paxRange() {
+
+         try {
+         await this.$axios
+            .post('/getPaxtRange', {
+               idioma: this.$store.getters['booking/language'],
+            })
+            .then((resp) => {
+               // this.paxRange
+
+               const aux = resp.data.data
+
+               // console.log('pax ', aux);
+
+               const wait=[];
+               aux.forEach(element => {
+                  let name='';
+                  if( this.$store.getters['booking/language']===2)
+                  { name = element.name_eng}
+                  else{ name= element.name_esp  }
+
+                  wait.push({
+                     id:element.id,
+                     name
+                  })
+               });
+
+               // console.log('pax  w', wait);
+
+               this.paxRanges = wait;
+
+
+
+
+            })
+         } catch (e) {
+
+            // eslint-disable-next-line no-console
+            console.log('error', e);
+         }
+      },
+
+
     /*
     getAllowedDates(value) {
       const date = moment(value)

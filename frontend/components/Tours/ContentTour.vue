@@ -24,8 +24,9 @@
             <v-row >
                <v-col cols="12" sm="6" class="px-8" :order="(mobile) ? '2' :'1' ">
 
-                  <SectionTitle :title-text="name" class="mt-5"></SectionTitle>
-                  <general-data :rank="item.rank" :duration="item.duration" :available="item.avaible" class="mt-5"></general-data>
+                  <SectionTitle :title-text="name" class="mt-5 d-inline" :discount="item.discount"></SectionTitle>
+
+                  <general-data :rank="item.rank" :duration="item.duration" :available="item.avaible" :id="item.tour_id" class="mt-5"></general-data>
 
                   <content-expand :title="$t('tours.description')" :content="description" :is_html="true" class="mt-5"></content-expand>
                   <content-expand :title="$t('tours.includes')" :content="include" :is_html="true" class="mt-5"></content-expand>
@@ -291,6 +292,11 @@ export default {
                   url: resp.data.data[0].url,
                   img: this.img,
                   duration: resp.data.data[0].duration,
+                  isPrivate:resp.data.data[0].is_private,
+                  rates: resp.data.data[0].rates,
+                  pax:null
+
+
                })
                this.reRender = this.reRender + 1
             })
