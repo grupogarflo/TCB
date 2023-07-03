@@ -23,7 +23,8 @@ export const state = () => ({
     publico: '',
     isPrivate:false,
     rates:[],
-    pax:0
+    pax:0,
+    namePax:''
   },
   client: {
     name: '',
@@ -110,6 +111,7 @@ export const mutations = {
     state.tours.isPrivate = payload.isPrivate
     state.tours.rates=payload.rates
     state.tours.pax=payload.pax
+    state.tours.namePax = payload.namePax
 
 
   },
@@ -169,6 +171,7 @@ export const mutations = {
     state.tours.isPrivate=false
     state.tours.rates=[]
     state.tours.pax=0
+    state.tours.namePax=''
   },
 
 

@@ -10,7 +10,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Cancunbay - Cms',
-    title: 'Yalku - Cms',
+    title: 'Cancunbay - Cms',
     htmlAttrs: {
       lang: 'en',
     },
@@ -57,11 +57,11 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://localhost/cancunToursNew/backEnd/public/api/',
-    // baseURL: 'http://127.0.0.1:8000/api/',
+     baseURL: 'http://127.0.0.1:8000/api/',
 
     // baseURL:'http://ec2-54-152-172-137.compute-1.amazonaws.com/api/'
 
-     baseURL:'http://cancunbay.net/api/'
+    // baseURL:'http://cancunbay.net/api/'
 
   },
   auth: {

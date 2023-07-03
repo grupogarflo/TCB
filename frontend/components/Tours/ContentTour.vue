@@ -294,7 +294,8 @@ export default {
                   duration: resp.data.data[0].duration,
                   isPrivate:resp.data.data[0].is_private,
                   rates: resp.data.data[0].rates,
-                  pax:null
+                  pax:null,
+                  namePax:''
 
 
                })

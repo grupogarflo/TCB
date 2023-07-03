@@ -380,6 +380,9 @@ export default {
         id: aux.id,
       }
 
+      const   aux2 =(this.modelSelectPax!==null) ?  this.paxRanges.map(element => element.id).indexOf(this.modelSelectPax): false;
+      const namePax = (aux2!==false) ? this.paxRanges[aux2].name : '';
+
       this.$store.dispatch('booking/setDestinationTour',pay)
       this.$store.commit('booking/dataTours', {
                   id: aux.id,
@@ -389,7 +392,8 @@ export default {
                   duration: aux.duration,
                   isPrivate:aux.is_private,
                   rates: aux.rates,
-                  pax:this.modelSelectPax
+                  pax:this.modelSelectPax,
+                  namePax
 
                })
 
@@ -510,7 +514,7 @@ export default {
                   this.modelSelectTour = (pos!==false) ? this.items[pos].id : '';
                   this.getDatesBlock();
 
-                  alert(this.tours_state.isPrivate);
+                  // alert(this.tours_state.isPrivate);
                   if(this.tours_state.isPrivate){
                      this.showPax=true;
                   }

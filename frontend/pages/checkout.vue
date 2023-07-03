@@ -122,21 +122,23 @@ export default {
    methods:{
       async getTotalTour() {
          try {
-         await this.$axios
-            .post('/getTotal', {
-               id: this.tourDetail.id,
-               adult: this.tourDetail.adultos,
-               child: this.tourDetail.ninos,
-               idioma: this.$store.getters['booking/language']
-            })
-            .then((resp) => {
+            if(!this.tourDetail.isPrivate){
+               await this.$axios
+                  .post('/getTotal', {
+                     id: this.tourDetail.id,
+                     adult: this.tourDetail.adultos,
+                     child: this.tourDetail.ninos,
+                     idioma: this.$store.getters['booking/language']
+                  })
+                  .then((resp) => {
 
-               if(!this.tourDetail.isPrivate){
-                  this.total =
-                  this.$store.dispatch('booking/setTotal',{ usd: resp.data.data, mxn:resp.data.data_mxn });
-               }
-               else{
 
+                        this.total =
+                        this.$store.dispatch('booking/setTotal',{ usd: resp.data.data, mxn:resp.data.data_mxn });
+
+                  });
+            }
+            else{
                   const rates = this.tourDetail.rates;
 
                   const pos = rates.map(element=>element.pax).indexOf(this.tourDetail.pax);
@@ -145,19 +147,11 @@ export default {
                      this.total =
                      this.$store.dispatch('booking/setTotal',{ usd: parseFloat(rates[pos].real_price), mxn:parseFloat(rates[pos].real_price_mxn) });
                   }
-
-               }
-               // this.tourName = this.tourDetail.name
-               // this.tourImg = this.tourDetail.img
-               // this.tourDate = this.tourDetail.date
-               // this.tourAdults = this.tourDetail.adultos
-               // this.tourChild = this.tourDetail.ninos
-               // this.tourDuration = this.tourDetail.duration
-            })
+            }
          } catch (e) {
-         this.error = e.response.data.message
-         console.log('error' + e)
-         }
+            this.error = e.response.data.message
+            console.log('error' + e)
+            }
       },
    }
 

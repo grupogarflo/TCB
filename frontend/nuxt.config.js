@@ -138,7 +138,7 @@ export default {
 
       ],
       defaultLocale: 'en',
-      // lazy: true,   
+      // lazy: true,
       differentDomains: true,
       detectBrowserLanguage: false,
 

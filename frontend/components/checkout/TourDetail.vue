@@ -6,8 +6,14 @@
             <v-col sm="12">
                <p>{{ $t('general.tour') }}: <span class="d-block title">{{ tour.name }}</span></p>
                <p>{{ $t('general.date') }}: {{ tour.date}}</p>
-               <p>{{  $t('general.adults') }}: {{ tour.adultos }}</p>
-               <p v-if="tour.ninos>0">{{ $t('general.children') }}: {{ tour.ninos }}</p>
+
+               <div v-if="!tour.isPrivate">
+                  <p>{{  $t('general.adults') }}: {{ tour.adultos }}</p>
+                  <p v-if="tour.ninos>0">{{ $t('general.children') }}: {{ tour.ninos }}</p>
+               </div>
+
+               <p v-else>Pax: {{  pax  }}</p>
+
                <p>{{ $t('general.duration') }}: {{ tour.duration }}</p>
                <p v-if="promocode!=null"> Promocode: {{ promocode.promocode }}</p>
                <p>{{ $t('general.total') }}: {{ bookingTotal  | currencyFormat(currency)}}</p>
@@ -58,6 +64,14 @@
             const promoCode = this.$store.getters['booking/tours'].promocode;
             // console.log('promo code ', promoCode);
             return typeof promoCode !=='undefined' && Object.entries(promoCode).length !== 0  ? promoCode : null;
+         },
+
+         pax(){
+            if(this.tour.isPrivate){
+               return this.tour.namePax
+            }
+
+            return '';
          }
       }
    }

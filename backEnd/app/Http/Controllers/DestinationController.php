@@ -128,7 +128,8 @@ class DestinationController extends Controller
         //->toSql();
 
         foreach($res as $r){
-            $r['order']=($r['order']===999) ? '' : $r['oder'];
+            //dump($r);
+            $r['order']=($r['order']===999) ? '' : $r['order'];
         }
 
         if (count($res) > 0) {

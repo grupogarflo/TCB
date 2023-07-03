@@ -137,7 +137,8 @@ class SiteApiController extends Controller
                             'fake_price_mxn'=>$rate_fake_price_mxn,
                             'real_price'=>$rate->real_price,
                             'real_price_mxn'=>$rate_real_price_mxn,
-                            'pax'=>$rate->pax_range_id
+                            'pax'=>$rate->pax_range_id,
+
 
                         ]);
 

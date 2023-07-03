@@ -1,29 +1,29 @@
 <template>
    <div>
-      <v-container class="mb-5">
+      <v-container class="mb-5 mt-3">
          <v-row>
             <v-col cols="12" class="text-center">
-               <img class="logo mx-auto" src="/images/layout/tripadvisor-isotipo.svg" width="15%" />
+               <img class="logo mx-auto" src="/images/layout/tripadvisor-isotipo.svg" :width="(!mobile) ? '15%' : '50%' " />
             </v-col>
          </v-row>
          <v-row align="baseline">
             <v-col cols="3" class="text-center">
-               <img class="logo mx-auto" src="/images/layout/visa.svg" width="32%" />
+               <img class="logo mx-auto" src="/images/layout/visa.svg" :width="(!mobile) ? '32%' : '80%'" />
             </v-col>
             <v-col cols="3" class="text-center">
-               <img class="logo mx-auto" src="/images/layout/mastercard.svg" width="22%" />
+               <img class="logo mx-auto" src="/images/layout/mastercard.svg" :width="(!mobile) ? '22%' : '50%'"/>
             </v-col>
             <v-col cols="3" class="text-center">
-               <img class="logo mx-auto" src="/images/layout/americanexpress.svg" width="32%" />
+               <img class="logo mx-auto" src="/images/layout/americanexpress.svg" :width="(!mobile) ? '32%' : '80%'" />
             </v-col>
             <v-col cols="3" class="text-center">
-               <img class="logo mx-auto" src="/images/layout/paypal.svg" width="32%" />
+               <img class="logo mx-auto" src="/images/layout/paypal.svg" :width="(!mobile) ? '32%' : '80%'" />
             </v-col>
          </v-row>
          <v-row>
             <v-col cols="12" class="text-center">
-               <img v-if="language==2" class="logo mx-auto" src="/images/layout/100_money-back.svg" width="60%" />
-               <img v-else class="logo mx-auto" src="/images/layout/100_reembolsable.svg" width="60%" />
+               <img  class="logo mx-auto" :src="img" :width="(!mobile) ? '60%' : '100%'" />
+
             </v-col>
          </v-row>
       </v-container>
@@ -56,6 +56,12 @@
 
 <script>
 export default {
+   data(){
+      return {
+         img:(this.$i18n.locale==='es') ? '/images/layout/100_reembolsable.svg' :'/images/layout/100_money-back.svg'
+      }
+   },
+
    computed:{
       mobile(){
          return this.isMobile()
@@ -63,6 +69,14 @@ export default {
       language(){
          return  this.$store.getters['booking/language']
       },
-   }
+
+      /*
+      img(){
+         return  (this.$store.getters['booking/language']===2) ? '/images/layout/100_money-back.svg':'/images/layout/100_reembolsable.svg';
+      }
+      */
+   },
+
+
 }
 </script>
