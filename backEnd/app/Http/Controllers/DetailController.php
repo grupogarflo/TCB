@@ -70,7 +70,8 @@ class DetailController extends Controller
             ->get();
 
 
-        $destination = destinationContent::select("destination_id as id", "destination_contents.name", "destination_contents.url", "languages.name as idioma", "destination_contents.img")
+        $destination = destinationContent::select("destination_id as id",
+                        "destination_contents.name", "destination_contents.url", "languages.name as idioma", "destination_contents.img", "destination_contents.meta_title","destination_contents.meta_description","meta_keywords")
         ->join('destinations', 'destinations.id', '=', 'destination_contents.destination_id')
         ->join('languages', 'languages.id', '=', 'destination_contents.language_id')
         ->where('destinations.active', 1)

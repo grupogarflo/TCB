@@ -186,9 +186,24 @@ export default {
             await this.$axios.post('/pageType',{url:this.$route.params.slug, language: this.language})
                   .then(response =>{
                      // alert('response');
-                     console.log(response.data);
+                     // console.log(response.data);
                      this.pageType = response.data.val;
                      // this.contentData = response.data.data
+
+                     if(response.data.val==='category'){
+                        this.titleMeta=response.data.data[0].meta_title
+                        this.descriptionMeta=response.data.data[0].meta_description
+                        this.keywordsMeta=response.data.data[0].meta_keywords
+                     }
+
+                     if(response.data.val==='category'){
+                        this.titleMeta=response.data.data[0].meta_title
+                        this.descriptionMeta=response.data.data[0].meta_description
+                        this.keywordsMeta=response.data.data[0].meta_keywords
+                     }
+
+
+
 
                   }).catch(response =>{
                      console.log('error', response);
