@@ -41,7 +41,51 @@ export default {
 
          pageType: null,
          contentData:null,
+         titleMeta:'',
+         descriptionMeta:'',
+         keywordsMeta:'',
       }
+   },
+
+
+   head(){
+
+      return {
+
+            // eslint-disable-next-line object-shorthand
+            title: this.titleMeta,
+            htmlAttrs: {
+               lang: this.$i18n.locale
+            },
+            meta:[
+               {
+                  hid: 'og:description',
+                  name: 'og:description',
+                  // content: context.$i18n.messages[context.$i18n.locale].meta.home.description
+                  content: this.descriptionMeta
+
+
+               },
+               {
+                  hid: 'og:keywords',
+                  name: 'og:keywords',
+                  content: this.keywordsMeta
+
+
+               },
+
+
+               {
+                  hid: 'og:title',
+                  name: 'og:title',
+                  content: this.titleMeta
+
+
+               },
+
+            ]
+         }
+
    },
    computed:{
       mobile(){
@@ -52,6 +96,8 @@ export default {
       }
 
    },
+
+
 
 
 

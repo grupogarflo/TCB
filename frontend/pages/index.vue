@@ -92,9 +92,53 @@
          return{
                homeTourList:[],
                items:[],
-               backgroundImage:''
+               backgroundImage:'',
+               titleMeta:'',
+               descriptionMeta:'',
+               keywordsMeta:''
          }
       },
+
+      head(){
+
+         return {
+
+               // eslint-disable-next-line object-shorthand
+               title: this.titleMeta,
+               htmlAttrs: {
+                  lang: this.$i18n.locale
+               },
+               meta:[
+                  {
+                     hid: 'og:description',
+                     name: 'og:description',
+                     // content: context.$i18n.messages[context.$i18n.locale].meta.home.description
+                     content: this.descriptionMeta
+
+
+                  },
+                  {
+                     hid: 'og:keywords',
+                     name: 'og:keywords',
+                     content: this.keywordsMeta
+
+
+                  },
+
+
+                  {
+                     hid: 'og:title',
+                     name: 'og:title',
+                     content: this.titleMeta
+
+
+                  },
+
+               ]
+            }
+
+      },
+
       computed:{
          mobile(){
             return this.isMobile();
@@ -148,8 +192,11 @@
              this.$axios
              .post('/getBannerHome',{ idioma: this.$store.getters['booking/language'], })
              .then(response=>{
-                this.items= response.data.data;
-                this.showLoading = false;
+                  this.items= response.data.data;
+                  this.showLoading = false;
+                  this.titleMeta = this.$t('meta.home.title');
+                  this.descriptionMeta= this.$t('meta.home.description');
+                  this.keywordsMeta=this.$t('meta.home.description');
              })
              .catch(error=>{
                 this.error = error.response.data.message;

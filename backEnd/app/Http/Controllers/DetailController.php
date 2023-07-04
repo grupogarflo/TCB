@@ -132,7 +132,7 @@ class DetailController extends Controller
         return response()->json([
             'status'=>'ok',
             'val'=>$val,
-            //'data'=>$returnItem
+            'data'=>$returnItem
         ]);
 
 

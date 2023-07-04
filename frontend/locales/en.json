@@ -155,6 +155,33 @@
    "ourTours":"OUR TOURS",
    "searchEngine":{
       "title":"Are you ready to explore?"
+   },
+   "meta":{
+      "home":{
+         "title":"Tours y Excursiones en Cancun y Riviera Maya | Cancun Bay Tours",
+         "keywords":"",
+         "description":"Cancun Bay Tours te trae una cuidadosa selección de tours y excursiones inolvidables para hacer memorable tu visita a Cancún y la Riviera Maya."
+      },
+      "about-us":{
+         "title":"",
+         "keywords":"",
+         "description":""
+      },
+      "politics":{
+         "title":"",
+         "keywords":"",
+         "description":""
+      },
+      "terms-cond":{
+         "title":"Términos y Políticas de Cancelación | Cancun Bay Tours",
+         "keywords":"",
+         "description":""
+      },
+      "contact":{
+         "title":"Contacto | Cancun Bay Tours ",
+         "keywords":"",
+         "description":""
+      }
    }
 
 
