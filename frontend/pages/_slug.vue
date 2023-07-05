@@ -196,12 +196,17 @@ export default {
                         this.keywordsMeta=response.data.data[0].meta_keywords
                      }
 
-                     if(response.data.val==='category'){
+                     if(response.data.val==='destination'){
                         this.titleMeta=response.data.data[0].meta_title
                         this.descriptionMeta=response.data.data[0].meta_description
                         this.keywordsMeta=response.data.data[0].meta_keywords
                      }
 
+                     if(response.data.val==='tour'){
+                        this.titleMeta=response.data.data.tour[0].meta_title
+                        this.descriptionMeta=response.data.data.tour[0].meta_description
+                        this.keywordsMeta=response.data.data.tour[0].meta_keywords
+                     }
 
 
 

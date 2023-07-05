@@ -1,6 +1,6 @@
 <template>
    <div class="tour-detail">
-      <div :class="['blue-rectangle', (mobile) ? 'px-4':'px-10', (mobile)? 'py-5':'py-10',(mobile) ? 'text-center':'']">
+      <div v-if="!item.is_private" :class="['blue-rectangle', (mobile) ? 'px-4':'px-10', (mobile)? 'py-5':'py-10',(mobile) ? 'text-center':'']">
          <p>
             <span class="price-fake">{{ $t('general.adults') }}: {{ adultFake | currencyFormat(currency) }}</span>
 
@@ -12,6 +12,19 @@
             <span class="price-real ml-2">{{ $t('general.children') }}:  {{ realChild  | currencyFormat(currency)}}</span>
 
          </p>
+
+
+
+
+      </div>
+
+      <div v-else :class="['blue-rectangle', (mobile) ? 'px-4':'px-10', (mobile)? 'py-5':'py-10',(mobile) ? 'text-center':'']">
+         <p>
+            <span class="price-fake">{{ $t('general.from') }}: {{ adultFake | currencyFormat(currency) }}</span>
+
+            <span class="price-real ml-2">{{ $t('general.from') }}: {{  realAdult | currencyFormat(currency) }}</span>
+         </p>
+
 
 
 
