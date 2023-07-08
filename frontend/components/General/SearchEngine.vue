@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-side-effects-in-computed-properties -->
 <template>
-  <v-container id="search-engine-content" >
+  <v-container id="search-engine-content" class="px-0" >
 
    <v-row>
       <v-col cols="12">

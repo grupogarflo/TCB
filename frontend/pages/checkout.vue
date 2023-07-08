@@ -57,13 +57,53 @@
                      <confirmation :class="[(steps==3) ? 'd-block' :'d-none' ]"></confirmation>
                   </v-card-text>
                </v-card>
+
+               <v-row v-if="mobile" align="baseline" :class="(!route) ? 'd-none' :'d-flex mt-10 text-center'" no-gutters>
+                  <v-col cols="12" class="text-center">
+                     <img class="logo mx-4 d-inline-flex" src="/images/layout/visa.svg" :width="(!mobile) ? '18%' : '14%'" />
+
+                     <img class="logo mx-4 d-inline-flex" src="/images/layout/mastercard.svg" :width="(!mobile) ? '8%' : '8%'"/>
+
+                     <img class="logo mx-4 d-inline-flex" src="/images/layout/americanexpress.svg" :width="(!mobile) ? '18%' : '14%'" />
+
+                     <img class="logo mx-4 d-inline-flex" src="/images/layout/paypal.svg" :width="(!mobile) ? '18%' : '14%'" />
+                  </v-col>
+               </v-row>
+               <v-row v-if="mobile" :class="(!route) ? 'd-none' :'d-flex'">
+                  <v-col cols="12" class="text-center">
+                  <client-only>
+                        <img  class="logo mx-auto" :src="img" :width="(!mobile) ? '82%' : '100%'" />
+                     </client-only>
+
+                  </v-col>
+               </v-row>
          </v-col>
          <v-col cols="12" md="6" :order="(mobile) ? '1' :'2' ">
             <TourDetail :tour="tourDetail"  ></TourDetail>
+
+            <v-row v-if="!mobile" align="baseline" :class="(!route) ? 'd-none' :'d-flex mt-10 text-center'" no-gutters>
+               <v-col cols="12" class="text-center">
+                  <img class="logo mx-4 d-inline-flex" src="/images/layout/visa.svg" :width="(!mobile) ? '18%' : '14%'" />
+
+                  <img class="logo mx-4 d-inline-flex" src="/images/layout/mastercard.svg" :width="(!mobile) ? '8%' : '8%'"/>
+
+                  <img class="logo mx-4 d-inline-flex" src="/images/layout/americanexpress.svg" :width="(!mobile) ? '18%' : '14%'" />
+
+                  <img class="logo mx-4 d-inline-flex" src="/images/layout/paypal.svg" :width="(!mobile) ? '18%' : '14%'" />
+               </v-col>
+            </v-row>
+            <v-row v-if="!mobile" :class="(!route) ? 'd-none' :'d-flex'">
+               <v-col cols="12" class="text-center">
+               <client-only>
+                     <img  class="logo mx-auto" :src="img" :width="(!mobile) ? '82%' : '100%'" />
+                  </client-only>
+
+               </v-col>
+            </v-row>
+
          </v-col>
       </v-row>
 
-º
 
 
    </v-container>
@@ -86,7 +126,8 @@ export default {
       return {
          steps :1,
          total:0,
-         clientId:0
+         clientId:0,
+         img:(this.$i18n.locale==='es') ? '/images/layout/100_reembolsable.svg' :'/images/layout/100_money-back.svg'
       }
    },
 
@@ -101,6 +142,20 @@ export default {
          } else {
          return 468
          }
+      },
+      route(){
+
+         // console.log(this.$route.name);
+
+         if(this.$route.name.includes('checkout')){
+            return true
+         }
+         return false
+      },
+
+      mobile(){
+         // console.log(this.$route.name);
+         return this.isMobile()
       },
    },
 

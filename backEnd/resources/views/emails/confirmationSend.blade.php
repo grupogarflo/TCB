@@ -1,847 +1,391 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-
 <head>
-  <!--[if gte mso 9]>
-<xml>
-  <o:OfficeDocumentSettings>
-    <o:AllowPNG/>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
-  </o:OfficeDocumentSettings>
-</xml>
-<![endif]-->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="x-apple-disable-message-reformatting">
-  <!--[if !mso]><!-->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--<![endif]-->
-  <title></title>
+    <title></title>
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    #outlook a{padding:0;}body{margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}table,td{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}img{border:0;height:auto;line-height:100%;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;}p{display:block;margin:0;}
+    </style>
+    <!--[if mso]> <noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type="text/css">
+    .ogf{width:100% !important;}
+    </style>
+    <![endif]-->
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Mulish:700,400,600" rel="stylesheet" type="text/css">
+    <style type="text/css">
 
-  <style type="text/css">
-    table,
-    td {
-      color: #000000;
-    }
+    </style>
+    <!--<![endif]-->
+    <style type="text/css">
+    @media only screen and (min-width:599px){.pc100{width:100%!important;max-width:100%;}.pc24-1197{width:24.1197%!important;max-width:24.1197%;}.pc36-4437{width:36.4437%!important;max-width:36.4437%;}.pc2-8169{width:2.8169%!important;max-width:2.8169%;}.pc0-1761{width:0.1761%!important;max-width:0.1761%;}.xc536{width:536px!important;max-width:536px;}.xc568{width:568px!important;max-width:568px;}.xc260{width:260px!important;max-width:260px;}.xc16{width:16px!important;max-width:16px;}}
+    </style>
+    <style media="screen and (min-width:599px)">.moz-text-html .pc100{width:100%!important;max-width:100%;}.moz-text-html .pc24-1197{width:24.1197%!important;max-width:24.1197%;}.moz-text-html .pc36-4437{width:36.4437%!important;max-width:36.4437%;}.moz-text-html .pc2-8169{width:2.8169%!important;max-width:2.8169%;}.moz-text-html .pc0-1761{width:0.1761%!important;max-width:0.1761%;}.moz-text-html .xc536{width:536px!important;max-width:536px;}.moz-text-html .xc568{width:568px!important;max-width:568px;}.moz-text-html .xc260{width:260px!important;max-width:260px;}.moz-text-html .xc16{width:16px!important;max-width:16px;}
+    </style>
+    <style type="text/css">
+    noinput.mn-checkbox{display:block!important;max-height:none!important;visibility:visible!important;}
+    @media only screen and (max-width:598px){.mn-checkbox[type="checkbox"]~.il{display:none!important;}.mn-checkbox[type="checkbox"]:checked~.il,.mn-checkbox[type="checkbox"]~.mn-trigger{display:block!important;max-width:none!important;max-height:none!important;font-size:inherit!important;}.mn-checkbox[type="checkbox"]~.il>a{display:block!important;}.mn-checkbox[type="checkbox"]:checked~.mn-trigger .mn-icon-close{display:block!important;}.mn-checkbox[type="checkbox"]:checked~.mn-trigger .mn-icon-open{display:none!important;}}
+    @media only screen and (max-width:598px){table.fwm{width:100%!important;}td.fwm{width:auto!important;}}
+    </style>
+    <style type="text/css">
+    u+.emailify .gs{background:#000;mix-blend-mode:screen;display:inline-block;padding:0;margin:0;}u+.emailify .gd{background:#000;mix-blend-mode:difference;display:inline-block;padding:0;margin:0;}u+.emailify a,#MessageViewBody a,a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important;}td.b .klaviyo-image-block{display:inline;vertical-align:middle;}
+    @media only screen and (max-width:599px){.emailify{height:100%!important;margin:0!important;padding:0!important;width:100%!important;}u+.emailify .glist{margin-left:1em!important;}td.ico.v>div.il>a.l.m,td.ico.v .mn-label{padding-right:0!important;padding-bottom:16px!important;}td.x{padding-left:0!important;padding-right:0!important;}.fwm img{max-width:100%!important;height:auto!important;}.aw img{width:auto!important;margin-left:auto!important;margin-right:auto!important;}.ah img{height:auto!important;}td.b.nw>table,td.b.nw a{width:auto!important;}td.stk{border:0!important;}td.u{height:auto!important;}br.sb{display:none!important;}.thd-1 .i-thumbnail{display:inline-block!important;height:auto!important;overflow:hidden!important;}.hd-1{display:block!important;height:auto!important;overflow:visible!important;}.ht-1{display:table!important;height:auto!important;overflow:visible!important;}.hr-1{display:table-row!important;height:auto!important;overflow:visible!important;}.hc-1{display:table-cell!important;height:auto!important;overflow:visible!important;}div.r.pr-16>table>tbody>tr>td,div.r.pr-16>div>table>tbody>tr>td{padding-right:16px!important}div.r.pl-16>table>tbody>tr>td,div.r.pl-16>div>table>tbody>tr>td{padding-left:16px!important}td.v.s-8>div.il>a.l.m{padding-right:8px!important;}td.v.ico.s-8>div.il>a.l.m,td.v.ico.s-8 .mn-label{padding-bottom:8px!important;padding-right:0!important;}div.w.pr-16>table>tbody>tr>td,div.w.pr-16>div>table>tbody>tr>td{padding-right:16px!important;}div.w.pl-16>table>tbody>tr>td,div.w.pl-16>div>table>tbody>tr>td{padding-left:16px!important;}div.g.mb-16>table>tbody>tr>td{padding-bottom:16px!important}}
+    </style>
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <!--[if gte mso 9]>
+    <style>a:link,span.MsoHyperlink{mso-style-priority:99;color:inherit;text-decoration:none;}a:visited,span.MsoHyperlinkFollowed{mso-style-priority:99;color:inherit;text-decoration:none;}
+    </style>
+    <![endif]-->
+    <!--[if gte mso 9]>
+    <style>li{text-indent:-1em;}
+    </style>
+    <![endif]-->
+    <!--[if mso]><!-- -->
+    <style>.cr->table>tbody>tr>td,.c-r>table{border-collapse:collapse;}
+    </style>
+    <!--<![endif]-->
+    </head>
+    <body lang="en" link="#DD0000" vlink="#DD0000" class="emailify" style="mso-line-height-rule:exactly;word-spacing:normal;background-color:#1e1e1e;"><div class="bg" style="background-color:#1e1e1e;" lang="en">
+    <!--[if mso | IE]>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:600px;" width="600"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="r  pr-16 pl-16" style="background:#eb008b;background-color:#eb008b;margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#eb008b;background-color:#eb008b;width:100%;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:16px 16px 16px 16px;text-align:left;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="width:568px;">
+    <![endif]--><div class="pc100 ogf" style="font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;">
+    <!--[if mso | IE]>
+    <table border="0" cellpadding="0" cellspacing="0" role="none"><tr><td style="vertical-align:top;width:136px;">
+    <![endif]--><div class="pc24-1197 ogf" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:24.1197%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%"><tbody><tr><td style="vertical-align:top;padding:0;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td><td style="vertical-align:middle;width:207px;">
+    <![endif]--><div class="pc36-4437 ogf m c" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:36.4437%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%"><tbody><tr><td style="border:none;vertical-align:middle;padding:0px 30px 0px 30px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td><td style="vertical-align:top;width:15px;">
+    <![endif]--><div class="pc2-8169 ogf g" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:2.8169%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%"><tbody><tr><td style="vertical-align:top;padding:0;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td><td style="vertical-align:middle;width:207px;">
+    <![endif]--><div class="pc36-4437 ogf c" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:36.4437%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style="border:none;vertical-align:middle;" width="100%"><tbody><tr><td align="right" class="v  s-8" style="font-size:0;word-break:break-word;"><div class="il" style>
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0" align="right"><tr><td style="padding:0;padding-top:0;padding-left:0;padding-right:0;padding-bottom:0;" class="l-outlook -outlook -outlook">
+    <![endif]--> <a class="l  " href="#insertUrlLink" target="_blank" style="display:inline-block;color:#000000;font-family:Inter,Arial,sans-serif;font-size:13px;font-weight:normal;line-height:0;text-decoration:none;text-transform:none;padding:0;padding-top:0;padding-left:0;padding-right:0;padding-bottom:0;"> <span style="font-size:12px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#ffffff;line-height:125%;text-decoration:underline;">View in the browser</span></a>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></div>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td><td style="vertical-align:top;width:1px;">
+    <![endif]--><div class="pc0-1761 ogf" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:0.1761%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%"><tbody><tr><td style="vertical-align:top;padding:0;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:600px;" width="600"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="r  pr-16 pl-16" style="background:#ebebeb;background-color:#ebebeb;margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#ebebeb;background-color:#ebebeb;width:100%;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:43px 32px 43px 32px;text-align:left;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="c-outlook -outlook -outlook" style="vertical-align:middle;width:536px;">
+    <![endif]--><div class="xc536 ogf c" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style="border:none;vertical-align:middle;" width="100%"><tbody><tr><td align="left" class="a" style="background:transparent;font-size:0;padding:0;word-break:break-word;">
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Arial,sans-serif;font-size:13px;line-height:22px;table-layout:fixed;width:100%;border:none;"><tr class="q " ><td align="left" class="u" style="padding:0;height:32px;word-wrap:break-word;vertical-align:middle;" width="32">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td class="i  " align="left" width="100%"><img width="32" height="auto" style="display:block;width:32px;height:32px;" src="https://e.hypermatic.com/543337ccf386a3f0074054ffafa9feb0.png">
+    </td></tr></table>
+    </td><td class="tgtr" style="vertical-align:middle;color:transparent;font-size:0;" width="16">&#8203
+    </td><td align="left" class="u" style="padding:0;height:64px;word-wrap:break-word;vertical-align:middle;" width="auto">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td class="x  " align="left" width="100%"><p style="Margin:0;text-align:left;"><span style="font-size:28px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:114%;">
+        @if ($details['language'] === 'ing')  Thanks for your purchase
+        @else ¡Gracias por tu compra!
+        @endif
+    </span></p><p style="Margin:0;"><span style="font-size:28px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:114%;">
 
-    a {
-      color: #0000ee;
-      text-decoration: underline;
-    }
-
-    @media only screen and (min-width: 620px) {
-      .u-row {
-        width: 600px !important;
-      }
-      .u-row .u-col {
-        vertical-align: top;
-      }
-      .u-row .u-col-100 {
-        width: 600px !important;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .u-row-container {
-        max-width: 100% !important;
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-      }
-      .u-row .u-col {
-        min-width: 320px !important;
-        max-width: 100% !important;
-        display: block !important;
-      }
-      .u-row {
-        width: calc(100% - 40px) !important;
-      }
-      .u-col {
-        width: 100% !important;
-      }
-      .u-col>div {
-        margin: 0 auto;
-      }
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    table,
-    tr,
-    td {
-      vertical-align: top;
-      border-collapse: collapse;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    .ie-container table,
-    .mso-container table {
-      table-layout: fixed;
-    }
-
-    * {
-      line-height: inherit;
-    }
-
-    a[x-apple-data-detectors='true'] {
-      color: inherit !important;
-      text-decoration: none !important;
-    }
-  </style>
-
-
-
-  <!--[if !mso]><!-->
-  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet" type="text/css">
-  <!--<![endif]-->
-
-   <?php
-/*
-$details = [
-
-            'client' => 1,
-            'email' => 'email',
-           'phone' => 9988999999,
-           'codeBook' =>22222,
-            'siteBook' => 'sitio',
-            'language' => 'esp',
-            'status' => 'status',
-            'hotel' => 'hotel',
-            'total' => 333333333,
-            'currency' => 'currency',
-            'authorization' => 'csdcadcasdc',
-            'nameTour' => 'name tour',
-            'duration' => 'duration',
-            'date' => '2002-22-22',
-            'adults' => 2,
-            'child' => 3,
-            'promocode' => 'sxsxsx',
-            'discount' => '333',
-            'schedule' => '30odc',
-            'languageTour' => 0,
-            'atvSingle' => 0,
-            'atvDouble' => 0,
-            'park' => 'parque'
-        ];
-*/
-?>
-
-</head>
-
-<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #DBD9D9;color: #000000">
-  <!--[if IE]><div class="ie-container"><![endif]-->
-  <!--[if mso]><div class="mso-container"><![endif]-->
-  <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #DBD9D9;width:100%" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #DBD9D9;"><![endif]-->
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-                              <div style="color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;"></div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #EB008B;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="background-color:#EB008B; overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="http://cancunbay.net/images/layout/logo.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 32%;max-width: 179.2px;"
-                                      width="179.2" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #EB008B; color:#ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #0394EE;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    <span style="font-size: 28px; line-height: 39.2px;">
-                                    <strong><span style="line-height: 39.2px; font-size: 28px;">
-                                      @if ($details['language'] === 'ing')  Thanks for your purchase
-                                      @else ¡Gracias por tu compra!
-                                      @endif
-                                    </span></strong>
-                                  </span>
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto; padding-bottom:10px;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <h1 style="margin: 0px; color:#EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
-                                 @if ($details['language'] === 'ing')   Your Information:
+        @if ($details['language'] === 'ing')   Your Information:
                                  @else  Tu información:
                                  @endif
-                              </h1>
 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')   Name: {{ $details['client'] }}
+    </span></p>
+    </td></tr></table>
+    </td></tr></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:600px;" width="600"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="r  pr-16 pl-16" style="background:#eeeeee;background-color:#eeeeee;margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#eeeeee;background-color:#eeeeee;width:100%;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:20px 16px 20px 16px;text-align:left;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="c-outlook -outlook cr--outlook -outlook" style="vertical-align:middle;width:568px;">
+    <![endif]--><div class="xc568 ogf c  cr-" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%" style="border-collapse:separate;border-spacing:0;"><tbody><tr><td style="border-collapse:separate;border-spacing:0;background-color:#fffffe;border:none;border-radius:10px 10px 10px 10px;vertical-align:middle;padding:40px 55px 40px 55px;" bgcolor="#fffffe" valign="middle">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody><tr><td align="left" class="x" style="font-size:0;word-break:break-word;"><div style="text-align:left;"><p style="Margin:0;text-align:left;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:153%;">@if ($details['language'] === 'ing')   Your Information:
+        @else  Tu información:
+        @endif</span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:153%;">&nbsp;</span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:153%;"></span><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
+            @if ($details['language'] === 'ing')   Name: {{ $details['client'] }}
                                    @else  Nombre: {{ $details['client'] }}
                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                  Email: {{ $details['email'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')   Phone: {{ $details['phone'] }}
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
+            Email: {{ $details['email'] }}
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
+            @if ($details['language'] === 'ing')   Phone: {{ $details['phone'] }}
                                    @else  Teléfono: {{ $details['phone'] }}
                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   Country: {{ $details['country'] }}
-                                    @else  País: {{ $details['country'] }}
-                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   State: {{ $details['state'] }}
-                                    @else  Estado: {{ $details['state'] }}
-                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   City: {{ $details['city'] }}
-                                    @else  Ciudad: {{ $details['city'] }}
-                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
 
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
+            @if ($details['language'] === 'ing')   Booking code: {{ $details['codeBook'] }}
+            @else  Código de reservación: {{ $details['codeBook'] }}
+            @endif
 
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')   Booking code: {{ $details['codeBook'] }}
-                                   @else  Código de reservación: {{ $details['codeBook'] }}
-                                   @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')   Payment code: {{ $details['authorization'] }}
-                                   @else  Código de pago: {{ $details['authorization'] }}
-                                   @endif
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
+            @if ($details['language'] === 'ing')   Payment code: {{ $details['authorization'] }}
+            @else  Código de pago: {{ $details['authorization'] }}
+            @endif
 
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
 
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   Hotel: {{ $details['hotel'] }}
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+            @if ($details['language'] === 'ing')   Pickup:  {{ $details['hotel'] }}
+            @else  Lugar de recogida: {{ $details['hotel'] }}
+            @endif
 
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   Promocode: {{ $details['promocode'] }}
-                                </p>
-                              </div>
 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">
+            Promocode: {{ $details['promocode'] }}
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:153%;">&nbsp;</span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:153%;">
+            Total: $ {{ $details['total'] }} {{ $details['currency'] }}
+        </span></p><p style="Margin:0;mso-line-height-alt:153%"><span style="font-size:17px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:153%;">&nbsp;</span></p></div>
+    </td></tr></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="w-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:600px;" width="600" bgcolor="#eeeeee"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="w  pr-16 pl-16" style="background:#eeeeee;background-color:#eeeeee;margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#eeeeee;background-color:#eeeeee;width:100%;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:16px 16px 16px 16px;text-align:center;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" width="600px">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:568px;" width="568"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="r  pr-16 pl-16" style="background:#fffffe;background-color:#fffffe;margin:0px auto;border-radius:10px 10px 10px 10px;max-width:568px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#fffffe;background-color:#fffffe;width:100%;border-radius:10px 10px 10px 10px;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:20px 16px 20px 16px;text-align:left;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="m-outlook c-outlook -outlook cr--outlook -outlook" style="vertical-align:middle;width:260px;">
+    <![endif]--><div class="xc260 ogf c" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%"><tbody><tr><td style="border:none;vertical-align:middle;padding:8px 8px 8px 8px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody><tr><td align="left" class="x  m" style="font-size:0;padding-bottom:8px;word-break:break-word;"><div style="text-align:left;"><p style="Margin:0;text-align:left;mso-line-height-alt:120%"><span style="font-size:20px;font-family:Inter,Arial,sans-serif;font-weight:700;color:#000000;line-height:120%;">{{ $details['nameTour'] }}</span></p></div>
+    </td></tr><tr><td align="left" class="x" style="font-size:0;padding-bottom:0;word-break:break-word;"><div style="text-align:left;"><p style="Margin:0;text-align:left;mso-line-height-alt:150%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#777777;line-height:150%;">
 
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                              <p style="font-size: 14px; line-height: 140%;">Total: $ {{ $details['total'] }} {{ $details['currency'] }}</p>
-                              </div>
+        @if ($details['language'] === 'ing')   Date: {{ $details['date'] }}
+        @else  Fecha: {{ $details['date'] }}
+        @endif
 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#777777;line-height:150%;">
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:17px;font-family:'Cabin',sans-serif;" align="left">
+        @if ($details['language'] === 'ing')    Adults: {{ $details['adults'] }}
+        @else   Adultos: {{ $details['adults'] }}
+        @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#777777;line-height:150%;">
 
-                              <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                <tbody>
-                                  <tr style="vertical-align: top">
-                                    <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                      <span>&#160;</span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+        @if ($details['language'] === 'ing')    Child: {{ $details['child'] }}
+        @else   Niños: {{ $details['child'] }}
+        @endif
 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#777777;line-height:150%;">
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <h1 style="margin: 0px; color: #EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
-                                   @if ($details['language'] === 'ing')   Tour Information:
-                                   @else  Información del tour:
-                                   @endif
-                              </h1>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Tour: {{ $details['nameTour'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                  @if ($details['language'] === 'ing')   Date: {{ $details['date'] }}
-                                  @else  Fecha: {{ $details['date'] }}
-                                  @endif
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')    Adults: {{ $details['adults'] }}
-                                   @else   Adultos: {{ $details['adults'] }}
-                                   @endif
-                                 </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')    Child: {{ $details['child'] }}
-                                   @else   Niños: {{ $details['child'] }}
-                                   @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')    Duration: {{ $details['duration'] }}
+        @if ($details['language'] === 'ing')    Duration: {{ $details['duration'] }}
                                    @else   Duración: {{ $details['duration'] }}
                                    @endif
-                                </p>
-                              </div>
 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+    </span></p></div>
+    </td></tr></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:600px;" width="600"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="r  pr-16 pl-16" style="background:#eeeeee;background-color:#eeeeee;margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#eeeeee;background-color:#eeeeee;width:100%;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:20px 16px 20px 16px;text-align:left;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="c-outlook -outlook cr--outlook -outlook" style="vertical-align:middle;width:568px;">
+    <![endif]--><div class="xc568 ogf c  cr-" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" width="100%" style="border-collapse:separate;border-spacing:0;"><tbody><tr><td style="border-collapse:separate;border-spacing:0;background-color:#fffffe;border:none;border-radius:10px 10px 10px 10px;vertical-align:middle;padding:40px 55px 40px 55px;" bgcolor="#fffffe" valign="middle">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody><tr><td align="left" class="x" style="font-size:0;word-break:break-word;"><div style="text-align:left;"><p style="Margin:0;text-align:left;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:150%;">
+        @if ($details['language'] === 'ing')  Cancellation Policy @else   Politica de cancelacion @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:150%;"></span><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
+        @if ($details['language'] === 'ing') Cancellations Request will be only by e-mail to cancellations@cancuntours.com&nbsp; @else La solicitud de cancelaciones será únicamente por correo electrónico a cancelaciones@cancuntours.com @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">as MANDATORY.</span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+      @if ($details['language'] === 'ing')  Cancellations made 48 hrs before your service = 100% refund  @else  Cancelaciones realizadas 48 hrs antes de su servicio = 100% reembolso
+      @endif
 
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')
-                                   <h3>Cancellation Policy</h3>
-                                   <p>Cancellations Request will be only by e-mail to cancellations@cancunbay.com as MANDATORY. </p>
-                                   <p>• Cancellations made 48 hrs before your service = 100% refund </p>
-                                   <p>• Cancellations made between 36 hrs and 48 hrs before your service = 80% refund </p>
-                                   <p>• Cancellations made in a reservation paid with Paypal only apply for a refund of 80% tops</p>
-                                   <p>• Cancellations made between 24 hrs and 36 hrs before your service = 50% refund </p>
-                                   <p>• Cancellations made less than 24 hrs before your service = no refund </p>
-                                   <p>• No show = no refund</p>
-                                   <p>• IMPORTANT: Tour Combos do not apply for a partial refund. If you do one tour from the combo, the cancelation or the refund does not apply </p>
-                                   <p>• These policies are not applied in cases of hurricane, tropical storms, or natural phenomenons. In these cases the policy of change of date of the tour will be observed </p>
-                                   <p>• Date or Schedule changes in reservations for "Hotel-Airport" are only allowed 24 hours in advance</p>
-                                   <p>• The policy of 100% refund does not apply on reservations with promotional codes or discounts, even if the cancellation is made 48 hours prior to the service. In these cases the refund will only be of 80% tops</p>
-                                   @else
-                                    <h3>Políticas de Cancelación</h3>
-                                    <p>Toda Solicitud de  Cancelación tendrá que ser solicitada de manera obligatoria por correo electrónico a cancellations@cancunbay.com</p>
-                                    <p>• Cancelaciones hechas 48 hrs antes de su servicio = 100% reembolso </p>
-                                    <p>• Cancelaciones hechas entre 36 hrs y 48 hrs antes de su servicio = 80% reembolso </p>
-                                    <p>• Las cancelaciones realizadas en una reserva pagada con Paypal solo se aplican para un reembolso del 80%</p>
-                                    <p>• Cancelaciones hechas entre 24 hrs y 36 hrs antes de su servicio = 50% reembolso</p>
-                                    <p>• Cancelaciones hechas con menos de 24 hrs de su servicio = No reembolso</p>
-                                    <p>• No show = no reembolso</p>
-                                    <p>• IMPORTANTE: En los combo tours no aplican reembolsos parciales. Si usted realiza uno de los tours que aparecen en el combo no será posible la cancelación y/o el reembolso parci</p>
-                                    <p>• Cambios de horario y/o fecha para reservaciones de "Hotel-Aeropuerto" son permitidos únicamente con 24 horas de anticipación</p>
-                                    <p>• Estas políticas no aplicarán en casos de huracán, tormentas tropicales, o cualquier fenómeno natural, para estos casos solamente se aplicará la política de cambio de fecha del tour</p>
-                                    <p>•La política 100% reembolsable NO aplica en reservaciones realizadas con códigos promocionales o descuentos especiales aún cuando la cancelación se realice con 48 hrs de anticipación a su servicio, el monto de reembolso que podrá ser aplicado será únicamente del 80%</p>
-                                    <p>• Los descuentos especiales y/o códigos de promoción serán aplicables únicamente durante las fechas establecidas para el descuento, dichos descuentos no serán retroactivos en reservaciones realizadas en periodos anteriores a la promoción y en las que el cliente omita el ingresar el código de promoción en el campo correspondiente</p>
-                                    <p>• En cancelaciones motivadas con el fin de recibir un descuento publicado posterior a la compra original se aplicará una penalización del 20%</p>
-                                    <p>• IMPORTANTE: Estas políticas de cancelación no aplican para las entradas o cualquier actividad del Cirque du Soleil Joyà. Para estas entradas o actividades no hay reembolsos.</p>
-
-                                   @endif
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">•
+      @if ($details['language'] === 'ing') Cancellations made between 36 hrs and 48 hrs before your service = 80% refund
+      @else
+        Cancelaciones realizadas entre 36 hrs y 48 hrs antes de su servicio = 80% de reembolso
+      @endif
 
 
 
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background:EB008B;
-background: #EB008B">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #e5eaf5;"><![endif]-->
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">•
+      @if ($details['language'] === 'ing')
+        Cancellations made in a reservation paid with Paypal only apply&nbsp;
 
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
+      @else
+        Las cancelaciones realizadas en una reserva pagada con Paypal solo aplican
+      @endif
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif;" align="left">
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">f
+      @if ($details['language'] === 'ing')
+        or a refund of 80% tops
+      @else
+        o un reembolso del 80% de los tops
+      @endif
 
-                              <div style="color: #ffffff; line-height: 160%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 20px; line-height: 32px;">
-                                    <strong>
-                                       @if ($details['language'] === 'ing')    Get in touch
-                                       @else   Contáctanos
-                                       @endif
-                                      </strong></span></p>
-                                <p style="font-size: 14px; line-height: 160%;">
-                                    <span style="font-size: 16px; line-height: 25.6px; color: #ffffff;">US/CA: 1 (888) 257 5547 | MX: 52 01 (984) 242-0070 </span></p>
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
+      @if ($details['language'] === 'ing')
+        Cancellations made between 24 hrs and 36 hrs before your service = 50% refund
+      @else
+         Cancelaciones realizadas entre 24 hrs y 36 hrs antes de su servicio = 50% de reembolso
+      @endif
 
-                                <p style="font-size: 14px; line-height: 160%;">
-                                    <span style="font-size: 16px; line-height: 25.6px; color: #ffffff;">websales@cancunbay.com</span></p>
-                              </div>
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">•
+      @if ($details['language'] === 'ing')
+        Cancellations made less than 24 hrs before your service = no refund
+      @else
 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+        Cancelaciones realizadas con menos de 24 hrs antes de su servicio = sin reembolso
+      @endif
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 33px;font-family:'Cabin',sans-serif;" align="left">
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
+      @if ($details['language'] === 'ing')
+        • No show = no refund
+      @else
+        • No presentación = sin reembolso
+      @endif
 
-                              <div align="center">
-                                <div style="display: table; max-width:195px;">
-                                  <!--[if (mso)|(IE)]><table width="195" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-collapse:collapse;" align="center"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:195px;"><tr><![endif]-->
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">•
+      @if ($details['language'] === 'ing')
+        IMPORTANT: Tour Combos do not apply for a partial refund. If you do one tour from the combo, the cancelation or the refund does not apply
+        @else
+        IMPORTANTE: Tour Combos no aplica para reembolso parcial. Si haces un tour del combo no aplica la cancelación ni el reembolso
+        @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
+      @if ($details['language'] === 'ing')
+        • These policies are not applied in cases of hurricane, tropical storms, or natural phenomenons. In these cases the policy of change of date of the tour will be observed
+        @else
+        • Estas políticas no se aplican en casos de huracanes, tormentas tropicales o fenómenos naturales. En estos casos se observará la política de cambio de fecha del tour
+        @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
+      @if ($details['language'] === 'ing')
+        • Date or Schedule changes in reservations for "Hotel-Airport" are only allowed 24 hours in advance
 
+        @else
+        • Cambios de Fecha u Horario en reservas de “Hotel-Aeropuerto” solo se permiten con 24 horas de anticipación
+        @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
+      @if ($details['language'] === 'ing')
+        • The policy of 100% refund does not apply on reservations with promotional codes or discounts, even if the cancellation is made 48 hours prior to the service. In these cases the refund will only be of 80% tops
 
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="https://www.facebook.com/cancuntours/" title="Facebook" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle/facebook.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>-->
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
+        @else
+        • La política de devolución del 100% no aplica en reservas con códigos promocionales o descuentos, aún si la cancelación se realiza 48 horas antes del servicio. En estos casos la devolución será únicamente del 80% como máximo
 
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="https://www.instagram.com/cancuntours/" title="Instagram" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle/instagram.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>-->
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
+        @endif
+    </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">&nbsp;</span></p></div>
+    </td></tr></tbody></table>
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="r-outlook -outlook pr-16-outlook pl-16-outlook -outlook" role="none" style="width:600px;" width="600"><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;">
+    <![endif]--><div class="r  pr-16 pl-16" style="background:#00a6ce;background-color:#00a6ce;margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="background:#00a6ce;background-color:#00a6ce;width:100%;"><tbody><tr><td style="border:none;direction:ltr;font-size:0;padding:16px 16px 16px 16px;text-align:left;">
+    <!--[if mso | IE]>
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr><td class="c-outlook -outlook -outlook" style="vertical-align:middle;width:568px;">
+    <![endif]--><div class="xc568 ogf c" style="font-size:0;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style="border:none;vertical-align:middle;" width="100%"><tbody><tr><td align="center" class="c  m" style="font-size:0;padding:0;padding-bottom:16px;word-break:break-word;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style="border-collapse:collapse;border-spacing:0;"><tbody><tr><td style="width:121px;">
 
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="" title="whatsapp" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle/whatsapp.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>-->
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
-                                  <!--<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="" title="WhatsApp" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle/tiktok.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>-->
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
-
-
-                                  <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                                </div>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
+      <img alt src="https://www.cancunbay.com.mx/images/layout/logo.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" title width="121" height="auto">
+    </td></tr></tbody></table>
+    </td></tr><tr><td align="center" class="x  m" style="font-size:0;padding-bottom:16px;word-break:break-word;"><div style="text-align:center;"><p style="Margin:0;text-align:center;mso-line-height-alt:125%"><span style="font-size:20px;font-family:Mulish,Arial,sans-serif;font-weight:600;color:#ffffff;line-height:125%;">USA/CAN Phone: (888) 257-5547 | MEX (984) 242-0070</span></p></div>
+    </td></tr><tr><td align="center" class="x  m" style="font-size:0;padding-bottom:16px;word-break:break-word;"><div style="text-align:center;"><p style="Margin:0;text-align:center;mso-line-height-alt:119%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#ffffff;line-height:119%;text-decoration:underline;"><a href="mailto:websales@cancuntours.com" style="color:#ffffff;text-decoration:underline;" target="_blank">websales@cancunbay.com</a></span></p></div>
+    </td></tr><tr><td align="center" class="o" style="font-size:0;padding:0;padding-bottom:0;word-break:break-word;">
+    <!--[if mso | IE]>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none"><tr><td>
+    <![endif]-->
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="none" style="float:none;display:inline-table;"><tbody><tr class="e  "><td style="padding:0;vertical-align:middle;">
+    <table border="0" cellpadding="0" cellspacing="0" role="none" style="width:192px;"><tbody><tr><td style="font-size:0;height:40px;vertical-align:middle;width:192px;"> <a href="#insertUrlLink" target="_blank"> <img alt title height="40" src="https://e.hypermatic.com/cc79dc948ef63c44be38ad8d097e436d.png" style="display:block;" width="192"></a>
+    </td></tr></tbody></table>
+    </td></tr></tbody></table>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+    </td></tr></tbody></table></div>
+    <!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></div>
+    </body>
+    </html>
 
 
 
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #DBD9D9;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #DBD9D9;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #000000; line-height: 180%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Cancunbay<br /></span></p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
 
 
-          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!--[if mso]></div><![endif]-->
-  <!--[if IE]></div><![endif]-->
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+

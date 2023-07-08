@@ -31,7 +31,12 @@
             <SectionTitle :title-text="$t('home.title1')" title="1"></SectionTitle>
             <Paragraph :text="$t('home.paragraph1')"></Paragraph>
 
-            <destinations></destinations>
+            <destinations class="mb-10"></destinations>
+
+
+            <SectionTitle :title-text="$t('home.subtitle2')" title="2" ></SectionTitle>
+
+               <Paragraph :text="$t('home.paragraph2')"></Paragraph>
 
             <div id="home_tours_cards" class="mt-16 mb-16">
                   <v-row justify="start" >
@@ -42,7 +47,7 @@
                   <v-row justify="center" class="mt-15">
                      <v-col cols="12" md="6" class="text-center">
                         <nuxt-link :to="localePath({
-                              name:'tours-slug',
+                              name:'slug',
                               params:{
                                  slug:all_tours.url
                               }
@@ -57,9 +62,7 @@
 
 
 
-            <SectionTitle :title-text="$t('home.subtitle2')" title="2"></SectionTitle>
 
-            <Paragraph :text="$t('home.paragraph2')"></Paragraph>
 
             <SectionTitle :title-text="$t('home.subtitle3')" title="2"></SectionTitle>
 
@@ -95,7 +98,8 @@
                backgroundImage:'',
                titleMeta:'',
                descriptionMeta:'',
-               keywordsMeta:''
+               keywordsMeta:'',
+               imgMeta:require('~/assets/images/home/cancunbay-chichen-itza.jpg')
          }
       },
 
@@ -133,6 +137,11 @@
 
 
                   },
+                  {
+                     hid: 'ogt:image',
+                     name: 'ogt:image',
+                     content:this.imgMeta
+                  }
 
                ]
             }

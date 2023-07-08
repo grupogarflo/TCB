@@ -35,10 +35,10 @@
 
                </v-col>
                <v-col cols="12" sm="6" class="px-8" :order="(mobile) ? '1' :'2' ">
-                  <detail-action :item="item"></detail-action>
+                  <detail-action :item="item" :video="video"></detail-action>
                   <SearchEngine  :openPax="openPax" :open="0" class="mt-5"> </SearchEngine>
 
-                  <div v-if="map!=='' " v-html="map" class="mx-4 mt-5"></div>
+                  <div v-if="map!=='' " v-html="map" class="mx-0 mt-5"></div>
 
                   <content-expand :title="$t('tours.not_included')" :content="not_included" :is_html="true" class="mt-5"></content-expand>
 
@@ -71,11 +71,11 @@
                </v-col>
             </v-row>
             <v-row >
-               <v-col cols="12" sm="6" class="px-8">
+               <v-col cols="12" md="6" class="px-8">
 
                   <SectionTitle :title-text="name" class="mt-5"></SectionTitle>
                   <general-data :rank="item.rank" :duration="item.duration" :available="item.avaible" class="my-5"></general-data>
-                  <detail-action :item="item"></detail-action>
+                  <detail-action :item="item" :video="video"></detail-action>
                   <SearchEngine  :openPax="openPax" :open="0" class="mt-5"> </SearchEngine>
 
                   <content-expand :title="$t('tours.description')" :content="description" :is_html="true" class="mt-5"></content-expand>

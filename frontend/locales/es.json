@@ -57,14 +57,14 @@
    "forms":{
       "info":{
          "title":"INFORMACIÓN",
-         "nameField":"Nombre",
+         "nameField":"Nombre *",
          "nameValidation":"Ingrese el nombre",
-         "emailField":"Email",
+         "emailField":"Email *",
          "emailValidation":"Ingrese un eamil",
          "emailValidation2":"Ingrese un email valido",
-         "phoneField":"Telefono",
+         "phoneField":"Telefono *",
          "phoneValidation":"Ingrese un telefono valido",
-         "hotelField":"Hotel",
+         "hotelField":"Lugar de recogida",
          "hotelValidation":"Ingrese un hotel",
          "promoCodeField":"Promo Code",
          "btnPromo":"Aplicar",
@@ -108,7 +108,7 @@
       "title1":"Los mejores tours de Cancún y la Riviera Maya",
       "subtitle1":"Tours desde Cancún o Playa del Carmen",
       "paragraph1":"¡Bienvenido al Caribe mexicano! Estás por llegar o arribando a un paraíso espectacular y mereces disfrutarlo a lo grande. La manera perfecta de conocer el destino de playa más visitado en América Latina es con los mejores tours de Cancún y la Riviera Maya. Cancun Bay te trae una cuidadosa selección de experiencias inolvidables para hacer memorable tu visita a Cancún y la Riviera Maya.",
-      "subtitle2":"Experiencias Inolvidables",
+      "subtitle2":"Experiencias inolvidables",
       "paragraph2":"Queremos que tu visita sea tan espectacular que tengas en mente regresar cuanto antes. Encontrarás tours de aventura, distintas actividades acuáticas y podrás recorrer las espectaculares zonas arqueológicas mayas de los alrededores. Encontrarás actividades para toda la familia y algunas son ideales para los viajeros más atrevidos.",
       "subtitle3":"Expertos en el destino",
       "paragraph3":"Somos expertos en el destino. Cancún y la Riviera Maya tienen cientos de sitios que visitar y tours que hacer, sin embargo, te traemos las mejores experiencias y actividades después de años de conocer el Caribe mexicano y los distintos tours que hay disponibles.",
@@ -137,7 +137,11 @@
       "total":"Total",
       "seeVideo":"Ver Video",
       "from":"Desde",
-      "private":"Privado"
+      "private":"Privado",
+      "see_video":"Ver video",
+      "share":"Compartir",
+      "chat":"Chat",
+      "copied": "El link del tour ha sido copiado"
    },
    "tours":{
       "includes":"Incluye",

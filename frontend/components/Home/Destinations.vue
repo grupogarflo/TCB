@@ -1,6 +1,6 @@
 <template>
-   <v-container>
-         <v-row>
+   <v-container class="px-0">
+         <v-row class="px-0">
             <v-col cols="12" md="6">
                <v-card class="rounded-lg" width="100%"  @click="goToToursDetails(first)">
                   <v-img :src="first.photo"  class="destinationsImg rounded-lg align-end" gradient="to bottom, rgba(255,255,255,0) 80%, rgba(0,0,0,0.75)" >

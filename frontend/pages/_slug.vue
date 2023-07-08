@@ -44,6 +44,7 @@ export default {
          titleMeta:'',
          descriptionMeta:'',
          keywordsMeta:'',
+         imgMeta:''
       }
    },
 
@@ -82,6 +83,11 @@ export default {
 
 
                },
+               {
+                  hid: 'ogt:image',
+                  name: 'ogt:image',
+                  content:this.imgMeta
+               }
 
             ]
          }
@@ -101,7 +107,7 @@ export default {
 
 
 
-   created(){
+   mounted(){
       // this.getDataTour();
 
       this.searchPageType();
@@ -194,24 +200,27 @@ export default {
                         this.titleMeta=response.data.data[0].meta_title
                         this.descriptionMeta=response.data.data[0].meta_description
                         this.keywordsMeta=response.data.data[0].meta_keywords
+                        this.imgMeta=require('~/assets/images/home/cancunbay-chichen-itza.jpg')
                      }
 
                      if(response.data.val==='destination'){
                         this.titleMeta=response.data.data[0].meta_title
                         this.descriptionMeta=response.data.data[0].meta_description
                         this.keywordsMeta=response.data.data[0].meta_keywords
+                        this.imgMeta=require('~/assets/images/home/cancunbay-chichen-itza.jpg')
                      }
 
                      if(response.data.val==='tour'){
                         this.titleMeta=response.data.data.tour[0].meta_title
                         this.descriptionMeta=response.data.data.tour[0].meta_description
                         this.keywordsMeta=response.data.data.tour[0].meta_keywords
+                        this.imgMeta = response.data.data.tour[0].full_photo_path
                      }
 
 
 
                   }).catch(response =>{
-                     console.log('error', response);
+                     // console.log('error', response);
                   })
 
       }

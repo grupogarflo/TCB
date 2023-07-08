@@ -98,7 +98,7 @@ export default {
       track: 'PageView',
       autoPageView: true,
       disabled: false,
-      //debug:true
+      // debug:true
     }],
   ],
 
@@ -106,7 +106,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/i18n'
-    //'@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
   ],
 
 

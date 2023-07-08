@@ -3,10 +3,10 @@
       <v-container class="mb-5 mt-3">
          <v-row>
             <v-col cols="12" class="text-center">
-               <img class="logo mx-auto" src="/images/layout/tripadvisor-isotipo.svg" :width="(!mobile) ? '15%' : '50%' " />
+               <img class="logo mx-auto" src="/images/layout/TC_L_2023.svg" :width="(!mobile) ? '20%' : '50%' " />
             </v-col>
          </v-row>
-         <v-row align="baseline">
+         <v-row align="baseline" :class="(route) ? 'd-none' :'d-flex'">
             <v-col cols="3" class="text-center">
                <img class="logo mx-auto" src="/images/layout/visa.svg" :width="(!mobile) ? '32%' : '80%'" />
             </v-col>
@@ -20,9 +20,11 @@
                <img class="logo mx-auto" src="/images/layout/paypal.svg" :width="(!mobile) ? '32%' : '80%'" />
             </v-col>
          </v-row>
-         <v-row>
+         <v-row :class="(route) ? 'd-none' :'d-flex'">
             <v-col cols="12" class="text-center">
-               <img  class="logo mx-auto" :src="img" :width="(!mobile) ? '60%' : '100%'" />
+              <client-only>
+                  <img  class="logo mx-auto" :src="img" :width="(!mobile) ? '60%' : '100%'" />
+               </client-only>
 
             </v-col>
          </v-row>
@@ -64,18 +66,37 @@ export default {
 
    computed:{
       mobile(){
+         // console.log(this.$route.name);
          return this.isMobile()
       },
       language(){
          return  this.$store.getters['booking/language']
       },
 
-      /*
-      img(){
-         return  (this.$store.getters['booking/language']===2) ? '/images/layout/100_money-back.svg':'/images/layout/100_reembolsable.svg';
+
+      route(){
+
+         // console.log(this.$route.name);
+
+         if(this.$route.name.includes('checkout')){
+            return true
+         }
+         return false
       }
-      */
+
    },
+   watch:{
+      img(){
+         const language = (this.$i18n.locale==='es') ? 1 : 2;
+         if(language === 1){
+            this.img = '/images/layout/100_money-back.svg'
+         }
+         else{
+            this.img='/images/layout/100_reembolsable.svg'
+         }
+
+      }
+   }
 
 
 }

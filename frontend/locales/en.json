@@ -56,14 +56,14 @@
    "forms":{
       "info":{
          "title":"INFORMATION",
-         "nameField":"Name",
+         "nameField":"Name *",
          "nameValidation":"Name is required",
-         "emailField":"Email",
+         "emailField":"Email *",
          "emailValidation":"Email is required",
          "emailValidation2":"Tye a valid email",
-         "phoneField":"Phone number",
+         "phoneField":"Phone number *",
          "phoneValidation":"Phone number is requiered",
-         "hotelField":"Hotel",
+         "hotelField":"Pick Up",
          "hotelValidation":"Hotel is requiered",
          "promoCodeField":"Promo Code",
          "btnPromo":"Apply",
@@ -132,7 +132,11 @@
       "total":"Total",
       "seeVideo":"Watch Video",
       "from":"From",
-      "private":"Private"
+      "private":"Private",
+      "see_video":"See video",
+      "share":"Share",
+      "chat":"Chat Now",
+      "copied": "Tour link is on copied"
    },
    "tours":{
       "includes":"Includes",
