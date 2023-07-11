@@ -141,7 +141,10 @@
       "see_video":"Ver video",
       "share":"Compartir",
       "chat":"Chat",
-      "copied": "El link del tour ha sido copiado"
+      "copied": "El link del tour ha sido copiado",
+      "from_mex": "Desde México: ",
+      "selectTour":"Selecicone un tour",
+      "selectDate":"Seleccione una fecha"
    },
    "tours":{
       "includes":"Incluye",

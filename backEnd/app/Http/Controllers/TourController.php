@@ -937,15 +937,25 @@ class TourController extends Controller
     function deleteGalleyTour(Request $request)
     {
         //borra fisicamente el archivo
-        $image_path = '../../public_html/assets/images/' . $request->url;
+        /*$image_path = '../../public_html/assets/images/' . $request->url;
         if (file_exists($image_path)) {
 
             unlink($image_path);
             Gallery::where('id', $request->id)
-                ->delete();
-            return response()->json([
+                ->delete();*/
+
+
+            $img = Gallery::find($request->id);
+
+            if(File::exists($img->img)){
+
+                File::delete(public_path($img->img));
+
+                $img->delete();
+                return response()->json([
                 'message' => 'success'
-            ], 200);
+                ], 200);
+            }
         } else {
             return response()->json([
                 'message' => 'img no existe o ya se elimino'

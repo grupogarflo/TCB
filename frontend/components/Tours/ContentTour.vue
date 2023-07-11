@@ -208,7 +208,12 @@ export default {
             },
 
          ]
+      },
+
+      language(){
+         return this.$store.getters['booking/language'];
       }
+
    },
 
    /*
@@ -238,7 +243,7 @@ export default {
          await this.$axios
             .post('/getTourData', {
                id: this.$route.params.slug,
-               idioma: this.$store.getters['booking/language'],
+               idioma:this.language
             })
             .then((resp) => {
                // this.data = resp.data

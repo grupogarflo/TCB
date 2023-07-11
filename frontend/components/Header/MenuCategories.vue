@@ -14,17 +14,16 @@
                      open-on-hover
                      bottom
                      offset-y
-                     tile
-                     flat
                      class="border-0"
                      elevation="0"
+
                   >
                      <template v-slot:activator="{ on, attrs }">
 
                         <v-btn  :class="['sub_menu', 'd-inline', 'px-4', 'elevation-0', markLink(item.url)]"
                               v-bind="attrs"
                               v-on="on"
-                              plain
+
                               color="white"
 
                               @click="goTo(item.url)"
@@ -36,7 +35,7 @@
                         </v-btn >
                      </template>
 
-                     <v-list class="listSub" elevation="0" flat>
+                     <v-list class="listSub" elevation="0" >
                         <v-list-item
                            v-for="(related, j) in item.destinations_related"
                            :key="j"

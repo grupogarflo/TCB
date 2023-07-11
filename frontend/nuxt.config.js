@@ -131,7 +131,7 @@ export default {
             code: 'en',
             iso: 'en-US',
             name: 'English',
-            domain: 'www.cancunbay.net',
+            domain: 'www.cancunbay.com',
             show:true
          },
 
@@ -170,7 +170,7 @@ export default {
 
       // baseURL: 'http://127.0.0.1:8000/api/',
 
-       baseURL:'https://cancunbay.com.mx/api/'
+       baseURL:'https://www.cancunbay.com.mx/api/'
    },
 
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

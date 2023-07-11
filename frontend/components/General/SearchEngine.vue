@@ -28,7 +28,6 @@
                            item-text="name"
                            item-value="id"
                            :placeholder="$t('general.tours')"
-
                            hide-details
                            @change="tourChange"
                            :menu-props="{
@@ -215,6 +214,15 @@
 
                   </v-row>
 
+                  <v-row>
+                     <v-col cols="12">
+                        <v-alert type="error" v-model="dialog">
+                           <span class="d-block">{{ errorTour }}</span>
+                           <span class="d-block">{{ errorDate  }}</span>
+                        </v-alert>
+                     </v-col>
+                  </v-row>
+
                </v-expansion-panel-content>
             </v-expansion-panel>
          </v-expansion-panels>
@@ -227,7 +235,12 @@
 </template>
 
 <script>
+
+import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
+
 export default {
+   mixins: [validationMixin],
   // eslint-disable-next-line vue/require-prop-types
   props:{
       // eslint-disable-next-line vue/require-default-prop, vue/require-prop-type-constructor
@@ -237,6 +250,13 @@ export default {
          default:1
       }
   },
+
+   validations: {
+      tour: { required },
+      date: {required}
+
+      // selectedState:{required}
+   },
 
   data() {
     return {
@@ -252,7 +272,9 @@ export default {
       textAlertBook: '',
       paxRanges:[],
       modelSelectPax:null,
-      showPax:false
+      showPax:false,
+      errorTour:'',
+      errorDate:''
 
 
     }
@@ -260,6 +282,19 @@ export default {
 
 
   computed: {
+
+   tourError(){
+      const errors = []
+         if (!this.$v.tour.$dirty) return errors
+         !this.$v.tour.required && errors.push(this.$t('general.selectTours'))
+         return errors
+   },
+   dateError(){
+      const errors = []
+         if (!this.$v.date.$dirty) return errors
+         !this.$v.date.required && errors.push(this.$t('general.selectDate'))
+         return errors
+   },
    showMenu(){
 
       if(this.openPax){
@@ -403,7 +438,25 @@ export default {
     },
     clickCard() {
       // valida que este seleccionado un tour
-      if (this.date !== '') {
+
+
+      let flag=false;
+
+      if(this.date ===''){
+         this.errorDate = this.$t('general.selectDate');
+         flag= true;
+      }
+      if(this.modelSelectTour.length===0){
+         this.errorTour  = this.$t('general.selectTour');
+         flag=true;
+      }
+
+      if(flag){
+         this.dialog=true;
+         return false;
+      }
+
+
         // set de los datos de promocode
         this.$store.commit('booking/addPromocode', {})
 
@@ -414,45 +467,14 @@ export default {
 
         // console.log(this.$route.name)
         // valida si estoy dentro de la ficha del tour entonces se manda al checkout
-        // de lo contrario se manda a la ficha del tour
+        // de lo contrario se manda a la ficha del tourr
 
 
-        this.$router.push(this.localePath({
+
+      this.$router.push(this.localePath({
                name: 'checkout',
 
             } ))
-        /*
-        console.log(this.$route.name);
-         if (this.$route.name === 'slug___es' ) {
-            this.$router.push(this.localePath({
-               name: 'checkout',
-
-            } ))
-         }
-
-        else {
-          this.$router.push(this.localePath({
-            name: 'slug',
-            params: {
-              slug: this.modelSelectTour,
-              // id: 1,
-            },
-            // query: {
-            //   checkin: this.$store.state.booking.hoteles.dates.checkIn,
-            //   checkout: this.$store.state.booking.hoteles.dates.checkOut,
-            // }
-          }))
-        }
-
-        */
-      } else {
-        if (this.modelSelectTour.length === 0) {
-          this.textAlertBook = 'Need select one tour to continue'
-        } else {
-          this.textAlertBook = 'Need select a date to continue'
-        }
-        this.dialog = true
-      }
     },
     moreAdults() {
       if (this.countAdults <= 24) {

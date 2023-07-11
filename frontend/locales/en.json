@@ -103,7 +103,7 @@
    "home":{
       "title1":"Cancun and Riviera Maya Tours from the Experts ",
       "subtitle1":"",
-      "paragraph1":"Welcome to the Mexican Caribbean! You are about to discover a spectacular paradise and you deserve to enjoy it in a big way. The perfect way to get to know the most visited beach destination in Latin America is with our best Cancun and Riviera Maya tours.ancun Bay brings you a carefully curated selection of unforgettable experiences to make your visit to Cancun and the Riviera Maya memorable. ",
+      "paragraph1":"Welcome to the Mexican Caribbean! You are about to discover a spectacular paradise and you deserve to enjoy it in a big way. The perfect way to get to know the most visited beach destination in Latin America is with our best Cancun and Riviera Maya tours. Cancun Bay brings you a carefully curated selection of unforgettable experiences to make your visit to Cancun and the Riviera Maya memorable. ",
       "subtitle2":"Unforgettable experiences",
       "paragraph2":"We want your visit to be so spectacular that you simply must return as soon as possible. You will find adventure tours, different aquatic activities and you can explore the spectacular Mayan ruins sites of the region.",
       "subtitle3":"Destination Experts",
@@ -136,7 +136,10 @@
       "see_video":"See video",
       "share":"Share",
       "chat":"Chat Now",
-      "copied": "Tour link is on copied"
+      "copied": "Tour link is on copied",
+      "from_mex": "From Mexico: ",
+      "selectTour":"Select a tour",
+      "selectDate":"Select a date"
    },
    "tours":{
       "includes":"Includes",
@@ -162,9 +165,9 @@
    },
    "meta":{
       "home":{
-         "title":"Tours y Excursiones en Cancun y Riviera Maya | Cancun Bay Tours",
+         "title":"Tours and Excursions in Cancun and Riviera Maya | Cancun Bay Tours",
          "keywords":"",
-         "description":"Cancun Bay Tours te trae una cuidadosa selección de tours y excursiones inolvidables para hacer memorable tu visita a Cancún y la Riviera Maya."
+         "description":"Cancun Bay Tours brings you a careful selection of unforgettable tours and excursions to make your visit to Cancun and the Riviera Maya memorable."
       },
       "about-us":{
          "title":"",

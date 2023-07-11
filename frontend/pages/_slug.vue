@@ -110,6 +110,14 @@ export default {
    mounted(){
       // this.getDataTour();
 
+      const name = window.location.href
+         // alert(name);
+         const language = (name.includes('cancunbay.com.mx')) ? 1 : 2;
+         const currency = (name.includes('cancunbay.com.mx')) ? 'MXN' : 'USD';
+
+         this.$store.dispatch('booking/setLanguage',language);
+         this.$store.dispatch('booking/currency',currency);
+
       this.searchPageType();
    },
    /*

@@ -78,6 +78,8 @@
 
 .listSub{
    background-color: $secondary-color !important;
+   // background-color:  red !important;
+   margin-top: -10px !important;
    a{
       color:  white !important;
       text-decoration: none !important;
@@ -92,8 +94,8 @@
          text-decoration: none !important;
          border-right: 1px solid $primary-color !important;
          font-size: 0.95rem !important;
-            line-height: auto;
-            letter-spacing: 0;
+         line-height: auto;
+         letter-spacing: 0;
          &:last-child{
             border: none !important;
          }
@@ -110,6 +112,7 @@
       .sub_menu{
          text-transform: capitalize;
          color: white !important;
+         background-color:  $secondary-color !important;
          opacity: 1;
          font-size: 0.95rem !important;
             line-height: auto;
@@ -187,7 +190,8 @@
 
    }
   .listSub{
-     background-color: $primary-color !important;
+     // background-color: $primary-color !important;
+      background-color: red !important;
 
      a{
         color:  white !important;

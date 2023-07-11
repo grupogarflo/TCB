@@ -7,7 +7,7 @@
       </v-container>
     </v-main>
     <FooterPrincipal></FooterPrincipal>
-   
+
   </v-app>
 </template>
 
@@ -40,8 +40,24 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Cancunbay',
+      // availableLocales:this.$i18n.locale
     }
+  },
+
+
+  mounted(){
+       // alert(window.location);
+         const name = window.location.href
+         // alert(name);
+         const language = (name.includes('cancunbay.com.mx')) ? 1 : 2;
+         const currency = (name.includes('cancunbay.com.mx')) ? 'MXN' : 'USD';
+
+         this.$store.dispatch('booking/setLanguage',language);
+         this.$store.dispatch('booking/currency',currency);
   }
+
+
+
 }
 </script>

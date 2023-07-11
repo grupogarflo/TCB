@@ -21,7 +21,7 @@
                                     dense
                                     solo
                                     flat
-                                    label="Desde México  01 (984) 242 - 0070"
+                                    :label="$t('general.from_mex')+' 01 (984) 242 - 0070'"
                                  >
                                     <template #item="{item}">
                                        <span class="phone-numbers-options">{{ item }}</span>
@@ -89,16 +89,36 @@ import MenuCategories from './MenuCategories.vue';
 export default {
     components: { RedesSociales, Language, MenuCategories},
     data: () => ({
-        items: [
-            "Desde México 01 (984) 242 - 0070 ",
-            "USA / CAN  (888) 257 5547",
-        ],
+
         menu:false
     }),
     computed:{
          mobile(){
             return this.isMobile();
+         },
+         items(){
+            const name = window.location.href
+
+            if(name.includes('cancunbay.com.mx')){
+               return [
+                  'Desde México: 01 (984) 242 - 0070',
+                  'USA / CAN  (888) 257 5547'
+               ]
+            }
+
+            else{
+               return [
+                  'From Mexico: 01 (984) 242 - 0070',
+                  'USA / CAN  (888) 257 5547'
+               ]
+            }
+
+
+
+
          }
+
+
     },
 
     methods:{

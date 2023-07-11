@@ -380,6 +380,7 @@ export default {
     },
 
     deleteItem(item) {
+      console.log ('item select ', item);
       this.dialogoEliminacion = true
       this.idImg = item.id
       this.urlDeleteImg = item.img

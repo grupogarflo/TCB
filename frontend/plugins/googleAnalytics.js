@@ -18,7 +18,7 @@ const vueGtag = ({app})=>{
    if(app.i18n.locale ==='es'){
       Vue.use(VueGtag, {
 
-         config: { id: 'G-2Y6Plo de ali9M8W1M' },
+         config: { id: 'G-2Y6P9M8W1M' },
 
       });
    }

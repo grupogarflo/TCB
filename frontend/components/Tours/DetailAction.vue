@@ -32,9 +32,9 @@
             <v-alert
                v-model="snackbar"
 
-               color="amber lighten-1"
+               color="amber lighten-1 elevation-0"
                rounded="pill"
-               elevation="4"
+               elevation="0"
                dense
                class="text-center black--text font-weight-bold mt-0 py-3 mx-auto my-0"
                width="95%"
@@ -113,9 +113,9 @@
             <v-alert
                v-model="snackbar"
 
-               color="amber lighten-1"
+               color="amber lighten-1 elevation-0"
                rounded="pill"
-               elevation="4"
+               elevation="0"
                dense
                class="text-center black--text font-weight-bold mt-0 py-3 mx-auto my-0"
                width="95%"
