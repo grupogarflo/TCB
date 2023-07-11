@@ -947,7 +947,7 @@ class TourController extends Controller
 
         $img = Gallery::find($request->id);
 
-        if(File::exists($img->img)){
+        if(File::exists(public_path($img->img))){
 
                 File::delete(public_path($img->img));
 
