@@ -945,9 +945,9 @@ class TourController extends Controller
                 ->delete();*/
 
 
-            $img = Gallery::find($request->id);
+        $img = Gallery::find($request->id);
 
-            if(File::exists($img->img)){
+        if(File::exists($img->img)){
 
                 File::delete(public_path($img->img));
 
@@ -955,7 +955,7 @@ class TourController extends Controller
                 return response()->json([
                 'message' => 'success'
                 ], 200);
-            }
+
         } else {
             return response()->json([
                 'message' => 'img no existe o ya se elimino'
