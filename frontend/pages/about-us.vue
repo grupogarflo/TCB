@@ -20,15 +20,77 @@ export default {
          item:{
             title:this.$t('about.title'),
             subtitle:this.$t('about.subTitle'),
-            class:'mayan-ruins'
+            class:'mayan-ruins',
+            titleMeta:'',
+               descriptionMeta:'',
+               keywordsMeta:'',
          }
       }
    },
+
+
+
+   head(){
+
+      return {
+
+            // eslint-disable-next-line object-shorthand
+            title: this.titleMeta,
+            htmlAttrs: {
+               lang: this.$i18n.locale
+            },
+            meta:[
+               {
+                  hid: 'og:description',
+                  name: 'og:description',
+                  // content: context.$i18n.messages[context.$i18n.locale].meta.home.description
+                  content: this.descriptionMeta
+
+
+               },
+               {
+                  hid: 'og:keywords',
+                  name: 'og:keywords',
+                  content: this.keywordsMeta
+
+
+               },
+
+
+               {
+                  hid: 'og:title',
+                  name: 'og:title',
+                  content: this.titleMeta
+
+
+               },
+            /*
+            {
+                  hid: 'og:image',
+                  name: 'og:image',
+                  content:this.imgMeta
+               }
+               */
+
+            ]
+         }
+
+   },
+
    computed:{
       content(){
          return this.$t('about.content');
       }
-   }
+   },
+
+   created(){
+         this.titleMeta = this.$t('meta.about-us.title');
+         this.descriptionMeta= this.$t('meta.about-us.description');
+         this.keywordsMeta=this.$t('meta.about-us.description');
+   },
+
+
+
 
 }
 </script>

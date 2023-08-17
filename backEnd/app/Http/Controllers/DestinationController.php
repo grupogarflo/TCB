@@ -233,7 +233,10 @@ class DestinationController extends Controller
             $pos = array_search($request->id, array_column($tours,'id'));
             //dump($pos);
             if($pos!==false){
-                array_push($tours_checked,$destination->id);
+                array_push($tours_checked,[
+                    'check'=>$destination->id,
+                    'order'=>$tours[$pos]['pivot']['order']??0
+                ]);
             }
         }
 
@@ -281,7 +284,15 @@ class DestinationController extends Controller
         $tour= tour::find($request->idTour);
 
 
-        $tour->destinations()->sync($request->destinations);
+        //$tour->destinations()->sync($request->destinations);
+
+
+        $tour->destinations()->detach();
+        foreach($request->destinations as $des){
+
+
+            $tour->destinations()->attach([$des['check']=>['order'=>$des['order']]]);
+        }
 
         return response()->json([
             'status'=>'OK'

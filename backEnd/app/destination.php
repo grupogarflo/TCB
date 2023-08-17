@@ -52,7 +52,7 @@ class destination extends Model
 
 
     public function tours(){
-        return $this->belongsToMany(tour::class, 'destination_tour','destination_id','tour_id')->withTimestamps();
+        return $this->belongsToMany(tour::class, 'destination_tour','destination_id','tour_id')->withPivot('order')->withTimestamps();
     }
 
 

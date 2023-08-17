@@ -1,11 +1,11 @@
 <template>
    <div>
 
-      <client-only>
+
          <content-tour  v-if="pageType=='tour'"></content-tour>
          <content-category v-if="pageType=='category'"></content-category>
          <content-destination v-if="pageType=='destination'"></content-destination>
-      </client-only>
+
 
    </div>
 
@@ -84,8 +84,8 @@ export default {
 
                },
                {
-                  hid: 'ogt:image',
-                  name: 'ogt:image',
+                  hid: 'og:image',
+                  name: 'og:image',
                   content:this.imgMeta
                }
 
@@ -107,9 +107,14 @@ export default {
 
 
 
-   mounted(){
+   created(){
       // this.getDataTour();
 
+
+
+      this.searchPageType();
+   },
+   mounted(){
       const name = window.location.href
          // alert(name);
          const language = (name.includes('cancunbay.com.mx')) ? 1 : 2;
@@ -117,8 +122,6 @@ export default {
 
          this.$store.dispatch('booking/setLanguage',language);
          this.$store.dispatch('booking/currency',currency);
-
-      this.searchPageType();
    },
    /*
    mounted(){

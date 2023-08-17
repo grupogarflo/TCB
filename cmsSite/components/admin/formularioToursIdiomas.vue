@@ -130,6 +130,11 @@
               v-model="editedItem.top_home"
               label="Se muestra en el home"
             ></v-checkbox>
+
+            <v-text-field  v-show="editedItem.top_home"
+                v-model="editedItem.order_home"
+                label="Orden para mostrar en el home"
+                ></v-text-field>
           </v-col>
           <v-col cols="12 mt-8 mb-8">
             <label class="font-weight-regular">Descripción breve</label>
@@ -471,6 +476,8 @@ export default {
         // price_fake_child: '',
         // price_real_adult: '',
         // price_real_child: '',
+        order_home:''
+
       },
       defaultItem: {
         name: '',
@@ -489,6 +496,7 @@ export default {
         // price_real_adult: '',
         // price_real_child: '',
         selected: [],
+        order_home:''
       },
       tinyId: 0,
     }
@@ -718,6 +726,7 @@ export default {
             idioma: this.idioma,
             id: this.idRegistroSend,
             clave: this.uid,
+            homeOrder: this.editedItem.order_home
           })
           .then((response) => {
             this.$emit('claveAnterior', this.uid)

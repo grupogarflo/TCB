@@ -104,8 +104,9 @@ class SiteApiController extends Controller
             ->where('tour_contents.top_home', 1)
             ->where('language_id', $request->idioma)
             // ->orderBy('tour_contents.name', 'ASC')
-            ->orderBy('price_tours.price_real_adult', 'ASC')
-
+            // ->orderBy('price_tours.price_real_adult', 'ASC')
+             ->orderBy( DB ::raw('-tour_contents.order_home'),'DESC')
+            // ->orderByRaw('tour_contents.order_home DESC NULLS LAST')
             ->get();
 
 

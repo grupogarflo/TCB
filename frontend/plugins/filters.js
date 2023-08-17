@@ -6,7 +6,7 @@ Vue.filter('currencyFormat', (value, currency = null) => {
         return value;
     }
     const formatter = new Intl.NumberFormat('en-US');
-    return (currency === null) ? `$${formatter.format(value.toFixed(2))} ` : `$${formatter.format(value.toFixed(2))} ${currency}`;
+    return (currency === null) ? `$${formatter.format(Math.ceil(value.toFixed(2)))} ` : `$${formatter.format(Math.ceil(value.toFixed(2)))} ${currency}`;
 
 })
 

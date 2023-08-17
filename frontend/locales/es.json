@@ -4,6 +4,11 @@
    "header":{
       "call_free": "Llama gratis"
    },
+   "footer":{
+      "certificate":"Servicio con <span class=\"font-weight-bold\"> Certificado de Excelencia desde 2018</span>",
+      "we_are_in":"Estamos presentes en:",
+      "our_clients_opinion":"Lo que opinan nuestros clientes:"
+   },
    "menu":{
       "header":{
          "contact":"Contacto"
@@ -12,6 +17,7 @@
          "terms_conditions":"Terminos y condiciones",
          "terms_politics":"Terminos y politicas",
          "about-us":"Acerca de nosotros"
+
       },
       "categories":{
          "url":"todos-tours",
@@ -100,8 +106,8 @@
       }
    },
    "confirmation":{
-      "title1":"PAGO REALIZADO",
-      "title2":"¡GRACIAS POR SU COMPRA!"
+      "title1":"Su pago ha sido procesado correctamente. ",
+      "title2":"En breve recibirá un E-mail con su confirmación."
    },
 
    "home":{
@@ -175,12 +181,12 @@
          "description":"Cancun Bay Tours te trae una cuidadosa selección de tours y excursiones inolvidables para hacer memorable tu visita a Cancún y la Riviera Maya."
       },
       "about-us":{
-         "title":"",
+         "title":"¿Quiénes somos? | Cancun Bay Tours",
          "keywords":"",
          "description":""
       },
       "politics":{
-         "title":"",
+         "title":"Política de Privacidad | Cancun Bay Tours",
          "keywords":"",
          "description":""
       },

@@ -20,3 +20,5 @@ Route::get('test/', function () {
 Route::get('/correo', function () {
     return view('emails/confirmationSend');
 });
+
+Route::get('/export-tours/getExportExcel/{name}','TourController@downloadExport');

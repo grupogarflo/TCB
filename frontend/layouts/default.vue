@@ -41,7 +41,20 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Cancunbay',
+      language_general : 0
       // availableLocales:this.$i18n.locale
+    }
+  },
+
+
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: (this.language_general ===1 ) ? 'https://www.cancunbay.com.mx' + this.$route.path : 'https://www.cancunbay.com' + this.$route.path
+        }
+      ]
     }
   },
 
@@ -52,7 +65,7 @@ export default {
          // alert(name);
          const language = (name.includes('cancunbay.com.mx')) ? 1 : 2;
          const currency = (name.includes('cancunbay.com.mx')) ? 'MXN' : 'USD';
-
+         this.language_general = language;
          this.$store.dispatch('booking/setLanguage',language);
          this.$store.dispatch('booking/currency',currency);
   }

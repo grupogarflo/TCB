@@ -99,7 +99,7 @@
                titleMeta:'',
                descriptionMeta:'',
                keywordsMeta:'',
-               imgMeta:require('~/assets/images/home/cancunbay-chichen-itza.jpg')
+               // imgMeta:require('~/assets/images/home/cancunbay-chichen-itza.jpg')
          }
       },
 
@@ -137,11 +137,13 @@
 
 
                   },
-                  {
-                     hid: 'ogt:image',
-                     name: 'ogt:image',
+                 /*
+                 {
+                     hid: 'og:image',
+                     name: 'og:image',
                      content:this.imgMeta
                   }
+                  */
 
                ]
             }
@@ -173,6 +175,9 @@
 
       created(){
          this.$store.commit('booking/resetStoreData', {})
+         this.titleMeta = this.$t('meta.home.title');
+         this.descriptionMeta= this.$t('meta.home.description');
+         this.keywordsMeta=this.$t('meta.home.description');
          this.init();
          this.getHomeToursList()
       },
@@ -203,9 +208,7 @@
              .then(response=>{
                   this.items= response.data.data;
                   this.showLoading = false;
-                  this.titleMeta = this.$t('meta.home.title');
-                  this.descriptionMeta= this.$t('meta.home.description');
-                  this.keywordsMeta=this.$t('meta.home.description');
+
              })
              .catch(error=>{
                 this.error = error.response.data.message;

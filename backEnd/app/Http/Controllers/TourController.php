@@ -14,6 +14,8 @@ use App\Suggestion;
 use App\SuggestionTour;
 use App\Gallery;
 use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ToursExport;
 
 use function GuzzleHttp\json_decode;
 
@@ -107,6 +109,7 @@ class TourController extends Controller
         $desContenido->peek_id = $request->peek_id;
         $desContenido->tour_id = $ultimoID;
         $desContenido->language_id = $request->idioma;
+        $desContenido->order_home = $request->homeOrder;
         $desContenido->save();
 
         //ultimo id insertado
@@ -180,6 +183,8 @@ class TourController extends Controller
                     "meta_description" => $request->meta_description,
                     "meta_keywords" => $request->meta_keywords,
                     "peek_id" => $request->peek_id,
+                    "order_home" => $request->homeOrder
+
                 ]);
             /*
             priceTour::where('tour_contents_id', $infoTourResponse[0]->id)
@@ -950,7 +955,7 @@ class TourController extends Controller
         //dd($img);
         if(File::exists(public_path('/storage/'.$img->img))){
 
-                File::delete(public_path('/storage/'.$img->img)); 
+                File::delete(public_path('/storage/'.$img->img));
 
                 $img->delete();
                 return response()->json([
@@ -963,4 +968,54 @@ class TourController extends Controller
             ], 404);
         }
     }
+
+
+
+    public function exportTours(){
+
+        $res = tourContent::select(
+            "tour_contents.name as name",
+            "tour_contents.url as url",
+            "languages.name as language",
+            "tour_contents.sub_title as  sub_title",
+            "tour_contents.rank as rank",
+            "tour_contents.avaible as avaible",
+            "tour_contents.is_private as private ",
+            "tour_contents.duration as duration",
+            "tours.public as public"
+        )
+            ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
+            ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
+            ->orderBy('tour_contents.name', 'ASC')
+            ->get();
+
+
+
+        $columns=[];
+        $columns[]=['name'=>'Nombre'];
+        $columns[]=['name'=>'Url'];
+        $columns[]=['name'=>'Idioma'];
+        $columns[]=['name'=>'Subtitulo'];
+        $columns[]=['name'=>'Rank'];
+        $columns[]=['name'=>'Disponoble'];
+        $columns[]=['name'=>'Privado'];
+        $columns[]=['name'=>'Duracion'];
+        $columns[]=['name'=>'Publicado'];
+
+
+        $file_name= date('YmdHis').rand()."_Tours";
+
+
+        Excel::store(new ToursExport ($res, $columns), 'excelExport/'.$file_name.'.xlsx', 'local');
+        return response()->json(['file_name'=>$file_name.'.xlsx']);
+    }
+
+
+    public function downloadExport($name)
+    {
+
+        //dd($name);
+        return response()->download(Storage::path('excelExport/'.$name))->deleteFileAfterSend(true);
+    }
+
 }

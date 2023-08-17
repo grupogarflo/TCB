@@ -20,6 +20,7 @@
                         </v-col>
                   </v-row>
                </div>
+               <div v-html="description"></div>
               <div v-html="descriptionFooter"></div>
 
 

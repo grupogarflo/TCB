@@ -6,7 +6,7 @@
                <v-container class="py-7">
                   <v-row  align="end">
                      <v-col md="3">
-                        <img class="logo" src="/images/layout/logo.svg"  @click="goToHome"/>
+                        <img class="logo" src="/images/layout/logo.svg"  @click="goToHome" alt="Cancunbay"/>
                      </v-col>
                      <v-col md="7" offset-md="2">
                         <v-row no-gutters align="end" justify="end">

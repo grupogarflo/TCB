@@ -48,8 +48,9 @@
 
 
    &-data{
-      min-height: 200px;
-      max-height: 600px;
+      height: 160px;
+      // min-height: 200px;
+      // max-height: 600px;
       //background-color: chartreuse;
    }
    &-title{
@@ -57,7 +58,7 @@
       font-size: $text-semi-title1 !important;
       color:$primary-color !important;
       font-weight: bolder;
-      // height: 4.5rem !important;
+      height: 65px !important;
       //background-color: red;
    }
    &-rank{

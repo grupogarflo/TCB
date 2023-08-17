@@ -21,6 +21,14 @@
           hide-details
           class="mx-5"
         />
+        <v-btn
+
+          color="primary"
+          dark
+          class="mb-2 ml-5"
+          @click="exportTours"
+        >Exportar Tours</v-btn
+        >
         <v-divider class="mx-4" inset vertical />
         <v-dialog persistent v-model="dialog" max-width="100%">
           <template v-slot:activator="{ on, attrs }">
@@ -33,6 +41,9 @@
               v-on="on"
               >Nuevo</v-btn
             >
+
+
+
           </template>
 
           <v-card>
@@ -550,6 +561,19 @@ export default {
       this.wrapCategorias = false
       this.wrapSugerencia = false
       this.sinClick = false */
+    },
+
+    exportTours(){
+      alert('export');
+      this.$axios.post('/export-tours').then(response=>{
+
+          const domain = 'http://127.0.0.1:8000/';
+          const url=domain+'export-tours/getExportExcel/'+response.data.file_name;
+          window.open(url, '_blank');
+
+
+
+      })
     },
     /*
     clickImgTap() {

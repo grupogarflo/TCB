@@ -36,6 +36,11 @@ export default {
             { "http-equiv": "expires", content: "Tue, 01 Jan 1980 1:00:00 GMT" },
             { "http-equiv": "pragma", content: "no-cache" },
             { "http-equiv": "cache-control", content: "max-age=0" },
+            {
+               hid: 'og-image',
+               property: 'og:image',
+               content: 'https://cancunbay.com/cancunbay-chichen-itza.jpg',
+             },
       ],
       link: [
          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

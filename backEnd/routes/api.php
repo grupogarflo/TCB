@@ -225,6 +225,11 @@ Route::group([
     Route::post('/addBannerHome', 'BannerHomeController@addBannerHome');
     Route::post('/editBannerHome', 'BannerHomeController@editBannerHome');
     Route::post('/deleteBannerHome', 'BannerHomeController@deleteBannerHome');
+
+
+
+    Route::post('/export-tours', 'TourController@exportTours');
+
 });
 
 /*

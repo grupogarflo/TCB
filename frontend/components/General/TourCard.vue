@@ -4,7 +4,7 @@
       <v-card-text class="tour-card-content flex d-flex flex-column align-stretch">
 
          <div class="tour-card-img d-block ">
-            <img :src="item.full_photo_path" />
+            <img :src="item.full_photo_path" :alt="item.name" />
             <v-chip color="white" class="text-center ml-5 py-1 discount">
                -{{ item.discount  | discount}}
             </v-chip>
@@ -18,15 +18,16 @@
          <div class=" tour-card-title mt-3 mb-4 ">{{ item.name | truncate(80, '...') }}</div>
 
 
-         <div class="tour-card-data flex d-flex flex-column flex-grow-1  flex-shrink-1  align-stretch mb-3">
+         <div class="tour-card-data mb-3">
             <Rank class="tour-card-rank mb-3 d-flex flex-row flex-grow-1  flex-shrink-1" :rank="item.rank"></Rank>
             <div class="tour-card-description d-flex flex-row flex-grow-1  flex-shrink-1" v-if="item.description_small!==null" v-html="item.description_small"></div>
-            <div class="  my-1 tour-card-duration ">
+
+         </div>
+
+         <div class="  my-1 tour-card-duration ">
                         <span class="available ">{{ $t('general.available') }}: </span>
                         <span class=""> {{ item.duration }} </span>
                   </div>
-         </div>
-
 
 
 

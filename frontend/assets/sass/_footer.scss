@@ -4,6 +4,7 @@
     .logo{
         width: 130px;
     }
+
     .links{
         color: white;
     }
@@ -15,6 +16,26 @@
       text-decoration: none !important;
     }
 }
+
+.logoTrip{
+   opacity: 0.45 !important;
+ }
+
+ .testimonials{
+      &-name{
+         color: $secondary-color;
+         font-size: $text-semi-title1;
+         font-weight: bold;
+      }
+      &-date{
+         color:$primary-color;
+      }
+      &-tour{
+         font-size: $text-sub;
+         font-weight: bold;
+         color: $secondary-color;
+      }
+ }
 
 
 @media #{map-get($display-breakpoints, 'md-and-down')}{

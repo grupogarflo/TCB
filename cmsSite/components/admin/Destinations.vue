@@ -6,7 +6,9 @@
       </v-row>
       <v-row>
           <v-col col="6" sm="4" md="3" v-for="(item, i) in items" :key="i">
-              <v-checkbox v-model="modelItems" :value="item.id"  :label="item.name"></v-checkbox>
+
+            <DestinationComp :item="item" class="mx-5" :fromDatabase="fromDatabase"></DestinationComp>
+
 
           </v-col>
       </v-row>
@@ -32,71 +34,101 @@
   </div>
 </template>
 <script>
+import DestinationComp from './DestinationComp.vue';
+
 export default {
-  props: ['idRegistroSend', 'claveSend'],
-  data: () => ({
-    items: [],
-    // model: ['Carrots']
-    modelItems: [],
-    cargandoTabla: true,
-    loadingText: 'Cargando... por favor espere',
-    alertMensajes: false,
-    typeAlertaMensaje: 'success',
-    textoAlertaMesaje: ''
-  }),
+    props: ['idRegistroSend', 'claveSend'],
+    data: () => ({
+        items: [],
+        orders: [],
+        // model: ['Carrots']
+        modelItems: [],
+        cargandoTabla: true,
+        loadingText: 'Cargando... por favor espere',
+        alertMensajes: false,
+        typeAlertaMensaje: 'success',
+        textoAlertaMesaje: '',
+        fromDatabase:[]
+    }),
 
-  created() {
-    this.getRegistros()
-    // console.log('yupi me creee' + this.idRegistroSend)
-  },
+    computed:{
 
-  methods: {
-    selectCheck(){
-      // console.log(item)
-      this.alertaError = false
-      this.$axios
-        .post('/addRemoveDestinationTour', {
-          idTour: this.idRegistroSend,
-          destinations: this.modelItems,
-          claveSend: this.claveSend
-        })
-        .then(response => {
-
-          this.alertMensajes = true
-          this.typeAlertaMensaje = 'success'
-          this.textoAlertaMesaje = `El tour se vinculo a los destinos seleccionados`
-
-        })
-        .catch(error => {
-          // console.log(error.response.data.message)
-          this.alertMensajes = true
-          this.typeAlertaMensaje = 'error'
-          this.textoAlertaMesaje = `${error.response.data.message}`
-        })
+      toursDestinations(){
+        // eslint-disable-next-line dot-notation
+        return this.$store.getters['toursDestinations'];
+      }
     },
-    getRegistros() {
+    mounted() {
+        this.getRegistros();
+        // console.log('yupi me creee' + this.idRegistroSend)
+    },
+    methods: {
+        showOrder(itemId) {
+            const pos = this.modelItems.includes(itemId);
+            return pos;
+        },
+        selectCheck() {
+            // console.log(item)
+            this.alertaError = false;
+            this.$axios
+                .post('/addRemoveDestinationTour', {
+                idTour: this.idRegistroSend,
+                destinations: this.toursDestinations,
+                claveSend: this.claveSend
+            })
+                .then(response => {
+                this.alertMensajes = true;
+                this.typeAlertaMensaje = 'success';
+                this.textoAlertaMesaje = `El tour se vinculo a los destinos seleccionados`;
 
-      this.$axios
-        .post('/getDestinationsCMS', {
-          id: this.idRegistroSend
-        })
-        .then(response => {
-          // this.items = response.data[0].categoria
 
-           response.data.destinations.forEach(element=>{
-               this.items.push({ id: element.id, name:element.name});
-           })
+                /// clear tours in state
+                this.$store.dispatch('clearTourDestination');
 
-          this.modelItems = response.data.checked;
-          this.cargandoTabla = false
-        }).catch(error => {
-          //  this.textoDialogoEliminacion =
-          //  'El tour que esta intentado eliminar no existe o ya fue eliminado previamente'
-            alert('Existe un error al intentar recuperar la información')
-            console.log(error);
-        })
-    }
-  },
 
+            })
+                .catch(error => {
+                // console.log(error.response.data.message)
+                this.alertMensajes = true;
+                this.typeAlertaMensaje = 'error';
+                this.textoAlertaMesaje = `${error.response.data.message}`;
+            });
+        },
+        getRegistros() {
+            this.$axios
+                .post('/getDestinationsCMS', {
+                id: this.idRegistroSend
+            })
+                .then(response => {
+                // this.items = response.data[0].categoria
+                response.data.destinations.forEach(element => {
+                    this.items.push({ id: element.id, name: element.name });
+                });
+                // this.modelItems = response.data.checked;
+
+                // alert('add');
+                /*
+                response.data.checked.forEach(element=>{
+                  this.$store.dispatch('addTourDestination',{
+                      check:element.check,
+                      order:element.order
+                  });
+                })
+                */
+
+                this.fromDatabase =response.data.checked
+
+
+
+                this.cargandoTabla = false;
+            }).catch(error => {
+                //  this.textoDialogoEliminacion =
+                //  'El tour que esta intentado eliminar no existe o ya fue eliminado previamente'
+                alert('Existe un error al intentar recuperar la información');
+                console.log(error);
+            });
+        }
+    },
+    components: { DestinationComp }
 }
 </script>
