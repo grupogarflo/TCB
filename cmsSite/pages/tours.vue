@@ -564,10 +564,10 @@ export default {
     },
 
     exportTours(){
-      alert('export');
+
       this.$axios.post('/export-tours').then(response=>{
 
-          const domain = 'http://127.0.0.1:8000/';
+          const domain = 'https://www.cancunbay.com.mx/';
           const url=domain+'export-tours/getExportExcel/'+response.data.file_name;
           window.open(url, '_blank');
 

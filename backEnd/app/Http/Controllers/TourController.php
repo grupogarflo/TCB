@@ -16,6 +16,8 @@ use App\Gallery;
 use Illuminate\Support\Facades\File;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ToursExport;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 use function GuzzleHttp\json_decode;
 
@@ -973,21 +975,8 @@ class TourController extends Controller
 
     public function exportTours(){
 
-        $res = tourContent::select(
-            "tour_contents.name as name",
-            "tour_contents.url as url",
-            "languages.name as language",
-            "tour_contents.sub_title as  sub_title",
-            "tour_contents.rank as rank",
-            "tour_contents.avaible as avaible",
-            "tour_contents.is_private as private ",
-            "tour_contents.duration as duration",
-            "tours.public as public"
-        )
-            ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
-            ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
-            ->orderBy('tour_contents.name', 'ASC')
-            ->get();
+        $res = tourContent::all();
+
 
 
 
@@ -1002,8 +991,78 @@ class TourController extends Controller
         $columns[]=['name'=>'Duracion'];
         $columns[]=['name'=>'Publicado'];
 
+        $columns[]=['name'=>'Tarifas Privado'];
+
+        $columns[]=['name'=>'Precio Fake Adulto'];
+        $columns[]=['name'=>'Precio Real Adulto'];
+        $columns[]=['name'=>'Precio Fake Niño'];
+        $columns[]=['name'=>'Precio Real Niño'];
+
+        foreach($res as $r){
+
+            if($r->is_private){
+                /// rates to private tours
+
+                $rates = DB::table('private_rates')->where('tour_id',$r->tour_id)->get();
+
+
+
+                $ratesToShow = [];
+
+                foreach($rates as $rate){
+                    $rate_from_fake_mxn = $this->usdToMxn($rate->rate_from_fake);
+                    $rate_from_real_mxn = $this->usdToMxn($rate->rate_from_real);
+
+                    $rate_fake_price_mxn = $this->usdToMxn($rate->fake_price);
+                    $rate_real_price_mxn = $this->usdToMxn($rate->real_price);
+
+                    $paxName  = DB::table('pax_ranges')->where('id',$rate->pax_range_id)->first();
+                    array_push($ratesToShow, [
+                        'rate_from_fake'=>$rate->rate_from_fake,
+                        'rate_from_real'=>$rate->rate_from_real,
+                        'fake_price'=>$rate->fake_price,
+                        'real_price'=>$rate->real_price,
+                        'pax'=>$paxName->name_esp
+
+
+                    ]);
+
+                    $r->discount = ($rate_from_fake_mxn>0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
+                }
+
+                $r->rates=$ratesToShow;
+
+            }
+
+            else{
+
+                $rateNotPrivate = DB::table('price_tours')->where('tour_contents_id',$r->id)->first();
+
+
+                //Log::info('no private' , [$rateNotPrivate]);
+                if(!empty($rateNotPrivate)){
+                    $r->fake_adult = $rateNotPrivate->price_fake_adult;
+                    $r->real_adult = $rateNotPrivate->price_real_adult;
+                    $r->price_fake_child_mxn = $rateNotPrivate->price_fake_child;
+                    $r->price_real_child_mxn =  $rateNotPrivate->price_real_child;
+                }
+                else{
+                    $r->fake_adult = 0;
+                    $r->real_adult = 0;
+                    $r->price_fake_child_mxn = 0;
+                    $r->price_real_child_mxn =  0;
+                }
+
+
+            }
+
+
+        }
 
         $file_name= date('YmdHis').rand()."_Tours";
+
+        //Log ::info('export info', [$res]);
+
 
 
         Excel::store(new ToursExport ($res, $columns), 'excelExport/'.$file_name.'.xlsx', 'local');
