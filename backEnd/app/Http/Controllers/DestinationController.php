@@ -10,6 +10,7 @@ use App\destinationContent;
 use App\tour;
 use App\tourContent;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class DestinationController extends Controller
 {
@@ -401,7 +402,7 @@ class DestinationController extends Controller
 
             ->where('language_id', $request->lenguage)
             // ->orderBy('tour_contents.name', 'ASC')
-            ->orderBy('price_tours.price_real_adult', 'ASC')
+            ->orderBy( DB ::raw('-destination_tour.order'),'DESC')
 
             ->get();
 

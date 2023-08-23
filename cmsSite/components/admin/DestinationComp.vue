@@ -1,13 +1,13 @@
 <template>
   <v-row>
     <v-col cols="8">
-      <v-checkbox v-model="check" :input-value="check"   :label="item.name" @change="addState"></v-checkbox>
+      <v-checkbox v-model="check" :input-value="check"   :label="item.name" @change="addDestinationValue"></v-checkbox>
     </v-col>
     <v-col cols="4">
       <v-text-field  v-show="check"
         v-model="order"
         label="Orden "
-        @change="addState"
+        @change="addOrder"
       ></v-text-field>
     </v-col>
   </v-row>
@@ -25,64 +25,40 @@ export default {
 
     }
   },
-  computed:{
-
-      toursDestinations(){
-        // eslint-disable-next-line dot-notation
-        return this.$store.getters['toursDestinations'];
-      }
-  },
 
   mounted(){
-    const pos = this.fromDatabase.map(element=> element.check).indexOf(this.item.id);
 
-    // alert(pos);
+      const pos = this.fromDatabase.map(element=>element.check).indexOf(this.item.id);
 
-    if(pos!==-1){
+      if(pos===-1){
+        return false;
+      }
 
-      this.check=true;
-      this.order = this.fromDatabase[pos].order
-
-    }
-
-
-
+      this.check = true;
+      this.order = this.fromDatabase[pos].order;
+      this.$nuxt.$emit('addDestinationValue', this.item.id);
+      this.$nuxt.$emit('addDestinationOrder',{value:this.item.id, order:this.order});
   },
+
+
 
 
   methods:{
-    addState(){
-
-      const pos = this.toursDestinations.map(element=> element.check).indexOf(this.item.id);
 
 
+    addDestinationValue(){
       if(this.check){
-
-        if(pos===-1){
-          this.$store.dispatch('addTourDestination',{
-              check:this.item.id,
-              order:this.order
-          });
-        }
-        else{
-          // alert('edit');
-          this.$store.dispatch('updateOrder',{
-              pos,
-              order:this.order
-          })
-        }
+        this.$nuxt.$emit('addDestinationValue', this.item.id);
       }
       else{
-        /// remove from state
-        this.$store.dispatch('removeTourDestination',{
-            pos,
-        })
-
+        this.$nuxt.$emit('removeDestinationSelected', this.item.id);
       }
+    },
 
-
-
-
+    addOrder(){
+      if(this.check){
+        this.$nuxt.$emit('addDestinationOrder',{value:this.item.id, order:this.order});
+      }
     }
   }
 

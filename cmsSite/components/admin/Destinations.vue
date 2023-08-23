@@ -48,7 +48,12 @@ export default {
         alertMensajes: false,
         typeAlertaMensaje: 'success',
         textoAlertaMesaje: '',
-        fromDatabase:[]
+        fromDatabase:[],
+
+        selectedDestinations:[]
+
+
+
     }),
 
     computed:{
@@ -61,6 +66,38 @@ export default {
     mounted() {
         this.getRegistros();
         // console.log('yupi me creee' + this.idRegistroSend)
+        this.$nuxt.$on('addDestinationValue',(value)=>{
+
+            this.selectedDestinations.push({
+              check:value,
+              order:0
+            });
+
+        });
+
+        this.$nuxt.$on('addDestinationOrder',(payload)=>{
+
+            const pos  = this.selectedDestinations.map(element=>element.check).indexOf(payload.value);
+
+            if(pos ===-1){
+              return false;
+            }
+
+            this.selectedDestinations[pos].order=payload.order;
+        });
+
+        this.$nuxt.$on('removeDestinationSelected',(value)=>{
+
+          const pos  = this.selectedDestinations.map(element=>element.check).indexOf(value);
+
+          if(pos!==-1){
+
+            this.selectedDestinations.splice(pos,1);
+          }
+
+        })
+
+
     },
     methods: {
         showOrder(itemId) {
@@ -73,7 +110,7 @@ export default {
             this.$axios
                 .post('/addRemoveDestinationTour', {
                 idTour: this.idRegistroSend,
-                destinations: this.toursDestinations,
+                destinations: this.selectedDestinations,
                 claveSend: this.claveSend
             })
                 .then(response => {
