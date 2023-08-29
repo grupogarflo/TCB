@@ -139,6 +139,7 @@
                hide-details="auto"
 
             ></v-text-field>
+            <span >{{ $t('forms.info.alertHotel') }}</span>
          </v-col>
       </v-row>
       <v-row>

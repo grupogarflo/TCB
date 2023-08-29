@@ -70,7 +70,7 @@
          "emailValidation2":"Ingrese un email valido",
          "phoneField":"Telefono *",
          "phoneValidation":"Ingrese un telefono valido",
-         "hotelField":"Lugar de recogida",
+         "hotelField":"Nombre del hotel",
          "hotelValidation":"Ingrese un hotel",
          "promoCodeField":"Promo Code",
          "btnPromo":"Aplicar",
@@ -78,7 +78,9 @@
          "validPromoCode":"Ingrese un promocode valido",
          "country":"País",
          "state": "Estado",
-         "city": "Ciudad"
+         "city": "Ciudad",
+         "alertHotel":"Si te hospedas en un Airbnb, hostal, con familia o en cualquier lugar, por favor contáctanos."
+
 
 
       },
