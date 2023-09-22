@@ -145,7 +145,8 @@
                   }
                   */
 
-               ]
+               ],
+
             }
 
       },
@@ -180,6 +181,9 @@
          this.keywordsMeta=this.$t('meta.home.description');
          this.init();
          this.getHomeToursList()
+
+
+
       },
 
       methods:{

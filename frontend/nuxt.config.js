@@ -66,6 +66,7 @@ export default {
       ssr: false,
     },
     { src: '~/plugins/zohoScript.js', mode: 'client' },
+    { src: '~/plugins/zohoPop.js', mode: 'client' },
     "~/plugins/googleAnalytics.js",
     "~/plugins/vue2-google-maps.js",
   ],
