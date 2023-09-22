@@ -44,7 +44,13 @@ export default {
       ],
       link: [
          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+
+      script:[
+         {  src: 'https://sdk.mercadopago.com/js/v2',  type:'text/javascript'}
       ]
+
+
    },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

@@ -51,8 +51,10 @@
                <v-card width="100%" :class="['py-5', (steps==3) ? 'elevation-0' : '']" >
                   <v-card-text>
                      <InformationForm :class="[(steps==1) ? 'd-block' : 'd-none' ]"></InformationForm>
-                     <!--<payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>-->
-                     <paypal :class="[(steps==2) ? 'd-block' : 'd-none' ]" :clientId="clientId" :total="total"></paypal>
+                     <!--<payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>
+                     <paypal :class="[(steps==2) ? 'd-block' : 'd-none' ]" :clientId="clientId" :total="total"></paypal>-->
+
+                     <meradoPago :clientId="clientId" :total="total" > </meradoPago>
 
                      <confirmation :class="[(steps==3) ? 'd-block' :'d-none' ]"></confirmation>
                   </v-card-text>
