@@ -51,10 +51,12 @@
                <v-card width="100%" :class="['py-5', (steps==3) ? 'elevation-0' : '']" >
                   <v-card-text>
                      <InformationForm :class="[(steps==1) ? 'd-block' : 'd-none' ]"></InformationForm>
-                     <!--<payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>
-                     <paypal :class="[(steps==2) ? 'd-block' : 'd-none' ]" :clientId="clientId" :total="total"></paypal>-->
+                     <!--<payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>-->
 
-                     <meradoPago :clientId="clientId" :total="total" > </meradoPago>
+                     <paypal  v-if="siteD==='USD'"  :class="[(steps==2) ? 'd-block' : 'd-none' ]" :clientId="clientId" :total="total"></paypal>
+
+
+                     <mercadoPago v-else :class="[(steps==2) ? 'd-block' : 'd-none' ]" :clientId="clientId" :total="total" > </mercadoPago>
 
                      <confirmation :class="[(steps==3) ? 'd-block' :'d-none' ]"></confirmation>
                   </v-card-text>
@@ -120,10 +122,11 @@ import TourDetail from '~/components/checkout/TourDetail.vue';
 // import Categories from '~/components/General/Categories.vue';
 // import SectionTitle from '~/components/General/SectionTitle.vue';
 import Confirmation from '~/components/checkout/Confirmation.vue';
-import Paypal from '~/components/checkout/paypal.vue';
+// import Paypal from '~/components/checkout/paypal.vue';
+import MercadoPago from '~/components/checkout/MercadoPago.vue';
 export default {
 
-   components:{InformationForm,  TourDetail, Confirmation, Paypal},
+   components:{InformationForm,  TourDetail, Confirmation, MercadoPago},
    data(){
       return {
          steps :1,
@@ -159,6 +162,11 @@ export default {
          // console.log(this.$route.name);
          return this.isMobile()
       },
+
+      siteD(){
+         const name = window.location.href
+         return (name.includes('cancunbay.com.mx')) ? 'MXN' : 'USD';
+      }
    },
 
    mounted(){

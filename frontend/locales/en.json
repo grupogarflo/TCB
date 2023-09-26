@@ -80,6 +80,7 @@
          "city": "City",
          "alertHotel":"If you are staying in an Airbnb, hostel, with family or anywhere, please contact us."
 
+
       },
       "payment":{
          "title":"PAYMENT",
@@ -100,7 +101,9 @@
          "terms_cond":"Terms and conditions",
          "tooltip":"Abrir en una nueva ventana",
          "terms_condValidation":"You need accept our terms and conditions",
-         "btnSubmit":"Pay"
+         "btnSubmit":"Pay",
+         "error":"Error please try again",
+         "redirect":"Your payment is pending, you will be redirected to a page with the payment process once completed, contact us to confirm your payment"
       }
    },
    "confirmation":{

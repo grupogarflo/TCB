@@ -104,7 +104,9 @@
 
          "terms_condValidation":"Necesita accpetar los terminos y condiciones",
          "tooltip":"Abrir en una nueva ventana",
-         "btnSubmit":"Pagar"
+         "btnSubmit":"Pagar",
+         "error":"Error en le pago por favor intente de nuevo",
+         "redirect":"Tu pago esta pendiente, seras redirigido a una pagina con el proceso de pago una vez completado comunicate para confirmar tu pago"
       }
    },
    "confirmation":{

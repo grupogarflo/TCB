@@ -144,13 +144,16 @@ class PaymentController extends Controller
         PaymentClient::where('id', $request->clientId)
             ->update([
                 "status" => $request->status,
+
+
             ]);
 
 
         Payment::where('payment_clients_id', $request->clientId)
             ->update([
                 "status" => $request->status,
-                "authorization" => $request->authorization
+                "authorization" => $request->authorization,
+                "merch"=>$request->merch,
             ]);
 
         //se manda el email de confirmacion

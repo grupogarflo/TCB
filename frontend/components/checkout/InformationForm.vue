@@ -222,6 +222,7 @@ export default {
          cities:[],
          selectedCountry: '',
          selectedState: '',
+         city:''
 
 
 
