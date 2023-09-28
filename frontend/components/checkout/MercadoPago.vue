@@ -131,7 +131,7 @@ export default {
         const formatter = new Intl.NumberFormat('en-US');
         console.log(total);
 
-        return (this.$store.getters['booking/language'] ===2) ? formatter.format(Math.ceil(total.usd.toFixed(2)))  : formatter.format(Math.ceil(total.mxn.toFixed(2)))
+        return (this.$store.getters['booking/language'] ===2) ? Math.ceil(total.usd.toFixed(2))  : Math.ceil(total.mxn.toFixed(2))
       },
 
    },
@@ -160,7 +160,7 @@ export default {
          this.$axios.post('/mercado-pago/getToken',{
             tourData:this.stateData.tours,
             currency:this.currency,
-            total:this.bookingTotal,
+            total:parseFloat(this.bookingTotal),
             clientId:this.clientId
          }).then(response=>{
 
@@ -180,7 +180,7 @@ export default {
          this.bricksBuilder = this.mp.bricks();
          const settings={
                initialization:{
-                  amount: this.bookingTotal,
+                  amount: parseFloat(this.bookingTotal),
                   preferenceId:this.token,
                   marketplace: true,
                },
@@ -207,7 +207,7 @@ export default {
                      Callback llamado cuando el Brick está listo.
                      Aquí puede ocultar cargamentos de su sitio, por ejemplo.
                      */
-                    alert('ready');
+                   // alert('ready');
                   },
                   onSubmit: ({ selectedPaymentMethod, formData }) => {
                      // callback llamado al hacer clic en el botón enviar datos
@@ -237,7 +237,7 @@ export default {
                      // this.paymentPP()
 
                      /// proceso de pago
-                     alert(selectedPaymentMethod);
+                     // alert(selectedPaymentMethod);
                      this.$axios.post('/mercado-pago/process_payment',{
                         formData,
                         method:selectedPaymentMethod,

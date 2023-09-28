@@ -50,6 +50,7 @@
          <v-col cols="12" md="6" :order="(mobile) ? '2' :'1' ">
                <v-card width="100%" :class="['py-5', (steps==3) ? 'elevation-0' : '']" >
                   <v-card-text>
+
                      <InformationForm :class="[(steps==1) ? 'd-block' : 'd-none' ]"></InformationForm>
                      <!--<payment-form :class="[(steps==2) ? 'd-block' : 'd-none' ]"></payment-form>-->
 
@@ -122,17 +123,18 @@ import TourDetail from '~/components/checkout/TourDetail.vue';
 // import Categories from '~/components/General/Categories.vue';
 // import SectionTitle from '~/components/General/SectionTitle.vue';
 import Confirmation from '~/components/checkout/Confirmation.vue';
-// import Paypal from '~/components/checkout/paypal.vue';
+import Paypal from '~/components/checkout/paypal.vue';
 import MercadoPago from '~/components/checkout/MercadoPago.vue';
 export default {
 
-   components:{InformationForm,  TourDetail, Confirmation, MercadoPago},
+   components:{InformationForm,  TourDetail, Confirmation, MercadoPago, Paypal},
    data(){
       return {
          steps :1,
          total:0,
          clientId:0,
-         img:(this.$i18n.locale==='es') ? '/images/layout/100_reembolsable.svg' :'/images/layout/100_money-back.svg'
+         img:(this.$i18n.locale==='es') ? '/images/layout/100_reembolsable.svg' :'/images/layout/100_money-back.svg',
+         siteD:(this.$i18n.locale==='es') ? 'MXN' : 'USD'
       }
    },
 
@@ -163,10 +165,7 @@ export default {
          return this.isMobile()
       },
 
-      siteD(){
-         const name = window.location.href
-         return (name.includes('cancunbay.com.mx')) ? 'MXN' : 'USD';
-      }
+
    },
 
    mounted(){

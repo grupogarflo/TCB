@@ -157,7 +157,7 @@ class PaymentController extends Controller
             ]);
 
         //se manda el email de confirmacion
-        if ($request->status === "complet") {
+        if ($request->status === "complet" || $request->status==="approved") {
             return $this->sendEmail($request->clientId, $request->idioma);
         }
         /*

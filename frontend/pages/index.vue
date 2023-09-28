@@ -2,8 +2,15 @@
    <div id="homePage">
       <client-only>
          <div class="sliderCo">
-            <img v-if="!mobile" src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight" width="100%" />
-            <img v-else src="/images/homeBanners/vista-al-mar-desde-tulum-mobile.jpg" :height="imgHeight" width="100%" />
+            <div v-if="$i18n.locale!=='es'">
+               <img v-if="!mobile" src="/images/homeBanners/vista-al-mar-desde-tulum.jpg" :height="imgHeight" width="100%" />
+               <img v-else src="/images/homeBanners/vista-al-mar-desde-tulum-mobile.jpg" :height="imgHeight" width="100%" />
+            </div>
+            <div v-else>
+               <img v-if="!mobile" src="/images/homeBanners/cancun-promocion-tour.jpg" :height="imgHeight" width="100%" />
+               <img v-else src="/images/homeBanners/cancun-promocion-tour.jpg" :height="imgHeight" width="100%" />
+
+            </div>
 
                <div class="search_container">
                   <v-container>
@@ -19,6 +26,7 @@
          </div>
 
          <v-container class="sliderPosition">
+
             <v-row justify="center" no-gutters>
                <v-col cols="12" sm="12" md="8">
                   <Slide :items="items"></Slide>
@@ -27,7 +35,29 @@
             </v-row>
          </v-container>
 
-         <v-container class="py-10">
+         <v-container>
+
+            <v-row v-if="$i18n.locale==='es'" class="mb-15">
+               <v-col cols="12" >
+                  <p class="text-center">
+                     <span class="meses-sin-intereses d-block"> HASTA EN 18 MESES SIN INTERESES</span>
+                     <span class="d-block meses-sin-intereses-down">Con cualquier banco, con todas las tarjetas *</span>
+                  </p>
+
+
+               </v-col>
+               <v-col cols="12" class="text-center mt-5">
+                  <img src="/images/homeBanners/bbva.svg"  width="7%" class="mx-5"/>
+                  <img src="/images/homeBanners/santander.svg"  width="14%" class="mx-5" />
+                  <img src="/images/homeBanners/citibanamex.svg"  width="14%" class="mx-5" />
+                  <img src="/images/homeBanners/banorte.svg"  width="14%" class="mx-5"/>
+                  <img src="/images/homeBanners/scotiabank.svg"  width="14%" class="mx-5"/>
+                  <img src="/images/homeBanners/hsbc.svg"  width="9%" class="mx-5" />
+
+
+               </v-col>
+            </v-row>
+
             <SectionTitle :title-text="$t('home.title1')" title="1"></SectionTitle>
             <Paragraph :text="$t('home.paragraph1')"></Paragraph>
 
