@@ -443,13 +443,15 @@ export default {
          if (ban) {
             this.$axios
                .post('getPromoCode', {
-                  id: this.tourDetail.id,
+                  id: this.tourDetail.tour_id,
                   date: this.tourDetail.date,
                   promocode: this.promoCode,
                   adult: this.tourDetail.adultos,
                   child: this.tourDetail.ninos,
                   idioma: this.languageId,
                   moneda: this.currency,
+                  is_private: this.tourDetail.isPrivate,
+                  private_rate: (this.tourDetail.isPrivate) ? this.tourDetail.pax : null
             })
             .then((response) => {
                /*

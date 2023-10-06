@@ -8,7 +8,7 @@
             </div>
             <div v-else>
                <img v-if="!mobile" src="/images/homeBanners/cancun-promocion-tour.jpg" :height="imgHeight" width="100%" />
-               <img v-else src="/images/homeBanners/cancun-promocion-tour.jpg" :height="imgHeight" width="100%" />
+               <img v-else src="/images/homeBanners/cancun-promocion-tour-mobile.jpg" :height="imgHeight" width="100%" />
 
             </div>
 
@@ -47,12 +47,12 @@
 
                </v-col>
                <v-col cols="12" class="text-center mt-5">
-                  <img src="/images/homeBanners/bbva.svg"  width="7%" class="mx-5"/>
-                  <img src="/images/homeBanners/santander.svg"  width="14%" class="mx-5" />
-                  <img src="/images/homeBanners/citibanamex.svg"  width="14%" class="mx-5" />
-                  <img src="/images/homeBanners/banorte.svg"  width="14%" class="mx-5"/>
-                  <img src="/images/homeBanners/scotiabank.svg"  width="14%" class="mx-5"/>
-                  <img src="/images/homeBanners/hsbc.svg"  width="9%" class="mx-5" />
+                  <img src="/images/homeBanners/bbva.svg"  :width="(!mobile) ? '7%': '15%' " :class="(!mobile) ? 'mx-5' : 'mx-2 my-2'"/>
+                  <img src="/images/homeBanners/santander.svg"  :width="(!mobile) ? '14%': '26%' " :class="(!mobile) ? 'mx-5' : 'mx-2 my-2'" />
+                  <img src="/images/homeBanners/citibanamex.svg"  :width="(!mobile) ? '14%' : '26%' " :class="(!mobile) ? 'mx-5' : 'mx-2 my-2'" />
+                  <img src="/images/homeBanners/banorte.svg"  :width="(!mobile) ? '14%': '26%' " :class="(!mobile) ? 'mx-5' : 'mx-2 my-2'"/>
+                  <img src="/images/homeBanners/scotiabank.svg"  :width="(!mobile) ? '14%':'26%' " :class="(!mobile) ? 'mx-5' : 'mx-2 my-2'"/>
+                  <img src="/images/homeBanners/hsbc.svg"  :width="(!mobile) ? '9%':'17%' " :class="(!mobile) ? 'mx-5' : 'mx-2 my-2'" />
 
 
                </v-col>
@@ -96,7 +96,8 @@
 
             <SectionTitle :title-text="$t('home.subtitle3')" title="2"></SectionTitle>
 
-            <Paragraph :text="$t('home.paragraph3')"></Paragraph>
+            <!--<Paragraph :text="$t('home.paragraph3')"></Paragraph>-->
+            <div v-html="parrafo"></div>
 
          </v-container>
       </client-only>
@@ -182,6 +183,9 @@
       },
 
       computed:{
+         parrafo(){
+            return this.$t('home.paragraph3');
+         },
          mobile(){
             return this.isMobile();
          },

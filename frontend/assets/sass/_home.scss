@@ -160,4 +160,16 @@
 
       }
    }
+
+
+
+   .meses-sin-intereses{
+      color: $primary-color;
+      font-size: $text-semi-title2;
+      font-weight: bold;
+      &-down{
+         color: $text-content-color;
+         font-size: $text-normal;
+      }
+   }
 }

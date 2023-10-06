@@ -173,6 +173,7 @@ export default {
 
 
       async renderPaymentBrick(){
+         // window.paymentBrickController.unmount();
          loadMercadoPago();
          this.mp = new window.MercadoPago('APP_USR-63cac48c-ec59-45f7-be27-bb160c6bf4fa', {
             locale: 'es-AR'

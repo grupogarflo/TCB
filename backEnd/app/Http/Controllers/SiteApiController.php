@@ -225,14 +225,18 @@ class SiteApiController extends Controller
             ->orderBy('tour_contents.name', 'ASC')
             ->get();*/
 
+            DB::enableQueryLog();
         $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
+            ->select('tour_contents.id as id','tour_contents.url as url','tour_contents.name as name','tour_contents.tour_id as tour_id', 'tour_contents.is_private as is_private')
             ->where('tours.active', 1)
             ->where('tours.public', 1)
             ->where('language_id', $request->idioma)
             // ->orderBy('tour_contents.name', 'ASC')
             ->orderBy('tour_contents.name', 'ASC')
             ->get();
+
+            \Log::info('test ',[DB::getQueryLog()]);
 
         $arr = [];
         /*for ($a = 0; $a < sizeof($res); $a++) {
@@ -243,6 +247,7 @@ class SiteApiController extends Controller
         }*/
         foreach($res as $r){
 
+            \Log::info('test ',[ $r]);
 
             if($r->is_private){
                 /// rates to private tours
@@ -333,6 +338,7 @@ class SiteApiController extends Controller
 
         }
 
+        \Log::info('procesed ',[$res]);
         //return json_encode($arr);
         return response()->json([
             "data" => $res
@@ -566,43 +572,91 @@ class SiteApiController extends Controller
                         ->get();
                     if (count($tour) > 0) {
 
-                        //recupero el total
-                        $price = $this->getTotal($request);
-                        $total = 0;
-                        $auxPriceAdult = 0;
-                        $auxPriceChild = 0;
+                        if(!$request->is_private){
+                            $price = $this->getTotal($request);
+                            $total = 0;
+                            $auxPriceAdult = 0;
+                            $auxPriceChild = 0;
 
-                        //valido que tipo de descuento tiene
-                        if ($promoCode[0]->type_discount === "cantidad") {
-                            $auxPriceAdult = $price->original["priceAdult"] - $promoCode[0]->discount_adult;
-                            if ($request->child > 0) {
-                                $auxPriceChild = $price->original["priceChild"] - $promoCode[0]->discount_child;
+                            //valido que tipo de descuento tiene
+                            if ($promoCode[0]->type_discount === "cantidad") {
+                                $auxPriceAdult = $price->original["priceAdult"] - $promoCode[0]->discount_adult;
+                                if ($request->child > 0) {
+                                    $auxPriceChild = $price->original["priceChild"] - $promoCode[0]->discount_child;
+                                }
+                            } else {
+                                $calDescuento = ($promoCode[0]->discount_adult * $price->original["priceAdult"]) / 100;
+                                $auxPriceAdult = $price->original["priceAdult"] - $calDescuento;
+
+                                if ($request->child > 0) {
+                                    $calDescuentoChild = ($promoCode[0]->discount_child * $price->original["priceChild"]) / 100;
+                                    $auxPriceChild = $price->original["priceChild"] - $calDescuentoChild;
+                                }
                             }
-                        } else {
-                            $calDescuento = ($promoCode[0]->discount_adult * $price->original["priceAdult"]) / 100;
-                            $auxPriceAdult = $price->original["priceAdult"] - $calDescuento;
 
+                            $total = $auxPriceAdult * $request->adult;
                             if ($request->child > 0) {
-                                $calDescuentoChild = ($promoCode[0]->discount_child * $price->original["priceChild"]) / 100;
-                                $auxPriceChild = $price->original["priceChild"] - $calDescuentoChild;
+                                $total += $auxPriceChild * $request->child;
                             }
-                        }
 
-                        $total = $auxPriceAdult * $request->adult;
-                        if ($request->child > 0) {
-                            $total += $auxPriceChild * $request->child;
+                            $des = $price->original["data"] - $total;
+                            return response()->json([
+                                "data_usd" => $total,
+                                "data_mxn"=>$this->usdToMxn($total),
+                                "last_usd" => $price->original["data"],
+                                "last_mxn" => $this->usdToMxn($price->original["data"]),
+                                "discount" => $des,
+                                "discount_mxn"=>$this->usdToMxn($des),
+                                "promocode" => $request->promocode
+                            ], 200);
                         }
+                        else{
 
-                        $des = $price->original["data"] - $total;
-                        return response()->json([
-                            "data_usd" => $total,
-                            "data_mxn"=>$this->usdToMxn($total),
-                            "last_usd" => $price->original["data"],
-                            "last_mxn" => $this->usdToMxn($price->original["data"]),
-                            "discount" => $des,
-                            "discount_mxn"=>$this->usdToMxn($des),
-                            "promocode" => $request->promocode
-                        ], 200);
+                            $price = $this->getTotal($request);
+                            $total = 0;
+                            $auxPriceAdult = 0;
+                            $auxPriceChild = 0;
+
+
+                            $rates = DB::table('private_rates')->where('tour_id',$request->id)->where('pax_range_id',$request->private_rate)->first();
+
+                            // dd($rates);
+
+                                //valido que tipo de descuento tiene
+                                if ($promoCode[0]->type_discount === "cantidad") {
+                                    $auxPriceAdult = $rates->real_price - $promoCode[0]->discount_adult;
+                                    if ($request->child > 0) {
+                                        $auxPriceChild = $rates->real_price - $promoCode[0]->discount_child;
+                                    }
+                                } else {
+                                    $calDescuento = ($promoCode[0]->discount_adult * $rates->real_price) / 100;
+                                    $auxPriceAdult = $rates->real_price - $calDescuento;
+
+
+                                }
+
+                                $total =$auxPriceAdult;
+
+                                $des = $rates->real_price - $total;
+                                return response()->json([
+                                    "data_usd" => $total,
+                                    "data_mxn"=>$this->usdToMxn($total),
+                                    "last_usd" =>  $rates->real_price,
+                                    "last_mxn" => $this->usdToMxn($price->original["data"]),
+                                    "discount" => $des,
+                                    "discount_mxn"=>$this->usdToMxn($des),
+                                    "promocode" => $request->promocode
+                                ], 200);
+
+                            }
+
+
+
+
+
+
+
+
                     } else {
                         return response()->json([
                             "data" => "tour is not valid for this promocode"
@@ -624,6 +678,9 @@ class SiteApiController extends Controller
             ], 400);
         }
     }
+
+
+
 
     function getBannerHome(Request $request)
     {
@@ -924,6 +981,8 @@ class SiteApiController extends Controller
 
 
             foreach($res as $r){
+
+
 
                 if($r->is_private){
                     /// rates to private tours

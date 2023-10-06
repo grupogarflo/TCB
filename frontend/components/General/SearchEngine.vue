@@ -428,7 +428,8 @@ export default {
                   isPrivate:aux.is_private,
                   rates: aux.rates,
                   pax:this.modelSelectPax,
-                  namePax
+                  namePax,
+                  tour_id: aux.tour_id
 
                })
 
@@ -706,7 +707,7 @@ export default {
     getDatesBlock() {
       this.$axios
         .post('getBlockDates', {
-          id: this.tours_state.id,
+          id: this.tours_state.tour_id,
         })
         .then((response) => {
           // console.log(response)
