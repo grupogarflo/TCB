@@ -228,7 +228,13 @@ class SiteApiController extends Controller
             DB::enableQueryLog();
         $res = tourContent::join('tours', 'tour_contents.tour_id', '=', 'tours.id')
             ->join('price_tours', 'tour_contents.tour_id', '=', 'price_tours.tour_contents_id')
-            ->select('tour_contents.id as id','tour_contents.url as url','tour_contents.name as name','tour_contents.tour_id as tour_id', 'tour_contents.is_private as is_private')
+            ->select('tour_contents.id as id',
+                'tour_contents.url as url',
+                'tour_contents.name as name',
+                'tour_contents.tour_id as tour_id',
+                'tour_contents.is_private as is_private',
+                'tour_contents.duration as duration',
+                'tour_contents.img as img')
             ->where('tours.active', 1)
             ->where('tours.public', 1)
             ->where('language_id', $request->idioma)
