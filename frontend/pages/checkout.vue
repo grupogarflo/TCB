@@ -189,7 +189,7 @@ export default {
             if(!this.tourDetail.isPrivate){
                await this.$axios
                   .post('/getTotal', {
-                     id: this.tourDetail.id,
+                     id: this.tourDetail.tour_id,
                      adult: this.tourDetail.adultos,
                      child: this.tourDetail.ninos,
                      idioma: this.$store.getters['booking/language']

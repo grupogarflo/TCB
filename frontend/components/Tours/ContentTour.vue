@@ -300,7 +300,8 @@ export default {
                   isPrivate:resp.data.data[0].is_private,
                   rates: resp.data.data[0].rates,
                   pax:null,
-                  namePax:''
+                  namePax:'',
+                  tour_id: resp.data.data[0].tour_id
 
 
                })

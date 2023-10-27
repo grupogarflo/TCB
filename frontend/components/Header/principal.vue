@@ -59,7 +59,7 @@
                      </v-col>
 
                      <v-col sm="3" class="text-right">
-                        <a href="https://api.whatsapp.com/send?phone=529841062511" ><span class="mx-2 social icon-whatsapp"></span></a>
+                        <a href="https://api.whatsapp.com/send?phone=529981001043" ><span class="mx-2 social icon-whatsapp"></span></a>
                      </v-col>
 
                   </v-row>

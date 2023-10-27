@@ -22,7 +22,7 @@
          </v-col>
          <v-col cols="4" class="text-right">
             <div class="iconWrap d-flex mx-2">
-               <a href="https://api.whatsapp.com/send?phone=529841062511" target="_blank">
+               <a href="https://api.whatsapp.com/send?phone=529981001043" target="_blank">
                   <v-icon class="icon2-whatsapp generalData mr-2" size="25" ></v-icon>
                   <span class="pt-2">{{ $t('general.chat') }}</span>
                </a>
@@ -102,7 +102,7 @@
                   </a>
                </div>
                <div class="iconWrap d-flex mx-2">
-                  <a href="https://api.whatsapp.com/send?phone=529841062511" target="_blank" class="d-flex">
+                  <a href="https://api.whatsapp.com/send?phone=529981001043" target="_blank" class="d-flex">
                      <v-icon class="icon2-whatsapp generalData mr-2" size="25" ></v-icon>
                      <span class="pt-2">{{ $t('general.chat') }}</span>
                   </a>

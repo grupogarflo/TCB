@@ -183,12 +183,14 @@ export default {
                this.loadingGallery = false
                } */
 
+
                this.$store.commit('booking/dataTours', {
-                  id: resp.data.data[0].tour_id,
+                  id: resp.data.data[0].id,
                   name: this.name,
                   url: resp.data.data[0].url,
                   img: this.img,
                   duration: resp.data.data[0].duration,
+                  tour_id: resp.data.data[0].tour_id
                })
                this.reRender = this.reRender + 1
             })

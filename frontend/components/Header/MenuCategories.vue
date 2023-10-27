@@ -182,7 +182,7 @@ export default {
          class:'',
 
          // change to cancun bay urls
-         domain:(this.language===1) ? 'http://cancunbay.net' : 'http://cancunbay.mx',
+         domain:(this.language===1) ? 'https://www.cancunbay.com' : 'https://www.cancunbay.com.mx',
          show_menu_mobile:true
       }
    },
@@ -256,7 +256,7 @@ export default {
       async init() {
 
          try {
-            this.domain =(this.language===1) ? 'http://cancunbay.net' : 'http://www.cancunbay.com.mx'
+            this.domain =(this.language===1) ? 'https://www.cancunbay.com' : 'https://www.cancunbay.com.mx'
 
             await this.$axios
                .post('/getAllCategories', {

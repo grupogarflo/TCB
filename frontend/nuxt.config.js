@@ -47,7 +47,9 @@ export default {
       ],
 
       script:[
-         {  src: 'https://sdk.mercadopago.com/js/v2',  type:'text/javascript'}
+         {  src: 'https://sdk.mercadopago.com/js/v2',  type:'text/javascript'},
+         { src:'facebook.js', type: 'text/javascript'},
+
       ]
 
 
@@ -75,6 +77,8 @@ export default {
     { src: '~/plugins/zohoPop.js', mode: 'client' },
     "~/plugins/googleAnalytics.js",
     "~/plugins/vue2-google-maps.js",
+    // "~/plugins/facebook.js",
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -104,14 +108,15 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/eslint-module',
-    ['nuxt-facebook-pixels-module', {
 
-      pixelId: '1205140926915327', // or 'FACEBOOK_PIXEL_ID_1, FACEBOOK_PIXEL_ID_2'
+    /*['nuxt-facebook-pixels-module', {
+
+      pixelId: '469747224989284', // or 'FACEBOOK_PIXEL_ID_1, FACEBOOK_PIXEL_ID_2'
       track: 'PageView',
       autoPageView: true,
       disabled: false,
-      // debug:true
-    }],
+      debug:true
+    }]*/
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
