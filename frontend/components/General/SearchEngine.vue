@@ -207,9 +207,20 @@
                      </v-col>
 
                      <v-col cols="12" :md="(open==1) ? '6' : '12'">
-                     <v-btn depressed class="bookBtn rounded-md py-5" block @click="clickCard">
-                           {{ $t('general.book_now') }}
-                        </v-btn>
+
+
+                        <!--<div class="d-block" id="checkout-wrapper" v-if="showScript">-->
+
+                           <v-btn depressed class="bookBtn rounded-lg" block
+
+                              @click="openVentrata" >
+                              {{ $t('general.book_now') }}
+                           </v-btn>
+
+                           <!-- <v-btn depressed class="bookBtn rounded-lg" block  >  </v-btn>
+                        </div>-->
+
+                        <div v-html="script"></div>
                      </v-col>
 
                   </v-row>
@@ -238,6 +249,8 @@
 
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
+// import  loadScript  from "load-script";
+
 
 export default {
    mixins: [validationMixin],
@@ -248,12 +261,15 @@ export default {
       open:{
          type: Number,
          default:1
-      }
+      },
+
+      tourVentrataId: null,
   },
 
    validations: {
       tour: { required },
       date: {required}
+
 
       // selectedState:{required}
    },
@@ -274,7 +290,9 @@ export default {
       modelSelectPax:null,
       showPax:false,
       errorTour:'',
-      errorDate:''
+      errorDate:'',
+      showScript:false,
+
 
 
     }
@@ -282,6 +300,7 @@ export default {
 
 
   computed: {
+
 
    tourError(){
       const errors = []
@@ -383,15 +402,47 @@ export default {
      // this.render = this.render+1
   },
 
-  mounted(){
+   mounted(){
       this.$nuxt.$on('')
       this.getRegistros()
       this.paxRange()
+
+       // this.showScript = true
+      /*
+      const script  = document.createElement("script");
+      script.type= "module";
+      script.src = 'https://cdn.checkout.ventrata.com/v3/production/ventrata-checkout.min.js'
+      script.setAttribute("data-config",'{"apiKey":"e98cbbf7-6ed8-4bfa-b192-500eaba4ebbb","env": "test" }')
+
+      const wrapper = document.getElementById("checkout-wrapper")
+
+      alert(wrapper);
+   */
+
+
+      // wrapper.innerHTML(script)
+      // document.body.appendChild(script);
+      // import  loadScript  from "load-script";
   },
 
 
 
   methods: {
+
+   openVentrata(){
+
+      const ventrata1 = (this.tourVentrataId!=null) ? {
+         "lang":"en",
+	      "referrer": "cancunbay",
+         "productID":this.tourVentrataId
+      } :{
+         "lang":"en",
+	      "referrer": "cancunbay"
+      }
+      // const ventrataVars =
+
+      window.Ventrata(ventrata1)
+   },
     tourChange() {
       // console.log('ite ' , this.modelSelectTour);
       // console.log('full ', this.items);
@@ -440,6 +491,11 @@ export default {
     clickCard() {
       // valida que este seleccionado un tour
 
+      /*
+      window.Ventrata({
+	      "lang":"en",
+	   })
+      */
 
       let flag=false;
 

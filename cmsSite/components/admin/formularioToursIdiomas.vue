@@ -15,6 +15,14 @@
           </v-col>
           <v-col cols="12">
             <v-text-field
+              v-model="editedItem.ventrata"
+              required
+              label="Ventrata ID"
+
+            />
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
               v-model="editedItem.sub_title"
               :error-messages="sub_titleErrors"
               required
@@ -476,7 +484,8 @@ export default {
         // price_fake_child: '',
         // price_real_adult: '',
         // price_real_child: '',
-        order_home:''
+        order_home:'',
+        ventrata:''
 
       },
       defaultItem: {
@@ -496,7 +505,8 @@ export default {
         // price_real_adult: '',
         // price_real_child: '',
         selected: [],
-        order_home:''
+        order_home:'',
+        ventrata:''
       },
       tinyId: 0,
     }
@@ -726,7 +736,8 @@ export default {
             idioma: this.idioma,
             id: this.idRegistroSend,
             clave: this.uid,
-            homeOrder: this.editedItem.order_home
+            homeOrder: this.editedItem.order_home,
+            ventrata: this.editedItem.ventrata
           })
           .then((response) => {
             this.$emit('claveAnterior', this.uid)

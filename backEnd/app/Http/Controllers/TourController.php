@@ -112,6 +112,7 @@ class TourController extends Controller
         $desContenido->tour_id = $ultimoID;
         $desContenido->language_id = $request->idioma;
         $desContenido->order_home = $request->homeOrder;
+        $desContenido->ventrata_product_id = $request->ventrata;
         $desContenido->save();
 
         //ultimo id insertado
@@ -185,7 +186,8 @@ class TourController extends Controller
                     "meta_description" => $request->meta_description,
                     "meta_keywords" => $request->meta_keywords,
                     "peek_id" => $request->peek_id,
-                    "order_home" => $request->homeOrder
+                    "order_home" => $request->homeOrder,
+                    "ventrata_product_id" => $request->ventrata
 
                 ]);
             /*
