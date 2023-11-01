@@ -107,6 +107,13 @@
 }
 
 
+.bookBtn{
+   background-color: $primary-color !important;
+   color: white !important;
+   font-weight: bold;
+   font-size: $text-semi-title2 !important;
+}
+
 
 @media #{map-get($display-breakpoints, 'md-and-down')}{
 

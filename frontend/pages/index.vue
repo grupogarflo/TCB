@@ -12,11 +12,12 @@
 
             </div>
 
-               <div class="search_container">
+               <div class="search_container" v-if="this.$i18n.locale==='es'">
                   <v-container>
                         <v-row justify="center">
                            <v-col cols="12" sm="10" md="8">
                               <div class="search_engine py-10">
+                                 {{ showsearch }}
                                  <SearchEngine></SearchEngine>
                               </div>
                            </v-col>
@@ -85,6 +86,17 @@
                         {{ all_tours.name }}
                      </nuxt-link >
                      </v-col>
+
+
+                  </v-row>
+                  <v-row justify="center" class="mt-15" v-if="this.$i18n.locale!=='es'">
+                     <v-col cols="8" md="3" class="text-center">
+                        <v-btn depressed class="bookBtn rounded-lg py-6" block
+
+                           @click="openVentrata" >
+                           {{ $t('general.book_now') }}
+                        </v-btn>
+                     </v-col>
                   </v-row>
 
             </div>
@@ -130,6 +142,7 @@
                titleMeta:'',
                descriptionMeta:'',
                keywordsMeta:'',
+               // showsearch: this.$i18n.locale==='es'
                // imgMeta:require('~/assets/images/home/cancunbay-chichen-itza.jpg')
          }
       },
@@ -183,6 +196,8 @@
       },
 
       computed:{
+
+
          parrafo(){
             return this.$t('home.paragraph3');
          },
@@ -220,7 +235,49 @@
 
       },
 
+      mounted(){
+
+         /*
+         alert(this.$i18n.locale==='es');
+         if(this.$i18n.locale==='es'){
+               this.showsearch= false;
+            }
+            else{
+               this.showsearch = true;
+            }
+            */
+      },
       methods:{
+         openVentrata(){
+
+            /*
+            const ventrata1 = (this.tourVentrataId!=null) ? {
+               "lang":"en",
+               "referrer": "cancunbay",
+               "productID":this.tourVentrataId
+            } :{
+               "lang":"en",
+               "referrer": "cancunbay"
+            }
+            // const ventrataVars =
+            const name = window.location.href
+            if ((this.$i18n.locale==='es')) {
+               // español
+
+               this.clickCard()
+            }else{
+               // ingles
+               window.Ventrata(ventrata1)
+            }
+            */
+
+            window.Ventrata({
+               "lang":"en",
+               "referrer": "cancunbay"
+            })
+
+
+         },
          async getHomeToursList() {
             try {
                await this.$axios

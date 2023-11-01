@@ -17,10 +17,20 @@
             <v-text-field
               v-model="editedItem.ventrata"
               required
-              label="Ventrata ID"
+              label="Ventrata Product ID"
 
             />
           </v-col>
+
+          <v-col cols="12">
+            <v-text-field
+              v-model="editedItem.ventrata_option_id"
+              required
+              label="Ventrata Option ID"
+
+            />
+          </v-col>
+
           <v-col cols="12">
             <v-text-field
               v-model="editedItem.sub_title"
@@ -485,7 +495,8 @@ export default {
         // price_real_adult: '',
         // price_real_child: '',
         order_home:'',
-        ventrata:''
+        ventrata:'',
+        ventrata_option_id:''
 
       },
       defaultItem: {
@@ -506,7 +517,8 @@ export default {
         // price_real_child: '',
         selected: [],
         order_home:'',
-        ventrata:''
+        ventrata:'',
+        ventrata_option_id:''
       },
       tinyId: 0,
     }
@@ -737,7 +749,8 @@ export default {
             id: this.idRegistroSend,
             clave: this.uid,
             homeOrder: this.editedItem.order_home,
-            ventrata: this.editedItem.ventrata
+            ventrata: this.editedItem.ventrata,
+            ventrata_option_id:this.editedItem.ventrata_option_id
           })
           .then((response) => {
             this.$emit('claveAnterior', this.uid)
@@ -825,7 +838,10 @@ export default {
           this.includes = response.data[0].includes
           this.bring = response.data[0].bring
           this.note = response.data[0].note
-          this.$emit('claveNueva', response.data[0].clave)
+
+          this.editedItem.ventrata =  response.data[0].ventrata_product_id
+          this.editedItem.ventrata_option_id = response.data[0].ventrata_option_id
+
         })
         .catch((error) => {
           this.$v.$reset()

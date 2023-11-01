@@ -61,7 +61,7 @@ export default {
 
     // baseURL:'http://ec2-54-152-172-137.compute-1.amazonaws.com/api/'
 
-     baseURL:'https://www.cancunbay.com.mx/api/'
+    baseURL:'https://www.cancunbay.com.mx/api/'
 
   },
   auth: {

@@ -36,7 +36,12 @@
                </v-col>
                <v-col cols="12" sm="6" class="px-8" :order="(mobile) ? '1' :'2' ">
                   <detail-action :item="item" :video="video"></detail-action>
-                  <SearchEngine  :openPax="openPax" :open="0" class="mt-5" :tourVentrataId="ventrataId"> </SearchEngine>
+                  <SearchEngine  :openPax="openPax" :open="0" class="mt-5" v-if="this.$i18n.locale==='es'"> </SearchEngine>
+                  <v-btn v-else depressed class="bookBtn rounded-lg py-6 my-15" block
+
+                           @click="openVentrata" >
+                           {{ $t('general.book_now') }}
+                        </v-btn>
 
                   <div v-if="map!=='' " v-html="map" class="mx-0 mt-5"></div>
 
@@ -76,7 +81,12 @@
                   <SectionTitle :title-text="name" class="mt-5"></SectionTitle>
                   <general-data :rank="item.rank" :duration="item.duration" :available="item.avaible" class="my-5"></general-data>
                   <detail-action :item="item" :video="video"></detail-action>
-                  <SearchEngine  :openPax="openPax" :open="0" class="mt-5" :tourVentrataId="ventrataId"> </SearchEngine>
+                  <SearchEngine  :openPax="openPax" :open="0" class="mt-5" v-if="this.$i18n.locale==='es'"> </SearchEngine>
+                  <v-btn v-else depressed class="bookBtn rounded-lg py-6 my-15" block
+
+                           @click="openVentrata" >
+                           {{ $t('general.book_now') }}
+                        </v-btn>
 
                   <content-expand :title="$t('tours.description')" :content="description" :is_html="true" class="mt-5"></content-expand>
                   <content-expand :title="$t('tours.includes')" :content="include" :is_html="true" class="mt-5"></content-expand>
@@ -145,7 +155,8 @@ export default {
          map:'',
          not_included:'',
          video :null,
-         ventrataId:null
+         ventrataId:null,
+         ventrataOptionId:null
 
       }
    },
@@ -239,6 +250,41 @@ export default {
 
 
    methods:{
+      openVentrata(){
+
+         let ventrata1;
+
+            if(this.ventrataId!=null) {
+               if(this.ventrataOptionId!=null){
+                  ventrata1 = {
+                     "lang":"en",
+                     "referrer": "cancunbay",
+                     "productID":this.ventrataId,
+                     "optionID":this.ventrataOptionId
+                  }
+               }
+               else{
+                  ventrata1 = {
+                     "lang":"en",
+                     "referrer": "cancunbay",
+                     "productID":this.ventrataId
+                  }
+               }
+            }
+            else{
+               ventrata1 ={
+
+                  "lang":"en",
+                  "referrer": "cancunbay"
+               }
+            }
+            // const ventrataVars =
+
+
+            window.Ventrata(ventrata1)
+
+
+      },
       async getDataTour() {
          try {
          await this.$axios
@@ -272,6 +318,8 @@ export default {
                this.map= resp.data.data[0].map;
                 this.not_included= resp.data.data[0].not_include;
                 this.ventrataId = resp.data.data[0].ventrata_product_id;
+                this.ventrataOptionId = resp.data.data[0].ventrata_option_id;
+
                /*
 
                this.notInclude = resp.data.data[0].not_include

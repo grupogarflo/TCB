@@ -431,17 +431,12 @@ export default {
 
    openVentrata(){
 
-      const ventrata1 = (this.tourVentrataId!=null) ? {
-         "lang":"en",
-	      "referrer": "cancunbay",
-         "productID":this.tourVentrataId
-      } :{
-         "lang":"en",
-	      "referrer": "cancunbay"
-      }
-      // const ventrataVars =
 
-      window.Ventrata(ventrata1)
+         // español
+
+         this.clickCard()
+
+
    },
     tourChange() {
       // console.log('ite ' , this.modelSelectTour);
