@@ -128,7 +128,7 @@ export default {
             return 'MXN'
          */
         const total =this.$store.getters["booking/bookingTotal"];
-        const formatter = new Intl.NumberFormat('en-US');
+        // const formatter = new Intl.NumberFormat('en-US');
         console.log(total);
 
         return (this.$store.getters['booking/language'] ===2) ? Math.ceil(total.usd.toFixed(2))  : Math.ceil(total.mxn.toFixed(2))

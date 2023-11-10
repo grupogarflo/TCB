@@ -57,11 +57,11 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://localhost/cancunToursNew/backEnd/public/api/',
-    // baseURL: 'http://127.0.0.1:8000/api/',
+     baseURL: 'http://127.0.0.1:8001/api/',
 
     // baseURL:'http://ec2-54-152-172-137.compute-1.amazonaws.com/api/'
 
-    baseURL:'https://www.cancunbay.com.mx/api/'
+  //  baseURL:'https://www.cancunbay.com.mx/api/'
 
   },
   auth: {

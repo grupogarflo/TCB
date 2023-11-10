@@ -140,6 +140,19 @@
 }
 
 
+.bookBtn2, .bookBtn2Mobile{
+   background-color: $primary-color !important;
+   color: white !important;
+   font-weight: bold;
+   font-size: $text-sub !important;
+}
+
+.bookBtn2Mobile{
+   background-color: $secondary-color !important;
+}
+
+
+
 @media #{map-get($display-breakpoints, 'md-and-down')}{
    #Header{
       background-color: $primary-color;

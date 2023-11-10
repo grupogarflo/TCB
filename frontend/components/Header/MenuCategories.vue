@@ -1,8 +1,8 @@
 <template>
    <v-container class="py-1 " v-if="!mobile">
-      <v-row justify="center" align="center" no-gutters>
-         <v-col cols="12" class="text-center">
-            <div class="d-inline ">
+      <v-row justify="right" align="right" no-gutters>
+         <v-col :cols="this.$i18n.locale!=='es' ? '11': '12'"  class="text-center ">
+            <div class="d-inline  ml-10">
 
 
 
@@ -81,14 +81,28 @@
 
             </div>
          </v-col>
+         <v-col cols="1"    v-if="this.$i18n.locale!=='es'">
+            <v-btn depressed class="bookBtn2 rounded-lg py-3 align-self-end" block
+
+               @click="openVentrata" >
+               {{ $t('general.book_now') }}
+            </v-btn>
+         </v-col>
       </v-row>
    </v-container>
    <v-container v-else class="mt-0 pt-0">
 
       <v-row no-gutters>
 
-         <v-col sm="12" >
-            <ul class="menu-list pt-2 px-2">
+         <v-col sm="12" class="rowMenuMobile" >
+            <ul class="menu-list pt-2 px-2"  v-if="this.$i18n.locale!=='es'">
+               <li class="my-2">
+                  <v-btn depressed class="bookBtn2Mobile rounded-lg py-3 align-self-end elevation-8" block
+
+                     @click="openVentrata" >
+                     {{ $t('general.book_now') }}
+                  </v-btn>
+               </li>
                <li class="my-2">
                      <span v-for="locale in availableLocales" :key="locale.code">
                         <a v-if="locale.show"  class=" language" :data-lang="language" :data-value="language" :href="domain">{{ locale.name }}</a>
@@ -253,6 +267,13 @@ export default {
    },
 
    methods:{
+      openVentrata(){
+
+         window.Ventrata({
+            "lang":"en",
+            "referrer": "cancunbay"
+         })
+      },
       async init() {
 
          try {
