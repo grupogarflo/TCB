@@ -43,7 +43,7 @@
         <v-col cols="12">
           <label>Imagenes para la galeria del tour:</label>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="4">
           <v-file-input
             accept="image/*"
             label="Select files"
@@ -69,6 +69,18 @@
             </template></v-file-input
           >
         </v-col>
+        <v-col cols="4">
+            <v-text-field
+              v-model="order"
+
+              required
+              label="Orden"
+
+              >
+
+            </v-text-field>
+        </v-col>
+      </v-row>
         <v-row>
           <v-col sm="4" v-for="(file, f) in files" :key="f">
             {{ file.name }}
@@ -213,7 +225,7 @@ export default {
     typeAlertaMensaje: 'success',
     textoAlertaMesaje: '',
     showImgGet: false,
-
+    order:'',
     // nuevo
     files: [],
     readers: [],
@@ -221,7 +233,7 @@ export default {
 
     headers: [
       { text: 'Img', value: 'img' },
-
+      { text: 'Orden', value:'order'},
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     desserts: [],
@@ -304,6 +316,7 @@ export default {
         formData.append('idioma', this.idiomaSend)
         formData.append('clave', this.claveSend)
         formData.append('id', this.idRegistroSend)
+        formData.append('order',this.order)
         this.$axios
           .post(url, formData, {
             headers: {
@@ -312,7 +325,7 @@ export default {
           })
           .then((response) => {
             this.files = []
-
+            this.order=''
             this.isLoading = false
             this.alertMensajes = true
             this.typeAlertaMensaje = 'success'
