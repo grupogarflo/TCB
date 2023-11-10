@@ -481,7 +481,7 @@ class SiteApiController extends Controller
             ->orderBy('suggestions.name_esp', 'ASC')
             ->get();
 
-        $gallery = Gallery::select("*")->where('tour_id', $res[0]->tour_id)->get();
+            $gallery = Gallery::where('tour_id', $res[0]->tour_id)->orderByRaw('ISNULL(`order`), `order` ASC')->get();
 
         /*$price = [
             "pricePublicAdult" => ($request->idioma === 1) ? $res[0]->price_fake_adult * $this->tipoCambio() : $res[0]->price_fake_adult,

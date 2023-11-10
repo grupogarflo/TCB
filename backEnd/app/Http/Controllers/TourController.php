@@ -821,6 +821,7 @@ class TourController extends Controller
 
 
                 $Gallery->tour_id = $idLocalizado;
+                $Gallery->order=$request->order??null;
                 $Gallery->save();
             }
 
