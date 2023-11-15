@@ -615,7 +615,7 @@ export default {
     btnGenerate: false,
     editDateTour: '',
     buscaStatus: 'Completed',
-    itemsStatus: ['Completed', 'Cancelled', 'Refunded'],
+    itemsStatus: ['Approved','Completed', 'Cancelled', 'Refunded'],
     btnCancel: false,
     btnRembolso: false,
     btnEdit: false,

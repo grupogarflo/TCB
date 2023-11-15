@@ -603,6 +603,9 @@ class PaymentController extends Controller
         */
 
         $status = "";
+        if ($request->typeBook === "Approved") {
+            $status = "approved";
+        }
         if ($request->typeBook === "Completed") {
             $status = "complet";
         }
