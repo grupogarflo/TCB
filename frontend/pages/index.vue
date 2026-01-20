@@ -3,12 +3,12 @@
       <client-only>
          <div class="sliderCo">
             <div v-if="$i18n.locale!=='es'">
-               <img v-if="!mobile" src="/images/homeBanners/buenfin-web-eng.jpg" :height="imgHeight" width="100%" />
-               <img v-else src="/images/homeBanners/buenfin-mobile-eng.jpg" :height="imgHeight" width="100%" />
+               <img v-if="!mobile" src="/images/homeBanners/default-web-eng_.jpg" :height="imgHeight" width="100%" />
+               <img v-else src="/images/homeBanners/default-mobile-eng.jpg" :height="imgHeight" width="100%" />
             </div>
             <div v-else>
-               <img v-if="!mobile" src="/images/homeBanners/buenfin-web-esp.jpg" :height="imgHeight" width="100%" />
-               <img v-else src="/images/homeBanners/buenfin-mobile-esp.jpg" :height="imgHeight" width="100%" />
+               <img v-if="!mobile" src="/images/homeBanners/default-web-esp.jpg" :height="imgHeight" width="100%" />
+               <img v-else src="/images/homeBanners/default-mobile-esp_.jpg" :height="imgHeight" width="100%" />
 
             </div>
 
