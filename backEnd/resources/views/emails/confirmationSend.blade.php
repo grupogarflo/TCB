@@ -250,7 +250,7 @@
     <table border="0" cellpadding="0" cellspacing="0" role="none" style width="100%"><tbody><tr><td align="left" class="x" style="font-size:0;word-break:break-word;"><div style="text-align:left;"><p style="Margin:0;text-align:left;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:150%;">
         @if ($details['language'] === 'ing')  Cancellation Policy @else   Politica de cancelacion @endif
     </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:700;color:#000000;line-height:150%;"></span><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
-        @if ($details['language'] === 'ing') Cancellations Request will be only by e-mail to cancellations@cancuntours.com&nbsp; @else La solicitud de cancelaciones será únicamente por correo electrónico a cancelaciones@cancuntours.com @endif
+        @if ($details['language'] === 'ing') Cancellations Request will be only by e-mail to websales@cancunbay.com&nbsp; @else La solicitud de cancelaciones será únicamente por correo electrónico a websales@cancunbay.com @endif
     </span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">as MANDATORY.</span></p><p style="Margin:0;mso-line-height-alt:150%"><span style="font-size:12px;font-family:Mulish,Arial,sans-serif;font-weight:400;color:#000000;line-height:150%;">
 
       @if ($details['language'] === 'ing')  Cancellations made 48 hrs before your service = 100% refund  @else  Cancelaciones realizadas 48 hrs antes de su servicio = 100% reembolso
@@ -346,10 +346,10 @@
     <table border="0" cellpadding="0" cellspacing="0" role="none" style="border:none;vertical-align:middle;" width="100%"><tbody><tr><td align="center" class="c  m" style="font-size:0;padding:0;padding-bottom:16px;word-break:break-word;">
     <table border="0" cellpadding="0" cellspacing="0" role="none" style="border-collapse:collapse;border-spacing:0;"><tbody><tr><td style="width:121px;">
 
-      <img alt src="https://www.cancunbay.com.mx/images/layout/logo.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" title width="121" height="auto">
+      <img alt src="https://www.cancunbay.com/images/layout/logo.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" title width="121" height="auto">
     </td></tr></tbody></table>
-    </td></tr><tr><td align="center" class="x  m" style="font-size:0;padding-bottom:16px;word-break:break-word;"><div style="text-align:center;"><p style="Margin:0;text-align:center;mso-line-height-alt:125%"><span style="font-size:20px;font-family:Mulish,Arial,sans-serif;font-weight:600;color:#ffffff;line-height:125%;">USA/CAN Phone: (888) 257-5547 | MEX (984) 242-0070</span></p></div>
-    </td></tr><tr><td align="center" class="x  m" style="font-size:0;padding-bottom:16px;word-break:break-word;"><div style="text-align:center;"><p style="Margin:0;text-align:center;mso-line-height-alt:119%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#ffffff;line-height:119%;text-decoration:underline;"><a href="mailto:websales@cancuntours.com" style="color:#ffffff;text-decoration:underline;" target="_blank">websales@cancunbay.com</a></span></p></div>
+    </td></tr><tr><td align="center" class="x  m" style="font-size:0;padding-bottom:16px;word-break:break-word;"><div style="text-align:center;"><p style="Margin:0;text-align:center;mso-line-height-alt:125%"><span style="font-size:20px;font-family:Mulish,Arial,sans-serif;font-weight:600;color:#ffffff;line-height:125%;">Toll free USA/CAN Phone: +1(888) 257-5547 | MEX 01(984)242-0070</span></p></div>
+    </td></tr><tr><td align="center" class="x  m" style="font-size:0;padding-bottom:16px;word-break:break-word;"><div style="text-align:center;"><p style="Margin:0;text-align:center;mso-line-height-alt:119%"><span style="font-size:16px;font-family:Inter,Arial,sans-serif;font-weight:400;color:#ffffff;line-height:119%;text-decoration:underline;"><a href="mailto:websales@cancunbay.com" style="color:#ffffff;text-decoration:underline;" target="_blank">websales@cancunbay.com</a></span></p></div>
     </td></tr><tr><td align="center" class="o" style="font-size:0;padding:0;padding-bottom:0;word-break:break-word;">
     <!--[if mso | IE]>
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="none"><tr><td>
@@ -371,21 +371,3 @@
     <![endif]--></div>
     </body>
     </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

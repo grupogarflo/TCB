@@ -1,0 +1,4 @@
+Name,Email,Tel,Hotel,Site,Code_reservacion,Code_authorization,"Fecha de creacion",Total,Tours
+hola,hola@hola.com,9988888,test,sfx,abc123,"limc makes asdkcmklsclñcalsñdc,sadc","2021-11-03 00:00:00",250,"[{""tour"":null,""date"":""2021-11-03"",""adult"":2,""child"":1,""promocode"":""-"",""discount"":0}]"
+"soy un test",aperez@grupogarflo.com,98878888,"hotel test",vacationclix,nosealgo,sacsdccascasdc,"2021-11-03 00:00:00",358,"[{""tour"":null,""date"":""2021-11-11"",""adult"":2,""child"":0,""promocode"":""-"",""discount"":0}]"
+"otro mas",nose@algo.com,9988777,hotel,vacationVip,lksmdckjn,lkcmalscmcdmalcmadls,"2021-11-03 00:00:00",587,"[{""tour"":null,""date"":""2021-11-24"",""adult"":3,""child"":2,""promocode"":""-"",""discount"":0}]"

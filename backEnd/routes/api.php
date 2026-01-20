@@ -38,6 +38,7 @@ Route::post('/addPayment', 'PaymentController@addPayment');
 Route::post('/updatePayment', 'PaymentController@updatePayment');
 Route::post('/getDataPayment', 'PaymentController@getDataPayment');
 Route::post('/paymentProcess', 'PaymentController@paymentProcess');
+Route::post('/eventUrlBook', 'PaymentController@eventUrlBook');
 
 Route::post('/paymentTransferBank', 'PaymentController@paymentTransferBank');
 Route::post('/responseHook', 'PaymentController@responseHook');
@@ -70,18 +71,18 @@ Route::post('/pageType', 'DetailController@pageType');
 
 /// add destinations
 
-Route::post('/getDestinationsAll','DestinationController@getDestinationsAll');
-Route::post('/getDestination','DestinationController@getDestinationToFront');
-Route::post('/getTourByDestination','DestinationController@getTourByDestination');
+Route::post('/getDestinationsAll', 'DestinationController@getDestinationsAll');
+Route::post('/getDestination', 'DestinationController@getDestinationToFront');
+Route::post('/getTourByDestination', 'DestinationController@getTourByDestination');
 
-Route::post('/getPaxtRange','SiteApiController@getPaxtRange');
+Route::post('/getPaxtRange', 'SiteApiController@getPaxtRange');
 
 
 //test
 Route::post('/login', 'AuthController@login');
 
-Route::group(['prefix'=>'mercado-pago'],function(){
-    Route::post('getToken','MercadoPagoController@getPreferenceId');
+Route::group(['prefix' => 'mercado-pago'], function () {
+    Route::post('getToken', 'MercadoPagoController@getPreferenceId');
     Route::post('process_payment', 'MercadoPagoController@process_payment');
 });
 //Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
@@ -150,6 +151,7 @@ Route::group([
     Route::post('/addGalleyTour', 'TourController@addGalleyTour');
     Route::post('/getGalleyTour', 'TourController@getGalleyTour');
     Route::post('/deleteGalleyTour', 'TourController@deleteGalleyTour');
+    Route::post('/addRemoveCheckinPayment', 'TourController@addRemoveCheckinPayment');
 
     //precio de los tours
     Route::post('/getPriceTour', 'TourController@getPriceTour');
@@ -175,7 +177,7 @@ Route::group([
     //// destinations only
 
     Route::post('/getDestinationsCMS', 'DestinationController@getAllDestinationCMS');
-    Route::post('/addRemoveDestinationTour','DestinationController@addRemoveDestinationTour');
+    Route::post('/addRemoveDestinationTour', 'DestinationController@addRemoveDestinationTour');
 
 
     //payment process
@@ -234,7 +236,6 @@ Route::group([
 
 
     Route::post('/export-tours', 'TourController@exportTours');
-
 });
 
 /*

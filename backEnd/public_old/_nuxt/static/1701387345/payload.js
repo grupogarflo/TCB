@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/", (function(a){return {data:[{}],fetch:{},mutations:[[a,{}],[a,{}],["booking\u002FsetLanguage",1],["booking\u002FsetCurrency","MXN"]]}}("booking\u002FresetStoreData")));

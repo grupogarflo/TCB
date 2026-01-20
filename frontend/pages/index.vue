@@ -38,7 +38,7 @@
 
          <v-container>
 
-            <v-row v-if="$i18n.locale==='es'" class="mb-15">
+            <!-- <v-row v-if="$i18n.locale==='es'" class="mb-15">
                <v-col cols="12" >
                   <p class="text-center">
                      <span class="meses-sin-intereses d-block"> HASTA EN 18 MESES SIN INTERESES</span>
@@ -57,7 +57,7 @@
 
 
                </v-col>
-            </v-row>
+            </v-row> -->
 
             <SectionTitle :title-text="$t('home.title1')" title="1"></SectionTitle>
             <Paragraph :text="$t('home.paragraph1')"></Paragraph>

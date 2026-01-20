@@ -15,8 +15,8 @@ class CategoryController extends Controller
         $res = categoryContent::select("categories.id", "category_contents.name", "category_contents.url", "languages.name as idioma", "category_contents.orden")
             ->join('categories', 'categories.id', '=', 'category_contents.category_id')
             ->join('languages', 'languages.id', '=', 'category_contents.language_id')
-            ->where('categories.active', 1)
-            ->where('languages.id', 1)
+            // ->where('categories.active', 1)
+            // ->where('languages.id', 1)
             // ->orderBy('category_contents.name', 'ASC')
             ->orderBy('category_contents.orden', 'ASC')
             ->get();

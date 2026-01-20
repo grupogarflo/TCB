@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/politics", {data:[{}],fetch:{},mutations:[]});

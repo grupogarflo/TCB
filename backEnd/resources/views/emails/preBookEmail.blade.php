@@ -168,7 +168,7 @@
                                 <tr>
                                   <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                    <img align="center" border="0" src="http://cancunbay.net/images/layout/logo.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 32%;max-width: 179.2px;"
+                                    <img align="center" border="0" src="http://www.cancunbay.com/images/layout/logo.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 32%;max-width: 179.2px;"
                                       width="179.2" />
 
                                   </td>
@@ -402,6 +402,20 @@
                                 <p style="font-size: 14px; line-height: 140%;">
                                    Promocode: {{ $details['promocode'] }}
                                 </p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                              <p style="font-size: 14px; line-height: 140%;">Event Url Book Platta:  {{ $details['eventUrlBook'] }} </p>
                               </div>
 
                             </td>

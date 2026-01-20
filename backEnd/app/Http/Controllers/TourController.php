@@ -27,25 +27,26 @@ class TourController extends Controller
     function getAllTour()
     {
 
-            $res = tourContent::select(
-                "tour_contents.name",
-                "tour_contents.url",
-                "languages.name as idioma",
-                "tour_contents.img",
-                "tour_contents.banner",
-                "tour_contents.map",
-                "tour_contents.gallery",
-                "tour_contents.video",
-                "tours.id",
-                "tours.public"
-            )
-                ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
-                ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
-                ->where('tours.active', 1)
-                ->where('languages.id', 1)
-                ->orderBy('tour_contents.name', 'ASC')
-                ->get();
-            //->toSql();
+        $res = tourContent::select(
+            "tour_contents.name",
+            "tour_contents.url",
+            "languages.name as idioma",
+            "tour_contents.img",
+            "tour_contents.banner",
+            "tour_contents.map",
+            "tour_contents.gallery",
+            "tour_contents.video",
+            "tours.id",
+            "tours.public",
+            "tours.checkin_payment"
+        )
+            ->join('tours', 'tour_contents.tour_id', '=', 'tours.id')
+            ->join('languages', 'languages.id', '=', 'tour_contents.language_id')
+            ->where('tours.active', 1)
+            ->where('languages.id', 1)
+            ->orderBy('tour_contents.name', 'ASC')
+            ->get();
+        //->toSql();
 
 
 
@@ -63,7 +64,8 @@ class TourController extends Controller
             $arr[$a]["id"] = $res[$a]->id;
             $arr[$a]["publicoShow"] = ($res[$a]->public === 1) ? "Si" : "No";
             $arr[$a]["public"] = $res[$a]->public;
-            $arr[$a]["full_photo_path"] = env('APP_URL').'/storage'.$res[$a]->img;
+            $arr[$a]["full_photo_path"] = env('APP_URL') . '/storage' . $res[$a]->img;
+            $arr[$a]["checkin_payment"] = $res[$a]->checkin_payment;
         }
 
 
@@ -189,7 +191,7 @@ class TourController extends Controller
                     "peek_id" => $request->peek_id,
                     "order_home" => $request->homeOrder,
                     "ventrata_product_id" => $request->ventrata,
-                    "ventrata_option_id"=>$request->ventrata_option_id
+                    "ventrata_option_id" => $request->ventrata_option_id
 
                 ]);
             /*
@@ -311,12 +313,10 @@ class TourController extends Controller
             */
 
             if ($request->hasFile('image')) {
-                $timeStamp= uniqid();
-                $url ='/tour/'.$timeStamp.'_'.$request->file('image')->getClientOriginalName();
+                $timeStamp = uniqid();
+                $url = '/tour/' . $timeStamp . '_' . $request->file('image')->getClientOriginalName();
 
                 Storage::disk('public')->put($url, File::get($request->file('image')));
-
-
             }
 
 
@@ -812,16 +812,16 @@ class TourController extends Controller
                         'gallery',
                         $img->getClientOriginalName()
                     );*/
-                $timeStamp= uniqid();
-                $url ='/tour/'.$idLocalizado.'/'.$timeStamp.'_'.$img->getClientOriginalName();
+                $timeStamp = uniqid();
+                $url = '/tour/' . $idLocalizado . '/' . $timeStamp . '_' . $img->getClientOriginalName();
 
                 Storage::disk('public')->put($url, File::get($img));
 
-                $Gallery->img=$url;
+                $Gallery->img = $url;
 
 
                 $Gallery->tour_id = $idLocalizado;
-                $Gallery->order=$request->order??null;
+                $Gallery->order = $request->order ?? null;
                 $Gallery->save();
             }
 
@@ -960,15 +960,14 @@ class TourController extends Controller
         $img = Gallery::find($request->id);
 
         //dd($img);
-        if(File::exists(public_path('/storage/'.$img->img))){
+        if (File::exists(public_path('/storage/' . $img->img))) {
 
-                File::delete(public_path('/storage/'.$img->img));
+            File::delete(public_path('/storage/' . $img->img));
 
-                $img->delete();
-                return response()->json([
+            $img->delete();
+            return response()->json([
                 'message' => 'success'
-                ], 200);
-
+            ], 200);
         } else {
             return response()->json([
                 'message' => 'img no existe o ya se elimino'
@@ -978,100 +977,93 @@ class TourController extends Controller
 
 
 
-    public function exportTours(){
+    public function exportTours()
+    {
 
         $res = tourContent::all();
 
 
 
 
-        $columns=[];
-        $columns[]=['name'=>'Nombre'];
-        $columns[]=['name'=>'Url'];
-        $columns[]=['name'=>'Idioma'];
-        $columns[]=['name'=>'Subtitulo'];
-        $columns[]=['name'=>'Rank'];
-        $columns[]=['name'=>'Disponoble'];
-        $columns[]=['name'=>'Privado'];
-        $columns[]=['name'=>'Duracion'];
-        $columns[]=['name'=>'Publicado'];
+        $columns = [];
+        $columns[] = ['name' => 'Nombre'];
+        $columns[] = ['name' => 'Url'];
+        $columns[] = ['name' => 'Idioma'];
+        $columns[] = ['name' => 'Subtitulo'];
+        $columns[] = ['name' => 'Rank'];
+        $columns[] = ['name' => 'Disponoble'];
+        $columns[] = ['name' => 'Privado'];
+        $columns[] = ['name' => 'Duracion'];
+        $columns[] = ['name' => 'Publicado'];
 
-        $columns[]=['name'=>'Tarifas Privado'];
+        $columns[] = ['name' => 'Tarifas Privado'];
 
-        $columns[]=['name'=>'Precio Fake Adulto'];
-        $columns[]=['name'=>'Precio Real Adulto'];
-        $columns[]=['name'=>'Precio Fake Niño'];
-        $columns[]=['name'=>'Precio Real Niño'];
+        $columns[] = ['name' => 'Precio Fake Adulto'];
+        $columns[] = ['name' => 'Precio Real Adulto'];
+        $columns[] = ['name' => 'Precio Fake Niño'];
+        $columns[] = ['name' => 'Precio Real Niño'];
 
-        foreach($res as $r){
+        foreach ($res as $r) {
 
-            if($r->is_private){
+            if ($r->is_private) {
                 /// rates to private tours
 
-                $rates = DB::table('private_rates')->where('tour_id',$r->tour_id)->get();
+                $rates = DB::table('private_rates')->where('tour_id', $r->tour_id)->get();
 
 
 
                 $ratesToShow = [];
 
-                foreach($rates as $rate){
+                foreach ($rates as $rate) {
                     $rate_from_fake_mxn = $this->usdToMxn($rate->rate_from_fake);
                     $rate_from_real_mxn = $this->usdToMxn($rate->rate_from_real);
 
                     $rate_fake_price_mxn = $this->usdToMxn($rate->fake_price);
                     $rate_real_price_mxn = $this->usdToMxn($rate->real_price);
 
-                    $paxName  = DB::table('pax_ranges')->where('id',$rate->pax_range_id)->first();
+                    $paxName  = DB::table('pax_ranges')->where('id', $rate->pax_range_id)->first();
                     array_push($ratesToShow, [
-                        'rate_from_fake'=>$rate->rate_from_fake,
-                        'rate_from_real'=>$rate->rate_from_real,
-                        'fake_price'=>$rate->fake_price,
-                        'real_price'=>$rate->real_price,
-                        'pax'=>$paxName->name_esp
+                        'rate_from_fake' => $rate->rate_from_fake,
+                        'rate_from_real' => $rate->rate_from_real,
+                        'fake_price' => $rate->fake_price,
+                        'real_price' => $rate->real_price,
+                        'pax' => $paxName->name_esp
 
 
                     ]);
 
-                    $r->discount = ($rate_from_fake_mxn>0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
+                    $r->discount = ($rate_from_fake_mxn > 0 && $rate_from_real_mxn) ? (($rate_from_fake_mxn - $rate_from_real_mxn) * 100) / $rate_from_fake_mxn : 0;
                 }
 
-                $r->rates=$ratesToShow;
+                $r->rates = $ratesToShow;
+            } else {
 
-            }
-
-            else{
-
-                $rateNotPrivate = DB::table('price_tours')->where('tour_contents_id',$r->id)->first();
+                $rateNotPrivate = DB::table('price_tours')->where('tour_contents_id', $r->id)->first();
 
 
                 //Log::info('no private' , [$rateNotPrivate]);
-                if(!empty($rateNotPrivate)){
+                if (!empty($rateNotPrivate)) {
                     $r->fake_adult = $rateNotPrivate->price_fake_adult;
                     $r->real_adult = $rateNotPrivate->price_real_adult;
                     $r->price_fake_child_mxn = $rateNotPrivate->price_fake_child;
                     $r->price_real_child_mxn =  $rateNotPrivate->price_real_child;
-                }
-                else{
+                } else {
                     $r->fake_adult = 0;
                     $r->real_adult = 0;
                     $r->price_fake_child_mxn = 0;
                     $r->price_real_child_mxn =  0;
                 }
-
-
             }
-
-
         }
 
-        $file_name= date('YmdHis').rand()."_Tours";
+        $file_name = date('YmdHis') . rand() . "_Tours";
 
         //Log ::info('export info', [$res]);
 
 
 
-        Excel::store(new ToursExport ($res, $columns), 'excelExport/'.$file_name.'.xlsx', 'local');
-        return response()->json(['file_name'=>$file_name.'.xlsx']);
+        Excel::store(new ToursExport($res, $columns), 'excelExport/' . $file_name . '.xlsx', 'local');
+        return response()->json(['file_name' => $file_name . '.xlsx']);
     }
 
 
@@ -1079,7 +1071,25 @@ class TourController extends Controller
     {
 
         //dd($name);
-        return response()->download(Storage::path('excelExport/'.$name))->deleteFileAfterSend(true);
+        return response()->download(Storage::path('excelExport/' . $name))->deleteFileAfterSend(true);
     }
+    //to add o remove flag of the data base for checkin payment od the tour in the front
+    function addRemoveCheckinPayment(Request $request)
+    {
 
+        try {
+            tour::where('id', $request->id)
+                ->update([
+                    "checkin_payment" => $request->data
+                ]);
+
+            return response()->json([
+                'message' => 'success'
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'can`t update checkin payment tour please verificate'
+            ], 404);
+        }
+    }
 }

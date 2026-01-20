@@ -16,8 +16,7 @@ use App\Mail\BankTransferSend;
 use App\Mail\MailSend;
 use App\Mail\MailRefund;
 use App\Mail\emailContacto;
-
-
+use App\Mail\EventUrlBook;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -28,6 +27,18 @@ use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
 {
+    // Declarar la variable global
+    protected $urlApiPlatta;
+
+    public function __construct()
+    {
+        // Inicializar la variable en el constructor
+        // Desarrollo: https://qa.thetouragency.com/api/
+        // Produccion: https://tta-api.thetouragency.com/tta/
+
+        $this->urlApiPlatta = 'https://tta-api.thetouragency.com/tta/'; // Puedes asignar el valor que desees
+    }
+
     //para crear el registro del pago
     function addPayment(PaymentCreateRequest $request)
     {
@@ -43,9 +54,9 @@ class PaymentController extends Controller
         $cliente->language = $request->language;
         $cliente->status = $request->status;
         $cliente->hotel = $hotel;
-        $cliente->country = $request->country['name']??null;
-        $cliente->state =$request->state['name']??null;
-        $cliente->city=$request->city??null;
+        $cliente->country = $request->country['name'] ?? null;
+        $cliente->state = $request->state['name'] ?? null;
+        $cliente->city = $request->city ?? null;
 
 
         $cliente->save();
@@ -59,8 +70,8 @@ class PaymentController extends Controller
         $discount = 0;
 
         //$totals = ($request->language==='ing') ? $request->toursInfo["total_usd"] : $request->toursInfo["total_mxn"];
-        if(!empty($request->toursInfo["promocode"])){
-            $discount = ($request->language==='ing') ? $request->toursInfo["promocode"]['discount'] : $request->toursInfo["promocode"]['discount_mxn'];
+        if (!empty($request->toursInfo["promocode"])) {
+            $discount = ($request->language === 'ing') ? $request->toursInfo["promocode"]['discount'] : $request->toursInfo["promocode"]['discount_mxn'];
         }
 
         $tour = new PaymentTour();
@@ -69,7 +80,7 @@ class PaymentController extends Controller
         $tour->adult = $request->toursInfo["adultos"];
         $tour->child = $request->toursInfo["ninos"];
         $tour->promocode = (empty($request->toursInfo["promocode"])) ? 'n/a' : $request->toursInfo["promocode"]['promocode'];
-        $tour->discount =$discount;
+        $tour->discount = $discount;
         $tour->payment_clients_id = $clienteInsert;
         $tour->save();
 
@@ -153,11 +164,11 @@ class PaymentController extends Controller
             ->update([
                 "status" => $request->status,
                 "authorization" => $request->authorization,
-                "merch"=>$request->merch,
+                "merch" => $request->merch,
             ]);
 
         //se manda el email de confirmacion
-        if ($request->status === "complet" || $request->status==="approved") {
+        if ($request->status === "complet" || $request->status === "approved" || $request->status === "Check in payment") {
             return $this->sendEmail($request->clientId, $request->idioma);
         }
         /*
@@ -255,7 +266,7 @@ class PaymentController extends Controller
             ->where('payment_clients.id', $id)
             ->where('tour_contents.language_id', $idioma)
             ->get();
-        \Log::info('query ',[DB::getQueryLog()]);
+        \Log::info('query ', [DB::getQueryLog()]);
 
         $details = [
 
@@ -278,15 +289,17 @@ class PaymentController extends Controller
             'child' => $res[0]->child,
             'promocode' => $res[0]->promocode,
             'discount' => $res[0]->discount,
-            'country'=>$res[0]->country,
-            'state'=>$res[0]->state,
-            'city'=>$res[0]->city
+            'country' => $res[0]->country,
+            'state' => $res[0]->state,
+            'city' => $res[0]->city
         ];
 
         Mail::to($res[0]->email)->send(new ConfirmationSend($details));
-        Mail::to("hcortes@grupogarflo.com")->send(new ConfirmationSend($details));
+        Mail::to("aperez@grupogarflo.com")->send(new ConfirmationSend($details));
         //Mail::to("lavila@grupogarflo.com")->send(new ConfirmationSend($details));
         Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
+        Mail::to("resellers@contactcentermexico.com")->send(new ConfirmationSend($details));
+        Mail::to("dcastaneda@grupogarflo.com")->send(new ConfirmationSend($details));
     }
 
 
@@ -300,9 +313,9 @@ class PaymentController extends Controller
 
         $totalPromocode = null;
 
-        $totals = ($request->language==='ing') ? $request->toursInfo["total_usd"] : $request->toursInfo["total_mxn"];
-        if(!empty($request->toursInfo["promocode"])){
-            $totalPromocode = ($request->language==='ing') ? $request->toursInfo["promocode"]['data_usd'] : $request->toursInfo["promocode"]['data_mxn'];
+        $totals = ($request->language === 'ing') ? $request->toursInfo["total_usd"] : $request->toursInfo["total_mxn"];
+        if (!empty($request->toursInfo["promocode"])) {
+            $totalPromocode = ($request->language === 'ing') ? $request->toursInfo["promocode"]['data_usd'] : $request->toursInfo["promocode"]['data_mxn'];
         }
 
         $details = [
@@ -318,12 +331,13 @@ class PaymentController extends Controller
             'date' => $request->toursInfo["date"],
             'adults' => $request->toursInfo["adultos"],
             'child' => $request->toursInfo["ninos"],
-            'promocode' => $request->toursInfo["promocode"]['promocode']??'',
-            'total_promocode'=>$totalPromocode,
+            'promocode' => $request->toursInfo["promocode"]['promocode'] ?? '',
+            'total_promocode' => $totalPromocode,
             'hotel' => $request->hotel,
-            'country'=>$request->country['name']??'',
-            'state'=>$request->state['name']??'',
-            'city'=>$request->city??''
+            'country' => $request->country['name'] ?? '',
+            'state' => $request->state['name'] ?? '',
+            'city' => $request->city ?? '',
+            'eventUrlBook' => $request->eventUrlBook ?? ''
         ];
 
         /*Mail::to(env('MAIL_FROM_ADDRESS'))->send(new preBookEmail($details));
@@ -331,8 +345,9 @@ class PaymentController extends Controller
         */
         //Mail::to("lavila@grupogarflo.com")->send(new preBookEmail($details));
         Mail::to("websales@cancunbay.com")->send(new preBookEmail($details));
-
-        Mail::to('hcortes@grupogarflo.com')->send(new preBookEmail($details));
+        Mail::to('aperez@grupogarflo.com')->send(new preBookEmail($details));
+        Mail::to('resellers@contactcentermexico.com')->send(new preBookEmail($details));
+        Mail::to('dcastaneda@grupogarflo.com')->send(new preBookEmail($details));
     }
 
 
@@ -350,7 +365,8 @@ class PaymentController extends Controller
         ];
         Mail::to("websales@cancunbay.com")->send(new emailContacto($details));
         //Mail::to("lavila@grupogarflo.com")->send(new emailContacto($details));
-        //Mail::to("aperez@grupogarflo.com")->send(new emailContacto($details));
+        Mail::to("aperez@grupogarflo.com")->send(new emailContacto($details));
+        Mail::to("resellers@contactcentermexico.com")->send(new emailContacto($details));
 
         // check for failures
         if (count(Mail::failures()) > 0) {
@@ -375,7 +391,7 @@ class PaymentController extends Controller
         $param = "";
         $message = "";
 
-        \Log::info('data ', [ $info, $name, $email, $uniqueId, $descriptionItem, $amount, $currency]);
+        \Log::info('data ', [$info, $name, $email, $uniqueId, $descriptionItem, $amount, $currency]);
 
         if (isset($info["code"])) {
             $code = $info["code"];
@@ -401,9 +417,10 @@ class PaymentController extends Controller
             'amount' => $amount . ' ' . $currency,
         ];
 
-        Mail::to("hcortes@grupogarflo.com")->send(new emailResponsePay($details));
+        Mail::to("aperez@grupogarflo.com")->send(new emailResponsePay($details));
         // Mail::to("lavila@grupogarflo.com")->send(new emailResponsePay($details));
         Mail::to("websales@cancunbay.com")->send(new emailResponsePay($details));
+        Mail::to("resellers@contactcentermexico.com")->send(new emailResponsePay($details));
     }
 
     function test(Request $request)
@@ -447,10 +464,113 @@ class PaymentController extends Controller
 
         Mail::to($res[0]->email)->send(new ConfirmationSend($details));
         Mail::to("aperez@grupogarflo.com")->send(new ConfirmationSend($details));
+        Mail::to("resellers@contactcentermexico.com")->send(new ConfirmationSend($details));
         //Mail::to("lavila@grupogarflo.com")->send(new BankTransferSend($details));
         //Mail::to("websales@cancuntours.com")->send(new BankTransferSend($details));
     }
 
+
+    function eventUrlBook(Request $request)
+    {
+
+        $data = [
+
+            "productId" => $request->toursInfo["tour_id"],
+            // "productId" => 1,
+            "travelDate" => $request->toursInfo["date"],
+            "clientName" => $request->name,
+            "clientLastname" => "",
+            "clientPhone" => $request->phone,
+            "clientEmail" => $request->email,
+            "comments" => '',
+            "hotelName" => $request->hotel,
+            'adults' => $request->toursInfo["adultos"],
+            'childs' => $request->toursInfo["ninos"],
+            // 'infants' => 0,
+            'currency' => $request->currency,
+            "plattaCode" => $request->eventUrlBook,
+            // 'aplic' => 'Cancunbay.com',
+        ];
+
+        $postFields = http_build_query($data);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $this->urlApiPlatta . 'tour/octo/bookingsExternalId',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Basic ' . base64_encode('cancunbay_api:11OJztUK')
+            ),
+        ));
+
+        // echo "<pre>";
+        // echo "URL: $urlApiPlatta\n";
+        // echo "Método: $method\n";
+        // echo "Datos Enviados: " . print_r($fields, true) . "\n";
+        // echo "PLata id: " . print_r($idPlatta) . "\n";
+        // echo "Adults: " . print_r($adults) . "\n";
+        // echo "children: " . print_r($children) . "\n";
+        //  echo "Datos Enviados: " . print_r($fields, true) . "\n";
+        // echo "Datos Enviados: " . print_r($postFields, true) . "\n";
+        // echo "</pre>";
+
+        $response = curl_exec($curl);
+
+        if (curl_errno($curl)) {
+            echo json_encode(array('code' => 400, 'message' => 'Error en la petición: ' . curl_error($curl)));
+            http_response_code(400);
+            curl_close($curl);
+            return;
+        }
+
+        curl_close($curl);
+
+        $data = json_decode($response, true);
+
+        // echo "<pre>";
+        // print_r($data);
+        // print_r($response);
+        // echo "</pre>";
+
+        if (json_last_error() === JSON_ERROR_NONE) {
+            if (isset($data["booking"]["code"])) {
+
+                $details = [
+                    'client' => $request->name,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'logId' => $data["booking"]["code"],
+                    'plattaCode' => $request->eventUrlBook,
+                    'language' => 'ing',
+                    'nameTour' => $request->toursInfo["name"],
+                    'date' => $request->toursInfo["date"],
+                    'adults' => $request->toursInfo["adultos"],
+                    'child' => $request->toursInfo["ninos"],
+                    'promocode' => $request->toursInfo["promocode"]['promocode'] ?? '',
+                ];
+
+                Mail::to("aperez@grupogarflo.com")->send(new EventUrlBook($details));
+                Mail::to("mcanela@grupogarflo.com")->send(new EventUrlBook($details));
+                Mail::to("lavila@grupogarflo.com")->send(new EventUrlBook($details));
+                Mail::to("abarajas@cancunbay.com")->send(new EventUrlBook($details));
+
+
+                return array('code' => 200, 'message' => '', 'logId' => $data["booking"]["code"]);
+            } else {
+                return array('code' => 400, 'message' => $data['errorMessage'], 'logId' => '');
+            }
+        } else {
+            return array('status' => 400, 'message' => 'Respuesta no es un JSON válido: ' . json_last_error_msg());
+        }
+    }
 
     //////////////////////////////////////////
     //PRCESO DE COMPRA CON TRANSFERENCIA DE BANCO
@@ -615,6 +735,10 @@ class PaymentController extends Controller
         if ($request->typeBook === "Refunded") {
             $status = "refunded";
         }
+        if ($request->typeBook === "Check in payment") {
+            $status = "Check in payment";
+        }
+
         // para agregar la busqueda por fechas
         if (isset($request->start_date) && $request->start_date != "" && isset($request->end_date) && $request->end_date != "") {
             $res = PaymentClient::select(
