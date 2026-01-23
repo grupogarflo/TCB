@@ -10,7 +10,7 @@
                      </v-col>
                      <v-col md="7" offset-md="2">
                         <v-row no-gutters align="end" justify="end">
-                           <v-col sm="8" class="details text-right" align-self="end">
+                           <!-- <v-col sm="8" class="details text-right" align-self="end">
                               <div class="d-inline">
                                  {{ $t('header.call_free') }}
                                  <v-select
@@ -28,7 +28,7 @@
                                     </template>
                                  </v-select>
                               </div>
-                           </v-col>
+                           </v-col> -->
                            <v-col sm="4"  align-self="end">
                               <RedesSociales></RedesSociales>
                               <Language></Language>
@@ -59,7 +59,7 @@
                      </v-col>
 
                      <v-col sm="3" class="text-right">
-                        <a href="https://api.whatsapp.com/send?phone=529981001043" ><span class="mx-2 social icon-whatsapp"></span></a>
+                        <a href="https://api.whatsapp.com/send?phone=529981077585" ><span class="mx-2 social icon-whatsapp"></span></a>
                      </v-col>
 
                   </v-row>
